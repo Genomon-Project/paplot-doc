@@ -41,3 +41,6 @@ open two HTML files with web browser
 
 Can you see following charts?
 
+.. image:: image/qc_dummy.png
+.. image:: image/sv_dummy.png
+
