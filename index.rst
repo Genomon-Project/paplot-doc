@@ -6,10 +6,11 @@
 |
 
 .. image:: image/genomon_kun.png
+.. image:: image/logo.png
 
 |
 
-Welcome to Genomon's documentation!
+paplot documentation
 =============================================
 
 Contents:
@@ -17,7 +18,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
    
-   dna_quick_start.rst
+   quick_start.rst
    install.rst
 
 Indices and tables
