@@ -2,7 +2,7 @@
 Introduction
 ************************
 
-| paplot is graph generater from analysis results of genome.
+| Paplot is graph generater from analysis results of genome.
 |
 | For example, you have such a text file by analyzing the genome.
 |
@@ -16,7 +16,7 @@ Introduction
 | Do you write scripts such as wrote previously?
 | Do you create a graph in time to change the extraction conditions and sort conditions of the data?
 |
-| paplot is to automate this task, and to ease the genome analysis of everyone just a little bit, may be.
+| Paplot will automate these tasks.
 |
 
 Graphs can be created
@@ -41,10 +41,25 @@ Graphs can be created
 
 3. mutation-matrix graph
 
-| Plot mutation number.
+| This matrix graph plots mutation number.
 | Virtical axis is gene and Horizontal axis is sample.
 |
 
 .. image:: image/mut_dummy.png
   :scale: 100%
 
+4. signature |new|
+
+| This reports views each signature of detected mutation.
+| Stacked graph views aggregation of signature.
+|
+
+.. image:: image/sig_dummy.PNG
+  :scale: 100%
+
+`You can use also pmsignature <https://github.com/friend1ws/pmsignature/>`_ .
+
+.. image:: image/pmsig_dummy.PNG
+  :scale: 100%
+
+.. |new| image:: image/tab_001.gif

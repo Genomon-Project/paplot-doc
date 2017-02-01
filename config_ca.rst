@@ -1,41 +1,41 @@
 *******************************
-Config 記述方法(CA)
+Detail of config file (CA)
 *******************************
 
-全設定項目は `こちら <./config.html#ca>`_ 
+All setting items are :ref:`here<conf_ca>`
 
-列と設定の対応
+Description of columns
 -----------------------------
 
-====================  ===============  ==========  =============================
+====================  ===============  ==========  ===================================
 name                  input type       required    description
-====================  ===============  ==========  =============================
+====================  ===============  ==========  ===================================
 col_chr1              text             o           chromosome of break point 1
 col_break1            numeric          o           position of break point 1
 col_chr2              text             o           chromosome of break point 2
 col_break2            numeric          o           position of break point 2
-col_opt_ID            text             x           サンプルを識別できる名称
+col_opt_ID            text             x           name that can identify the sample
 col_opt_dir1          text             x           direction of break point 1
 col_opt_dir2          text             x           direction of break point 2
 col_opt_type          text             x           type of variation
 col_opt_gene_name1    text             x           gene name of break point 1
 col_opt_gene_name2    text             x           gene name of break point 2
-col_opt_group         text             ×           grouping of mutaions
-====================  ===============  ==========  =============================
+col_opt_group         text             x           grouping of mutaions
+====================  ===============  ==========  ===================================
 
 .. note::
   
-  col_opt_groupはstackのグルーピングに使用します。
+  Col_opt_group is used for grouping stacks. 
   
-  未指定の場合、intra/inter chromosomeでグルーピングします。
+  If not specified, it is grouped by intra / inter chromosome.
   
-  列を指定した場合、以下オプションによりさらに表示内容を設定することができます。
+  If you specify a column, you can set display contents as follows with options.
   
-   - limited_group 使用するgroupを限定する
-   - nouse_group   使用しないgroupを指定する
-   - group_colors  groupの色を指定する
+   - limited_group Limit the group to use
+   - nouse_group   Specify an unused group
+   - group_colors  Specify the color of group
   
-  設定例
+  Setting example
   
   .. code-block:: cfg
     
@@ -45,7 +45,7 @@ col_opt_group         text             ×           grouping of mutaions
 
 .. note::
   
-  任意設定の5項目はポップアップでの詳細表示にのみ使用されます。
+  Five items are used only in tooltip.
   
    - col_opt_dir1
    - col_opt_dir2
@@ -56,37 +56,37 @@ col_opt_group         text             ×           grouping of mutaions
    .. image:: image/option_sv.PNG
      :scale: 100%
 
-| 列の指定方法方法については、 :ref:`列の指定方法<column>` を参照してください。
-| suffixとIDの指定方法および、サンプル名の指定方法については、 :ref:`suffixとID<suffix>` を参照してください。
+| For how to specify columns, see :ref:`column specification method<column>`.
+| For how to designate suffix & ID and how to specify sample name, see :ref:`suffix and ID<suffix>`.
 | 
 
 
-表示するchromosomeを限定する
+Limit display chromosome
 ---------------------------------
 
-configファイルで次の項目を編集してください。
+Edit the following items in the config file.
 
 .. code-block:: cfg
 
-  [sv]
-  # 使用するchromosomes (,で区切る)
+  [ca]
+  # use chromosomes (separate with ,)
   # default
   # use_chrs = 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,X,Y
   
-  # chromosome 1,5,7を使用する場合
+  # Case using chromosome 1, 5, 7
   use_chrs = 1,5,7
 
-編集したconfigファイルは次のようにしてコマンドから指定します。
+Specify the edited config file from the command as follows.
 
 ``pa_plot {input files} {output directory} {title} --config_file {config file}``
 
 
-ヒト以外のゲノムを使用する
+Use a nonhuman genome
 -------------------------------
 
-genomeサイズが入力されたファイルが必要です。
+You need a file with genome size entered.
 
-先頭列にchromosome名、2列目にサイズをカンマ ``,`` もしくはタブ区切りで入力してください。
+Write the chromosome name in the first column and the size in the second column separeted with ``,`` or ``\t``.
 
 .. code-block:: cfg
   
@@ -103,29 +103,31 @@ genomeサイズが入力されたファイルが必要です。
   17_gl000205_random,174588
   Un_gl000214,137718
 
-chromosome名は分析したいファイルのChr1, Chr2で使用されている名称と同じでなければなりません。
+The chromosome name must be the same as the name used in ``Chr1``, ``Chr2`` of the file you want to analyze.
 
 .. image:: image/qa_genome_size.PNG
 
-configファイルで用意したゲノムサイズのファイルを指定してください。
+Write the path to the prepared genome size file in config file.
 
 .. code-block:: cfg
 
   [genome]
-  # ゲノムサイズのファイル（CSV形式）（デフォルトはhg19, installディレクトリ配下のgenomeディレクトリにあります）
+  # path to file listing length of chromosomes（default is hg19)
   #
   # for example.
   # (linux)
   # path = ~/tmp/genome/hg19.csv
   # (windows)
   # path = C:\genome\hg19_part.csv
-  path = {ここにゲノムサイズのファイルのパスを指定する}
+  path = {write here the path to the prepared genome size file}
 
 
-ポップアップウィンドウの表示内容
+Display contents of the tooltip
 ----------------------------------------
 
-| 記載方法は :ref:`ユーザ定義フォーマット<user_format>` を参照してください。
-| SVにはmutation-matrixのような特殊キーワードはありません。
+| Refer to :ref:`user-defined format <user_format>` for the description method.
+| SV has no special keyword like mutation-matrix.
 |
 
+
+.. |new| image:: image/tab_001.gif

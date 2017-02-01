@@ -1,29 +1,29 @@
 **************************
-自分のデータを使用する
+Use own data
 **************************
 
-Genomon以外のデータを使用するにはconfigファイルを編集して自分のファイルフォーマットを指定します。
+To use the data other than Genomon will specify your file format by editing the config file.
 
-configファイルのサンプルは以下にあります。
+A sample comfigeration file is located in the following.
 
-``{paplotをインストールしたディレクトリ}/example/example.cfg``
+``{installed directory of paplot}/example/example.cfg``
 
-Genomonデータを使用する場合は各バージョンの設定ファイルを用意していますので、 :doc:`genomon` 参照してください。
+We prepare config files of each version Genomon. So if you use the Genomon analyzed data, please refer to the :doc:`genomon`.
 
 .. warning::
   
-  | 必須項目はハイライトで示しています。正しく設定してください。
-  | サンプル名の指定方法については、 :ref:`suffixとID<suffix>` も参照してください。
+  | Required fields are shown in the highlights. Please set correctly.
+  | For information on how to specify the sample names, please also see :ref:`suffix and ID<suffix>` 
 
-作成したconfigファイルは ``pa_plot`` コマンドの ``--config_file`` オプションで指定します。
+Please use this config file with ``--config_file`` option of ``paplot`` command.
 
-実行例
+Example of execution
 
 .. code-block:: bash
 
   pa_plot qc "example/qc/*.csv" ./tmp DUMMY --config_file example/example.cfg
 
-1. 全般
+1. General
 ------------
 
 .. code-block:: cfg
@@ -31,30 +31,34 @@ Genomonデータを使用する場合は各バージョンの設定ファイル�
 
   ###################### general
   [style]
-  # グラフのレイアウトファイル
+  # path to layout file of graph
   # ~/tmp/paplot/style/rainbow.js
   path = 
   
-  # index.html の備考欄に出力するテキスト(HTMLタブ使用可, 半角英数字のみ)
+  # Text to output in the remarks column of the index.html (HTML tag usable, alphanumeric or numeric characters only)
   remarks = 
 
 .. _conf_qc:
 
-2. QC
-------------
+2. QC (Quality Control)
+----------------------------
 
-QCグラフ固有の設定記載方法について、詳細は :doc:`config_qc` に記載しています。
+If you do not want to change the output graph, only set [result_format_qc] according to your data.
+
+Explanations of each item in :ref:`Input file format<data_format>`.
+
+For advanced use, see also :doc:`config_qc`.
 
 .. code-block:: cfg
   :linenos:
-  :emphasize-lines: 8,10,11,12,18,19,20,21,22,23,24,25,26,27,28,29
+  :emphasize-lines: 8,10,11,12,24,25,26,27,28,29,30,31,32,33,34,35
   
   ###################### qc
   [qc]
   # (none)
   
-  # 入力フォーマット (自分のデータに合わせて変更する)
-  # 項目は欄外「ファイルフォーマット」参照
+  # File format of input file (change here to fit your data)
+  # See the lower line "Input file format" for details
   [result_format_qc]
   suffix = .qc.csv
   
@@ -62,10 +66,16 @@ QCグラフ固有の設定記載方法について、詳細は :doc:`config_qc` 
   header = True
   comment = #
   
-  # column index (required)
+  ##################
+  # Column index (required)
+  ##################
+  
   # (none)
   
-  # column index (option)
+  ##################
+  # Column index (option)
+  ##################
+  
   col_opt_duplicate_reads = duplicate_reads
   col_opt_mapped_reads = mapped_reads
   col_opt_total_reads = total_reads
@@ -79,13 +89,13 @@ QCグラフ固有の設定記載方法について、詳細は :doc:`config_qc` 
   col_opt_read_length_r2 = read_length_r2
   col_opt_id = file_name
   
-  # 出力フォーマット (data_qc.csv)
-  # 項目は欄外「ファイルフォーマット」参照
+  # File format of output file
+  # See the lower line "Output file format" for details
   [merge_format_qc]
   lack_column_complement = NA
   sept = ,
   
-  # 領域選択用のグラフ設定
+  # Settings of area selection graph (brush)
   [qc_chart_brush]
   title = 
   title_y = 
@@ -93,7 +103,7 @@ QCグラフ固有の設定記載方法について、詳細は :doc:`config_qc` 
   name_set = average:#E3E5E9
   tooltip_format = 
   
-  # グラフ設定(グラフごとに用意する)
+  # Settings of each graph (prepare this section each graph)
   [qc_chart_1]
   title = depth coverage
   title_y = coverage
@@ -110,18 +120,22 @@ QCグラフ固有の設定記載方法について、詳細は :doc:`config_qc` 
 
 .. _conf_ca:
 
-3. CA
---------------
+3. CA (Chromosomal Aberration)
+-----------------------------------
 
-CAグラフ固有の設定記載方法について、詳細は :doc:`config_ca` に記載しています。
+If you do not want to change the output graph, only set [result_format_ca] according to your data.
+
+Explanations of each item in :ref:`Input file format<data_format>`.
+
+For advanced use, see also :doc:`config_ca`.
 
 .. code-block:: cfg
   :linenos:
-  :emphasize-lines: 10,38,40,45,42,44,46,47,48,57
+  :emphasize-lines: 10,46,48,49,50,56,57,58,59,71
   
   ###################### sv
   [genome]
-  # ゲノムサイズのファイル（CSV形式）（デフォルトはhg19, installディレクトリ配下のgenomeディレクトリにあります）
+  # path to file listing length of chromosomes（default is hg19)
   #
   # for example.
   # (linux)
@@ -130,48 +144,59 @@ CAグラフ固有の設定記載方法について、詳細は :doc:`config_ca` 
   # path = C:\genome\hg19_part.csv
   path = 
   
-  [sv]
-  # 使用するchromosomes (,で区切る)
+  [ca]
+  # use chromosomes (separate with ,)
   use_chrs = 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,X,Y
   
   # if setting label-text & color
   # use_chrs = 1:Chr1:crimson, 2:Chr2:lightpink, 3:Chr3:mediumvioletred, 4:Chr4:violet, 5:Chr5:darkmagenta, 6:Chr6:mediumpurple
   
-  # 積み上げグラフのchromosome分割サイズ (bps)
+  # chromosome split size (bps) of stacked graph
   selector_split_size = 5000000
   
-  # 入力されていた場合、そのgroupのみ出力する
-  # 未入力の場合、検出されたgroupすべて出力する
-  # , 区切りで複数指定可能
+  ##################
+  # Group setting
+  # These option is valid only when `[result_format_ca] col_opt_group`
+  ##################
+  
+  # If it is input, only that group is output.
+  # If not input, output all detected groups.
+  # Multiple designation possible with comma delimited.
   #
   limited_group = stopgain,frameshift_deletion,frameshift_insertion
   
-  # 入力されていた場合、そのgroupはplot対象から除外する
-  # , 区切りで複数指定可能
-  # 空白行を除去する場合、_blank_ と記入する
+  # If it is input, the group is excluded from the plot target.
+  # Multiple designation possible with comma delimited.
+  # To remove a blank line, write _blank _.
   nouse_group = _blank_,unknown,synonymous_SNV
   
-  # groupのplot色を指定する。group名:(RGBもしくはカラー名)
-  # , 区切りで複数指定可能
-  # 未入力のgroupはデフォルト色を使用する
+  # Setting colors of each group. Write for example, {value of group}:{RGB or color-name}.
+  # Multiple designation possible with comma delimited.
+  # Use a default color for unentered groups.
   group_colors = stopgain:#E85299,frameshift_deletion:#F39600,frameshift_insertion:#E60011
   
-  # 入力フォーマット (自分のデータに合わせて変更する)
-  # 項目は欄外「ファイルフォーマット」参照
-  [result_format_sv]
+  # File format of output file.
+  # See the lower line "Input file format" for details.
+  [result_format_ca]
   suffix = .result.txt
   
   sept = \t
   header = False
   comment = #
   
-  # column index (required)
+  ##################
+  # Column index (required)
+  ##################
+  
   col_chr1 = Chr_1
   col_break1 = Pos_1
   col_chr2 = Chr_2
   col_break2 = Pos_2
   
-  # column index (option)
+  ##################
+  # Column index (option)
+  ##################
+  
   col_opt_dir1 = Dir_1
   col_opt_dir2 = Dir_2
   col_opt_type = Variant_Type
@@ -180,9 +205,9 @@ CAグラフ固有の設定記載方法について、詳細は :doc:`config_ca` 
   col_opt_group = 
   col_opt_id =
   
-  # 出力フォーマット (data_sv.csv)
-  # 項目は欄外「ファイルフォーマット」参照
-  [merge_format_sv]
+  # File format of output file
+  # See the lower line "Output file format" for details
+  [merge_format_ca]
   lack_column_complement = NA
   sept = ,
 
@@ -191,51 +216,55 @@ CAグラフ固有の設定記載方法について、詳細は :doc:`config_ca` 
 4. mutation-matrix
 ----------------------
 
-mutation-matrixグラフ固有の設定記載方法について、詳細は :doc:`config_mut` に記載しています。
+If you do not want to change the output graph, only set [result_format_mut] according to your data.
+
+Explanations of each item in :ref:`Input file format<data_format>`.
+
+For advanced use, see also :doc:`config_mat`.
 
 .. code-block:: cfg
   :linenos:
-  :emphasize-lines: 50,51,52,53,56,58,63,66,70,72,74,76,78,80
+  :emphasize-lines: 50,51,52,53,56,58,65,68,75,77,79,81,83,85
 
   ###################### mutation
   [mut]
-  # geneのサンプルに対する検出比(%) 
-  # 値より小さいgeneはplot対象から除外する
-  # 0の場合はすべて出力する
+  # Detection ratio of gene to sample (%).
+  # Exclude genes smaller than this value from plot targets.
+  # If value is 0, it outputs all.
   use_gene_rate = 0
 
-  # 入力されていた場合、そのgeneのみ出力する
-  # 未入力の場合、検出されたgeneすべて出力する
-  # , 区切りで複数指定可能
+  # If it is input, only that gene is output.
+  # If not input, output all the detected genes.
+  # Multiple designation possible with comma delimited.
   #
   # limited_genes = TP,TTN,APC,BRAF,CDH1,FLT3
   limited_genes = 
   
-  # 入力されていた場合、そのgeneはplot対象から除外する
-  # , 区切りで複数指定可能
+  # If it is input, exclude that gene from plot targets.
+  # Multiple designation possible with comma delimited.
   #
   # nouse_genes = NONE,MUC4
   nouse_genes =
 
-  # 入力されていた場合、その変異タイプ(func)のみ出力する
-  # 未入力の場合、検出されたfuncすべて出力する
-  # , 区切りで複数指定可能
+  # If it is input, only the mutation type (func) is output.
+  # If not input, output all func detected.
+  # Multiple designation possible with comma delimited.
   #
   # limited_funcs = exome,splicing
   limited_funcs = 
   
-  # 入力されていた場合、そのfuncはplot対象から除外する
-  # , 区切りで複数指定可能
-  # 空白行を除去する場合、_blank_ と記入する
+  # If it is input, exclude the func from plot targets.
+  # Multiple designation possible with comma delimited.
+  # To remove a blank line, write _blank _.
   nouse_funcs = _blank_,unknown,synonymous_SNV
   
-  # funcのplot色を指定する。func名:(RGBもしくはカラー名)
-  # , 区切りで複数指定可能
-  # 未入力のfuncはデフォルト色を使用する
+  # Setting colors of each func. Write for example, {value of group}:{RGB or color-name}.
+  # Multiple designation possible with comma delimited.
+  # Use default colors for unfilled func.
   func_colors = stopgain:#E85299,frameshift_deletion:#F39600,frameshift_insertion:#E60011,nonframeshift_deletion:#9CAEB7
   
-  # ポップアップウィンドウの表示内容
-  # 詳細は以下
+  # Display contents of the tooltip
+  # See the lower line "User definition format" for details.
   tooltip_format_checker_title1 = ID:{id}, gene:{gene}, {#sum_item_value}
   tooltip_format_checker_partial = type[{func}], {chr}:{start}:{end}, [{ref} -----> {alt}]
   tooltip_format_gene_title = gene:{gene}, {#sum_item_value}
@@ -243,133 +272,244 @@ mutation-matrixグラフ固有の設定記載方法について、詳細は :doc
   tooltip_format_id_title = ID:{id}, {#sum_item_value}
   tooltip_format_id_partial = func:{func}, {#item_value}
   
-  # 入力フォーマット (自分のデータに合わせて変更する)
-  # 項目は欄外「ファイルフォーマット」参照
+  # File format of output file.
+  # See the lower line "Input file format" for details.
   [result_format_mutation]
   suffix = 
   sept = \t
   header = True
   comment = #
   
-  # funcが1セルに複数入力されている場合の区切り文字
+  # Delimiter when multiple funcs are input
   sept_func = ";"
-  # geneが1セルに複数入力されている場合の区切り文字
+  # Delimiter when multiple genes are input
   sept_gene = ";"
   
-  # column index (required)
+  ##################
+  # Column index (required)
+  ##################
 
-  # func列
+  # func
   col_func = Merge_Func
   
-  # gene列
+  # gene
   col_gene = Gene.refGene
   
+  ##################
   # column index (option)
+  ##################
+  
   # chromosome
   col_opt_chr = Chr
-  # 開始位置
+  # Start position of break point
   col_opt_start = Start
-  # 終了位置
+  # End position of break point
   col_opt_end = End
-  # リファレンスの塩基配列
+  # Base sequence of reference
   col_opt_ref = Ref
-  # 対象の塩基配列
+  # Base sequence of alternative
   col_opt_alt = Alt
-  # id (sample) 列
+  # sample id (unique)
   col_opt_ID = id
   
-  # 出力フォーマット (data_mut.csv)
-  # 項目は欄外「ファイルフォーマット」参照
+  # File format of output file.
+  # See the lower line "Output file format" for details.
   [merge_format_mutation]
   lack_column_complement = NA
   sept = ,
 
-5. 共通項目
----------------
+.. _conf_signature:
+
+5. signature
+---------------------------
+
+You do not need to modify the config file if you do this in the :doc:`config_signature` step.
+
+Signature data preparation method and json file format are described in :doc:`config_signature`.
+
+.. code-block:: cfg
+  :linenos:
+  
+  ###################### signature
+  [signature]
+
+  # Display contents of the tooltip
+  # See the lower line "User definition format" for details.
+  tooltip_format_signature_title = {sig}
+  tooltip_format_signature_partial = {route}: {#sum_item_value:6.2}
+  tooltip_format_mutation_title = {id}
+  tooltip_format_mutation_partial = {sig}: {#sum_item_value:.2}
+  
+  # Y axis max of signature (If -1, use the maximum value of each data)
+  signature_y_max = -1
+  
+  # Signature bar color
+  alt_color_CtoA = #1BBDEB
+  alt_color_CtoG = #211D1E
+  alt_color_CtoT = #E62623
+  alt_color_TtoA = #CFCFCF
+  alt_color_TtoC = #ACD577
+  alt_color_TtoG = #EDC7C4
+  
+  # File format of output file. (Change fit to your data)
+  [result_format_signature]
+
+  # Format type (Currently only json)
+  format = json
+
+  # Whether your data using `background` or not.
+  background = True
+  
+  # Key names of json file
+  key_id = id
+  key_mutation = mutation
+  key_signature = signature
+  key_mutation_count = mutation_count
+  
+
+.. _conf_pmsignature:
+
+6. pmsignature
+---------------------------
+
+You do not need to modify the config file if you do this in the :doc:`config_pmsignature` step.
+
+Signature data preparation method and json file format are described in :doc:`config_pmsignature`.
+
+.. code-block:: cfg
+  :linenos:
+  
+  ###################### pmsignature
+  [pmsignature]
+
+  # Display contents of the tooltip
+  # See the lower line "User definition format" for details.
+  tooltip_format_ref1 = A: {a:.2}
+  tooltip_format_ref2 = C: {c:.2}
+  tooltip_format_ref3 = G: {g:.2}
+  tooltip_format_ref4 = T: {t:.2}
+  tooltip_format_alt1 = C -> A: {ca:.2}
+  tooltip_format_alt2 = C -> G: {cg:.2}
+  tooltip_format_alt3 = C -> T: {ct:.2}
+  tooltip_format_alt4 = T -> A: {ta:.2}
+  tooltip_format_alt5 = T -> C: {tc:.2}
+  tooltip_format_alt6 = T -> G: {tg:.2}
+  tooltip_format_strand = + {plus:.2} - {minus:.2}
+  tooltip_format_mutation_title = {id}
+  tooltip_format_mutation_partial = {sig}: {#sum_item_value:.2}
+  
+  # Pmsignature box color
+  color_A = #06B838
+  color_C = #609CFF
+  color_G = #B69D02
+  color_T = #F6766D
+  color_plus = #00BEC3
+  color_minus = #F263E2
+  
+  # File format of output file. (Change fit to your data)
+  [result_format_pmsignature]
+
+  # format (Currently only json)
+  format = json
+
+  # Whether your data using `background` or not.
+  background = True
+
+  # Key names of json file
+  key_id = id
+  key_mutation = mutation
+  key_ref = ref
+  key_alt = alt
+  key_strand = strand
+  key_mutation_count = mutation_count
+
+
+7. Common fileds
+------------------
 
 .. _suffix:
 
-suffixとID
+suffix and ID
 ====================
 
-paplotではサンプル名が必要です。ファイル入力では、以下のことに注意してください。
+Sample names are required for paplot. Please pay attention to the following regarding file input.
 
- - case1: マージされたファイルを入力する
+ - case1: Input one merged file
  
-   複数サンプルの結果が、1ファイルにすべてまとめられていると想定しています。サンプル名となる列を ``col_opt_ID`` で必ず指定してください。
+   We assume that the results of multiple samples are combined in one file. Be sure to specify the sample name column with ``col_opt_ID``.
 
- - case2: サンプルごとに分かれた複数のファイルを入力し、データ中にサンプル名となるものはない。
+ - case2: Input multiple files separated for each sample, and there is no sample name in the data.
  
-   ファイル名の一部をサンプル名として使用します。 ``suffix`` を必ず指定してください。
+   We will use part of file name as sample name. Be sure to specify ``suffix``.
 
- - case3: サンプルごとに分かれた複数のファイルを入力し、データ中にサンプル名となるデータがある。
+ - case3: Input multiple files separated for each sample, and there is sample name in the data.
  
-   サンプル名となる列を ``col_opt_ID`` で必ず指定してください。
+   Be sure to specify the sample name column with ``col_opt_ID``.
 
 .. image:: image/id_suffix.PNG
   :scale: 100%
 
-複数ファイル入力する場合のコマンドの実行方法は :doc:`command` を参照してください。
+Refer to :doc:`command` for how to execute the command when multiple files are input.
 
-.. data_format:
+.. _data_format:
 
-入力ファイルフォーマット
+Input file format
 =========================
 
-configファイル中、[result_format_*] というセクションでは入力ファイルのフォーマットを指定します。
+In the config file, the section [result_format_*] specifies the format of the input file.
 
-:suffix:  :ref:`suffixとID<suffix>` を参照してください。
+:suffix: Refer to :ref:`suffix and ID<suffix>`.
 
-:sept: データ区切り。
+:sept: data separation
 
 .. code-block:: cfg
 
-  # タブ区切りの場合
+  # Tab-separated
   sept = \t
   
-  # ,区切りの場合
+  # Comma-separated
   sept = ,
   
-  # スペース区切りの場合
+  # Space-separated
   sept = " "
 
-:header: 先頭1行がヘッダかどうか。先頭行がヘッダの場合はTrue。ヘッダなしの場合はFalse
+:header: Whether the first line is a header or not. "True" if the first row is a header. "False" for no header.
 
-:comment: 先頭に指定文字がある行は飛ばす
+:comment: Skip the line with the specified character at the beginning.
 
-出力ファイルフォーマット
+Output file format
 =========================
 
-configファイル中、[merge_format_*] というセクションでは出力ファイル(data_*.csv) のフォーマットを指定します。
+In the config file, the section [merge_format_*] specifies the format of the output file (data_*.csv).
 
-通常、変更する必要はありません。
+Normally, you do not need to change it.
 
-:sept: データ区切り。(入力ファイルフォーマットと同)
+:sept: data separation (Same as section of input file)
 
-:lack_column_complement: カラムがない場合、何で埋めるか
+:lack_column_complement: If there is no column, what to fill with.
 
 .. _column:
 
-列の指定方法
-====================
+How to specify the column
+================================
 
-ヘッダの有り無しに合わせて、カラム名もしくはカラムインデックスを入力します。
+If there is a header, enter the column name. if there is no header, enter the column index.
 
 .. image:: image/col_pos.PNG
   :scale: 100%
 
-記入例
+Setting Example
 
 .. code-block:: cfg
 
-  # ヘッダ行がある場合、カラム名 (テキスト) を入力する
+  # If there is a header, enter the column name (text).
   header = True
   col_chr1 = Chr_1
   col_break1 = Pos_1
   col_chr2 = Chr_2
   col_break2 = Pos_2
 
-  # ヘッダ行がない場合、カラムインデックス (数値) を入力する
+  # If there is no header, enter the column index (number).
   header = False
   col_chr1 = 0
   col_break1 = 1
@@ -379,97 +519,54 @@ configファイル中、[merge_format_*] というセクションでは出力フ
   
 .. _user_format:
 
-ユーザ定義フォーマット
+User definition format
 =======================
 
-| mouse overにより表示するポップアップのようにグラフそのものに影響を与えないような文字列はある程度変更することができます。
-| 表示箇所ごとにそれぞれ設定しますが、書き方は同一です。
-| 
+Tooltip format can be changed.
 
-設定例
+It is set for each display part, but the way of writing is the same.
+
+Setting Example
 
 ::
 
   tooltip_format_checker_partial = type[{func}], {chr}:{start}:{end}, [{ref} -----> {alt}]
   
-  表示例：
+  Display example：
   type[exome], chr1:2000:2001, [A -----> T]
 
-| {}で囲った文字がキーワードで、実際の値に置き換えられます。
-| キーワードとはconfigファイルで各データ列を設定した項目のうち、``col_`` もしくは ``col_opt_`` を除いた名前です。
-| 大文字と小文字の区別はありません。
-| たとえば、CHR, Chr, chr はすべて同一とみなしますので、ご注意ください。
-|
-| デフォルトで設定しているのは下記ですが、任意で増やすことができます。
-| その場合は、```col_opt_{任意の名前}``` として追加し、実際のデータの列名を指定してください。
-|
-| ``col_opt_new_option = column_name``
-| 
+The character enclosed in {} is a keyword, and it is replaced with the actual value.
+The keyword is the name that excludes ``col_`` or ``col_opt _`` of the items that set each data column in the config file.
+There is no distinction between upper case and lower case letters.
+For example, CHR, Chr, chr are considered to be the same, so please be careful.
 
-** mutation **
+The default settings are as follows, but you can increase them arbitrarily.
+In that case, add as ```col_opt_ {arbitrary name}``` and specify the actual data column name.
 
-============= ==========
-option名      キーワード
-============= ==========
-col_func      {func}
-col_gene      {gene}
-col_opt_chr   {chr}
-col_opt_start {start}
-col_opt_end   {end}
-col_opt_ref   {ref}
-col_opt_alt   {alt}
-col_opt_id    {id}
-============= ==========
+``col_opt_new_option = column_name``
 
-** ca **
+Descriptions for details see each page.
 
-==================== ===============
-option名             キーワード
-==================== ===============
-col_chr1             {chr1}
-col_break1           {break1}
-col_chr2             {chr2}
-col_break2           {break2}
-col_opt_id           {id}
-col_opt_dir1         {dir1}
-col_opt_dir2         {dir2}
-col_opt_type         {type}
-col_opt_gene_name1   {gene_name1}
-col_opt_gene_name2   {gene_name2}
-==================== ===============
-
-** qc **
-
-======================== ==================
-option名                 キーワード
-======================== ==================
-col_opt_duplicate_reads  {duplicate_reads}
-col_opt_mapped_reads     {mapped_reads}
-col_opt_total_reads      {total_reads}
-col_opt_average_depth    {average_depth}
-col_opt_mean_insert_size {mean_insert_size}
-col_opt_ratio_2x         {ratio_2x}
-col_opt_ratio_10x        {ratio_10x}
-col_opt_ratio_20x        {ratio_20x}
-col_opt_ratio_30x        {ratio_30x}
-col_opt_read_length_r1   {read_length_r1}
-col_opt_read_length_r2   {read_length_r2}
-col_opt_id               {id}
-======================== ==================
+ - :doc:`config_mat` 
+ - :doc:`config_ca` 
+ - :doc:`config_qc` 
+ - :doc:`config_signature` 
+ - :doc:`config_pmsignature` 
 
 ::
 
-  数値計算させることもできます。その場合、計算式を{}で囲います。
+  You can also make a numerical calculation. In that case, enclose the calculation expression in {}.
   
   {#number_mutaion_gene/#number_id*100}%
   
-  表示例：
+  Display example：
   3.33333333333333%
   
-  表示桁数を指定したい場合は計算式の後に ":.2" と書きます。小数点以下3桁の場合は ":.3" と書きます。
+  To specify the number of display digits, write ":. 2" after the calculation formula.
+  For three decimal places, write ":. 3".
   
   {#number_mutaion_gene/#number_id*100:.2}%
   
-  表示例：
+  Display example：
   3.33%
 
