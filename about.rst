@@ -27,7 +27,7 @@ Graphs can be created
 | QC graph reports each bam's quality.
 |
 
-.. image:: image/qc_dummy.png
+.. image:: image/qc_dummy.PNG
   :scale: 100%
 
 2. CA (Chromosomal Aberration) graph
@@ -36,7 +36,7 @@ Graphs can be created
 | Bar plot views these distribution.
 |
 
-.. image:: image/sv_dummy.png
+.. image:: image/sv_dummy.PNG
   :scale: 100%
 
 3. mutation-matrix graph
@@ -45,7 +45,7 @@ Graphs can be created
 | Virtical axis is gene and Horizontal axis is sample.
 |
 
-.. image:: image/mut_dummy.png
+.. image:: image/mut_dummy.PNG
   :scale: 100%
 
 4. signature |new|
