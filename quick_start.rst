@@ -99,7 +99,7 @@ Are HTML files created?
         └ index.html             <--- Open this file in web browser.
 
 
-| Open index.heml file in web browser.
+| Open index.html file in web browser.
 |
 | Note) When running on a server such as HGC supercomputer, transfer the file locally or display it with virtual window (NoMachime etc.) on the server.
 |       To transfer locally, please copy the whole :file:`tmp` directory.

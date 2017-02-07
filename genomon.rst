@@ -39,7 +39,7 @@ Run example:
 
   genomon_root={path to the directory where Genomon was executed}
   sample={name of genomon sample file}
-  output_dir={path to thw output directory of paplot}
+  output_dir={path to output directory of paplot}
   project_name={name of project}
   paplot_install_dir={path to the paplot installed directory}
   

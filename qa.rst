@@ -23,7 +23,7 @@ Error in ``paplot conf``
   Traceback (most recent call last):
     File "/usr/bin/paplot", line 4, in <module>
       __import__('pkg_resources').run_script('paplot===0.2.7devel', 'paplot')
-  (省略)
+  (abbreviation)
   pkg_resources.DistributionNotFound: The 'paplot===0.2.7devel' distribution was not found and is required by the application
 
 | If there is no ``paplot`` file, the installation may not be successful.
@@ -114,7 +114,7 @@ For Safari
  - PNG ... As the image is displayed in a new tab, right click and select "Save Image As ...".
 
 | ※If the new tab does not open, please check the following settings.
-|   Safari → Envairoment → Security → Web Contents → uncheck "Don't open pop-up window"
+|   Safari → Envaironment → Security → Web Contents → uncheck "Don't open pop-up window"
 |
 
 *********************************

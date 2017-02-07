@@ -81,7 +81,7 @@ Open this file and change the following:
   # ~/tmp/paplot/example/mystyle.js
 
 
-1-3. 出力する
+1-3. Run paplot
 ---------------------
 
 .. code-block:: bash
@@ -207,7 +207,7 @@ If you change the HTML file already output by paplot, it will be reflected if yo
       
       title_gene: "Genes",
       title_gene_font_size: "14px",
-      title_gene_y1: "% Samplesg",
+      title_gene_y1: "% Samples",
       title_gene_y2: "with mutationg",
       title_gene_y1_font_size: "12px",
       title_gene_y2_font_size: "12px",

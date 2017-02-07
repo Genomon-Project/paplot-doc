@@ -4,7 +4,7 @@ Use own data
 
 To use the data other than Genomon will specify your file format by editing the config file.
 
-A sample comfigeration file is located in the following.
+A sample configuration file is located in the following.
 
 ``{installed directory of paplot}/example/example.cfg``
 

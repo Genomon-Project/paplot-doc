@@ -61,7 +61,7 @@ For Linux (include HGC supercomputer, cygwin)
   Set PATH
   
   | Environment variables PATH and LD_LIBRARY_PATH are clearUse key to move to the last line. with logout.
-  | It is better to write configration file, make to re-set at login again.
+  | It is better to write configuration file, make to re-set at login again.
   | Write following two lines to file ``~/.bashrc`` or ``~/.bash_profile``.
   |
 
@@ -175,7 +175,7 @@ https://github.com/Genomon-Project/paplot/releases/
   | So, You need to enter the ``export PATH = ...`` command every time you start machine.
   | Make sure to reset it automatically.
   |
-  | Create configratuin file with the following command.
+  | Create configuration file with the following command.
   |
   
   .. code-block:: bash

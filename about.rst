@@ -2,7 +2,7 @@
 Introduction
 ************************
 
-| Paplot is graph generater from analysis results of genome.
+| Paplot is graph generator from analysis results of genome.
 |
 | For example, you have such a text file by analyzing the genome.
 |

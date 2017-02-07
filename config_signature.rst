@@ -47,7 +47,7 @@ keyword            description
 ================== ============================================================
 keyword            description
 ================== ============================================================
-{sig}              name of signature, diplay as "Signature {signature index}"
+{sig}              name of signature, display as "Signature {signature index}"
 {#sum_item_value}  total value of stacked graph
 ================== ============================================================
 

@@ -42,22 +42,10 @@ Commands of pa_plot
 
 
 :output_dir:
-  Output directory path. See :ref:`2. Output Directory <output>`, for explain of directory components.
+  Output directory path. See :ref:`3. Output directory <output>`, for explain of directory components.
 
 :project_name:
   Project name. For use title of output files.
-
-
-
-
-**optional**
-
---config_file        Path of configuration file. If not specified, then use default file.
---remarks            The text to be output to the remarks column of index.html. If not specified, use the value of a configuration file.
--h                   Displays the help.
---version            Displays the version.
-
-.. _output:
 
 ------------------------
 2. Command options
@@ -65,21 +53,22 @@ Commands of pa_plot
 
 You can change the following items as options.
 
---config_file        Path of configuration file. If not specified, then use default file.
---remarks            The text to be output to the remarks column of index.html. If not specified, use the value of a configuration file.
--h                   Displays the help.
---version            Displays the version.
+--config_file        Path to the configuration file. If not specified, then use default file.
+--title              Title of the graph
+--ellipsis           Abbreviated name of the graph. It is used for the graph file name. (ex, graph_**ca**.html) It is convenient to set it when outputting multiple files to the same directory.
+--overview           Outline of the graph. It displays it in index.html
+--remarks            Text to be output in the remarks column. It displays it in index.html. If not specified, the value of the setting file ([style] remarks) is used.
 
 The default values ​​are as follows.
 
 =============== =================== ============ ============================================= ==============
 subcommand      title               ellipsis     overview                                      remarks
 =============== =================== ============ ============================================= ==============
-qc              QC graphs           qc           Quality Control of bam.                       なし
-ca              CA graphs           ca           Chromosomal Aberration.                       なし
-mutation        Mutation matrix     mutation     Gene-sample mutational profiles.              なし
-signature       Signature           signature    Mutational signatures.                        なし
-pmsignature     PMSignature         pmsignature  Express mutational signatures in pmsignature. なし
+qc              QC graphs           qc           Quality Control of bam.                       none
+ca              CA graphs           ca           Chromosomal Aberration.                       none
+mutation        Mutation matrix     mutation     Gene-sample mutational profiles.              none
+signature       Signature           signature    Mutational signatures.                        none
+pmsignature     PMSignature         pmsignature  Express mutational signatures in pmsignature. none
 =============== =================== ============ ============================================= ==============
 
 .. _output:
@@ -100,11 +89,11 @@ In the location specified in the ``output_dir`` option to output the file with t
     ├ layout
     ├ lib
     ├ style
-    |
+    │
     └ index.html             <--- Please open the file in a web browser.
 
 
-If you want to move the output files, please move each `` {output_dir} ``.
+If you want to move the output files, please move each ``{output_dir}``.
 
 Method of operation of the output file, please refer to the `how to use graphs <./index.html#how-to-toc>`_ .
 
