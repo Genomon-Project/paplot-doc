@@ -1,65 +1,64 @@
-リリースノート
+Release notes
 --------------------
 
 .. attention::
 
-  | バージョン間でのconfigファイルの互換性は基本的にありません。
-  | バージョンアップの際は、お手数ですが最新のconfigを変更してご使用ください
+  | Basically there is no compatibility of config files between versions.
+  | When upgrading, please change your latest config, sorry to trouble you but use it.
 
 v0.5.0
 ====================
 
-| グラフ追加
+| Add new graphs.
 | ● signature graph
 | ● pmsignature graph
 
-| サブコマンド変更
+| Change sub-command.
 | ● sv -> ca
-|    オプションは変更ありません。
+|    The options are unchanged.
 
 v0.4.0
 ====================
 
-| 画像保存機能追加
+| Add image storage function.
 
 
 v0.3.1
 ====================
 
-| mutation-matrix graphについて、不具合修正
+| Fixed a bug with mutation-matrix graph.
 
 v0.3.0
 ====================
 
-| グラフ追加
+| Add new graphs.
 | ● mutation-matrix graph
 
 v0.2.8
 ====================
 
-| 結果ファイルマージ機能について仕様変更
+| Specification change about result file merge function
 
 v0.2.7
 ====================
 
-| 新規作成
+| New created.
 | ● QC graph
 | ● SV graph
 
 
-ライセンス
+Lisence
 --------------------
 
-paplotは https://github.com/Genomon-Project/paplot/blob/devel/LICENSE のもとで配布されています。
+Paplot is distributed under https://github.com/Genomon-Project/paplot/blob/devel/LICENSE.
 
-
-コンタクト
+Contact us
 --------------------
 
-| ご質問やフィードバックなど，お気軽にご連絡ください．
+| Please feel free to contact us with any questions or feedback.
 | genomon.devel@gmail.com
 | 
-| 対面形式，skypeでのアポイントはこちらで受け付けています．
+| Face-to-face, skype appointments are accepted here.
 | Genomon Office Hour: https://genomon-office.youcanbook.me/
 | 
 

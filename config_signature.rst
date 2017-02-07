@@ -51,6 +51,7 @@ keyword            description
 {#sum_item_value}  total value of stacked graph
 ================== ============================================================
 
+
 **default settings and display**
 
 .. code-block:: cfg

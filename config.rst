@@ -532,7 +532,7 @@ Setting Example
 
   tooltip_format_checker_partial = type[{func}], {chr}:{start}:{end}, [{ref} -----> {alt}]
   
-  Display example：
+  Display example:
   type[exome], chr1:2000:2001, [A -----> T]
 
 The character enclosed in {} is a keyword, and it is replaced with the actual value.
@@ -559,7 +559,7 @@ Descriptions for details see each page.
   
   {#number_mutaion_gene/#number_id*100}%
   
-  Display example：
+  Display example:
   3.33333333333333%
   
   To specify the number of display digits, write ":. 2" after the calculation formula.
@@ -567,6 +567,6 @@ Descriptions for details see each page.
   
   {#number_mutaion_gene/#number_id*100:.2}%
   
-  Display example：
+  Display example:
   3.33%
 

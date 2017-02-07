@@ -1,37 +1,37 @@
 ========================
-signature グラフ |new|
+signature graph |new|
 ========================
 
-signature グラフでは検出したmutation についてsignatureとその集積を積み上げグラフで表示します。
+In the signature graph, signature and its accumulation are displayed in a stacked graph on the detected mutation.
 
 :signature:
-  signatureを表示します。
+  Display signature.
 
-:積み上げグラフ:
-  サンプルごとmutationについて、signatureの割合を表示します。
+:Stacked graph:
+  For each sample, the ratio of signature is displayed for mutation.
 
 .. image:: image/sig_dummy.PNG
   :scale: 100%
 
-また、積み上げグラフの下のリストボックスにより表示モードを切り替えることができます。
+In addition, you can switch the display mode by the list box below the stacked graph.
 
 :view mode:
-  - rate ... 100%表示します。
-  - integral ... 実際のmutation数に対する割合を表示します。
+  - rate ... The percentage (%) of signature when the number of mutations is set to 1.
+  - integral ... It shows the ratio to the actual number of mutation.
 
 :sort by:
-  - sampleID ... サンプルID順
-  - mutation count ... mutation数の降順
+  - sampleID ... Sort by sample ID
+  - mutation count ... Descending order of mutations
 
-  view modeがintegralの場合のみ、ソート方法を選択できます。
+  Only when view mode is integral, you can select the sorting method.
 
 
-view mode 「integral」, sort by 「mutation count」の表示例
+Display example when view mode is "integral" and sort by "mutation count".
 
 .. image:: image/sig_operation1.PNG
   :scale: 100%
 
-pmsignatureについても同様です。
+The same is true for pmsignature.
 
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%

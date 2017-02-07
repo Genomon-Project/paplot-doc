@@ -34,8 +34,8 @@ Contents:
    :name: install_toc
    
    install.rst
-   genomon.rst
    config.rst
+   genomon.rst
    command.rst
 
 .. toctree:: 

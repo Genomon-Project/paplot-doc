@@ -2,17 +2,17 @@
 quick start
 *****************
 
-#. paplotをインストール
-#. testサンプルでコマンドを実行
-#. 結果ファイルを表示
+#. install paplot.
+#. run paplot with sample files.
+#. view output file.
 
-1. paplotをインストール
+1. install paplot.
 ---------------------------
 
-| ここではサーバサイドでのインストールを記載しています。
-| ここでうまくいかない方、個人のPCにインストールする方は :doc:`install` を参照してください。
+| Here we describe the installation on the server side.
+| If you are not satisfied with this, if you are installing on your personal computer please see :doc:`install`.
 |
-| HGCスパコンで使用する場合、事前に ``qlogin`` してください。
+| When using with HGC supercomputer, please use ``qlogin`` beforehand.
 |
 
 .. code-block:: bash
@@ -22,15 +22,15 @@ quick start
   
   python setup.py build install --user
 
-**installの確認**
+**check for installation**
 
-| 以下を入力してください。
+| Execute the following command.
 
 .. code-block:: bash
 
-  pa_plot conf
+  paplot conf
 
-| このように表示されればインストール成功です。
+| Installation will succeed if it is displayed like this.
 
 .. code-block:: bash
 
@@ -39,70 +39,99 @@ quick start
   **********************
   
   config file:/usr/lib/python2.7/site-packages/{paplot-versoion}-py2.7.egg/config/paplot.cfg
-  (このあとにデフォルト設定の内容が表示されます)
+  (The contents of the default setting will be displayed after this)
 
 
-2. testサンプルでコマンドを実行
+2. run paplot with sample files.
 ---------------------------------
 
-テストサンプルを用意していますので実行します。
+We will prepare sample data.
 
 .. code-block:: bash
 
-  cd {paplotをインストールしたディレクトリ}
+  cd {path to the paplot installed directory}
 
   # create bar graphs of qc
-  pa_plot qc "example/qc/*.csv" ./tmp DUMMY --config_file example/example.cfg
+  paplot qc "example/qc/*.csv" ./tmp demo --config_file example/example.cfg
 
   # create bundle graphs of Structural Variation (SV)
-  pa_plot sv "example/sv/*.txt" ./tmp DUMMY --config_file example/example.cfg
+  paplot ca "example/sv/*.txt" ./tmp demo --config_file example/example.cfg
 
-  # create bundle graphs of Structural Variation (mutation-matrix)
-  pa_plot mutation example/mutation/sample_merge.csv ./tmp DUMMY --config_file example/example.cfg
+  # create matrix graphs of mutation
+  paplot mutation example/mutation/sample_merge.csv ./tmp demo --config_file example/example.cfg
 
-3. 結果ファイルを表示
+  # create signature graphs
+  paplot signature "example/signature/Nik_Zainal_2012.full.*.json" ./tmp demo --config_file ./example/example.cfg
+
+  # create signature graphs (pmsignature)
+  paplot pmsignature "example/pmsignature/Nik_Zainal_2012.ind.*.json" ./tmp demo --config_file ./example/example.cfg
+
+
+3. view output file.
 ------------------------
 
-HTMLファイルができていますか？
+Are HTML files created?
 
 .. code-block:: bash
 
-  {paplot をインストールしたディレクトリ}
+  {path to the paplot installed directory}
     └ tmp
-        ├ DUMMY
-        │   ├ graph_mut.html    <--- mutation-matrix グラフ
-        │   ├ graph_qc.html     <--- qc グラフ
-        │   └ graph_ca.html     <--- ca グラフ
+        ├ demo
+        │   ├ graph_ca.html            <--- CA graph
+        │   ├ graph_mut.html           <--- mutation-matrix graph
+        │   ├ graph_pmsignature2.html  <--- pmsignature (number is signature number)
+        │   ├ graph_pmsignature3.html
+        │   ├ graph_pmsignature4.html
+        │   ├ graph_pmsignature5.html
+        │   ├ graph_pmsignature6.html
+        │   ├ graph_qc.html            <--- QC graph
+        │   ├ graph_signature2.html    <--- signature (number is signature number)
+        │   ├ graph_signature3.html
+        │   ├ graph_signature4.html
+        │   ├ graph_signature5.html
+        │   └ graph_signature6.html
         │
-        ├ js          <--- この4つのディレクトリはHTMLファイルを表示するために必要です。消さないでください。
+        ├ js          <--- These four directories are necessary to display HTML files. do not erase.
         ├ layout
         ├ lib
         ├ style
-        |
-        └ index.html             <--- このファイルを web ブラウザで開いてください。
+        │
+        └ index.html             <--- Open this file in web browser.
 
 
-| HTMLファイルを web ブラウザで開いてください。
+| Open index.heml file in web browser.
 |
-| ※HGCスパコン等、サーバ上で実行した場合はファイルをローカルに転送するか、サーバ上の仮想ウィンドウ(NoMachime等)で表示してください。
-|   ローカルに転送する場合は、:file:`tmp` ディレクトリを丸ごとコピーしてください。
+| Note) When running on a server such as HGC supercomputer, transfer the file locally or display it with virtual window (NoMachime etc.) on the server.
+|       To transfer locally, please copy the whole :file:`tmp` directory.
 | 
-| 次のように見えていますか?
+| Is it displayed as follows?
 | 
-| **QC グラフ**
+| **QC graph**
 
-.. image:: image/qc_dummy.png
+.. image:: image/qc_dummy.PNG
   :scale: 100%
 
-| **CA グラフ**
+| **CA graph**
 
-.. image:: image/sv_dummy.png
+.. image:: image/sv_dummy.PNG
   :scale: 100%
 
-| **mutation-matrix グラフ**
+| **mutation-matrix graph**
 
-.. image:: image/mut_dummy.png
+.. image:: image/mut_dummy.PNG
   :scale: 100%
 
-| それぞれのグラフの使い方は :doc:`how to use graphs<use_graph>` を参照してください。
+| **signature graph** |new|
+
+.. image:: image/sig_dummy.PNG
+  :scale: 100%
+
+| **pmsignature graph** |new|
+
+.. image:: image/pmsig_dummy.PNG
+  :scale: 100%
+
+| For how to use each graph, refer to `how to use graphs <./index.html#how-to-toc>`_ .
 |
+
+.. |new| image:: image/tab_001.gif

@@ -1,78 +1,83 @@
 ***************************
-グラフをカスタマイズする
+Customize graph
 ***************************
 
-1. 変更方法
+1. How to change
 =======================
 
-| 色やテキストなど、グラフの見た目はある程度変更することができます。
-| グラフの見た目は2つのファイルで設定します。
+| The appearance of graphs such as colors and text can be changed to some extent.
+| The appearance of the graph is set with two files.
 | 
-| 1つ目はconfigファイルです。
-| 入力データに依存する要素 （グラフのバーの色や凡例、ポップアップウィンドウの文字列など）はconfigファイルで設定します。
-| configファイルの記入例は以下を参照ください。
+| The first is the **config** file.
+| Elements that depend on input data (such as the color and legend of the graph's bar and the character string of the popup window) are set in the config file.
+| For an example of config file entry please refer to the following.
 |
 
  - :doc:`config`
  - :doc:`config_qc` 
  - :doc:`config_ca` 
- - :doc:`config_mut` 
+ - :doc:`config_mat` 
+ - :doc:`config_signature` 
+ - :doc:`config_pmsignature` 
 
-| 2つ目はstyleファイルです。
-| 入力データに依存しない要素を設定します。
-| ここでは、styleファイルについて記載します。
+| The second is the **style** file.
+| Set elements that do not depend on input data.
+| Here, we describe the style file.
 |
 
-1-1. styleファイルを編集する
+1-1. Edit style file
 ---------------------------------
 
-``{paplotをインストールしたディレクトリ}/example/default.js``
+Here is the default style file.
 
-このファイルをコピーして ``{paplotをインストールしたディレクトリ}/example/mystyle.js`` というファイルを作成します。
+``{path to the paplot installed directory}/example/default.js``
 
-※ファイル名は任意ですが、拡張子は ``.js`` にしてください。
+Copy this file and create a new style file.
 
-作成したファイルを開いて変更します。
+Here we create it as an example. ``{path to the paplot installed directory}/example/mystyle.js``
+
+* The file name is arbitrary, but please make sure the extension is ``.js``.
+
+Open the modified file and change it.
 
 .. note::
 
-  色の指定はRGBもしくは色名で指定することができます。
+  Color can be specified by RGB or color name.
   
   .. code-block:: javascript
   
-    // RGBで指定する場合
+    // specifying with RGB
     bar_select_color: "#1F77B4",
-    // color nameで指定する場合
+    // specifying by color name
     bar_select_color: "red",
   
-  **RGBで指定する場合**
+  **When specifying with RGB**
   
-  | Red → Green → Blueの順に ``00～FF`` まで、6桁の16進表記で指定し、先頭に ``#`` をつけてください。
-  |
+  | Specify Red → Green → Blue in hexadecimal notation in order, followed by ``#`` at the beginning.
   
-  **色名(カラーネーム)について**
+  **About color name***
   
-  | UNIX X11カラーといい、わかりやすくするために140色に名称がついています。
-  | ここで定義されている色名であれば、RGB値の代わりに指定することができます。
+  | It is called UNIX X11 color and has a name of 140 colors to make it easy to understand.
+  | If it is a color name defined here, it can be specified instead of the RGB value.
   | 
   | https://www.w3.org/TR/css3-color/#svg-color
   
 
-1-2. 設定ファイルを編集する
+1-2. Edit configuration file
 ---------------------------------
 
-``{paplotをインストールしたディレクトリ}/example/example.cfg``
+Change the config file to use the style file created this time.
 
-このファイルを開いて次の箇所を変更します。
+``{path to the paplot installed directory}/example/example.cfg``
 
-スタイルファイルを今回作成したものを使用するように変更します。
+Open this file and change the following:
 
 .. code-block:: cfg
 
   [style]
-  path = {paplotをインストールしたディレクトリ}/example/mystyle.js
+  path = {path to the paplot installed directory}/example/mystyle.js
   
-  # ~/tmpにインストールした場合はこのようになる
+  # When paplot is installed in ~/tmp, write like this
   # ~/tmp/paplot/example/mystyle.js
 
 
@@ -81,16 +86,16 @@
 
 .. code-block:: bash
 
-  cd {paplotをインストールしたディレクトリ}
-  pa_plot qc "example/qc/*.csv" ./tmp style_test --config_file example/example.cfg
+  cd {path to the paplot installed directory}
+  paplot qc "example/qc/*.csv" ./tmp style_test --config_file example/example.cfg
 
 
-1-4. 出力されたファイルを変更する
+1-4. Change the output file
 --------------------------------------
 
-上で作成したファイルは次のディレクトリにコピーされています。
+The file created above is copied to the following directory.
 
-すでにpaplotで出力したHTMLファイルを変更する場合、スタイルファイル (mystyle.js) を編集し、再読み込み(ブラウザで ``F5`` )すれば反映されます。
+If you change the HTML file already output by paplot, it will be reflected if you edit the style file (mystyle.js) and reload it (``F5`` on the browser).
 
 .. code-block:: bash
 
@@ -102,11 +107,11 @@
     ├ layout
     ├ lib
     └ style
-        ├ default.js     <--- デフォルト
-        └ mystyle.js     <--- 今回作成したファイル
+        ├ default.js     <--- default file
+        └ mystyle.js     <--- created file
 
 
-2. 設定項目
+2. Setting items
 =======================
 
 .. code-block:: javascript
@@ -115,21 +120,30 @@
   style_general = {
       font_family: "'Helvetica Neue', Helvetica, Arial, sans-serif",
   }
-      
+  
   // style of quality check graphs
   style_qc = {
       brush_border_y_color: "#DDDDCC",
       brush_border_y_opacity: 0.5,
       plot_border_y_color: "#DDDDCC",
       plot_border_y_opacity: 0.2,
+      title_y_font_size: "12px",
+      legend_title_font_size: "16px",
+      legend_text_font_size: "12px",
   };
-
+  
   // style of genome-wide bar plot
   style_sv_bar = {
       // title's text options
-      title_top: "Genome-wide CAs identify",
       title_y: "samples with CA breakp.",
+      title_y_font_size: "12px",
+  
       title_x: "Chromosome",
+      title_x_font_size: "14px",
+      
+      legend_title: "Genome-wide CAs identify",
+      legend_title_font_size: "16px",
+      legend_text_font_size: "12px",
       
       border_x_main_color: "#E0E0E0",
       border_x_main_width: "1px",
@@ -137,8 +151,10 @@
       border_x_sub_width: "1px",
       border_y_color: "#DDDDCC",
       border_y_opacity: 0.5,
+      
+      axis_x_font_size: "9px",
   };
-
+  
   // style of thumbnails
   style_sv_thumb = {
       // circular sector's color options
@@ -149,7 +165,7 @@
       link_width: "1px",
       link_opacity: 1.0,
   };
-
+  
   // style of detail image (on click)
   style_sv_detail = {
       // windows header
@@ -176,38 +192,112 @@
       link_select_width: "3px",
       link_select_opacity: 1.0,
   };
-
+  
   // style of mutaion-matrix
   style_mut = {
       // title's text options
       title_sample: "Sample",
+      title_sample_font_size: "14px",
       title_sample_y: "Number of mutation",
+      title_sample_y_font_size: "12px",
       virtical_border_x_color: "#CCCCEE",
       virtical_border_x_width: "1px",
       virtical_border_y_color: "#DDDDCC",
       virtical_border_y_opacity: 0.5,
       
       title_gene: "Genes",
-      title_gene_y1: "% Samples",
-      title_gene_y2: "with mutation",
+      title_gene_font_size: "14px",
+      title_gene_y1: "% Samplesg",
+      title_gene_y2: "with mutationg",
+      title_gene_y1_font_size: "12px",
+      title_gene_y2_font_size: "12px",
       horizon_border_x_color: "#CCCCEE",
       horizon_border_x_width: "1px",
       horizon_border_y_color: "#DDDDCC",
       horizon_border_y_opacity: 0.5,
       
-      func_title: "functions",
+      // legend
+      legend_title: "functions",
+      legend_title_font_size: "16px",
+      legend_text_font_size: "12px",
       
+      // gene
+      gene_text_font_size: "9px",
+      
+      // subplot
       sub_border_color: "#FFFFFF",
       sub_border_width: "1px",
       
   };
+  
+  // style of signature
+  style_signature = {
+      // stack-integral
+      title_integral: "Signature integral",
+      title_integral_font_size: "16px",
+      title_integral_y: "membership",
+      title_integral_y_font_size: "12px",
+      legend_integral_title_font_size: "16px",
+      legend_integral_text_font_size: "12px",
+      
+      // stack-rate
+      title_rate: "Signature rate",
+      title_rate_font_size: "16px",
+      title_rate_y: "membership",
+      title_rate_y_font_size: "12px",
+      legend_rate_title_font_size: "16px",
+      legend_rate_text_font_size: "12px",
+      
+      //stack-common
+      plot_border_y_color: "#DDDDCC",
+      plot_border_y_opacity: 0.5,
+      
+      // signature
+      signature_title_font_size: "12px",
+      signature_title_y: "probaility",
+      signature_title_y_font_size: "12px",
+      signature_title_x_font_size: "12px",
+      border_y_color: "#DDDDCC",
+      border_y_opacity: 0.5,
+  };
+  
+  // style of pmsignature
+  style_pmsignature = {
+      // stack-integral
+      title_integral: "Signature integral",
+      title_integral_font_size: "16px",
+      title_integral_y: "membership",
+      title_integral_y_font_size: "12px",
+      legend_integral_title_font_size: "16px",
+      legend_integral_text_font_size: "12px",
+      
+      // stack-rate
+      title_rate: "Signature rate",
+      title_rate_font_size: "16px",
+      title_rate_y: "membership",
+      title_rate_y_font_size: "12px",
+      legend_rate_title_font_size: "16px",
+      legend_rate_text_font_size: "12px",
+      
+      //stack-common
+      plot_border_y_color: "#DDDDCC",
+      plot_border_y_opacity: 0.5,
+      
+      // signature
+      signature_alt_font_size: "10px",
+      signature_ref_font_size: "10px",
+      signature_strand_font_size: "10px",
+      signature_title_font_size: "12px",
+  };
   })();
 
 
-| 透過度(opacity) について、設定値と見た目は次の通りです。
-| 0~1の間で設定することができ、0で透明、1で不透明となります。
+
+| About the transparency (opacity), the setting values and appearance are as follows.
+| It can be set between 0 and 1, 0 means transparent, 1 means opaque.
 |
 
 .. image:: image/link-opacity.PNG
   :scale: 100%
   
+.. |new| image:: image/tab_001.gif

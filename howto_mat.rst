@@ -1,28 +1,28 @@
 ========================
-mutation-matrix グラフ
+mutation-matrix graph
 ========================
 
-mutation-matrix グラフでは検出したmutation について縦軸を遺伝子(Gene), 横軸をサンプル(Sample) として、変異タイプ別に表示します。
+In the mutation-matrix graph, the mutated type is displayed with the vertical axis as the gene (Gene) and the horizontal axis as the sample (Sample) for the detected mutation.
 
-:横長の棒グラフ(Sample):
-  サンプルごとに検出されたmutationの数を表示します。
+:Horizontal bar chart (Sample):
+  Displays the number of mutations detected for each sample.
 
-:縦長の棒グラフ(Gene):
-  遺伝子ごとのmutation数をサンプル数における割合(%)で表示します。
+:Vertical bar chart (Gene):
+  Displays the number of mutations for each gene as a percentage of the number of samples.
 
-  - 同一のサンプルが同じ遺伝子に対して複数のmutationを持っていた場合、mutation数を1としてカウントします。
-  - 同一のサンプルが同じ遺伝子に対して複数の変異タイプを持っていた場合、優先順位の高い変異タイプにカウントします。
-
+  - If the same sample has multiple mutations for the same gene, count the number of mutations as 1.
+  - If the same sample has multiple mutation types for the same gene, count it as a mutation type with a higher priority.
+  
 :functions:
-  変異タイプ(func)別に色分けして表示します。表示したくない変異タイプがある場合、functions のチェックボックスからチェックを外すことで除外できます。
-
+  Mutation type (func) is displayed separately color-coded. If there are mutation types that you do not want to display, you can exclude them by unchecking the checkbox of functions.
+  
 :sub plot:
-  mutationとは別にサンプルに対するデータがある場合、subplotとして表示することができます。このファイルは ``paplot`` コマンド実行前に設定ファイルに記入しておく必要があります。
+  If there is data for the sample separately from mutation, it can be displayed as subplot. This file must be entered in the configuration file before executing the ``paplot`` command.
 
 .. image:: image/mut_operation1.PNG
   :scale: 100%
 
-**操作方法**
+**Method of operation**
 
 .. image:: image/mut_operation2.PNG
   :scale: 100%
@@ -33,27 +33,27 @@ mutation-matrix グラフでは検出したmutation について縦軸を遺伝�
 1. axis-X sort 
 ---------------
 
-横軸の並び順を変更します。
+Change the order of the horizontal axis.
 
- - none ソートしない
- - ASC 昇順
- - DESC 降順
+ - none ... Do not sort
+ - ASC ... ascending order
+ - DESC ... descending order
 
-以下の要素でソートでき、複数ソート可能です。
+It can sort by the following elements, and it can sort multiple.
 
-:SampleID: サンプルの名前順
-:Mutation num.: サンプルごとのmutation数
-:Genes: 遺伝子ごとの変異数。ASC/DESCどちらかを選択したのち、横のリストボックスからGene名を選択し、[add sort key] ボタンをクリックしてください。
+:SampleID: Sort by name of sample
+:Mutation num.: Number of mutations per sample
+:Genes: Number of mutations per gene. After selecting either ASC/DESC, select the Gene name from the list box next to it and click the [add sort key] button.
 :automatic Gantt-chart:
-  自動的にGantt-chartを作成します。
-  と、いっても技術者におなじみのガントチャートではありません。次で説明します。
-  使用する遺伝子の数を横のエディットボックスに入力したのち、[Gantt-chart] ボタンをクリックしてください。
+  We will create a Gantt chart automatically.
+  Enter the number of genes to use in the horizontal edit box and click the [Gantt-chart] button.
+  What is Gantt-chart? (It is not a general meaning.)
 
 **Gantt-chart**
 
-| 縦軸を遺伝子(Gene)の変異数の多い順に並べ、横軸をその遺伝子の変異を持っているかどうかで並び替えます。
-| まず、先頭の遺伝子から並べ、指定された遺伝子の数だけ繰り返します。
-| 検出された遺伝子の数だけ繰り返すのが理想ですが、処理が重くなるため、関心のある遺伝子までに絞ったほうが処理が早くなります。
+| Place the ordinate in descending order of the number of mutations of genes (Gene), and sort the abscissa according to whether or not the mutation of that gene is possessed.
+| First, arrange from the top gene and repeat as many as the number of genes specified.
+| It is ideal to repeat as many times as the number of detected genes, but as processing becomes heavier, processing will be faster if you narrow down to the gene of interest.
 |
 
 .. image:: image/mut_operation3.PNG
@@ -62,31 +62,31 @@ mutation-matrix グラフでは検出したmutation について縦軸を遺伝�
 2. axis-Y sort
 ----------------
 
-縦軸の並び順を変更します。
+Change the order of the vertical axis.
 
- - none ソートしない
- - ASC 昇順
- - DESC 降順
+ - none ... Do not sort
+ - ASC ... ascending order
+ - DESC ... descending order
 
-以下の要素でソートでき、複数ソート可能です。
+It can sort by the following elements, and it can sort multiple.
 
-:Mutation num.: 遺伝子ごとのmutation数
-:Gene name: 遺伝子の名前順
+:Mutation num.: Number of mutations per gene
+:Gene name: Sorted by gene name
 
 
 3. sample filter
 ------------------
 
-| 横長の棒グラフ(Sample)の縦軸の最大値を設定します。
+| Sets the maximum value of the vertical axis of the horizontal bar chart (Sample).
 |
-| いくつかのサンプルだけ飛びぬけて変異数が多く、他はそれほど変異がないような場合、この機能を使用することで、グラフが見やすくなることがあります。
-| 表示したい最大値を横のエディットボックスに入力したのち、[update filter] ボタンをクリックしてください。
-| 空白にすると、すべてを表示します。（初期値）
-|
+| In some cases where only a few samples jump out and the number of mutations is large and others are not so mutated, using this function may make the graph easier to see.
+| Enter the maximum value you want to display in the horizontal edit box, then click the [update filter] button.
+| If it is left blank, it will show everything. (initial value)
+| 
 
-**フィルター適用前と適用後**
+**Before and after filter application**
 
-| 最大値を200に設定した場合の表示例
+| Example of display when maximum value is set to 200.
 | 
 
 .. image:: image/mut_operation4.PNG
@@ -96,9 +96,9 @@ mutation-matrix グラフでは検出したmutation について縦軸を遺伝�
 4. genes filter
 -----------------
 
-縦軸に表示する遺伝子に対してフィルタを設定します。
+Set the filter for the gene displayed on the vertical axis.
 
-:Rate: 検出された遺伝子のサンプル数における割合(%)。初期値は0%（フィルタリングなし）
-:Display maximum: 表示する遺伝子の最大数。
+:Rate: Percentage of the number of samples of the detected genes (%). The initial value is 0% (no filtering)
+:Display maximum: Maximum number of genes to display.
 
-いずれも横のエディットボックスに入力したのち、[update filter] ボタンをクリックしてください。
+After inputting to both sides in the edit box, please click the [update filter] button.

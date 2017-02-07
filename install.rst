@@ -2,67 +2,67 @@
 install
 ************************
 
-| paplotは次のマシンで動作します。
+| Paplot will run on the next machine.
 |
 
- * Linux系サーバ (HGCスパコン含), Linux ディストリビューション
+ * Linux server (include HGC supercomputer), Linux Distribution
  * MacOS X
  * Windows
 
-| paplotを実行するにはpython 2.7が必要です。
-| (python 2.6 は未検証)
+| You need python 2.7 to run paplot.
+| (Python 2.6 is unverified)
 |
 
- * :ref:`Linux系の場合 (HGCスパコン, cygwin含) <linux>`
- * :ref:`MacOS Xの場合 <linux>`
- * :ref:`Windowsの場合 <windows>`
+ * :ref:`For Linux (include HGC supercomputer, cygwin)<linux>`
+ * :ref:`For MacOS X<macosx>`
+ * :ref:`For Windows<windows>`
 
 .. _linux:
 
 ================================================
-Linux系の場合 (HGCスパコン, cygwin含)
+For Linux (include HGC supercomputer, cygwin)
 ================================================
 
-1. paplot のインストール
+1. install paplot
 --------------------------
 
 .. code-block:: bash
 
-  cd {install したいディレクトリ}
+  cd {directory for the installation}
   git clone -b master https://github.com/Genomon-Project/paplot.git
   cd paplot
 
   python setup.py build install
   
-  # 上のコマンドでエラーが出る場合
+  # If you get an error with the above command, try this
   export PATH=~/.local/bin/:$PATH
   export LD_LIBRARY_PATH=~/.local/lib/:$LD_LIBRARY_PATH
   python setup.py build install --user
 
-| 正しくインストールされたか確認します。
+| check for installation
 |
 
 .. code-block:: bash
 
-  pa_plot conf
+  paplot conf
   **********************
      hello paplot !!!
   **********************
 
-  (デフォルト設定値が表示される)
+  (The contents of the default setting will be displayed after this)
 
-| このような表示が出れば成功です。
+| It will be successful if such a display appears.
 | 
-| インストールが終わったら、:doc:`quick_start` をお試しください。
+| After installation, try :doc:`quick_start`.
 | 
 
 .. note::
   
-  PATH設定を忘れないようにする
+  Set PATH
   
-  | ↑でexport設定したPATHとLD_LIBRARY_PATHはログアウトすると忘れてしまいます。
-  | 再ログイン時に再設定されるよう設定ファイルに記入しておくことをお勧めします。
-  | ``~/.bashrc`` もしくは ``~/.bash_profile`` ファイルに次の2行を記入してください。
+  | Environment variables PATH and LD_LIBRARY_PATH are clearUse key to move to the last line. with logout.
+  | It is better to write configration file, make to re-set at login again.
+  | Write following two lines to file ``~/.bashrc`` or ``~/.bash_profile``.
   |
 
   .. code-block:: bash
@@ -71,120 +71,121 @@ Linux系の場合 (HGCスパコン, cygwin含)
     export LD_LIBRARY_PATH=~/.local/lib/:$LD_LIBRARY_PATH
   
 
+.. _macosx:
 
 ================================================
-MacOS Xの場合
+For MacOS X
 ================================================
 
-1. ソースファイルのダウンロード
+1. Download source file
 ------------------------------------
 
-| paplotのサイトから最新版の ``Source code (zip)`` をダウンロードします。
+| Download the latest version ``Source code (zip)`` from the paplot site.
 |
 
 https://github.com/Genomon-Project/paplot/releases/
 
-| ``git`` コマンドが使える方は ``git clone -b master https://github.com/Genomon-Project/paplot.git`` でもよいです。
+| If you can use the ``git`` command, you can use ``git clone -b master https://github.com/Genomon-Project/paplot.git``.
 |
 
-2. paplot のインストール
+2. install paplot
 --------------------------
 
-| ターミナルを起動してダウンロードしたディレクトリに移動します。
+| Start up the terminal and change directory to the downloaded directory.
 | 
-| 「ターミナル.app」がDockの中にない場合、次からたどることができます。
-| Finder → 「移動」メニュー → 「アプリケーション」を選択 → 「ユーティリティ」ディレクトリを開く → 「ターミナル」を起動
+| If "Terminal.app" is not in the Dock, you can follow from the next.
+| Finder → "Move" menu → select "Application" → Open "Utility" → Run "Terminal"
 | 
-| <user name>は自分のユーザ名です。
-| ``whoami`` コマンドで確認できます。
+| <user name> is your user-name.
+| Your user-name can check with ``whoami`` command.
 |
 
 .. code-block:: bash
 
-  cd {downloadしたディレクトリ}
-  # 大抵は以下でOKです。
-  # cd /Users/<user name>/Downloads/paplot-devel
+  cd {downloaded directory}
+  # Mostly it is below
+  # cd /Users/<user name>/Downloads/paplot-<version>
 
 
-| インストールします。
+| Install paplot.
 |
 
 .. code-block:: bash
   
   python setup.py build install --user
 
-3. PATHの設定
+3. setting PATH
 ----------------
 
-| このままではターミナルは ``pa_plot`` がどこにあるかわからないので、インストールされているところにPATHを通します。
-| 大抵、ここにあります。
+| Add paplot to PATH with terminal.
+| Usually, paplot is installed below.
 |
 
 ``/Users/<user name>/Library/Python/2.7/bin``
 
 .. note::
 
-  | ここにない場合は ``find / -name pa_plot`` とコマンドを入力してインストールされているところを探します。
+  | If it does not exist above, find with ``find / -name paplot`` command.
   |
-  | 4つ見つかるはずです。
-  | このうち、downloadしたディレクトリは使用しません。
+  | You should find four.
+  | Use installed directory.
   | 
 
   .. code-block:: bash
     
-    {installしたディレクトリ}/bin/pa_plot               <--- ココです
-    {installしたディレクトリ}/lib/python2.7/site-packages/paplot-0.2.6devel-py2.7.egg/EGG-INFO/scripts/pa_plot
-    {downloadディレクトリ}/paplot-devel/pa_plot
-    {downloadディレクトリ}/paplot-devel/build/scripts-2.7/pa_plot
+    {installed directory}/bin/paplot               <--- Here !
+    {installed directory}/lib/python2.7/site-packages/paplot-0.2.6devel-py2.7.egg/EGG-INFO/scripts/paplot
+    {downloaded directory}/paplot-<version>/paplot
+    {downloaded directory}/paplot-<version>/build/scripts-2.7/paplot
   
 
 .. code-block:: bash
 
-  export PATH={installしたディレクトリ}/bin:$PATH
-  export LD_LIBRARY_PATH={installしたディレクトリ}/lib:$LD_LIBRARY_PATH
+  export PATH={installed directory}/bin:$PATH
+  export LD_LIBRARY_PATH={installed directory}/lib:$LD_LIBRARY_PATH
   
-  # 大抵は以下でOKです。
-  # <user name>は自分のユーザ名に置き換えてください。
+  # Mostly I will pass below
+  # Replace <user name> with your user name.
   # export PATH=/Users/<user name>/Library/Python/2.7/bin:$PATH
   # export LD_LIBRARY_PATH=/Users/<user name>/Library/Python/2.7/lib:$LD_LIBRARY_PATH
 
 
-| 正しくインストールされたか確認します。
+| check for installation
 |
 
 .. code-block:: bash
 
-  pa_plot conf
+  paplot conf
   **********************
      hello paplot !!!
   **********************
 
-  (デフォルト設定値が表示される)
+  (The contents of the default setting will be displayed after this)
 
-| このような表示が出れば成功です。
-|
-| インストールが終わったら、:doc:`quick_start` をお試しください。
+| It will be successful if such a display appears.
+| 
+| After installation, try :doc:`quick_start`.
 | 
 
 .. note::
   
-  PATH設定を忘れないようにする
+  Set PATH
   
-  | ↑で設定したPATHは再起動すると忘れてしまうので、
-  | 起動するたびに ``export PATH=...`` コマンドを入力する必要があります。
-  | ここでは、起動しても自動的に再設定されるようにします。
+  | Environment variable PATH is clear with logout.
+  | So, You need to enter the ``export PATH = ...`` command every time you start machine.
+  | Make sure to reset it automatically.
   |
-  | 設定ファイルを作成します。
+  | Create configratuin file with the following command.
   |
   
   .. code-block:: bash
   
     vi ~/.bash_profile
   
-  | ファイルが開いたら ``i`` と入力して編集モードにします。
-  | ファイルにすでに何か記入されていたら ``↓`` キーで最後の行に移動します。
+  | After the file opens, type ``i`` to enter edit mode.
+  | If something is already written in the file, use ``Down`` key to move to the last line.
   | 
-  | <user name>は自分のユーザ名です。
+  | <user name> is your user-name.
   |
   
   .. code-block:: bash
@@ -192,86 +193,87 @@ https://github.com/Genomon-Project/paplot/releases/
     export PATH=/Users/<user name>/Library/Python/2.7/bin:$PATH
     export LD_LIBRARY_PATH=/Users/<user name>/Library/Python/2.7/lib:$LD_LIBRARY_PATH
   
-  | PATHの設定で入力したものと同じパスを入力してください。
-  | 入力したら ``ESC`` キーを押して、編集モードから抜けます。その後、``:wq`` と入力して保存して終了します。
+  | Enter the same path as entered in PATH setting.
+  | After entering it, exit edit mode by pressing ``ESC`` key. Then type ``:wq`` to save and exit.
   |
   
 
 .. _windows:
 
 ====================================
-Windows系の場合
+For Windows
 ====================================
 
-1. Pythonのインストール
+1. Install python
 ---------------------------
 
-| winPython もしくはPython(x,y)をインストールするのが手軽だと思います。
-| cygwinでも動きます。
-| cygwinの場合は :ref:`Linux系の場合 (HGCスパコン, cygwin含) <linux>` を参照してください。
+| It is easy to install winPython or Python(x,y).
+| It works even with cygwin.
+| If use cygwin, refer to :ref:`For Linux (include HGC supercomputer, cygwin)<linux>`.
 |
 
  * winPython http://winpython.github.io/
  * Python(x,y) http://python-xy.github.io/
 
-| python 2.7.10 で動作確認済みです。
+| Paplot is confirmed in python 2.7.10.
 | 
 
-2. paplot のインストール
+2. Install paplot
 -----------------------------
 
-| paplotのサイトから最新版の ``Source code (zip)`` をダウンロードします。
-| ダウンロードしたファイルは適当なフォルダに解凍します。
+| Download the latest version ``Source code (zip)`` from the paplot site.
+| Unzip the downloaded file into an arbitrary folder.
 |
 
 https://github.com/Genomon-Project/paplot/releases/
 
-| インストールしたフォルダにコマンドプロンプトがありますので、起動します。
-| WinPython-64bit-3.5.1.2 を標準でインストールした場合、ここにあります。
+| Launch a command prompt that exists in the folder where you installed python.
+| When installing WinPython-64bit-3.5.1.2 as a standard, it is next. (Windows7)
 | 
 
 ``C:\\Program Files\\\WinPython-64bit-2.7.10.2\\WinPython Command Prompt.exe``
 
-| 起動した画面に以下を入力します。
+| Enter the following on the command prompt.
 | 
 
 .. code-block:: bash
 
-  cd {zipを解凍したフォルダ}
+  cd {unziped direcotry}
   python setup.py build install
 
 
-| Windowsの場合、 ``pa_plot`` コマンドにパスが通っていないのでバッチファイルを使用します。
-| zipを解凍したフォルダに ``pa_plot.cmd`` がありますので、ノートパッド等テキストエディタで開いて編集します。
+| In the case of windows, use a command file.
+| There is ``paplot.cmd`` file in the unzipped paplot folder. Open it with a text editor such as Notepad and edit it.
 | 
 
 .. code-block:: bash
 
-  set pa_plot="C:\Program Files\WinPython-64bit-2.7.10.2\python-2.7.10.amd64\Scripts\pa_plot"
+  set paplot="C:\Program Files\WinPython-64bit-2.7.10.2\python-2.7.10.amd64\Scripts\paplot"
 
-| pa_plotの実際の場所を記入してください。
-| 数字はインストールしたpythonのバージョンにより変化します。
+| Please write in the actual location of paplot.
+| Path changes according to version of python.
 | 
-| 編集したバッチファイルをpythonコマンドプロンプトと同じフォルダにコピーします。
+| Copy the edited  ``paplot.cmd`` file to the same folder as the python command prompt.
 | 
-| pythonコマンドプロンプトで、先ほど作成したバッチファイルを実行します。
+| At the python command prompt, execute the copied ``paplot.cmd`` file .
 
 .. code-block:: bash
 
-  >pa_plot.cmd conf
+  paplot conf
   **********************
      hello paplot !!!
   **********************
 
-  (デフォルト設定値が表示される)
+  (The contents of the default setting will be displayed after this)
 
-| このような表示が出れば成功です。
+| It will be successful if such a display appears.
 | 
-| **注意：Windows標準のコマンドプロンプトでは動作しません。**
-| **必ずPythonのコマンドプロンプトを使用してください。**
+| **Caution：It does not work at the Windows standard command prompt.**
+| **Be sure to use the Python command prompt.**
 | 
-| 以降、``pa_plot`` コマンドは ``pa_plot.cmd`` と読み替えてください。
+| From now on, replace ``paplot`` command with ``paplot.cmd``.
 | 
-| インストールが終わったら、:doc:`quick_start` をお試しください。
+| After installation, try :doc:`quick_start`.
 | 
 
+.. |new| image:: image/tab_001.gif

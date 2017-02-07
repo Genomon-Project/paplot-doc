@@ -1,30 +1,30 @@
 ==============
-CA グラフ
+CA graph
 ==============
 
-| CA (Chromosomal Aberration) グラフではStructural Variation (SV) 等、Chromosome間の変異を円形のplotで可視化し、棒グラフでその分布を表示します。
-| 
+| On the CA (Chromosomal Aberration) graph, we visualize mutations between Chromosome, such as Structural Variation (SV), with circular plot and display its distribution with bar graph.
+|
 
-* 棒グラフでは全サンプルでbreakpointを集計した数を表示します。
-* 円形のplotでは、サンプルごとにbreakpoint1と2を線でつないで表示します。
+* In the bar graph, we display the total number of breakpoints in all samples.
+* In the circular plot, breakpoints 1 and 2 are displayed with a line for each sample.
 
-| 棒グラフを選択すると選択されたgenome領域にbreakpointを持つサンプルが選択されます。
-| 選択方法は「ハイライト」と「選択したもののみ表示（他を隠す）」の2とおりあり、先頭のオプションボタンで選択できます。
+| When a bar graph is selected, a sample with a breakpoint in the selected genome area is selected.
+| There are two selection methods, "Highlight" and "Show only selected items (Hide others)", which can be selected with the first option button.
 |
 
 .. image:: image/sv_operation1.PNG
   :scale: 100%
 
 
-| 棒グラフのstackは2つあり、2つのbreak pointがchromosome を超えているか、もしくは同一 chromosome 内かで色を分けています。
-| チェックを外すと、その要素は表示されません。
+| There are two stacks in the bar chart, and the color is separated depending on whether two break points are beyond the chromosome or within the same chromosome.
+| If unchecked, that element is not displayed.
 |
 
 .. image:: image/sv_operation2.PNG
   :scale: 100%
 
-| サンプルごとの円形のグラフをクリックすると拡大表示します。
-| breakpointをつなぐ線の上にマウスを乗せると詳細を表示します。
+| Click the circle graph for each sample to enlarge it.
+| Show the details by hovering the mouse over the line connecting the breakpoint.
 |
 
 .. image:: image/sv_operation3.PNG

@@ -1,22 +1,22 @@
 **********************************************
-実行手順 (pmsignature) |new|
+Execution method (pmsignature) |new|
 **********************************************
 
-ここでは `pmsignature <https://github.com/friend1ws/pmsignature/>`_ を使用した場合のデータの準備方法を解説します。
+This section explains how to prepare data when using `pmsignature <https://github.com/friend1ws/pmsignature/>`_ .
 
 .. note::
 
-  | 実行前にRの環境構築とpmsignatureおよび関連パッケージのインストールが必要です。
-  | インストールおよび、実行コマンドの詳しい解説は `pmsignature <https://github.com/friend1ws/pmsignature/>`_ を参照ください。
+  | Before execution, it is necessary to build R environment and install pmsignature and related packages.
+  | Please refer to `pmsignature <https://github.com/friend1ws/pmsignature/>`_ for detailed explanation of installation and execution commands.
   |
-  | 別のツールを用いてsignature解析を行った場合は、:ref:`仕様 <json_ind>` に準拠するjsonファイルを別途準備ください。
+  | When signature analysis is performed using another tool, please separately prepare json file conforming to :ref:`specification <json_ind>`.
 
-1. pmsignatureの実行
+1. Run pmsignature
 -----------------------------
 
-pmsignatureを ``type="independent"`` (default) で実行したのち、パラメータを `.Rdata` ファイルに出力します。
+Run pmsignature with option ``type="independent"`` (default) and save parameters to `.Rdata` file.
 
-今回の例では、pmsignatureのサンプルデータを使用しています。
+In this example, sample data of pmsignature is used.
 
 .. code-block:: R
 
@@ -36,44 +36,42 @@ pmsignatureを ``type="independent"`` (default) で実行したのち、パラ�
   resultForSave <- list(Param, Boot)
   save(resultForSave, file="pmsignature_ind3.Rdata")
 
-2. paplotで使用できるように結果ファイルを変換する
+2. Convert result file for use with paplot
 -----------------------------------------------------
 
-1で作成した"pmsignature_ind3.Rdata" ファイルをpaplotで読み込めるように.json形式に変換します。
+Convert the "pmsignature_ind3.Rdata" file created in section 1 to json format so that it can be read by paplot.
 
-変換スクリプトを用意していますので、以下より最新版をダウンロードし、適切な場所に解凍してください。
-インストールの必要はありません。
+We are preparing the conversion script, please download the latest version from the below and unzip it to the appropriate place.
+Installation is not necessary.
 
 https://github.com/Genomon-Project/genomon_Rscripts/releases
 
-
-入力ファイル, 出力したいファイル名の順に引数を渡します。
+Pass arguments in order of input file, file name you want to output.
 
 .. code-block:: bash
 
   R --vanilla --slave --args ./pmsignature_ind3.Rdata ./pmsignature_ind3.json < {path to genomon_Rscripts}/pmsignature/convert_toJson_ind.R
 
-ここで作成した "pmsignature_ind3.json" ファイルをpaplotに入力します。
 
-3. paplotの実行
+3. Run paplot
 -----------------------------
 
-2で作成した"pmsignature_ind3.json" ファイルを使用して、paplot を実行します。上述の方法で実行した場合、configファイルの変更は必要ありません。
+Execute paplot using "pmsignature_ind3.json" file created in section 2. If you execute in the above method, you do not need to change the config file.
 
 .. note::
 
-  backgroundを使用しない場合は、configファイルのbackgroundをFalseに変更してください。
+  If you do not use background, please change the background of the config file to False.
 
 `paplot signature pmsignature_ind3.Rdata ./temp signature_test`
 
 
 .. _json_ind:
 
-[補足] jsonフォーマット
+[Supplement] json format
 -----------------------------
 
-| `example/pmsignature/Nik_Zainal_2012.ind.3.json` ファイルをテキストエディタで開くと次のようになっています。
-| (長いため一部省略しています)
+| Open the sample data `example/pmsignature/Nik_Zainal_2012.ind.3.json` with a text editor, it looks as follows.
+| (Some are omitted because it is long)
 |
 
 .. code-block:: python
@@ -120,52 +118,52 @@ https://github.com/Genomon-Project/genomon_Rscripts/releases
 
 .. image:: image/exec_pmsig1.PNG
 
-**signature描画データ**
+**signature drawing data**
 
 :ref:
-  | signatureの各リファレンスの値。
-  | signatureごと、リファレンスごとにA,C,G,Tの順に値を記述します。描画時に再計算しますので、合計して1になる必要はありません。
-  | 今回の例ではbaseの数が5ですが、3や7など奇数の数値であれば変更可能です。
+  | The value of each reference of signature.
+  | Write values ​​in order of signature, A, C, G, T for each reference. Since recalculation is done at drawing time, there is no need to sum up to 1.
+  | In the case of the above example, number of base is 5. It can be changed if it is an odd number such as 3 or 7.
 
 :alt:
-  | signatureのaltの値。
-  | signatureごとに16個の値を設定します。
-  | 横方向のサイズはref3 (base=5の場合。base=3であればref2, base=7であればref4) のACGTの各値に従うため、altAとaltGについては通常は0を設定します。
+  | The alt value of the signature.
+  | We set 16 values ​​for each signature.
+  | The size in the horizontal direction is set to 0 for altA and altG, since it follows the value of ACGT of ref3 (case of base = 5, ref2 if base = 3, ref4 if base = 7).
 
 :strand:
-  | signatureのstrandの値。
-  | signatureごとにplus, minus2つの値をそれぞれ設定します。
-  | strandが無い場合は `[0,0]` を記入します。
+  | The value of strand of signature.
+  | For each signature, set plus and minus two values respectively.
+  | If there is no strand, enter `[0,0]`.
 
-**積み上げグラフ描画データ**
+**signature drawing data**
 
 :id:
-  | サンプル名リスト
+  | Sample name list
 
 :mutation_count:
-  | サンプルごとのmutation数
-  | 上記の例の場合、PD3851a のmutation数=702, PD3890a のmutation数=2312, PD3904a のmutation数=2096 となります。
+  | Number of mutations per sample.
+  | In the case of the above example, mutation number of PD3851a=702, mutation number of PD3890a=2312, mutation number of =PD3904a2096.
 
 :mutation:
-  | サンプルごと、signatureごとの割合を設定します。 
-  | [sample index, signature index, value] の順に記載します。
+  | Set the percentage for each sample and for each signature.
+  | Write in order of [sample index, signature index, value].
   |
-  | サンプルのindexは id で記載した順に0からカウントします。
-  | 上記の例の場合、PD3851a=0, PD3890a=1, PD3904a=2となります。
+  | The index of the sample is counted from 0 in the order written in id.
+  | In the case of the above example, PD3851a=0, PD3890a=1, PD3904a=2.
   |
-  | signatureのindexも ref で記載した順に0からカウントします。
-  | backgroundを使用する場合、signature1, signature2, ..., backgroundの順にカウントします。
-  | 上記の例の場合、signature1 = 0, signature2 = 1, background = 2となります。
+  | The signature indexes are also counted from 0 in the order in which they are listed in ref.
+  | When using background, count in signature 1, signature 2, ..., background.
+  | In the case of the above example, signature1 = 0, signature2 = 1, background = 2.
 
 .. note::
 
-  key名は変更可能です。key名を変更した場合は設定ファイル ([result_format_pmsignature] key_*)を変更してください。
+  The key name can be changed. If you change the key name, please change the setting file ([result_format_pmsignature] key_*).
 
 .. note::
 
-  jsonとしての形式の厳密さについては、paplotはpythonのjsonパッケージを使用しているため、次のコマンドで読めればOKです。
+  For the strictness of format as json, paplot uses python's json package, so you can read it with the following command.
 
-  python jsonパッケージを使用したファイル確認例 (ファイル名が "Nik_Zainal_2012.ind.3.json" の場合)
+  File verification example using python json package (When the file name is "Nik_Zainal_2012.ind.3.json")
 
   .. code-block:: shell
   

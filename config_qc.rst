@@ -15,12 +15,12 @@ col_opt_mapped_reads       numeric        x           number of mapped reads
 col_opt_total_reads        numeric        x           number of duplicate reads
 col_opt_average_depth      numeric        x           mean of insert size
 col_opt_mean_insert_size   numeric        x           average of depth
-col_opt_ratio_2x           numeric        x           number of read_length_r1
-col_opt_ratio_10x          numeric        x           number of read_length_r2
-col_opt_ratio_20x          0.0～1.0       x           coverage (depth=2)
-col_opt_ratio_30x          0.0～1.0       x           coverage (depth=10)
-col_opt_read_length_r1     0.0～1.0       x           coverage (depth=20)
-col_opt_read_length_r2     0.0～1.0       x           coverage (depth=30)
+col_opt_read_length_r1     numeric        x           number of read_length_r1
+col_opt_read_length_r2     numeric        x           number of read_length_r2
+col_opt_ratio_2x           0.0～1.0       x           coverage (depth=2)
+col_opt_ratio_10x          0.0～1.0       x           coverage (depth=10)
+col_opt_ratio_20x          0.0～1.0       x           coverage (depth=20)
+col_opt_ratio_30x          0.0～1.0       x           coverage (depth=30)
 col_opt_id                 text           x           name that can identify the sample
 =========================  =============  ==========  ==================================
 
