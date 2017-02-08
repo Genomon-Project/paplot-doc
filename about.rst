@@ -2,22 +2,9 @@
 Introduction
 ************************
 
-| Paplot is graph generator from analysis results of genome.
-|
-| For example, you have such a text file by analyzing the genome.
-|
+| Paplot is a suite of prorams to create variety of dynamic and interactive figures.
+| Suppose you have a tab-delimited text file such as the following:
 
-.. image:: image/mutation_list.PNG
-  :scale: 100%
-
-| What do you want to after this?
-| Do you want to create a graph?
-| Do you create charts manually each time?
-| Do you write scripts such as wrote previously?
-| Do you create a graph in time to change the extraction conditions and sort conditions of the data?
-|
-| Paplot will automate these tasks.
-|
 
 Graphs can be created
 --------------------------
