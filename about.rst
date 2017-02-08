@@ -6,22 +6,20 @@ Introduction
 | Suppose you have a tab-delimited text file such as the following:
 
 
-Graphs can be created
+Target visualizaitons
 --------------------------
 
 1. QC (Quality Control) graph
 
-| QC graph reports each bam's quality.
-|
+| QC graph reports qualities of each sequence data (sequencing coverage, alignment ratio, insert sizes and so on).
 
 .. image:: image/qc_dummy.PNG
   :scale: 100%
 
 2. CA (Chromosomal Aberration) graph
 
-| Circos like plot views inter chromosomal aberration, for example Structural Variation (SV).
-| Bar plot views these distribution.
-|
+| Landscape of chromosomal aberrations (e.g., structural variations and gene fusion) can be represented by this graph.
+
 
 .. image:: image/sv_dummy.PNG
   :scale: 100%
