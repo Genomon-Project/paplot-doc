@@ -27,7 +27,7 @@ Commands of pa_plot
   - pmsignature
 
 :input:
-  Input files. You can specify multiple files with wildcards (``*``, ``?``). Please not that the mark mark ``"``  can be set either at the beginning or the end.
+  Input files. You can specify multiple files with wildcards (``*``, ``?``). Please note that the mark mark ``"``  can be set either at the beginning or the end.
 
 .. code-block:: bash
 
@@ -79,7 +79,7 @@ pmsignature     PMSignature         pmsignature  Express mutational signatures i
 3. Output directory
 ---------------------
 
-In the output directory (lspecified in the ``output_dir`` option),
+In the output directory (specified in the ``output_dir`` option),
 you can find the output files with the following configuration.
 
 .. code-block:: bash
