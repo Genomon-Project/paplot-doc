@@ -79,7 +79,7 @@ pmsignature     PMSignature         pmsignature  Express mutational signatures i
 3. Output directory
 ---------------------
 
-In the output directory (specified in the ``output_dir`` option),
+In the output directory (specified at the ``output_dir`` option),
 you can find the output files with the following configuration.
 
 .. code-block:: bash
@@ -95,7 +95,7 @@ you can find the output files with the following configuration.
     │
     └ index.html             <--- Please open this file in a web browser.
 
-Please movew  whole ``{output_dir}`` when you want to move the result,
+Please movew  whole ``{output_dir}`` directory when you want to move the result,
 so as not to destroy the directory structure.
 
 
