@@ -15,7 +15,7 @@ Commands of pa_plot
 
 |
 
-**required**
+**Required**
 
 :subcommand:
   Choose from the following: 
@@ -99,6 +99,6 @@ Please movew  whole ``{output_dir}`` directory when you want to move the result
 so as not to destroy the directory structure.
 
 
-Please refer to the `how to use graphs <./index.html#how-to-toc>`_  for detailed way of seeing the result.
+Please refer to the `how to use graphs <./index.html#how-to-toc>`_  on how to see each graph.
 
 .. |new| image:: image/tab_001.gif
