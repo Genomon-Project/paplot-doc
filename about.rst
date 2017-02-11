@@ -2,8 +2,7 @@
 Introduction
 ************************
 
-| Paplot is a suite of prorams to create variety of dynamic and interactive figures.
-| Suppose you have a tab-delimited text file such as the following:
+| Paplot is a suite of prorams to create various dynamic and interactive figures for cancer genome analysis.
 
 
 Target visualizaitons
@@ -18,7 +17,7 @@ Target visualizaitons
 
 2. CA (Chromosomal Aberration) graph
 
-| Landscape of chromosomal aberrations (e.g., structural variations and gene fusion) can be represented by this graph.
+| Landscape of chromosomal aberrations (e.g., structural variations and gene fusion) can be represented.
 
 
 .. image:: image/sv_dummy.PNG
@@ -26,23 +25,20 @@ Target visualizaitons
 
 3. mutation-matrix graph
 
-| This matrix graph plots mutation number.
-| Virtical axis is gene and Horizontal axis is sample.
-|
+| Mutation-matrix graph shows mutation status for each gene (vertical axis) and sample (horizontal axis).
 
 .. image:: image/mut_dummy.PNG
   :scale: 100%
 
 4. signature |new|
 
-| This reports views each signature of detected mutation.
-| Stacked graph views aggregation of signature.
-|
+| Mutation signatures detected in the cohort and memberships of signatures per sample are represented.
+
 
 .. image:: image/sig_dummy.PNG
   :scale: 100%
 
-`You can use also pmsignature <https://github.com/friend1ws/pmsignature/>`_ .
+You can use also pmsignature <https://github.com/friend1ws/pmsignature/>`_ .
 
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%
