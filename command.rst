@@ -18,7 +18,7 @@ Commands of pa_plot
 **required**
 
 :subcommand:
-  These are sub-commands of paplot. Choose any one from among these.
+  Choose from the following: 
   
   - qc
   - ca
@@ -27,25 +27,26 @@ Commands of pa_plot
   - pmsignature
 
 :input:
-  Input files. Multiple files can be specified with wild-card (``*``, ``?``) . In this case, mark ``"``  at the beginning and end.
+  Input files. You can specify multiple files with wildcards (``*``, ``?``). Please not that the mark mark ``"``  can be set either at the beginning or the end.
 
 .. code-block:: bash
 
-  # Only 1 file
+  # single input file 
   pa_plot qc example/qc/SAMPLE1.qc ./test multi1 --config_file example/example.cfg
   
-  # Multiple files (separeted by , )
+  # multiple input files (separeted by ,)
   pa_plot qc "example/qc/SAMPLE1.qc.csv,example/qc/SAMPLE2.qc.csv" ./test multi1 --config_file example/example.cfg
   
-  # Multiple files (use * )
+  # multiple files (using *)
   pa_plot qc "example/qc/*.csv" ./multi multi1 --config_file example/example.cfg
 
 
 :output_dir:
-  Output directory path. See :ref:`3. Output directory <output>`, for explain of directory components.
+  Output directory path. See :ref:`3. Output directory <output>` for the detail of directory commponents.
+ 
 
 :project_name:
-  Project name. For use title of output files.
+  Project name (used as the title of output files).
 
 ------------------------
 2. Command options
@@ -56,8 +57,9 @@ You can change the following items as options.
 --config_file        Path to the configuration file. If not specified, then use default file.
 --title              Title of the graph
 --ellipsis           Abbreviated name of the graph. It is used for the graph file name. (ex, graph_**ca**.html) It is convenient to set it when outputting multiple files to the same directory.
---overview           Outline of the graph. It displays it in index.html
---remarks            Text to be output in the remarks column. It displays it in index.html. If not specified, the value of the setting file ([style] remarks) is used.
+--overview           Outline of the graph (displayed in the index.html file).
+--remarks            Text shown in the remark section of the index.html file (The default value is set in the setting 
+tto be output in the remarks column. It displays it in index.html. If not specified, the value of the setting file ([style] remarks) is used.
 
 The default values ​​are as follows.
 
