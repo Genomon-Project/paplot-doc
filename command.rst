@@ -58,8 +58,8 @@ You can change the following items as options.
 --title              Title of the graph
 --ellipsis           Abbreviated name of the graph. It is used for the graph file name. (ex, graph_**ca**.html) It is convenient to set it when outputting multiple files to the same directory.
 --overview           Outline of the graph (displayed in the index.html file).
---remarks            Text shown in the remark section of the index.html file (The default value is set in the setting 
-tto be output in the remarks column. It displays it in index.html. If not specified, the value of the setting file ([style] remarks) is used.
+--remarks            Text shown in the remark section of the index.html file (The default value is set at ([style] remarks) in the setting file.
+
 
 The default values ​​are as follows.
 
@@ -79,7 +79,8 @@ pmsignature     PMSignature         pmsignature  Express mutational signatures i
 3. Output directory
 ---------------------
 
-In the location specified in the ``output_dir`` option to output the file with the following configuration.
+In the output directory (lspecified in the ``output_dir`` option),
+you can find the output files with the following configuration.
 
 .. code-block:: bash
 
@@ -92,11 +93,12 @@ In the location specified in the ``output_dir`` option to output the file with t
     ├ lib
     ├ style
     │
-    └ index.html             <--- Please open the file in a web browser.
+    └ index.html             <--- Please open this file in a web browser.
+
+Please movew  whole ``{output_dir}`` when you want to move the result,
+so as not to destroy the directory structure.
 
 
-If you want to move the output files, please move each ``{output_dir}``.
-
-Method of operation of the output file, please refer to the `how to use graphs <./index.html#how-to-toc>`_ .
+Please refer to the `how to use graphs <./index.html#how-to-toc>`_  for detailed way of seeing the result.
 
 .. |new| image:: image/tab_001.gif
