@@ -198,18 +198,18 @@ https://github.com/Genomon-Project/paplot/releases/
 For Windows
 ====================================
 
-1. Install python
+1. Install Python
 ---------------------------
 
-| It is easy to install winPython or Python(x,y).
-| It works even with cygwin.
-| If use cygwin, refer to :ref:`For Linux (include HGC supercomputer, cygwin)<linux>`.
+| To execute paplot in Windows, using winPython or Python(x,y) is recommended.
+| Alternatively, you can use cygwin.
+| If you use cygwin, refer to :ref:`For Linux (include HGC supercomputer, cygwin)<linux>`.
 |
 
  * winPython http://winpython.github.io/
  * Python(x,y) http://python-xy.github.io/
 
-| Paplot is confirmed in python 2.7.10.
+| Paplot is verified in python 2.7.10.
 | 
 
 2. Install paplot
@@ -221,8 +221,8 @@ For Windows
 
 https://github.com/Genomon-Project/paplot/releases/
 
-| Launch a command prompt that exists in the folder where you installed python.
-| When installing WinPython-64bit-3.5.1.2 as a standard, it is next. (Windows7)
+| Launch Command prompt, which you can find in the folder where you installed python.
+| When installing WinPython-64bit-3.5.1.2 as a standard, the command prompt is at the following (Windows7):
 | 
 
 ``C:\\Program Files\\\WinPython-64bit-2.7.10.2\\WinPython Command Prompt.exe``
@@ -236,16 +236,16 @@ https://github.com/Genomon-Project/paplot/releases/
   python setup.py build install
 
 
-| In the case of windows, use a command file.
-| There is ``paplot.cmd`` file in the unzipped paplot folder. Open it with a text editor such as Notepad and edit it.
+| In the case of windows, we have prepared a batch file, ``paplot.cmd``,
+| in the unzipped paplot folder. Open it with a text editor such as Notepad and edit it as:
 | 
 
 .. code-block:: bash
 
   set paplot="C:\Program Files\WinPython-64bit-2.7.10.2\python-2.7.10.amd64\Scripts\paplot"
 
-| Please write in the actual location of paplot.
-| Path changes according to version of python.
+| Please write fill in the actual location of paplot.
+| The path can change according to versions of Python.
 | 
 | Copy the edited  ``paplot.cmd`` file to the same folder as the python command prompt.
 | 
@@ -258,11 +258,11 @@ https://github.com/Genomon-Project/paplot/releases/
      hello paplot !!!
   **********************
 
-  (The contents of the default setting will be displayed after this)
+  (The default setting will be displayed here)
 
 | It will be successful if such a display appears.
 | 
-| **Caution：It does not work at the Windows standard command prompt.**
+| **Caution：It does not work in the Windows standard command prompt.**
 | **Be sure to use the Python command prompt.**
 | 
 | From now on, replace ``paplot`` command with ``paplot.cmd``.
