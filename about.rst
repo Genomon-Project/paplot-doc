@@ -17,28 +17,28 @@ Target visualizaitons
 
 2. CA (Chromosomal Aberration) graph
 
-| Landscape of chromosomal aberrations (e.g., structural variations and gene fusion) can be represented.
+| CA graph represent sample-wise landscape of chromosomal aberrations (e.g., structural variations and gene fusion).
 
 
 .. image:: image/sv_dummy.PNG
   :scale: 100%
 
-3. mutation-matrix graph
+3. Mutation-matrix graph
 
 | Mutation-matrix graph shows mutation status for each gene (vertical axis) and sample (horizontal axis).
 
 .. image:: image/mut_dummy.PNG
   :scale: 100%
 
-4. signature |new|
+4. Signature graph |new|
 
-| Mutation signatures detected in the cohort and memberships of signatures per sample are represented.
+| Signature graph represent mutation signatures identified in the cohort and memberships of signatures per sample.
 
 
 .. image:: image/sig_dummy.PNG
   :scale: 100%
 
-You can use also pmsignature <https://github.com/friend1ws/pmsignature/>`_ .
+Please consult pmsignature <https://github.com/friend1ws/pmsignature/>`_ .
 
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%
