@@ -1,8 +1,8 @@
 ************************
-install
+Install
 ************************
 
-| Paplot will run on the next machine.
+| Paplot runs on:
 |
 
  * Linux server (include HGC supercomputer), Linux Distribution
@@ -10,7 +10,7 @@ install
  * Windows
 
 | You need python 2.7 to run paplot.
-| (Python 2.6 is unverified)
+| (Previous versions of Python have not been tested)
 |
 
  * :ref:`For Linux (include HGC supercomputer, cygwin)<linux>`
@@ -20,10 +20,10 @@ install
 .. _linux:
 
 ================================================
-For Linux (include HGC supercomputer, cygwin)
+For Linux (including HGC supercomputer and cygwin)
 ================================================
 
-1. install paplot
+1. Install paplot
 --------------------------
 
 .. code-block:: bash
@@ -39,7 +39,7 @@ For Linux (include HGC supercomputer, cygwin)
   export LD_LIBRARY_PATH=~/.local/lib/:$LD_LIBRARY_PATH
   python setup.py build install --user
 
-| check for installation
+| When the following messages appear, then the installaation is successful!
 |
 
 .. code-block:: bash
@@ -49,10 +49,8 @@ For Linux (include HGC supercomputer, cygwin)
      hello paplot !!!
   **********************
 
-  (The contents of the default setting will be displayed after this)
+  (Default settings will be displayed here)
 
-| It will be successful if such a display appears.
-| 
 | After installation, try :doc:`quick_start`.
 | 
 
@@ -60,9 +58,9 @@ For Linux (include HGC supercomputer, cygwin)
   
   Set PATH
   
-  | Environment variables PATH and LD_LIBRARY_PATH are clearUse key to move to the last line. with logout.
-  | It is better to write configuration file, make to re-set at login again.
-  | Write following two lines to file ``~/.bashrc`` or ``~/.bash_profile``.
+  | It is recommended to add the environment variables (PATH and LD_LIBRARY_PATH) to configuration file.
+  | Otherwise, these variables are initialized by logging out.
+  | Add the following two lines to ``~/.bashrc`` or ``~/.bash_profile``.
   |
 
   .. code-block:: bash
@@ -77,7 +75,7 @@ For Linux (include HGC supercomputer, cygwin)
 For MacOS X
 ================================================
 
-1. Download source file
+1. Download source files
 ------------------------------------
 
 | Download the latest version ``Source code (zip)`` from the paplot site.
@@ -88,10 +86,10 @@ https://github.com/Genomon-Project/paplot/releases/
 | If you can use the ``git`` command, you can use ``git clone -b master https://github.com/Genomon-Project/paplot.git``.
 |
 
-2. install paplot
+2. Install paplot
 --------------------------
 
-| Start up the terminal and change directory to the downloaded directory.
+| Launch Terminal and change directory to the downloaded directory.
 | 
 | If "Terminal.app" is not in the Dock, you can follow from the next.
 | Finder → "Move" menu → select "Application" → Open "Utility" → Run "Terminal"
