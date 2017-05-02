@@ -58,8 +58,8 @@ For Linux (including HGC supercomputer and cygwin)
   
   Set PATH
   
-  | It is recommended to add the environment variables (PATH and LD_LIBRARY_PATH) to configuration file.
-  | Otherwise, these variables are initialized by logging out.
+  | It is recommended to add the environment variables (PATH and LD_LIBRARY_PATH) to configuration files.
+  | Otherwise, these variables are initialized to default values after log-out.
   | Add the following two lines to ``~/.bashrc`` or ``~/.bash_profile``.
   |
 
@@ -78,20 +78,20 @@ For MacOS X
 1. Download source files
 ------------------------------------
 
-| Download the latest version ``Source code (zip)`` from the paplot site.
+| Download the latest version ``Source code (zip)`` from the paplot software site.
 |
 
 https://github.com/Genomon-Project/paplot/releases/
 
-| If you can use the ``git`` command, you can use ``git clone -b master https://github.com/Genomon-Project/paplot.git``.
+| Alternatively, when ``git`` is installed, you can type ``git clone -b master https://github.com/Genomon-Project/paplot.git``.
 |
 
 2. Install paplot
 --------------------------
 
-| Launch Terminal and change directory to the downloaded directory.
+| Launch Terminal and change the directory where the source files are downloaed.
 | 
-| If "Terminal.app" is not in the Dock, you can follow from the next.
+| If "Terminal.app" does not appear in the Dock, you can follow from the next.
 | Finder → "Move" menu → select "Application" → Open "Utility" → Run "Terminal"
 | 
 | <user name> is your user-name.
@@ -100,8 +100,8 @@ https://github.com/Genomon-Project/paplot/releases/
 
 .. code-block:: bash
 
-  cd {downloaded directory}
-  # Mostly it is below
+  cd {the directory with the paplot source files}
+  # Mostly you can go with:
   # cd /Users/<user name>/Downloads/paplot-<version>
 
 
@@ -112,11 +112,12 @@ https://github.com/Genomon-Project/paplot/releases/
   
   python setup.py build install --user
 
-3. setting PATH
+
+3. Setting PATH
 ----------------
 
-| Add paplot to PATH with terminal.
-| Usually, paplot is installed below.
+| Add the path of the executable file to PATH with terminal.
+| Usually, the executable file of paplot is installed below.
 |
 
 ``/Users/<user name>/Library/Python/2.7/bin``
@@ -124,9 +125,7 @@ https://github.com/Genomon-Project/paplot/releases/
 .. note::
 
   | If it does not exist above, find with ``find / -name paplot`` command.
-  |
-  | You should find four.
-  | Use installed directory.
+  | When you find four pathes, choose the one just below the ``bin`` directory.
   | 
 
   .. code-block:: bash
@@ -142,13 +141,12 @@ https://github.com/Genomon-Project/paplot/releases/
   export PATH={installed directory}/bin:$PATH
   export LD_LIBRARY_PATH={installed directory}/lib:$LD_LIBRARY_PATH
   
-  # Mostly I will pass below
-  # Replace <user name> with your user name.
+  # Mostly you can set up by adding forlowing lines (replace <user name> with your user name).
   # export PATH=/Users/<user name>/Library/Python/2.7/bin:$PATH
   # export LD_LIBRARY_PATH=/Users/<user name>/Library/Python/2.7/lib:$LD_LIBRARY_PATH
 
 
-| check for installation
+| Verify installation
 |
 
 .. code-block:: bash
@@ -158,11 +156,9 @@ https://github.com/Genomon-Project/paplot/releases/
      hello paplot !!!
   **********************
 
-  (The contents of the default setting will be displayed after this)
+  (The default setting will be displayed here)
 
-| It will be successful if such a display appears.
-| 
-| After installation, try :doc:`quick_start`.
+| Then, the installation is successful! Try :doc:`quick_start`.
 | 
 
 .. note::
