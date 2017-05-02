@@ -169,8 +169,8 @@ https://github.com/Genomon-Project/paplot/releases/
   
   Set PATH
   
-  | Environment variable PATH is clear with logout.
-  | So, You need to enter the ``export PATH = ...`` command every time you start machine.
+  | Environment variables (PATH and LD_LIBRARY_PATH) are initialized to default values after log-out.
+  | So, You may want to enter the ``export PATH = ...`` command every time you start machine.
   | Make sure to reset it automatically.
   |
   | Create configuration file with the following command.
