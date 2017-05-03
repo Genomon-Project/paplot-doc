@@ -5,9 +5,9 @@ CA plot
 | In the CA (Chromosomal Aberration such as ) plot, a landscape of chromosomal aberrations such as structural variations (typically identified by genome sequence data) and gene fusions (by transcriptome sequence data) are represented.
 
 * Barplot at the top panel shows the frequency of breakpoints of CAs aggregated  plot, the total number of breakpoints of CAs in all samples 
-* The circular plots below shows the [CIRCOS](http://circos.ca)-like profile of CAs for each sample, where two edges of each curved line represent brewkpoint of the distinct CA.
+* The circular plots below shows the [CIRCOS-like](http://circos.ca) profile of CAs for each sample, where two edges of a curved line represent breakpoints of each CA.
 
-| When a bar graph is selected, a sample with a breakpoint in the selected genome area is selected.
+| When a barplot is selected, a sample having some breakpoints in the selected region are highlighted. 
 | There are two selection methods, "Highlight" and "Show only selected items (Hide others)", which can be selected with the first option button.
 |
 
