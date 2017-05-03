@@ -1,12 +1,11 @@
 ==============
-CA graph
+CA plot
 ==============
 
-| On the CA (Chromosomal Aberration) graph, we visualize mutations between Chromosome, such as Structural Variation (SV), with circular plot and display its distribution with bar graph.
-|
+| In the CA (Chromosomal Aberration such as ) plot, a landscape of chromosomal aberrations such as structural variations (typically identified by genome sequence data) and gene fusions (by transcriptome sequence data) are represented.
 
-* In the bar graph, we display the total number of breakpoints in all samples.
-* In the circular plot, breakpoints 1 and 2 are displayed with a line for each sample.
+* Barplot at the top panel shows the frequency of breakpoints of CAs aggregated  plot, the total number of breakpoints of CAs in all samples 
+* The circular plots below shows the [CIRCOS](http://circos.ca)-like profile of CAs for each sample, where two edges of each curved line represent brewkpoint of the distinct CA.
 
 | When a bar graph is selected, a sample with a breakpoint in the selected genome area is selected.
 | There are two selection methods, "Highlight" and "Show only selected items (Hide others)", which can be selected with the first option button.
