@@ -2,26 +2,28 @@
 Use own data
 **************************
 
-To use the data other than Genomon will specify your file format by editing the config file.
+Please edit the config file according to your own data 
+and include this file with ``--config_file`` option of ``paplot`` command.
 
-A sample configuration file is located in the following.
-
-``{installed directory of paplot}/example/example.cfg``
-
-We prepare config files of each version Genomon. So if you use the Genomon analyzed data, please refer to the :doc:`genomon`.
-
-.. warning::
-  
-  | Required fields are shown in the highlights. Please set correctly.
-  | For information on how to specify the sample names, please also see :ref:`suffix and ID<suffix>` 
-
-Please use this config file with ``--config_file`` option of ``paplot`` command.
 
 Example of execution
 
 .. code-block:: bash
 
   pa_plot qc "example/qc/*.csv" ./tmp DUMMY --config_file example/example.cfg
+  
+  
+A sample configuration file is located at the following directory.
+
+``{installed directory of paplot}/example/example.cfg``
+
+
+.. warning::
+  
+  | Required fields are shown in the highlights. Please set them correctly.
+  | For information on how to specify sample names, please also see :ref:`suffix and ID<suffix>` 
+
+
 
 1. General
 ------------
@@ -43,11 +45,10 @@ Example of execution
 2. QC (Quality Control)
 ----------------------------
 
-If you do not want to change the output graph, only set [result_format_qc] according to your data.
-
-Explanations of each item in :ref:`Input file format<data_format>`.
-
-For advanced use, see also :doc:`config_qc`.
+Please prepare the quality control file for your own data (see the example file XXXX),
+and set the path at the [result_format_qc] section.
+If you want to set the user-defined graph, please see :doc:`config_qc`.
+Description of each item in :ref:`Input file format<data_format>`.
 
 .. code-block:: cfg
   :linenos:
@@ -123,11 +124,10 @@ For advanced use, see also :doc:`config_qc`.
 3. CA (Chromosomal Aberration)
 -----------------------------------
 
-If you do not want to change the output graph, only set [result_format_ca] according to your data.
-
-Explanations of each item in :ref:`Input file format<data_format>`.
-
-For advanced use, see also :doc:`config_ca`.
+Please prepare the input file for your own data (see the example file XXXX),
+and set the path at the [result_format_ca] section.
+For advanced setings, please see :doc:`config_ca`.
+Description of each item in :ref:`Input file format<data_format>`.
 
 .. code-block:: cfg
   :linenos:
@@ -215,6 +215,12 @@ For advanced use, see also :doc:`config_ca`.
 
 4. mutation-matrix
 ----------------------
+
+Please prepare the input file for your own data (see the example file XXXX),
+and set the path at the [result_format_mut] section.
+For advanced settings, please see :doc:`config_mat`.
+Description for each item in :ref:`Input file format<data_format>`.
+
 
 If you do not want to change the output graph, only set [result_format_mut] according to your data.
 
