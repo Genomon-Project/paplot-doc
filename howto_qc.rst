@@ -7,7 +7,7 @@ QC plot
 |
 | Barplot of light grey color at the top shows the average depth of each sequence data.
 | By selecting the range in this panel, you can zoom in all the panels below so that just easily viewable number of samples are highlighted.
-| The detailed information is shown by mousing over each bar.
+| Detailed information is shown by mousing over each bar.
 |
 
 .. image:: image/qc_operation.PNG
