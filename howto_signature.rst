@@ -1,8 +1,8 @@
 ========================
-signature graph |new|
+Signature graph |new|
 ========================
 
-In the signature graph, signature and its accumulation are displayed in a stacked graph on the detected mutation.
+In the signature graph, so called "mutation signature" (see e.g., Alexandrov et al., Nature, 2013) are displayed as bargraphs, and estimated "contributions" of each signature to the mutations per samples are shown by a stacked bar graphs.
 
 :signature:
   Display signature.
@@ -16,8 +16,8 @@ In the signature graph, signature and its accumulation are displayed in a stacke
 In addition, you can switch the display mode by the list box below the stacked graph.
 
 :view mode:
-  - rate ... The percentage (%) of signature when the number of mutations is set to 1.
-  - integral ... It shows the ratio to the actual number of mutation.
+  - rate ... The percentage (%) of signature contribution normalized by sum-to-one constraint.
+  - integral ... It shows the ratio by the actual number of mutation.
 
 :sort by:
   - sampleID ... Sort by sample ID
