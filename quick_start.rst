@@ -1,12 +1,14 @@
 *****************
-quick start
+Quick start
 *****************
 
-#. install paplot.
-#. run paplot with sample files.
-#. view output file.
+In this section you will experience:
 
-1. install paplot.
+#. Install paplot.
+#. Run paplot with sample files.
+#. View output file.
+
+1. Install paplot.
 ---------------------------
 
 | Here we describe the installation on the server side.
@@ -30,7 +32,7 @@ quick start
 
   paplot conf
 
-| Installation will succeed if it is displayed like this.
+| Installation is succesful if the following messages are displayed.
 
 .. code-block:: bash
 
@@ -42,10 +44,10 @@ quick start
   (The contents of the default setting will be displayed after this)
 
 
-2. run paplot with sample files.
+2. Run paplot with sample files.
 ---------------------------------
 
-We will prepare sample data.
+We have prepared sample data.
 
 .. code-block:: bash
 
@@ -67,8 +69,9 @@ We will prepare sample data.
   paplot pmsignature "example/pmsignature/Nik_Zainal_2012.ind.*.json" ./tmp demo --config_file ./example/example.cfg
 
 
-3. view output file.
+3. View output file.
 ------------------------
+
 
 Are HTML files created?
 
