@@ -36,9 +36,9 @@ the mutation status for each gene (Gene, the vertical axis) and samples (Sample,
 
 Change the order of the horizontal axis.
 
- - none ... Default order
- - ASC ... Ascending order
- - DESC ... Descending order
+ - none ... Default ordering
+ - ASC ... Ascending ordering
+ - DESC ... Descending ordering
 
 It can sort by the following elements (allowing for multiple key ordering):
 
@@ -48,12 +48,13 @@ It can sort by the following elements (allowing for multiple key ordering):
 :automatic Gantt-chart:
   We will create a Gantt chart automatically.
   Enter the number of genes to use in the horizontal edit box and click the [Gantt-chart] button.
-  What is Gantt-chart? (It is not a general meaning.)
+  What is "Gantt-chart"? (It is not a general meaning.)
 
 **Gantt-chart**
 
-| Place the ordinate in descending order of the number of mutations of genes (Gene), and sort the abscissa according to whether or not the mutation of that gene is possessed.
-| First, arrange from the top gene and repeat as many as the number of genes specified.
+| First sort the genes according to the descending number of mutations.
+| Then divide the samples into two groups according the mutation status of the first gene, and place the group with the mutation to the left and the other group to the right. 
+| Repeat this procedure for the second, third, ... genes
 | It is ideal to repeat as many times as the number of detected genes, but as processing becomes heavier, processing will be faster if you narrow down to the gene of interest.
 |
 
@@ -66,8 +67,8 @@ It can sort by the following elements (allowing for multiple key ordering):
 Change the order of the vertical axis.
 
  - none ... Default ordering
- - ASC ... Ascending order
- - DESC ... Descending order
+ - ASC ... Ascending ordering
+ - DESC ... Descending ordering
 
 It can sort by the following elements (allowing for multiple key ordering):
 
@@ -94,7 +95,7 @@ It can sort by the following elements (allowing for multiple key ordering):
   :scale: 100%
 
 
-4. genes filter
+4. Genes frequency filter
 -----------------
 
 Set the filter for the gene displayed on the vertical axis.
