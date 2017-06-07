@@ -1,17 +1,18 @@
 ========================
-mutation-matrix graph
+Mutation-matrix graph
 ========================
 
-In the mutation-matrix graph, the mutated type is displayed with the vertical axis as the gene (Gene) and the horizontal axis as the sample (Sample) for the detected mutation.
+In the mutation-matrix graph, 
+the mutation status for each gene (Gene, the vertical axis) and samples (Sample, the horizontal axis) is displayed.
 
 :Horizontal bar chart (Sample):
-  Displays the number of mutations detected for each sample.
+  Displays the total number of mutations detected for each sample.
 
 :Vertical bar chart (Gene):
-  Displays the number of mutations for each gene as a percentage of the number of samples.
+  Displays the fraction of samples with the mutations affecting each gene stratified by types of mutations (e.g., nonsynonymous, stopgain and so on).
 
-  - If the same sample has multiple mutations for the same gene, count the number of mutations as 1.
-  - If the same sample has multiple mutation types for the same gene, count it as a mutation type with a higher priority.
+  - If the same sample has multiple mutations at the same gene, this is counted as 1.
+  - If the same sample has multiple different types of mutation at the same gene, just a mutation type with "the higher priority" is counted. 
   
 :functions:
   Mutation type (func) is displayed separately color-coded. If there are mutation types that you do not want to display, you can exclude them by unchecking the checkbox of functions.
