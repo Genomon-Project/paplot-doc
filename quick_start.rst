@@ -72,8 +72,7 @@ We have prepared sample data.
 3. View output file.
 ------------------------
 
-
-Are HTML files created?
+You will find the following directory structure:
 
 .. code-block:: bash
 
@@ -102,12 +101,7 @@ Are HTML files created?
         └ index.html             <--- Open this file in web browser.
 
 
-| Open index.html file in web browser.
-|
-| Note) When running on a server such as HGC supercomputer, transfer the file locally or display it with virtual window (NoMachime etc.) on the server.
-|       To transfer locally, please copy the whole :file:`tmp` directory.
-| 
-| Is it displayed as follows?
+| Open index.html file in a web browser, and you will find the following images:
 | 
 | **QC graph**
 
@@ -134,7 +128,7 @@ Are HTML files created?
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%
 
-| For how to use each graph, refer to `how to use graphs <./index.html#how-to-toc>`_ .
+| For how to interpret each graph, refer to `how to use graphs <./index.html#how-to-toc>`_ .
 |
 
 .. |new| image:: image/tab_001.gif
