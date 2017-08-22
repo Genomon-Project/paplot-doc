@@ -1,21 +1,21 @@
 ***************************
-about install
+インストールに関すること
 ***************************
 
-Error in ``paplot conf``
+``paplot conf`` でエラー
 ---------------------------
 
-| It occurs when `` PATH`` or `` LD_LIBRARY_PATH`` setting is insufficient.
-| Refer to :doc:`install`.
+| ``PATH`` もしくは ``LD_LIBRARY_PATH`` の設定が不足しているときにおこります。
+| :doc:`install` を確認してください。
 |
-| In case of such an error, the setting of ``PATH`` is incorrect.
+| このようなエラーの場合、``PATH`` の設定が正しくありません。
 
 .. code-block:: bash
 
   $ paplot conf
   -bash: /usr/bin/paplot: No such file or directory
 
-| In case of such an error, the setting of ``LD_LIBRARY_PATH`` is incorrect.
+| このようなエラーの場合、``LD_LIBRARY_PATH`` の設定が正しくありません。
 
 .. code-block:: bash
 
@@ -23,52 +23,52 @@ Error in ``paplot conf``
   Traceback (most recent call last):
     File "/usr/bin/paplot", line 4, in <module>
       __import__('pkg_resources').run_script('paplot===0.2.7devel', 'paplot')
-  (abbreviation)
+  (省略)
   pkg_resources.DistributionNotFound: The 'paplot===0.2.7devel' distribution was not found and is required by the application
 
-| If there is no ``paplot`` file, the installation may not be successful.
-| In the case of success, the last three lines are displayed like this.
-| (The number in paplot-0.2.7 varies with version.)
+| ``paplot`` ファイルがない場合はインストールが成功していない可能性があります。
+| 成功した場合は最後の3行がこのように表示されます。
+| paplot-0.2.7の数字はバージョンによって変化します。
 |
 
 .. code-block:: bash
 
   $ python setup.py build install
 
-  (Last 3 rows)
+  (最後の3行)
   Installed /usr/lib/python2.7/site-packages/paplot-0.2.7devel-py2.7.egg
   Processing dependencies for paplot===0.2.7devel
   Finished processing dependencies for paplot===0.2.7devel
 
 
 ***************************
-about graphs
+各レポートに関すること
 ***************************
 
-Want to save a graph as an image.
----------------------------------------------
+グラフを画像で保存したい
+----------------------------
 
-| Image storage function has been added since v0.4.0.
-| Click the "export" button in each plot.
-| The menu will be displayed, so select the desired format, either SVG or PNG.
+| paplot v0.4.0 より画像保存機能が追加されました。
+| それぞれのプロットにある [Export] ボタンをクリックしてください。
+| メニューが表示されますので、SVG / PNG どちらか希望するフォーマットを選択してください。
 |
 
 .. image:: image/qa_export.PNG
 
-| Output format
+| 出力フォーマット
 |
 
- - SVG ... It is a text file described by tag. In addition to SVG compatible image editing software, it can display with various browsers.
- - PNG ... It is a general image file. Background Transparent processing is applied.
+ - SVG ... タグで記載されたテキストファイルです。SVG対応の画像編集ソフトウェアのほか、各種ウェブブラウザでも表示できます。
+ - PNG ... 画像ファイルです。背景透過処理を施しています。
  
-| If you only want to save 1 plot, you can save it by right clicking on each plot.
+| なお、1 プロットのみ保存したい場合は、それぞれのプロットの上で右クリックで保存することも可能です。
 |
 
 .. image:: image/qa_export2.PNG
 
 .. note::
 
-  This function is confirmed with the following browsers. If it does not work, update to the latest version or try another browser.
+  この機能は以下のウェブブラウザで確認しています。うまく動かない場合は、最新のバージョンにアップデートするか、別のウェブブラウザをお試しください。
   
   + Windows
   
@@ -83,52 +83,46 @@ Want to save a graph as an image.
     - Safari (9.1.2)
 
 
-For Chrome
+Chromeの場合
 +++++++++++++++++++++++++++
 
-After format selection, it will be downloaded automatically.
+フォーマット選択後、自動的にダウンロードされます。
 
-For Firefox
+Firefoxの場合
 +++++++++++++++++++++++++++
 
-After selecting the format, a message about downloading will be displayed, please save it in an arbitrary place.
+フォーマット選択後、ダウンロードに関するメッセージが表示されますので、任意の場所に保存してください。
 
 .. image:: image/qa_export_firefox.PNG
 
-For IE
+IEの場合
 +++++++++++++++++++++++++++
 
- - SVG ... After selecting the format, the download screen will be displayed, please save it in an arbitrary place.
- - PNG ... Since the image is displayed in a new tab, right click and select "Save image as ...".
+ - SVG ... フォーマット選択後、ダウンロード画面が表示されますので、任意の場所に保存してください。
+ - PNG ... 画像が新しいタブで表示されますので、右クリックして「名前を付けて画像を保存…」を選択してください。
 
-For Safari
+Safariの場合
 +++++++++++++++++++++++++++
 
- - SVG ... Since the image is displayed in a new tab, right click and select "Save page as another name ...".
+ - SVG ... 画像が新しいタブで表示されますので、右クリックして「ページを別名で保存…」を選択してください。
 
- | Please specify each item as follows.
- |   Output name「{name}.svg」
- |   Format「Source of the page」
+ | 各項目は次のように指定してください。
+ |   書き出し名「{任意の名前}.svg」
+ |   フォーマット「ページのソース」
  |
  
- - PNG ... As the image is displayed in a new tab, right click and select "Save Image As ...".
+ - PNG ... 画像が新しいタブで表示されますので、右クリックして「イメージを別名で保存…」を選択してください。
 
-| ※If the new tab does not open, please check the following settings.
-|   Safari → Envaironment → Security → Web Contents → uncheck "Don't open pop-up window"
-|
+.. attention::
 
-*********************************
-with GenomonPipeline
-*********************************
+  新しいタブが開かない場合、以下の設定を確認ください。
+  Safari→環境設定→セキュリティ→Webコンテンツ→「ポップアップウィンドウを開かない」チェックを外す
 
-Mutation matrix is ​​not displayed
--------------------------------------------
+表示に時間がかかる
+---------------------
 
-It is not displayed if annovar setting is OFF.（Because we can not acquire Gene information and function information）
-Please check the Genomon configuration file.
-
-.. code-block:: cfg
-
-  [annotation] active_annovar_flag = False
+| データの数が多すぎると表示に時間がかかる、もしくは表示されないことがあります。
+| 
+| データの数 (変異の数)、サンプル数および表示マシンの性能に依存しますので一概には規定できませんが、表示されない場合はサンプル数や検出ソフトのフィルタ条件の見直し等が必要です。
 
 .. |new| image:: image/tab_001.gif

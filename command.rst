@@ -1,9 +1,9 @@
 ************************
-Commands of pa_plot
+paplot コマンド
 ************************
 
 ------------------------
-1. Basic usage
+1. 基本的な使い方
 ------------------------
 
 .. code-block:: bash
@@ -13,12 +13,10 @@ Commands of pa_plot
                     [--remarks REMARKS]
                     input output_dir project_name
 
-|
-
-**Required**
+**必ず入力する項目**
 
 :subcommand:
-  Choose from the following: 
+  paplot のサブコマンドです。いずれかを選択します。
   
   - qc
   - ca
@@ -27,78 +25,80 @@ Commands of pa_plot
   - pmsignature
 
 :input:
-  Input files. You can specify multiple files with wildcards (``*``, ``?``). Please note that the mark mark ``"``  can be set either at the beginning or the end.
+  入力ファイルです。複数ファイルを使用する場合は `データファイルが分かれている場合 <./data_common.html#suffix>`_ も参照してください。
 
 .. code-block:: bash
 
-  # single input file 
-  pa_plot qc example/qc/SAMPLE1.qc ./test multi1 --config_file example/example.cfg
+  # 1ファイルだけ入力する場合
+  paplot mutation {unzip_path}/example/mutation_minimal/data.csv ./tmp mutation_minimal \
+  --config_file {unzip_path}/example/mutation_minimal/paplot.cfg
   
-  # multiple input files (separeted by ,)
-  pa_plot qc "example/qc/SAMPLE1.qc.csv,example/qc/SAMPLE2.qc.csv" ./test multi1 --config_file example/example.cfg
-  
-  # multiple files (using *)
-  pa_plot qc "example/qc/*.csv" ./multi multi1 --config_file example/example.cfg
+  # 複数ファイル指定する場合は , で区切る
+  paplot mutation \
+  {unzip_path}/example/mutation_split_file/SAMPLE00.data.csv,{unzip_path}/example/mutation_split_file/SAMPLE01.data.csv \
+  ./tmp mutation_split_file1 --config_file {unzip_path}/example/mutation_split_file/paplot.cfg
 
+  # ワイルドカードを使用して、まとめて指定することも可能
+  # 最初と最後に " を付けること
+  paplot mutation "{unzip_path}/example/mutation_split_file/*.csv" ./tmp mutation_split_file2 \
+  --config_file {unzip_path}/example/mutation_split_file/paplot.cfg
 
 :output_dir:
-  Output directory path. See :ref:`3. Output directory <output>` for the detail of directory commponents.
- 
+  出力ディレクトリを指定します。ディレクトリ構成は :ref:`2. 出力ディレクトリ <output>` を参照してください。
 
 :project_name:
-  Project name (used as the title of output files).
-
-------------------------
-2. Command options
-------------------------
-
-You can change the following items as options.
-
---config_file        Path to the configuration file. If not specified, then use default file.
---title              Title of the graph
---ellipsis           Abbreviated name of the graph. It is used for the graph file name. (ex, graph_**ca**.html) It is convenient to set it when outputting multiple files to the same directory.
---overview           Outline of the graph (displayed in the index.html file).
---remarks            Text shown in the remark section of the index.html file (The default value is set at ([style] remarks) in the setting file.
-
-
-The default values ​​are as follows.
-
-=============== =================== ============ ============================================= ==============
-subcommand      title               ellipsis     overview                                      remarks
-=============== =================== ============ ============================================= ==============
-qc              QC graphs           qc           Quality Control of bam.                       none
-ca              CA graphs           ca           Chromosomal Aberration.                       none
-mutation        Mutation matrix     mutation     Gene-sample mutational profiles.              none
-signature       Signature           signature    Mutational signatures.                        none
-pmsignature     PMSignature         pmsignature  Express mutational signatures in pmsignature. none
-=============== =================== ============ ============================================= ==============
+  プロジェクト名です。出力ファイルのタイトルに使用します。
 
 .. _output:
 
 ---------------------
-3. Output directory
+2. 出力ディレクトリ
 ---------------------
 
-In the output directory (specified at the ``output_dir`` option),
-you can find the output files with the following configuration.
+``output_dir`` オプションで指定した場所に次の構成でファイルを出力します。
 
 .. code-block:: bash
 
   {output_dir}
     ├ {project_name}
-    │   └ graph_*.html      <--- Graphs.
+    │   └ graph_*.html      <--- 各グラフ
     │
-    ├ js          <--- Don't delete. this 4 directories are required to display the HTML file.
+    ├ js          <--- この4つのディレクトリはHTMLファイルを表示するために必要です。消さないでください。
     ├ layout
     ├ lib
     ├ style
     │
-    └ index.html             <--- Please open this file in a web browser.
-
-Please movew  whole ``{output_dir}`` directory when you want to move the result,
-so as not to destroy the directory structure.
+    └ index.html             <--- このファイルをウェブブラウザで開いてください。
 
 
-Please refer to the `how to use graphs <./index.html#how-to-toc>`_  on how to see each graph.
+出力ファイルを移動する場合は ``{output_dir}`` ディレクトリごと移動してください。
+
+それぞれのグラフの使い方は `HOW TO USE GRAPHS <./index.html#how-to-toc>`_ を参照してください。
+
+.. _option:
+
+------------------------
+3. コマンドオプション 
+------------------------
+
+次の項目をオプションで変更することができます。
+
+--config_file        設定ファイルです。未指定の場合、デフォルトを使用します。
+--title              グラフのタイトル
+--ellipsis           グラフの短縮名。グラフのファイル名になるため、同一ディレクトリに複数ファイルを出力する際に設定すると便利です。
+--overview           index.htmlに表示するグラフの概要。
+--remarks            index.htmlの備考欄に出力するテキストです。未指定の場合、設定ファイル [style] セクション中、remarks オプションの値を使用します。
+
+デフォルト値は次の通りです。
+
+=============== =================== ============ ============================================= ==============
+subcommand      title               ellipsis     overview                                      remarks
+=============== =================== ============ ============================================= ==============
+qc              QC graphs           qc           Quality Control of bam.                       なし
+ca              CA graphs           ca           Chromosomal Aberration.                       なし
+mutation        Mutation Matrix     mutation     Gene-sample mutational profiles.              なし
+signature       Signature           signature    Mutational Signatures.                        なし
+pmsignature     PMSignature         pmsignature  Express mutational signatures in pmsignature. なし
+=============== =================== ============ ============================================= ==============
 
 .. |new| image:: image/tab_001.gif

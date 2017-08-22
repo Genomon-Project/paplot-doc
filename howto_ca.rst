@@ -1,29 +1,32 @@
-==============
-CA plot
-==============
+==========================================
+Chromosomal Aberration レポート
+==========================================
 
-| In the CA (Chromosomal Aberration such as ) plot, a landscape of chromosomal aberrations such as structural variations (typically identified by genome sequence data) and gene fusions (by transcriptome sequence data) are represented.
+| CA (Chromosomal Aberration) レポートはStructural Variation (SV) 等、染色体間の変異を円形のプロットで可視化し、棒グラフでその分布を表示します。
 
-* Barplot at the top panel shows the total number of breakpoints of CAs in the cohort.
-* The circular plots below shows the [CIRCOS-like](http://circos.ca) profile of CAs for each sample, where two edges of a curved line represent breakpoints of each CA.
+* 棒グラフでは全サンプルで切断点を集計した数を表示します。
+* 円形のプロットでは、サンプルごとに切断点 1 と 2 を線でつないで表示します。
 
-| When you select a region in the barplot at the top, samples having any of the breakpoints in the selected region are highlighted (when Stype of selected graphs are set to "Highligh selected graphs") or samples without any of the breakpoints in the region dissapears ("Hide non-selected graphs). 
-|
+| 棒グラフを選択すると選択されたゲノム領域に切断点を持つサンプルが選択されます。
+| 選択方法は [ハイライト] と [選択したもののみ表示 (他を隠す) ] の 2 通りあり、先頭のオプションボタンで選択できます。
 
 .. image:: image/sv_operation1.PNG
   :scale: 100%
 
 
-| There are two stacks in the bar chart, and the color is separated depending on whether two break points are beyond the chromosome or within the same chromosome.
-| If unchecked, that element is not displayed.
-|
+| 棒グラフの積み上げ要素は 2 つあり、2 つの切断点が染色体をまたいでいるか、もしくは同一染色体内かで色を分けています。 [*]_ 
+| チェックを外すと、その要素は表示されません。
 
+.. [*] グループ化について
+
+  ここに示しているグループ化はデフォルトの設定です。
+  設定ファイルによりグループ要素を変更できます。設定方法は `変異のグルーピング <./data_ca.html#ca-group>`_ を参照してください。
+  
 .. image:: image/sv_operation2.PNG
   :scale: 100%
 
-| Click the circle graph for each sample to enlarge it.
-| Show the details by hovering the mouse over the line connecting the breakpoints.
-|
+| サンプルごとの円形のグラフをクリックすると拡大表示します。
+| 切断点をつなぐ線の上にマウスを乗せると詳細を表示します。
 
 .. image:: image/sv_operation3.PNG
   :scale: 100%

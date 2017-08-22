@@ -1,29 +1,28 @@
-========================
-Mutation-matrix graph
-========================
+===========================
+Mutation Matrix レポート
+===========================
 
-In the mutation-matrix graph, 
-the mutation status for each gene (Gene, the vertical axis) and samples (Sample, the horizontal axis) is displayed.
+Mutation Matrix レポートは検出した変異について縦軸を遺伝子(Gene)、横軸をサンプル(Sample) として、変異タイプ別に表示します。
 
-:Horizontal bar chart (Sample):
-  Displays the total number of mutations detected for each sample.
+:横長の棒グラフ (Sample):
+  | サンプルごとに検出された変異の数を表示します。
 
-:Vertical bar chart (Gene):
-  Displays the fraction of samples with the mutations affecting each gene stratified by types of mutations (e.g., nonsynonymous, stopgain and so on).
+:縦長の棒グラフ (Gene):
+  | 遺伝子ごとの変異数をサンプル数における割合 (%) で表示します。
+  |
+  | - 同一のサンプルが同じ遺伝子に対して複数の変異を持っていた場合、変異数を 1 としてカウントします。
+  | - 同一のサンプルが同じ遺伝子に対して複数の変異タイプを持っていた場合、優先順位の高い変異タイプにカウントします。
 
-  - If the same sample has multiple mutations at the same gene, this is counted as 1.
-  - If the same sample has multiple different types of mutation at the same gene, just a mutation type with "the higher priority" is counted. For example, the priority of stopgain is higher than that of nonsynonymous mutations. Please see (XXX) for the default settings of the priority and (XXX) for modifying them.
-  
-:functions:
-  Mutation type (function) is displayed with a distinct color. If you want to hide a specific type of mutations, uncheck the item in this section.
-  
-:sub plot:
-  If there is meta infromation for the samples (e.g., clinical information), it can be displayed as subplot. This file must be entered in the configuration file before executing the ``paplot`` command.
+:Mutation type:
+  | 変異タイプ別に色分けして表示します。表示したくない変異タイプがある場合、Mutation type のチェックを外すことで除外できます。
+
+:Subplot:
+  | 変異データとは別にサンプルに対するデータがある場合、サブプロットとして表示することができます。このファイルは ``paplot`` コマンド実行前に設定ファイルに記入しておく必要があります。
 
 .. image:: image/mut_operation1.PNG
   :scale: 100%
 
-**Method of operation**
+**操作方法**
 
 .. image:: image/mut_operation2.PNG
   :scale: 100%
@@ -34,29 +33,33 @@ the mutation status for each gene (Gene, the vertical axis) and samples (Sample,
 1. Axis-X sort 
 ---------------
 
-Change the order of the horizontal axis.
+横軸の並び順を変更します。
 
- - none ... Default ordering
- - ASC ... Ascending ordering
- - DESC ... Descending ordering
+ - None ... ソートしない
+ - ASC ... 昇順
+ - DESC ... 降順
 
-It can sort by the following elements (allowing for multiple key ordering):
+以下の要素でソートでき、ソート条件を複数指定することが可能です。
 
-:SampleID: Sort by the name of samples
-:Mutation num.: Number of mutations per sample
-:Genes: Number of mutations per gene. After selecting either ASC/DESC, select the Gene name from the list box next to it and click the [add sort key] button.
-:automatic Gantt-chart:
-  We will create a Gantt chart automatically.
-  Enter the number of genes to use in the horizontal edit box and click the [Gantt-chart] button.
-  What is "Gantt-chart"? (It is not a general meaning.)
+:Sample ID:
+  | サンプルの名前順
+
+:Mutation number:
+  | サンプルごとの変異数
+
+:Genes:
+  | 遺伝子ごとの変異数。ASC/DESC どちらかを選択したのち、横のリストボックスから遺伝子名を選択し、[Add sort key] ボタンをクリックしてください。
+
+:Automatic Gantt-chart:
+  | 自動的にGantt-chartを作成します。
+  | と、いっても技術者におなじみのガントチャートではありません。次で説明します。
+  | 使用する遺伝子の数を横のエディットボックスに入力したのち、[Gantt-chart] ボタンをクリックしてください。
 
 **Gantt-chart**
 
-| First sort the genes according to the descending number of mutations.
-| Then divide the samples into two groups according the mutation status of the first gene, and place the group with the mutation to the left and the other group to the right. 
-| Repeat this procedure for the second, third, ... genes
-| It is ideal to repeat as many times as the number of detected genes, but as processing becomes heavier, processing will be faster if you narrow down to the gene of interest.
-|
+| 縦軸を遺伝子 (Gene) の変異数の多い順に並べ、横軸をその遺伝子の変異を持っているかどうかで並び替えます。
+| まず、先頭の遺伝子から並べ、指定された遺伝子の数だけ繰り返します。
+| 検出された遺伝子の数だけ繰り返すのが理想ですが、処理が重くなるため、関心のある遺伝子までに絞ったほうが処理が早くなります。
 
 .. image:: image/mut_operation3.PNG
   :scale: 100%
@@ -64,43 +67,47 @@ It can sort by the following elements (allowing for multiple key ordering):
 2. Axis-Y sort
 ----------------
 
-Change the order of the vertical axis.
+縦軸の並び順を変更します。
 
- - none ... Default ordering
- - ASC ... Ascending ordering
- - DESC ... Descending ordering
+ - None ... ソートしない
+ - ASC ... 昇順
+ - DESC ... 降順
 
-It can sort by the following elements (allowing for multiple key ordering):
+以下の要素でソートでき、複数ソート可能です。
 
-:Mutation num.: Number of mutations per gene
-:Gene name: Sorted by gene name
+:Mutation number: 遺伝子ごとの変異数
+:Gene name: 遺伝子の名前順
 
 
-3. Highly-mutated sample filter
+3. Sample filter
 ------------------
 
-| Sets the maximum value of the vertical axis of the horizontal bar chart (Sample).
+| 横長の棒グラフ (Sample) の縦軸の最大値を設定します。
 |
-| In some cases where only a few samples have extremely large numbers of mutations compared to others, setting the threshould for the maximum number of mutations will make the graph a lot easier to see. 
-| Enter the threshould value in the horizontal edit box, then click the [update filter] button.
-| In the default setting ("blank"), the maximum of the horizontal axis is set to the maximum number of mutations by a sampleautomatically.
-| 
+| いくつかのサンプルだけ飛びぬけて変異数が多く、他はそれほど変異がないような場合、この機能を使用することで、グラフが見やすくなることがあります。
+| 表示したい最大値を横のエディットボックスに入力したのち、[Update filter] ボタンをクリックしてください。
+| 空白にすると、すべてを表示します。(初期値)
+|
 
-**Before and after filter application**
+**フィルター適用前と適用後**
 
-| Example of display when maximum value is set to 200.
+| 最大値を 200 に設定した場合の表示例
 | 
 
 .. image:: image/mut_operation4.PNG
   :scale: 100%
 
 
-4. Genes frequency filter
+4. Genes filter
 -----------------
 
-Set the filter for the gene displayed on the vertical axis.
+縦軸に表示する遺伝子に対してフィルタを設定します。
 
-:Rate: Frequency of the samples with mutations at each gene (%). The initial value is 0% (no filtering)
-:Display maximum: Maximum number of genes to display.
+:Rate:
+  | 検出された遺伝子のサンプル数における割合 (%)。初期値は 0% (フィルタリングなし) です。
 
-After inputting to both sides in the edit box, please click the [update filter] button.
+:Display maximum:
+  | 表示する遺伝子の最大数。
+
+いずれも横のエディットボックスに入力したのち、[Update filter] ボタンをクリックしてください。
+

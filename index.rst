@@ -12,42 +12,42 @@ Contents:
 
 .. toctree:: 
    :maxdepth: 2
-   :caption: quick start
+   :caption: start up guide
    :name: quick_start_toc
    
    about.rst
    quick_start.rst
-
+   install.rst
+   command.rst
+   
 .. toctree:: 
    :maxdepth: 2
    :caption: how to use graphs
    :name: how_to_toc
    
-   howto_qc.rst
-   howto_ca.rst
    howto_mat.rst
+   howto_qc.rst
+   howto_ca.rst   
    howto_signature.rst
 
 .. toctree:: 
    :maxdepth: 2
-   :caption: install & setting
-   :name: install_toc
+   :caption: dataformat
+   :name: dataformat_toc
    
-   install.rst
-   config.rst
-   genomon.rst
-   command.rst
-
+   data_mat.rst
+   data_qc.rst
+   data_ca.rst
+   data_signature.rst
+   data_pmsignature.rst
+   data_common.rst
+   
 .. toctree:: 
    :maxdepth: 2
    :caption: for advance
    :name: advance_toc
    
-   config_qc.rst
-   config_ca.rst
-   config_mat.rst
-   config_signature.rst
-   config_pmsignature.rst
+   config.rst
    exec_signature.rst
    exec_pmsignature.rst
    style.rst
@@ -69,7 +69,7 @@ Contents:
 Javascript Libraries
 ====================
 
-Paplot uses the following javascript package.
+paplot は次のjavascript パッケージを使用しています。
 
 * `D3.js <https://d3js.org/>`_
 * `d3-legend <http://d3-legend.susielu.com>`_

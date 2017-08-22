@@ -1,14 +1,17 @@
 ==============
-QC plot
+QC レポート
 ==============
 
-| QC (Quality Control) plot reports the quality of each sequence data
-| such as sequence depth and coverage, mapping ratio, duplicate ratio.
+| QC (Quality Control) レポートはアライメント率やカバレッジ率など、シーケンスデータの品質を表示します。
 |
-| Barplot of light grey color at the top shows the average depth of each sequence data.
-| By selecting the range in this panel, you can zoom in all the panels below so that just easily viewable number of samples are highlighted.
-| Detailed information is shown by mousing over each bar.
-|
+| 先頭の背の低いグラフはサンプルごとの depth 平均値です。 [*]_ 
+| このグラフを範囲選択することで他のグラフの拡大ができます。
+| それぞれのグラフではマウスを乗せると詳細を表示します。
+
+.. [*] 範囲選択用グラフについて
+
+  ここに示しているグラフは example データを使用したときの表示例です。
+  設定ファイルにより範囲選択用グラフの要素を変更できます。設定方法は `範囲選択 <./data_qc.html#qc-brush>`_ を参照してください。
 
 .. image:: image/qc_operation.PNG
   :scale: 100%

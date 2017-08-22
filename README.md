@@ -1,16 +1,16 @@
 # paplot documentation
 
-[Japanese]
+[日本語版]
 
- - public documents
+ - 公開版
 
 http://paplot-jp.readthedocs.org/ja/latest/
 
- - read the docs
+ - 開発用
 
 https://readthedocs.org/projects/paplot-jp/
 
-[English]
+[英語版]
 
  - public documents
 
