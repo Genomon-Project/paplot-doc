@@ -69,7 +69,7 @@ Contents:
 Javascript Libraries
 ====================
 
-paplot は次のjavascript パッケージを使用しています。
+``paplot`` uses the following javascript package.
 
 * `D3.js <https://d3js.org/>`_
 * `d3-legend <http://d3-legend.susielu.com>`_
