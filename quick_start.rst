@@ -2,39 +2,38 @@
 Quick Start
 *****************
 
-#. paplot をインストール
-#. サンプルデータでコマンドを実行
-#. 結果ファイルを表示
-#. 設定ファイルを編集して自分のデータを使用する
+#. Install paplot.
+#. Run paplot with sample data.
+#. View output reports.
+#. Modify configuration files and use your own data.
+ 
 
-1. paplot をインストール
+1. Install paplot
 ---------------------------
 
-| paplot は python2.7 および python 3.5 で動作確認しています。
-| また、paplot は追加パッケージを必要としません。
-| より詳しいインストール手順は :doc:`install` を参照してください。
+| paplot is confirmed to work on python2.7 and python 3.5.
+| No additional packages are necesary.
 
 .. code-block:: bash
 
-  cd {インストールしたいディレクトリ}
-  # v0.5.3の場合
+  cd {the directory where you want to install paplot}
+  # for v0.5.3
   wget https://github.com/Genomon-Project/paplot/archive/v0.5.3.zip
   unzip v0.5.3.zip
   cd paplot-0.5.3/
 
   python setup.py build install
 
-| 正しくインストールされたか確認します。
 
-**インストールの確認**
+**Comfirmation of installation**
 
-| 以下を入力してください。
+| Execute the following command.
 
 .. code-block:: bash
 
   paplot conf
 
-| このように表示されればインストール成功です。
+| Installation is succesful if the following messages are displayed.
 
 .. code-block:: bash
 
@@ -43,16 +42,17 @@ Quick Start
   **********************
   
   config file:/usr/lib/python2.7/site-packages/{paplot-versoion}-py2.7.egg/config/paplot.cfg
-  (このあとにデフォルト設定の内容が表示されます)
+  (The contents of the default setting will be displayed after this)
 
 
-2. サンプルデータでコマンドを実行
+| For more detailed information on installation, please consult :doc:`install`. 
+
+
+2. Run paplot with sample data
 -------------------------------------
 
-| paplot はコマンドから使用します。
-| 
-| 基本的な使い方は次の通りです。
-| 詳細なオプションは :doc:`command` を参照してください。
+| The basic commands of palot is as follows. 
+| For the description of detailed options, please consult :doc:`command`.
 
 .. code-block:: bash
 
@@ -63,10 +63,10 @@ Quick Start
 
 |
 
-**必ず入力する項目**
+**Required arguments**
 
 :subcommand:
-  paplot のサブコマンドです。いずれかを選択します。
+  Select from the following:
   
   - qc
   - ca
@@ -75,92 +75,86 @@ Quick Start
   - pmsignature
 
 :input:
-  入力ファイルです。
+  The input table data.
 
 :output_dir:
-  出力ディレクトリを指定します。ディレクトリ構成は次の章を参照してください。
+  The path where the output files of paplot are generated.
 
 :project_name:
-  プロジェクト名です。出力ファイルのタイトルに使用します。
+  The project name (used as the title of output files).
 
-サンプルデータを用意していますので実行します。
+Please execute paplot using the prepared sample data.
 
 .. code-block:: bash
 
-  cd {paplot を解凍したディレクトリ}
+  cd {the path where paplot is installed}
 
-  # QC レポート
+  # QC Report
   paplot qc example/qc_brush/data.csv ./tmp demo
 
-  # Chromosomal Aberration レポート
+  # Chromosomal Aberration Report
   paplot ca example/ca_option/data.csv ./tmp demo
 
-  # Mutation Matrix レポート
+  # Mutation Matrix Report
   paplot mutation example/mutation_option/data.csv ./tmp demo
 
-  # Mutational Signatureレポート
+  # Mutational Signature Report 
   paplot signature "example/signature_stack/data*.json" ./tmp demo
 
-  # pmsignature レポート
+  # pmsignature Report 
   paplot pmsignature "example/pmsignature_stack/data*.json" ./tmp demo
 
 
-3. 結果ファイルを表示
+3. View output file.
 ------------------------
 
-HTML ファイルができていますか？
+You will find the following directory structure:
 
 .. code-block:: bash
 
   {output_dir} で指定したディレクトリ
     ├ demo
-    │   ├ graph_ca.html            <--- Chromosomal Aberration レポート
-    │   ├ graph_mut.html           <--- Mutation Matrix レポート
-    │   ├ graph_pmsignature2.html  <--- pmsignature レポート (数字は変異シグネチャの数)
+    │   ├ graph_ca.html            <--- Chromosomal Aberration Report 
+    │   ├ graph_mut.html           <--- Mutation Matrix Reprot 
+    │   ├ graph_pmsignature2.html  <--- pmsignature Report (with varying number of mutation signatures)
     │   ├ graph_pmsignature3.html
     │   ├ graph_pmsignature4.html
     │   ├ graph_pmsignature5.html
     │   ├ graph_pmsignature6.html
-    │   ├ graph_qc.html            <--- QC レポート
-    │   ├ graph_signature2.html    <--- Mutational Signature レポート (数字は変異シグネチャの数)
+    │   ├ graph_qc.html            <--- QC Report 
+    │   ├ graph_signature2.html    <--- Mutational Signature Report (with varying number of mutation signatures)
     │   ├ graph_signature3.html
     │   ├ graph_signature4.html
     │   ├ graph_signature5.html
     │   └ graph_signature6.html
     │
-    ├ js          <--- この4つのディレクトリはHTMLファイルを表示するために必要です。消さないでください。
+    ├ js          <--- The next four directories are necessary to display HTML files, Do not remove them.
     ├ layout
     ├ lib
     ├ style
     │
-    └ index.html             <--- このファイルをウェブブラウザで開いてください。
+    └ index.html             <--- Open this file in a web browser.
 
 
-| index.html ファイルをウェブブラウザで開いてください。
+| When you open index.html file in a web browser, you will find the following reports.
 |
-.. note::
 
-   HGC スパコン等、サーバ上で実行した場合はファイルをローカルに転送するか、NoMachime 等サーバ上の仮想ウィンドウで表示してください。
-   ローカルに転送する場合は、:file:`tmp` ディレクトリを丸ごとコピーしてください。
-
-| 次のように見えていますか?
-| 
-| **QC レポート**
+| **QC Report**
 
 .. image:: image/qc_dummy.PNG
   :scale: 100%
 
-| **Chromosomal Aberration レポート**
+| **Chromosomal Aberration Report**
 
 .. image:: image/sv_dummy.PNG
   :scale: 100%
 
-| **Mutation Matrix レポート**
+| **Mutation Matrix Report**
 
 .. image:: image/mut_dummy.PNG
   :scale: 100%
 
-| **Mutational Signature レポート**
+| **Mutational Signature Report**
 
 .. image:: image/sig_dummy.PNG
   :scale: 100%
@@ -170,15 +164,15 @@ HTML ファイルができていますか？
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%
 
-| それぞれのレポートの使い方は `HOW TO USE GRAPHS <./index.html#how-to-toc>`_ を参照してください。
+| For how to interpret each graph, refer to  `HOW TO USE GRAPHS <./index.html#how-to-toc>`_ how to use graphs.
 
 
-4. 設定ファイルを編集して自分のデータを使用する
+4. Modify configuration files and use your own data.
 ------------------------------------------------------
 
-| データと設定ファイルの記述方法は以下を参照してください。
+| Plese consult following links to set up your own data and configuration files.
 | 
-| [入門編]
+| [For basic use]
 
  - :doc:`data_mat` 
  - :doc:`data_qc` 
@@ -186,7 +180,7 @@ HTML ファイルができていますか？
  - :doc:`data_signature` 
  - :doc:`data_pmsignature` 
 
-| [上級者向け]
+| [For advanced use]
 
  - :doc:`config`
 
