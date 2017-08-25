@@ -1,9 +1,9 @@
 ************************
-paplot コマンド
+paplot command 
 ************************
 
 ------------------------
-1. 基本的な使い方
+1. Basic usage 
 ------------------------
 
 .. code-block:: bash
@@ -13,10 +13,10 @@ paplot コマンド
                     [--remarks REMARKS]
                     input output_dir project_name
 
-**必ず入力する項目**
+**Required arguments**
 
 :subcommand:
-  paplot のサブコマンドです。いずれかを選択します。
+  Select from the followings:
   
   - qc
   - ca
@@ -25,80 +25,79 @@ paplot コマンド
   - pmsignature
 
 :input:
-  入力ファイルです。複数ファイルを使用する場合は `データファイルが分かれている場合 <./data_common.html#suffix>`_ も参照してください。
+  Input files. When you want to use multiple files (usually divided by individual samples), please consult `データファイルが分かれている場合 <./data_common.html#suffix>`.
 
 .. code-block:: bash
 
-  # 1ファイルだけ入力する場合
+  # for single input file
   paplot mutation {unzip_path}/example/mutation_minimal/data.csv ./tmp mutation_minimal \
   --config_file {unzip_path}/example/mutation_minimal/paplot.cfg
   
-  # 複数ファイル指定する場合は , で区切る
+  # for multiple input files, delimit them by comma
   paplot mutation \
   {unzip_path}/example/mutation_split_file/SAMPLE00.data.csv,{unzip_path}/example/mutation_split_file/SAMPLE01.data.csv \
   ./tmp mutation_split_file1 --config_file {unzip_path}/example/mutation_split_file/paplot.cfg
 
-  # ワイルドカードを使用して、まとめて指定することも可能
-  # 最初と最後に " を付けること
+  # paplot also accept wilde card representation. In this case enclose the input by double quatations
   paplot mutation "{unzip_path}/example/mutation_split_file/*.csv" ./tmp mutation_split_file2 \
   --config_file {unzip_path}/example/mutation_split_file/paplot.cfg
 
 :output_dir:
-  出力ディレクトリを指定します。ディレクトリ構成は :ref:`2. 出力ディレクトリ <output>` を参照してください。
+  Output directory path. See :ref:`2. 出力ディレクトリ <output>` for the detail of directory commponents.
 
 :project_name:
-  プロジェクト名です。出力ファイルのタイトルに使用します。
+  Project name (used as the title of output files).
 
 .. _output:
 
 ---------------------
-2. 出力ディレクトリ
+2. Output directory
 ---------------------
 
-``output_dir`` オプションで指定した場所に次の構成でファイルを出力します。
+You will find the following directory structure:
 
 .. code-block:: bash
 
   {output_dir}
     ├ {project_name}
-    │   └ graph_*.html      <--- 各グラフ
+    │   └ graph_*.html      <--- Each report
     │
-    ├ js          <--- この4つのディレクトリはHTMLファイルを表示するために必要です。消さないでください。
+    ├ js          <--- The next four directories are necessary to display HTML files, Do not remove them.
     ├ layout
     ├ lib
     ├ style
     │
-    └ index.html             <--- このファイルをウェブブラウザで開いてください。
+    └ index.html             <--- Open this file in a web browser.
 
 
-出力ファイルを移動する場合は ``{output_dir}`` ディレクトリごと移動してください。
+When you want to move the output, move the entire output directory.
+For the usage of each report, please refre `HOW TO USE GRAPHS <./index.html#how-to-toc>`_.
 
-それぞれのグラフの使い方は `HOW TO USE GRAPHS <./index.html#how-to-toc>`_ を参照してください。
 
 .. _option:
 
 ------------------------
-3. コマンドオプション 
+3. Options
 ------------------------
 
-次の項目をオプションで変更することができます。
+You can change the following items as options.
 
---config_file        設定ファイルです。未指定の場合、デフォルトを使用します。
---title              グラフのタイトル
---ellipsis           グラフの短縮名。グラフのファイル名になるため、同一ディレクトリに複数ファイルを出力する際に設定すると便利です。
---overview           index.htmlに表示するグラフの概要。
---remarks            index.htmlの備考欄に出力するテキストです。未指定の場合、設定ファイル [style] セクション中、remarks オプションの値を使用します。
+--config_file        Path to the configuration file. If not specified, then use default file.
+--title              Title of the graph.
+--ellipsis           Abbreviated name of the graph. It is used for the graph file name. (ex, graph_**ca**.html) It is convenient to set it when outputting multiple files to the same directory.
+--overview           Outline of the graph (displayed in the index.html file).
+--remarks            Text shown in the remark section of the index.html file (The default value is set at ([style] remarks) in the setting file.
 
-デフォルト値は次の通りです。
+The default values are as follows.
 
 =============== =================== ============ ============================================= ==============
 subcommand      title               ellipsis     overview                                      remarks
 =============== =================== ============ ============================================= ==============
-qc              QC graphs           qc           Quality Control of bam.                       なし
-ca              CA graphs           ca           Chromosomal Aberration.                       なし
-mutation        Mutation Matrix     mutation     Gene-sample mutational profiles.              なし
-signature       Signature           signature    Mutational Signatures.                        なし
-pmsignature     PMSignature         pmsignature  Express mutational signatures in pmsignature. なし
+qc              QC graphs           qc           Quality Control of bam.                       None
+ca              CA graphs           ca           Chromosomal Aberration.                       None
+mutation        Mutation Matrix     mutation     Gene-sample mutational profiles.              None
+signature       Signature           signature    Mutational Signatures.                        None
+pmsignature     PMSignature         pmsignature  Express mutational signatures in pmsignature. None
 =============== =================== ============ ============================================= ==============
 
 .. |new| image:: image/tab_001.gif
