@@ -1,34 +1,36 @@
 =============================
-Mutaitonal Signature レポート
+Mutaitonal Signature Report
 =============================
 
-Mutaitonal Signature レポートは検出した変異についての特徴的なパターン (変異シグネチャ) を表示します。
+Mutaitonal Signature Report displayes so called "mutation signature" (see e.g., Alexandrov et al., Nature, 2013) as bargraphs, and estimated "contributions" of each signature to the mutations per samples as stacked bar graphs.
 
-:上段 (Signature):
-  | 変異シグネチャを表示します。
+:Upper panel (Signature):
+  | Muttion signature are displayed (typically by barplots with 96 elements).
 
-:下段 (寄与度グラフ):
-  | サンプルごとの変異について、変異シグネチャの寄与度を表示します。
+:Lower panel (Contribution):
+  | For each sample, the ratios of contributions of mutation signatures to mutations are displayed
 
 .. image:: image/sig_dummy.PNG
   :scale: 100%
 
-また、最下段のリストボックスにより表示モード (View mode) を切り替えることができます。
+In addition, you can switch the display mode by the list box below the stacked graph.
 
 :View mode:
-  | - Rate ... 変異の数を 1 としたときの変異シグネチャの割合を % で表示します。
-  | - Count ... 実際の変異数に占める割合を表示します。
+  | - Rate ... The percentage (%) of signature contribution normalized by sum-to-one constraint.
+  | - Count ... It shows the ratio by the actual number of mutation.
 
 :Sort by:
-  | - Sample ID ... サンプルID順
-  | - Mutation count ... 変異数の降順 (View mode が Count の場合のみ選択可能)
+  | - Sample ID ... Sort by sample ID
+  | - Mutation count ... Descending order of mutations (applicable only when view mode is Count).
 
-[View mode] で [Count] を選択し、[Sort by] で [Mutation count] を選択した場合の表示例
+
+Display example when view mode is [Count] and sort by [Mutation count].
 
 .. image:: image/sig_operation1.PNG
   :scale: 100%
 
-pmsignatureについても同様です。
+
+Similar representation is adopted for the case with pmsignature.
 
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%
