@@ -48,8 +48,6 @@ Contents:
    :name: advance_toc
    
    config.rst
-   exec_signature.rst
-   exec_pmsignature.rst
    style.rst
 
 .. toctree:: 
