@@ -109,5 +109,5 @@ Set the filter for the gene displayed on the vertical axis.
 :Display maximum:
   | Maximum number of genes to display.
 
-いずれも横のエディットボックスに入力したのち、[Update filter] ボタンをクリックしてください。
+After inputting to both sides in the edit box, please click the [update filter] button.
 
