@@ -1,29 +1,31 @@
 ************************************
-Chromosomal Aberration レポート
+Chromosomal Aberration Report 
 ************************************
 
-ここでは、サンプルデータ [*]_ を使用して、Chromosomal Aberration レポートを出力するために必要な入力データと設定方法を解説します。
+Here, we show how to generate Chromosomal Aberration Report using sample data [*]_.
 
-.. [*] サンプルデータは paplot をダウンロードして解凍したディレクトリ中、example ディレクトリにあります。
+.. [*] Sample data is equipped with the ``example`` directory of ``paplot`` directory.
 
 .. _ca_minimal:
 
 ==========================
-1. 最小データセット
+1. Minimal dataset 
 ==========================
 
-| `このセクションで生成するレポートを見る <http://genomon-project.github.io/paplot/ca_minimal/graph_minimal.html>`_ 
-| `このセクションで使用するデータセットを見る <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal>`_ 
-| `このセクションで使用するデータセットをダウンロードする <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_minimal/graph_minimal.html>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal>`_ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal.zip?raw=true>`_ 
 
-paplot で Chromosomal Aberration レポートを作成するために最低限必要な項目は次の 5 つです。
+For generating Chromosomal Aberration Report using paplot, at least following 5 items are necessary.
 
- - サンプルID (Sample)
- - 切断点 1 の染色体 (Chr1) と位置 (Break1)
- - 切断点 2 の染色体 (Chr2) と位置 (Break2) 
+ - Sample ID (Sample)
+ - Chromosome of the breakpoint 1 (Chr1)
+ - Coordinate of the breakpoint 1 (Break1)
+ - Chromosome of the breakpoint 2 (Chr2)
+ – Coordinate of the breakpoint 2 (Break2)
 
 .. code-block:: cfg
-  :caption: データファイルから一部抜粋 (example/ca_minimal/data.csv)
+  :caption: Extracted from the example data (example/ca_minimal/data.csv)
   
   Sample,Chr1,Break1,Chr2,Break2,
   SAMPLE1,14,16019088,12,62784483,
@@ -37,7 +39,7 @@ paplot で Chromosomal Aberration レポートを作成するために最低限�
   SAMPLE4,7,6037836,21,34855497,
   SAMPLE4,7,109724564,14,106387943,
 
-設定ファイルの [result_format_ca] セクションでデータの列名を次のように設定します。
+Set the column names in the [result_format_ca] section of the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_minimal/paplot.cfg
@@ -49,7 +51,7 @@ paplot で Chromosomal Aberration レポートを作成するために最低限�
   col_break2 = Break2
   col_opt_id = Sample
 
-編集した設定ファイルを使用して ``paplot`` を実行します。
+Then, execute the ``paplot``.
 
 .. code-block:: bash
 
@@ -61,15 +63,15 @@ paplot で Chromosomal Aberration レポートを作成するために最低限�
 .. _ca_noheader:
 
 ==========================
-2. ヘッダなし
+2. Without header
 ==========================
 
-| `このセクションで生成するレポートを見る <http://genomon-project.github.io/paplot/ca_noheader/graph_noheader.html>`_ 
-| `このセクションで使用するデータセットを見る <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader>`_ 
-| `このセクションで使用するデータセットをダウンロードする <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_noheader/graph_noheader.html>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader>`_ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader.zip?raw=true>`_ 
 
 .. code-block:: cfg
-  :caption: データファイルから一部抜粋 (example/ca_noheader/data.csv)
+  :caption: Extracted from the example data (example/ca_noheader/data.csv)
   
   SAMPLE00,intronic,GATA3
   SAMPLE00,UTR3,CDH1
@@ -84,17 +86,13 @@ paplot で Chromosomal Aberration レポートを作成するために最低限�
   SAMPLE03,intronic,PIK3CA
   SAMPLE03,downstream,SEPT12
 
-データにヘッダ行がない場合、列名でなく列番号を設定します。
-
-設定ファイルの [result_format_ca] セクションでデータの列番号を次のように設定します。
-
-列番号は左から順に 1 始まりで数えます。
+When the input data has not header (column names), then we need to set the column number to each key in the [result_format_ca] section of the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_noheader/paplot.cfg
   
   [result_format_ca]
-  # ヘッダオプションを False に設定する
+  # Set the value of the header option to False
   header = False
 
   col_chr1 = 2
@@ -103,7 +101,7 @@ paplot で Chromosomal Aberration レポートを作成するために最低限�
   col_break2 = 5
   col_opt_id = 1
 
-編集した設定ファイルを使用して ``paplot`` を実行します。
+Then execute ``palot``.
 
 .. code-block:: bash
 
@@ -114,20 +112,20 @@ paplot で Chromosomal Aberration レポートを作成するために最低限�
 
 .. _ca_group:
 
-==========================
-3. 変異のグルーピング
-==========================
+=============================
+3. Customizing categorization
+=============================
 
-| `このセクションで生成するレポートを見る <http://genomon-project.github.io/paplot/ca_group/graph_group.html>`_ 
-| `このセクションで使用するデータセットを見る <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group>`_ 
-| `このセクションで使用するデータセットをダウンロードする <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_group/graph_group.html>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group>`_ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group.zip?raw=true>`_ 
 
-最小構成で作成した変異には自動的にグルーピングされており、染色体内の変異 (緑) と染色体間の変異 (紫) に色分けされています。
-
-ここでは、グループを手動で設定するように変更します。
+In the minimal dataset, chromosomal aberrations are categorized into intra-chromosomal (green) and inter-chromosomal (purple).
+We can customize the categorization.
+ 
 
 .. code-block:: cfg
-  :caption: データファイルから一部抜粋 (example/ca_group/data.csv)
+  :caption: Extracted from the example data (example/ca_group/data.csv)
   
   Sample,Chr1,Break1,Chr2,Break2,Label
   SAMPLE1,14,16019088,12,62784483,C
@@ -143,11 +141,8 @@ paplot で Chromosomal Aberration レポートを作成するために最低限�
   SAMPLE4,7,6037836,21,34855497,D
   SAMPLE4,7,109724564,14,106387943,A
 
-今回の例では、必須項目である Sample, Chr1, Break1, Chr2, Break2 列に加えて、Label 列が追加してあります。
-
-まず、グルーピングに使用する列名 ``Label`` を設定ファイルに追加します。
-
-設定ファイルの [result_format_ca] セクションでデータの列名を次のように設定します。
+In the example data above, a new column, Label, is included as well as Sample, Chr1, Break1, Chr2 and Break2.
+First, we set the ``Label`` as the column used for categorization in the [result_format_ca] section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_group/paplot.cfg
@@ -155,26 +150,22 @@ paplot で Chromosomal Aberration レポートを作成するために最低限�
   [result_format_ca]
   col_opt_group = Label
 
-オプションの列名は通常任意に設定できますが、グルーピングにおいては ``col_opt_group`` 固定にしてください。
-
-これで ``Label`` 列を使用してグルーピングされますが、追加で色も指定できます。
+Also, the color for each category can be set.
 
 .. code-block:: cfg
   :caption: example/ca_group/paplot.cfg
 
   [ca]
-  # グループの色指定
-  # {値}:{色名もしくは RGB 値} をグループの数だけ , 区切りで記入する
+  # Set {Value}:{the name of colour or RGB value} for each category and join them by comma ','.
   group_colors = A:#66C2A5,B:#FC8D62,C:#8DA0CB,D:#E78AC3
 
-  # 指定したグループのみ表示する
+  # Display just selected categories.
   limited_group = 
   
-  # 指定したグループを表示しない
+  # Not display selected categories.
   nouse_group = 
 
-
-編集した設定ファイルを使用して ``paplot`` を実行します。
+Then, execute ``paplot``.
 
 .. code-block:: bash
 
@@ -186,27 +177,28 @@ paplot で Chromosomal Aberration レポートを作成するために最低限�
 .. _ca_option:
 
 ===================================
-4. ポップアップの情報追加
+4. Customizing pop-up information
 ===================================
 
-| `このセクションで生成するレポートを見る <http://genomon-project.github.io/paplot/ca_option/graph_option.html>`_ 
-| `このセクションで使用するデータセットを見る <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option>`_ 
-| `このセクションで使用するデータセットをダウンロードする <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_option/graph_option.html>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option>`_ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option.zip?raw=true>`_ 
 
-マウスカーソルを乗せた時に表示する情報 (ポップアップ) をカスタマイズすることができます。
+We can customize the pop-up information that appears upon mouseover events.
+In the minimal dataset, the pop-up information is shown as below.
 
-最小構成で表示するポップアップはこのようになっています。
+ **Before customization**
 
 .. image:: image/data_ca1.png
 
-ここにもう少し情報を追加して変異の詳細を確認できるように変更します。
+By customizing pop-up information, we can view more detailed information on each chromosomal aberration.
 
-変更後
+**After customization**
 
 .. image:: image/data_ca2.png
 
 .. code-block:: cfg
-  :caption: データファイルから一部抜粋 (example/ca_option/data.csv)
+  :caption: Extracted from the example data (example/ca_option/data.csv)
   
   Sample,Chr1,Break1,Dir1,Chr2,Break2,Dir2,Ref,Alt,MutationType,Gene1,Gene2
   SAMPLE1,14,16019088,-,12,62784483,+,---,GACTC,deletion,LS7T1EG444,4GRRIO5AVR
@@ -219,21 +211,17 @@ paplot で Chromosomal Aberration レポートを作成するために最低限�
   SAMPLE3,14,56600342,-,hs37d5,5744957,+,---,--CAA,deletion,UTLVCZ63SK,5I74M5NKDC
   SAMPLE3,Y,12191863,-,hs37d5,29189687,-,---,TG-G-,inversion,3PLD4C20IZ,BVYMBTIFKD
 
-今回の例では、必須項目である Sample, Chr1, Break1, Chr2, Break2 に加えて、次の7つを追加してあります。
+In this example, the following 7 (optional) columns are added as well as 5 required columns.
 
- - リファレンスの塩基 (Ref)
- - 変異の塩基(Alt)
- - 変異タイプ(MutationType)
- - ブレークポイント1の遺伝子名(Gene1)
- - ブレークポイント2の遺伝子名(Gene2)
- - ブレークポイント1のDirection(Dir1)
- - ブレークポイント2のDirection(Dir2)
+ - Reference base (Ref)
+ - Alternative base (Alt)
+ - Mutation type (MutationType)
+ - Gene affected by the breakpoint 1 (Gene1)
+ - Gene affected by the breakpoint 2 (Gene2)
+ - Direction of the breakpoint 1 (Dir1)
+ - Direction of the breakpoint 2 (Dir2)
 
-このうち、変異タイプ (MutationType) と遺伝子名 (Gene1, Gene2)、Direction (Dir1, Dir2) を使用します。
-
-まず、ポップアップの情報として追加したい列名を設定ファイルに記載します。
-
-設定ファイルの [result_format_ca] セクションでデータの列名を次のように設定します。
+First, add these columns to the [result_format_ca] section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_option/paplot.cfg
@@ -247,30 +235,30 @@ paplot で Chromosomal Aberration レポートを作成するために最低限�
   col_opt_dir1 = Dir1
   col_opt_dir2 = Dir2
 
-オプションの列名は次の形式で記述します。 ``col_opt_{キーワード} = {実際の列名}`` 
+The colum names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
 
- - ``{キーワード}`` の部分は任意に設定できますが、 ``col_opt_`` を必ず先頭につけてください。
- - ``{キーワード}`` には半角英数字 (1-9, a-z, A-Z) および "_" のみ使用できます。
- - ``col_opt_id`` は予約済みですので、サンプルID以外の用途には使用できません。
- 
-次に、ポップアップの表示内容を変更します。
+ - the part ``{keyword}`` can be set arbitrarily. However, always start with ``col_opt_``.
+ - the characters that can be used for ``{keyword}`` is 1-9, a-z, A-Z and _.
+ - ``col_opt_id`` has to be used only for sample ID.
+
+Then, modify the [ca] section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_option/paplot.cfg
   
   [ca]
-  # 最小構成での設定
+  # before customization
   # tooltip_format = [{chr1}] {break1:,}; [{chr2}] {break2:,}
-  # 次のように変更
+  # after customization  
   tooltip_format = [{chr1}] {break1:,} ({dir1}) {gene_name1}; [{chr2}] {break2:,} ({dir2}) {gene_name2}; {type}
 
-編集した設定ファイルを使用して ``paplot`` を実行します。
+Then, execute ``paplot``.
 
 .. code-block:: bash
 
   paplot ca {unzip_path}/example/ca_option/data.csv ./tmp ca_option \
   --config_file {unzip_path}/example/ca_option/paplot.cfg
 
-ポップアップ ( ``tooltip_format`` ) 記述方法詳細は  :ref:`ユーザ定義フォーマット <user_format>` を参照してください。
+For more detailed description on how to set pop-up information (``tooltip_format``), please refer `ユーザ定義フォーマット <./data_common.html#user-format>`_.
 
 .. |new| image:: image/tab_001.gif

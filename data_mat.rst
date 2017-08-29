@@ -1,5 +1,5 @@
 **************************
-Mutation Matrix レポート
+Mutation Matrix Report
 **************************
 
 Here, we show how to generate Mutation Matrix report using sample data [*]_.
@@ -16,7 +16,7 @@ Here, we show how to generate Mutation Matrix report using sample data [*]_.
  * `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_minimal>`_ 
  * `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_minimal.zip?raw=true>`_ 
 
-For generating Mutation Matrix Report using paplot, at least sample ID (Sample), gene name (Gene) and mutation type (MutationType) is necessary.
+For generating Mutation Matrix Report using paplot, at least sample ID (Sample), gene name (Gene) and mutation type (MutationType) are necessary.
 
 .. code-block:: cfg
   :caption: Extracted from the example data (example/mutation_minimal/data.csv)
@@ -88,7 +88,7 @@ When the input data has not header (column names), then we need to set the colum
   :caption: example/mutation_noheader/paplot.cfg
   
   [result_format_mutation]
-  # Set the value of the header option to false
+  # Set the value of the header option to False
   header = False
   
   col_group = 2
@@ -107,7 +107,7 @@ Then execute ``palot``.
 .. _mm_option:
 
 ===================================
-3. Adding pop-up information
+3. Customizing pop-up information
 ===================================
 
 | `View the report generated in this section <http://genomon-project.github.io/paplot/mutation_option/graph_option.html>`_ 
@@ -165,7 +165,7 @@ First, add these columns to the [result_format_mutation] section in the configur
 
 The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
 
- - the part ``{keywrod}`` can be set arbitrarily. However, always start with ``col_opt_``.
+ - the part ``{keyword}`` can be set arbitrarily. However, always start with ``col_opt_``.
  - the characters that can be used for ``{keyword}`` is 1-9, a-z, A-Z and _.
  - ``col_opt_id`` has to be used only for sample ID.
  
