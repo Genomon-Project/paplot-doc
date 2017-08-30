@@ -1,27 +1,24 @@
 **************************
-pmsignature レポート
+pmsignature Report 
 **************************
 
-ここでは、サンプルデータ [*]_ を使用して、pmsignature レポートを出力するために必要な入力データと設定方法を解説します。
+Here, we show how to generate pmsignature Report using sample data [*]_.
 
-.. [*] サンプルデータは paplot をダウンロードして解凍したディレクトリ中、example ディレクトリにあります。
+ .. [*] Sample data is equipped with the ``example`` directory of ``paplot`` directory.
 
-:doc:`exec_pmsignature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。
+.. :doc:`exec_pmsignature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。
 
 .. _json_ind:
 
 ==========================
-1. jsonフォーマット
+1. Input data format
 ==========================
 
-paplot で pmsignature レポートを作成するためには Mutation Matrix や Chromosomal Aberration、QC とは異なり、json ファイル形式で pmsignature データを用意する必要があります。
-
-ここでは、paplot が使用する pmsignature データのフォーマットについて解説します。
-
-exampleのデータファイルをテキストエディタで開くと次のようになっています。
+To generate pmsignature Report using paplot, json format input data is necessary.
+The example (example/pmsignature_stack/data2.json) is as follows:
 
 .. code-block:: python
-  :caption: 長いため一部省略 (example/pmsignature_stack/data2.json)
+  :caption: Extracted from the example data (example/pmsignature_stack/data2.json)
 
   {
     "ref":[
@@ -65,50 +62,47 @@ exampleのデータファイルをテキストエディタで開くと次のよ�
 
 .. image:: image/exec_pmsig1.PNG
 
-**pmsignature データフォーマット**
+**Elements of the input data for pmsignature Report**
 
 :ref:
-  | pmsignature の各リファレンスの値。
-  | pmsignature ごと、リファレンスごとに A → C → G → T の順に値を記述します。描画時に再計算しますので、合計して 1 になる必要はありません。
-  | 今回の例では base の数が 5 ですが、3 や 7 など奇数の数値であれば変更可能です。
+  | Values for reference bases (in the order of A, C, G and T) for each mutation signature.
+  | Not necessary sum-to-one (normalized within the program).
+  | In this example, the number of bases is 5. But can be changed to any arbitrary numbers (such as 3 or 7).
 
 :alt:
-  | pmsignature の alt の値。
-  | pmsignature ごとに 16 個の値を設定します。
-  | 横方向のサイズは ref3 (base=5 の場合。base=3 であれば ref2、base=7 であれば ref4) の ACGT の各値に従うため、altA と altG については通常は 0 を設定します。
+  | Values for alternative base (in the order of A, C, G and T for each central reference base) for each mutation signature.
+  | Four values (in the order of A, C, G and T) for each reference base A, C, G and T.  Therefore, in total 16 values are necessary for each mutation signature.
+  | Usually, the central vase is fixed to C or T. Therefore, values whose reference bases are A or G contribute little on the visualization (and thus can be set to zeros).
 
 :strand:
-  | pmsignature の strand の値。
-  | pmsignature ごとに plus/minus 2 つの値をそれぞれ設定します。
-  | strand が無い場合は ``[0,0]`` を記入します。
+  | Values for the strand (in the order of plus and minus) for each mutation signature.
+  | When strand biasness is not taken into account, just set ``[0, 0]``.
 
-**寄与度グラフ描画データ**
 
-この項目はオプションです。
+**Elements for signature contribution graph**
 
-設定するとサンプル毎に pmsignature の寄与度グラフ ( `例 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack2.html>`_ ) を作成します。
+This graph is optional.
+
+Signature contribution graph shows how much amount of mutations are associated with each mutation signature.
+When *id*, *mutation* and *mutation_count* are set in the input json file,
+then signature contribution graph are generated (`example <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack2.html>`_).
+
 
 :id:
-  | サンプル名リスト
+  |  List of samples. For each sample, sample indices are assigned (in this example, PD3851a=0、PD3890a=1、PD3904a=2 and so on). 
 
 :mutation_count:
-  | サンプルごとの変異数
-  | 上記の例の場合、PD3851a の変異数=702、PD3890a の変異数=2312、PD3904a の変異数=2096 となります。
+  | The number of mutations for each sample (in this example, the mutation number for PD3851a =702, the mutation number for PD3890a = 2312 and so on).
 
 :mutation:
-  | サンプルごと、pmsignature ごとの割合を設定します。 
-  | [sample index, pmsignature index, value] の順に記載します。
+  |  Contribution ratio of each mutation signature to each sample ([sample index, signature index, value]).
   |
-  | サンプルの index は id で記載した順に 0 からカウントします。
-  | 上記の例の場合、PD3851a=0、PD3890a=1、PD3904a=2 となります。
-  |
-  | pmsignature の index も ref で記載した順に 0 からカウントします。
-  | background を使用する場合、signature1, signature2, ..., background の順にカウントします。
-  | 上記の例の場合、signature1 = 0、signature2 = 1、background = 2 となります。
+  | The indice for mutation signature (signature index) are assigned in the listed order in the signature key.
+  | In the above example, (signature1 = 0, signature2 = 1, signature3 = 2). 
 
 .. note::
 
-  キーは変更可能です。キーを変更した場合は設定ファイル ([result_format_pmsignature] key_*) を変更してください。
+  The keys in the input json file can be modified by changing contents in the [result_format_pmsignature] section of the configuration file.
 
   .. code-block:: cfg
     :caption:  paplot/example/pmsignature_stack/paplot.cfg
@@ -125,37 +119,35 @@ exampleのデータファイルをテキストエディタで開くと次のよ�
             
 .. note::
 
-  json ファイルの確認
-  
-  paplot は python の json パッケージを使用しているため、次のコマンドで読めれば OK です。
+    How to validate json file format
+ 
+    paplot using `json` python package. When loading the input file using load function from json package, then the input file is valid json format.
 
-  json パッケージを使用したファイル確認例 (ファイル名が "data2.json" の場合)
+    Example, when the file fine name is "data2.json".
 
-  .. code-block:: shell
+    .. code-block:: shell
   
-    $ python
-    >>> import json
-    >>> json.load(open("data2.json"))
+      $ python
+      >>> import json
+      >>> json.load(open("data2.json"))
 
 ----
 
 .. _pm_minimal:
 
 ==========================
-2. 最小データセット
+2. Minimal dataset 
 ==========================
 
-| `このセクションで生成するレポートを見る <http://genomon-project.github.io/paplot/pmsignature_minimal/graph_pmsignature_minimal2.html>`_ 
-| `このセクションで使用するデータセットを見る <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal>`_ 
-| `このセクションで使用するデータセットをダウンロードする <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/pmsignature_minimal/graph_pmsignature_minimal2.html>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal>`_ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal.zip?raw=true>`_ 
 
-入力データ形式は :ref:`こちら <json_ind>` 参照。
+For the format of input data, please refer to :ref:`Here <json>`.
 
-:doc:`exec_pmsignature` に従いデータの準備を行う場合、設定ファイルの変更は必要ありません。
+.. :doc:`exec_pmsignature` に従いデータの準備を行う場合、設定ファイルの変更は必要ありません。
 
-ここでは paplot コマンドを中心に解説します。
-
-データファイル (pmsignature 数は 2)
+Input data file (the number of mutation signature is 2)
 
 .. code-block:: json
   :caption: example/pmsignature_minimal/data.json
@@ -166,7 +158,7 @@ exampleのデータファイルをテキストエディタで開くと次のよ�
     "strand":[[0.514,0.485]]
   }
 
-設定ファイル
+Configuration file
 
 .. code-block:: cfg
   :caption: example/signature_minimal/paplot.cfg
@@ -198,19 +190,16 @@ exampleのデータファイルをテキストエディタで開くと次のよ�
   key_alt = alt
   key_strand = strand
 
-``paplot`` を実行します。
+Execute ``paplot``.
 
 .. code-block:: bash
 
   paplot pmsignature pmsignature_minimal/data.json ./tmp pmsignature_minimal \
   --config_file ./pmsignature_minimal/paplot.cfg
 
+Then the report is generated in the `tmp` directory.
 
-上記のコマンドを実行すると以下の場所にレポートが作成されます。
-
-ここで出力されるレポートは、graph_signature2.html と、pmsignature 数がファイル名に反映されています。
-
-pmsignature 数は paplot 実行時に入力ファイル (data.json) から読み取り、自動的に判定します。
+Here, the file name (`graph_pmsignature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
 
 ::
 
@@ -220,17 +209,17 @@ pmsignature 数は paplot 実行時に入力ファイル (data.json) から読�
 
 .. note::
 
-  この例では pmsignature の出力に background を設定しているため、実際に出力される pmsignature は 1 少ない数が表示されます。
+  Since one signature is assigned to backgroud signature in this example, the last signature in the contribution graph is background signature.
 
 ----
 
 .. _pm_mclass:
 
-===================================
-3. 複数タイプの pmsignature
-===================================
+=================================================================
+3. Mutation signature with multiple various number of signatures
+=================================================================
 
-| このセクションで生成するレポートを見る
+| View the report generated in this section
 
  - `pmsignature 2 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class2.html>`_ 
  - `pmsignature 3 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class3.html>`_ 
@@ -238,32 +227,33 @@ pmsignature 数は paplot 実行時に入力ファイル (data.json) から読�
  - `pmsignature 5 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class5.html>`_ 
  - `pmsignature 6 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class6.html>`_ 
 
-| `このセクションで使用するデータセットを見る <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class>`_ 
-| `このセクションで使用するデータセットをダウンロードする <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class.zip?raw=true>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class>`_ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class.zip?raw=true>`_ 
 
-入力データ形式は :ref:`こちら <json_ind>` 参照。
+For the format of input data, please refer to :ref:`here <json>`.
 
-:doc:`exec_pmsignature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。ここでは paplot コマンドを中心に解説します。
+.. :doc:`exec_pmsignature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。ここでは paplot コマンドを中心に解説します。
 
-データファイルは pmsignature タイプの数だけ用意し、設定ファイルは形式が同じであれば一つだけ用意します。
+When generating Mutation Signature Report with various number of signatures,
+the input data for each signature number and configuration file are necessary.
 
-今回の場合、以下のファイル構成になります。
+In this example dataset, following files are prepared.
 
 ::
 
   example/pmsignature_multi_class/
 
-     # データファイル
+     # Input data files
     ┣ data2.json  # pmsignature num = 2
     ┣ data3.json  # pmsignature num = 3
     ┣ data4.json  # pmsignature num = 4
     ┣ data5.json  # pmsignature num = 5
     ┣ data6.json  # pmsignature num = 6
 
-     # 設定ファイル
+     # Configuration file  
     ┗ paplot.cfg
 
-``paplot`` を実行します。
+Execute ``paplot`` for each mutation signature number.
 
 .. code-block:: bash
 
@@ -282,18 +272,16 @@ pmsignature 数は paplot 実行時に入力ファイル (data.json) から読�
   paplot pmsignature pmsignature_multi_class/data6.json ./tmp pmsignature_multi_class \
   --config_file ./pmsignature_multi_class/paplot.cfg
 
-上記のように一つずつ実行してもよいですが、下記のようにまとめて実行することもできます。
+Or execute the following batch command.
 
 .. code-block:: bash
 
   paplot pmsignature "pmsignature_multi_class/data*.json" ./tmp pmsignature_multi_class \
   --config_file ./pmsignature_multi_class/paplot.cfg
 
-上記のコマンドを実行すると以下の場所にレポートが作成されます。
+Then the report is generated in the `tmp` directory.
 
-ここで出力されるレポートは、graph_signature2.html と、pmsignature 数がファイル名に反映されています。
-
-pmsignature 数は paplot 実行時に入力ファイル (data?.json) のデータから読み取り、自動的に判定します。ファイル名称には依存しません。
+Here, the file name (`graph_pmsignature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
 
 ::
 
@@ -307,17 +295,17 @@ pmsignature 数は paplot 実行時に入力ファイル (data?.json) のデー�
 
 .. note::
 
-  この例では pmsignature の出力に background を設定しているため、実際に出力される pmsignature は 1 少ない数が表示されます。
+  Since one signature is assigned to backgroud signature in this example, the last signature in the contribution graph is background signature.
 
 ----
 
 .. _pm_stack:
 
 ==========================
-4. 寄与度グラフ
+4. Signature contribution graph 
 ==========================
 
-| このセクションで生成するレポートを見る
+| View the report generated in this section 
 
  - `pmsignature 2 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack2.html>`_ 
  - `pmsignature 3 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack3.html>`_ 
@@ -325,61 +313,37 @@ pmsignature 数は paplot 実行時に入力ファイル (data?.json) のデー�
  - `pmsignature 5 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack5.html>`_ 
  - `pmsignature 6 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack6.html>`_ 
 
-| `このセクションで使用するデータセットを見る <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack>`_ 
-| `このセクションで使用するデータセットをダウンロードする <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack.zip?raw=true>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack>`_ 
+| `Download the input data used in this sectio <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack.zip?raw=true>`_ 
 
-レポートに変異の内訳グラフを追加します。 :ref:`こちら <json_ind>` で解説に使用しているデータで、:doc:`exec_pmsignature` の手順でデータの準備を行う場合に出力されるデータです。
+Here, we add a signature contribution graph.
 
-データフォーマットは :ref:`こちら <json_ind>` 参照。
+.. レポートに変異の内訳グラフを追加します。 :ref:`こちら <json_ind>` で解説に使用しているデータで、:doc:`exec_pmsignature` の手順でデータの準備を行う場合に出力されるデータです。
 
-複数データ実行方法は :ref:`こちら <pm_mclass>` 参照。
+For the format of input data, please refer to :ref:`here <json_ind>`.
+
+For generating report with various signature numbers, please refer to :ref:`here <pm_mclass>`.
 
 ----
 
 .. _pm_nobackground:
 
 ==========================
-5. Backgroundなし
+5. Withoug background
 ==========================
 
-| `このセクションで生成するレポートを見る <http://genomon-project.github.io/paplot/pmsignature_nobackground/graph_nobackground2.html>`_ 
-| `このセクションで使用するデータセットを見る <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground>`_ 
-| `このセクションで使用するデータセットをダウンロードする <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/pmsignature_nobackground/graph_nobackground2.html>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground>`_ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground.zip?raw=true>`_ 
 
-:doc:`exec_pmsignature` の手順でデータの準備を行う場合、background ありで pmsignature を作成しますが、background なしで pmsignature を出力することもできます。
+.. :doc:`exec_pmsignature` の手順でデータの準備を行う場合、background ありで pmsignature を作成しますが、background なしで pmsignature を出力することもできます。
 
-手順詳細は :doc:`exec_pmsignature` を参照ください。
+.. 手順詳細は :doc:`exec_pmsignature` を参照ください。
 
 1. pmsignature を background なしで作成します。
 
-.. code-block:: R
 
-  library(pmsignature)
-  
-  # use sample data
-  inputFile <- system.file("extdata/Nik_Zainal_2012.mutationPositionFormat.txt.gz", package="pmsignature")
-  G <- readMPFile(inputFile, numBases = 5, trDir = TRUE)
-  
-  # background を使用する場合
-  # BG_prob <- readBGFile(G)
-  # Param <- getPMSignature(G, K = 3, BG = BG_prob)
-  # Boot <- bootPMSignature(G, Param0 = Param, bootNum = 100, BG = BG_prob)
-
-  # background を使用しない場合
-  Param <- getPMSignature(G, K = 3)
-  Boot <- bootPMSignature(G, Param0 = Param, bootNum = 100)
-  
-  # save .Rdata
-  resultForSave <- list(Param, Boot)
-  save(resultForSave, file="pmsignature_ind3.Rdata")
-
-2. 作成した Rdata を json に変換します。
-
-.. code-block:: bash
-
-  R --vanilla --slave --args ./pmsignature_ind3.Rdata ./pmsignature_ind3.json < {path to genomon_Rscripts}/pmsignature/convert_toJson_ind.R
-
-3. 設定ファイルで background オプションを False に設定します。
+Set the backgroud option to False in the configuration file.
 
 .. code-block:: cfg
   :caption: example/pmsignature_nobackground/paplot.cfg
@@ -387,7 +351,7 @@ pmsignature 数は paplot 実行時に入力ファイル (data?.json) のデー�
   [result_format_pmsignature]
   background = False
 
-4. ``paplot`` を実行します。
+Then, execute ``paplot``.
 
 .. code-block:: bash
 
