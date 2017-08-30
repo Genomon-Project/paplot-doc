@@ -1,27 +1,25 @@
 ******************************
-Mutational Signature レポート
+Mutational Signature Report 
 ******************************
 
-ここでは、サンプルデータ [*]_ を使用して、Mutational Signature レポートを出力するために必要な入力データと設定方法を解説します。
+Here, we show how to generate Mutation Signature Report using sample data [*]_.
 
-.. [*] サンプルデータは paplot をダウンロードして解凍したディレクトリ中、example ディレクトリにあります。
+ .. [*] Sample data is equipped with the ``example`` directory of ``paplot`` directory.
 
-:doc:`exec_signature` に従いデータを準備する場合、設定ファイルの変更は必要ありません。
+
+.. :doc:`exec_signature` に従いデータを準備する場合、設定ファイルの変更は必要ありません。
 
 .. _json:
 
 ==========================
-1. jsonフォーマット
+1. Input data format
 ==========================
 
-paplotで Mutational Signature レポートを作成するためにはこれまでの、 Mutation Matrix や Chromosomal Aberration、QC とは異なり、jsonファイル形式で変異シグネチャのデータを用意する必要があります。
-
-ここでは、paplotが使用する変異シグネチャのデータフォーマットについて解説します。
-
-`example/signature_stack/data2.json` ファイルをテキストエディタで開くと次のようになっています。
+To generate Mutation Signature Report using paplot, json format input data is necessary.
+The example (`example/signature_stack/data2.json`) is as follows:
 
 .. code-block:: python
-  :caption: 長いため一部省略 (example/signature_stack/data2.json)
+  :caption: Extracted from the example data (example/signature_stack/data2.json)
 
   {
     "signature":[
@@ -47,73 +45,72 @@ paplotで Mutational Signature レポートを作成するためにはこれま�
     "mutation_count":[4001,7174,5804]
   }
 
-**変異シグネチャのデータフォーマット**
+**Elements of the input data for Mutation Signature Report**
 
 :signature:
-  | 変異シグネチャの各バーの値。
-  | 変異シグネチャごと、変化パターン (C > A など) ごとに値を記述します。
-  | 変化パターンの数を変えることはできません。
-  | base の数は 3 か 5 のどちらかのみ設定できます。
+  | Probability masses for each mutation pattern.
+  | Put the probability value for each mutation signature, substitution pattern (e.g., C > A) and context (e.g., TpCpA > TpApA).
+  | The number of bases should be 3 or 5.
+  | The number of contexts for each substitution pattern should be the same (16 and 256 when the numbers of bases are 3 and 5, respectively).
 
-サンプルデータの base は 3 であるため、次の並び順に 16 ケースの値を記述します。(中央の R はリファレンスです)
-
-::
-
-  ARA,ARC,ARG,ART,CRA,CRA,CRG,CRT,GRA,GRC,GRG,GRT,TRA,TRA,TRG,TRT
-
-もしbase=5とする場合は、次の順に256ケースの記述が必要です。
+Since the number of bases is 3 in the above example data, probabilisty values for 16 contexts should be put down in the following order.
 
 ::
 
-  AARAA,AARAC,AARAG,AARAT,AARCA,AARCC,AARCG,AARCT,AARGA,AARGC,AARGG,AARGT,AARTA,AARTC,AARTG,AARTT,
-  ACRAA,ACRAC,ACRAG,ACRAT,ACRCA,ACRCC,ACRCG,ACRCT,ACRGA,ACRGC,ACRGG,ACRGT,ACRTA,ACRTC,ACRTG,ACRTT,
-  AGRAA,AGRAC,AGRAG,AGRAT,AGRCA,AGRCC,AGRCG,AGRCT,AGRGA,AGRGC,AGRGG,AGRGT,AGRTA,AGRTC,AGRTG,AGRTT,
-  ATRAA,ATRAC,ATRAG,ATRAT,ATRCA,ATRCC,ATRCG,ATRCT,ATRGA,ATRGC,ATRGG,ATRGT,ATRTA,ATRTC,ATRTG,ATRTT,
-  CARAA,CARAC,CARAG,CARAT,CARCA,CARCC,CARCG,CARCT,CARGA,CARGC,CARGG,CARGT,CARTA,CARTC,CARTG,CARTT,
-  CCRAA,CCRAC,CCRAG,CCRAT,CCRCA,CCRCC,CCRCG,CCRCT,CCRGA,CCRGC,CCRGG,CCRGT,CCRTA,CCRTC,CCRTG,CCRTT,
-  CGRAA,CGRAC,CGRAG,CGRAT,CGRCA,CGRCC,CGRCG,CGRCT,CGRGA,CGRGC,CGRGG,CGRGT,CGRTA,CGRTC,CGRTG,CGRTT,
-  CTRAA,CTRAC,CTRAG,CTRAT,CTRCA,CTRCC,CTRCG,CTRCT,CTRGA,CTRGC,CTRGG,CTRGT,CTRTA,CTRTC,CTRTG,CTRTT,
-  GARAA,GARAC,GARAG,GARAT,GARCA,GARCC,GARCG,GARCT,GARGA,GARGC,GARGG,GARGT,GARTA,GARTC,GARTG,GARTT,
-  GCRAA,GCRAC,GCRAG,GCRAT,GCRCA,GCRCC,GCRCG,GCRCT,GCRGA,GCRGC,GCRGG,GCRGT,GCRTA,GCRTC,GCRTG,GCRTT,
-  GGRAA,GGRAC,GGRAG,GGRAT,GGRCA,GGRCC,GGRCG,GGRCT,GGRGA,GGRGC,GGRGG,GGRGT,GGRTA,GGRTC,GGRTG,GGRTT,
-  GTRAA,GTRAC,GTRAG,GTRAT,GTRCA,GTRCC,GTRCG,GTRCT,GTRGA,GTRGC,GTRGG,GTRGT,GTRTA,GTRTC,GTRTG,GTRTT,
-  TARAA,TARAC,TARAG,TARAT,TARCA,TARCC,TARCG,TARCT,TARGA,TARGC,TARGG,TARGT,TARTA,TARTC,TARTG,TARTT,
-  TCRAA,TCRAC,TCRAG,TCRAT,TCRCA,TCRCC,TCRCG,TCRCT,TCRGA,TCRGC,TCRGG,TCRGT,TCRTA,TCRTC,TCRTG,TCRTT,
-  TGRAA,TGRAC,TGRAG,TGRAT,TGRCA,TGRCC,TGRCG,TGRCT,TGRGA,TGRGC,TGRGG,TGRGT,TGRTA,TGRTC,TGRTG,TGRTT,
-  TTRAA,TTRAC,TTRAG,TTRAT,TTRCA,TTRCC,TTRCG,TTRCT,TTRGA,TTRGC,TTRGG,TTRGT,TTRTA,TTRTC,TTRTG,TTRTT
+  ANA,ANC,ANG,ANT,CNA,CNA,CNG,CNT,GNA,GNC,GNG,GNT,TNA,TNA,TNG,TNT
 
-**寄与度グラフ描画データ**
+When `base = 5`, 256 contexts values should be put down in the following order.
 
-この項目はオプションです。
+::
 
-設定するとサンプル毎に変異シグネチャの寄与度グラフ ( `例 <http://genomon-project.github.io/paplot/signature_stack/graph_stack2.html>`_ ) を作成します。
+  AANAA,AANAC,AANAG,AANAT,AANCA,AANCC,AANCG,AANCT,AANGA,AANGC,AANGG,AANGT,AANTA,AANTC,AANTG,AANTT,
+  ACNAA,ACNAC,ACNAG,ACNAT,ACNCA,ACNCC,ACNCG,ACNCT,ACNGA,ACNGC,ACNGG,ACNGT,ACNTA,ACNTC,ACNTG,ACNTT,
+  AGNAA,AGNAC,AGNAG,AGNAT,AGNCA,AGNCC,AGNCG,AGNCT,AGNGA,AGNGC,AGNGG,AGNGT,AGNTA,AGNTC,AGNTG,AGNTT,
+  ATNAA,ATNAC,ATNAG,ATNAT,ATNCA,ATNCC,ATNCG,ATNCT,ATNGA,ATNGC,ATNGG,ATNGT,ATNTA,ATNTC,ATNTG,ATNTT,
+  CANAA,CANAC,CANAG,CANAT,CANCA,CANCC,CANCG,CANCT,CANGA,CANGC,CANGG,CANGT,CANTA,CANTC,CANTG,CANTT,
+  CCNAA,CCNAC,CCNAG,CCNAT,CCNCA,CCNCC,CCNCG,CCNCT,CCNGA,CCNGC,CCNGG,CCNGT,CCNTA,CCNTC,CCNTG,CCNTT,
+  CGNAA,CGNAC,CGNAG,CGNAT,CGNCA,CGNCC,CGNCG,CGNCT,CGNGA,CGNGC,CGNGG,CGNGT,CGNTA,CGNTC,CGNTG,CGNTT,
+  CTNAA,CTNAC,CTNAG,CTNAT,CTNCA,CTNCC,CTNCG,CTNCT,CTNGA,CTNGC,CTNGG,CTNGT,CTNTA,CTNTC,CTNTG,CTNTT,
+  GANAA,GANAC,GANAG,GANAT,GANCA,GANCC,GANCG,GANCT,GANGA,GANGC,GANGG,GANGT,GANTA,GANTC,GANTG,GANTT,
+  GCNAA,GCNAC,GCNAG,GCNAT,GCNCA,GCNCC,GCNCG,GCNCT,GCNGA,GCNGC,GCNGG,GCNGT,GCNTA,GCNTC,GCNTG,GCNTT,
+  GGNAA,GGNAC,GGNAG,GGNAT,GGNCA,GGNCC,GGNCG,GGNCT,GGNGA,GGNGC,GGNGG,GGNGT,GGNTA,GGNTC,GGNTG,GGNTT,
+  GTNAA,GTNAC,GTNAG,GTNAT,GTNCA,GTNCC,GTNCG,GTNCT,GTNGA,GTNGC,GTNGG,GTNGT,GTNTA,GTNTC,GTNTG,GTNTT,
+  TANAA,TANAC,TANAG,TANAT,TANCA,TANCC,TANCG,TANCT,TANGA,TANGC,TANGG,TANGT,TANTA,TANTC,TANTG,TANTT,
+  TCNAA,TCNAC,TCNAG,TCNAT,TCNCA,TCNCC,TCNCG,TCNCT,TCNGA,TCNGC,TCNGG,TCNGT,TCNTA,TCNTC,TCNTG,TCNTT,
+  TGNAA,TGNAC,TGNAG,TGNAT,TGNCA,TGNCC,TGNCG,TGNCT,TGNGA,TGNGC,TGNGG,TGNGT,TGNTA,TGNTC,TGNTG,TGNTT,
+  TTNAA,TTNAC,TTNAG,TTNAT,TTNCA,TTNCC,TTNCG,TTNCT,TTNGA,TTNGC,TTNGG,TTNGT,TTNTA,TTNTC,TTNTG,TTNTT
+
+
+**Signature contribution graph**
+
+This graph is optional.
+
+Signature contribution graph shows how much amount of mutations are associated with each mutation signature.
+When *id*, *mutation* and *mutation_count* are set in the input json file,
+then signature contribution graph are generated (`example <http://genomon-project.github.io/paplot/signature_stack/graph_stack2.html>`_).
 
 :id:
-  | サンプル名リスト
+  | List of samples. For each sample, sample indices are assigned (in this example, PD3851a=0、PD3890a=1、PD3904a=2 and so on). 
 
 :mutation_count:
-  | サンプルごとの変異数
-  | 上記の例の場合、PD3851a の変異数=4001、PD3890a の変異数=7174、PD3904a の変異数=5804 となります。
+  | The number of mutations for each sample
+  | In the above example, (the mutation number for PD3851a =4001, the mutation number for PD3890a = 7174 and so on).
 
 :mutation:
-  | サンプルごと、変異シグネチャごとの割合を設定します。 
-  | [sample index, signature index, value] の順に記載します。
+  | Contribution ratio of each mutation signature to each sample ([sample index, signature index, value]).
   |
-  | サンプルの index は id で記載した順に 0 からカウントします。
-  | 上記の例の場合、PD3851a=0、PD3890a=1、PD3904a=2 となります。
-  |
-  | 変異シグネチャの index も `signature` で記載した順に 0 からカウントします。
-  | 上記の例の場合、signature1 = 0、signature2 = 1、signature3 = 2 となります。
+  | The indice for mutation signature (signature index) are assigned in the listed order in the signature key.
+  | In the above example, (signature1 = 0, signature2 = 1, signature3 = 2).
 
 .. note::
 
-  キーは変更可能です。キーを変更した場合は設定ファイル ([result_format_signature] key_*)を変更してください。
+  The keys in the input json file can be modified by changing contents in the [result_format_signature] section of the configuration file.
 
   .. code-block:: cfg
     :caption:  paplot/example/signature_stack/paplot.cfg
     
     [result_format_signature]
-    # json ファイルのキー
+    # the keys in input json file
     key_signature = signature
     key_id = id
     key_mutation = mutation
@@ -121,11 +118,11 @@ paplotで Mutational Signature レポートを作成するためにはこれま�
             
 .. note::
 
-  json ファイルの確認
-  
-  paplot は python の json パッケージを使用しているため、次のコマンドで読めれば OK です。
+  How to validate json file format
+ 
+  paplot using `json` python package. When loading the input file using load function from json package, then the input file is valid json format.
 
-  json パッケージを使用したファイル確認例 (ファイル名が "data2.json" の場合)
+  Example, when the file fine name is "data2.json".
 
   .. code-block:: shell
   
@@ -138,20 +135,18 @@ paplotで Mutational Signature レポートを作成するためにはこれま�
 .. _sig_minimal:
 
 ==========================
-2. 最小データセット
+2. Minimal dataset  
 ==========================
 
-| `このセクションで生成するレポートを見る <http://genomon-project.github.io/paplot/signature_minimal/graph_signature_minimal2.html>`_ 
-| `このセクションで使用するデータセットを見る <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal>`_ 
-| `このセクションで使用するデータセットをダウンロードする <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/signature_minimal/graph_signature_minimal2.html>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal>`_ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal.zip?raw=true>`_ 
 
-入力データ形式は :ref:`こちら <json>` 参照。
+For the format of input data, please refer to :ref:`Here <json>`.
 
-:doc:`exec_signature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。
+.. :doc:`exec_signature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。
 
-ここでは paplot コマンドを中心に解説します。
-
-データファイル (変異シグネチャ数は 2)
+Input data file (the number of mutation signature is 2)
 
 .. code-block:: python
   :caption: example/signature_minimal/data.json
@@ -179,7 +174,7 @@ paplotで Mutational Signature レポートを作成するためにはこれま�
     ]
   }
 
-設定ファイル
+Configuration file
 
 .. code-block:: cfg
   :caption: example/signature_minimal/paplot.cfg
@@ -202,7 +197,7 @@ paplotで Mutational Signature レポートを作成するためにはこれま�
   background = False
   key_signature = signature
 
-``paplot`` を実行します。
+Execute ``paplot``.
 
 .. code-block:: bash
 
@@ -210,11 +205,9 @@ paplotで Mutational Signature レポートを作成するためにはこれま�
   --config_file ./signature_minimal/paplot.cfg
 
 
-上記のコマンドを実行すると以下の場所にレポートが作成されます。
+Then the report is generated in the `tmp` directory.
 
-ここで出力されるレポートは、graph_signature2.html と、変異シグネチャの数がファイル名に反映されています。
-
-変異シグネチャの数は paplot 実行時に入力ファイル (data.json) から読み取り、自動的に判定します。
+Here, the file name (`graph_signature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
 
 ::
 
@@ -228,11 +221,11 @@ paplotで Mutational Signature レポートを作成するためにはこれま�
 
 .. _sig_mclass:
 
-===================================
-3. 複数タイプの変異シグネチャ
-===================================
+=================================================================
+3. Mutation signature with multiple variosu number of signatures
+=================================================================
 
-| このセクションで生成するレポートを見る
+| View the report generated in this section 
 
  - `signature 2 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class2.html>`_ 
  - `signature 3 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class3.html>`_ 
@@ -240,32 +233,33 @@ paplotで Mutational Signature レポートを作成するためにはこれま�
  - `signature 5 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class5.html>`_ 
  - `signature 6 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class6.html>`_ 
 
-| `このセクションで使用するデータセットを見る <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class>`_ 
-| `このセクションで使用するデータセットをダウンロードする <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class.zip?raw=true>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class>`_ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class.zip?raw=true>`_ 
 
-入力データ形式は :ref:`こちら <json>` 参照。
+For the format of input data, please refer to :ref:`Here <json>`.
 
-:doc:`exec_signature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。ここでは paplot コマンドを中心に解説します。
+.. :doc:`exec_signature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。ここでは paplot コマンドを中心に解説します。
 
-データファイルは変異シグネチャクラスの数だけ用意し、設定ファイルは形式が同じであれば一つだけ用意します。
+When generating Mutation Signature Report with various number of signatures,
+the input data for each signature number and configuration file are necessary.
 
-今回の場合、以下のファイル構成になります。
+In this example dataset, following files are prepared.
 
 ::
 
   example/signature_multi_class/
 
-     # データファイル
+     # Input data files
     ┣ data2.json  # signature num = 2
     ┣ data3.json  # signature num = 3
     ┣ data4.json  # signature num = 4
     ┣ data5.json  # signature num = 5
     ┣ data6.json  # signature num = 6
 
-     # 設定ファイル
+     # Configuration file 
     ┗ paplot.cfg
 
-``paplot`` を実行します。
+Execute ``paplot`` for each mutation signature number.
 
 .. code-block:: bash
 
@@ -284,18 +278,16 @@ paplotで Mutational Signature レポートを作成するためにはこれま�
   paplot signature signature_multi_class/data6.json ./tmp signature_multi_class \
   --config_file ./signature_multi_class/paplot.cfg
 
-上記のように一つずつ実行してもよいですが、下記のようにまとめて実行することもできます。
+Or execute the following batch command.
 
 .. code-block:: bash
 
   paplot "signature signature_multi_class/data*.json" ./tmp signature_multi_class \
   --config_file ./signature_multi_class/paplot.cfg
 
-上記のコマンドを実行すると以下の場所にレポートが作成されます。
+Then the report is generated in the `tmp` directory.
 
-ここで出力されるレポートは、graph_signature2.html と、変異シグネチャの数がファイル名に反映されています。
-
-変異シグネチャの数は paplot 実行時に入力ファイル (data?.json) のデータから読み取り、自動的に判定します。ファイル名称には依存しません。
+Here, the file name (`graph_signature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
 
 ::
 
@@ -311,11 +303,11 @@ paplotで Mutational Signature レポートを作成するためにはこれま�
 
 .. _sig_stack:
 
-==========================
-4. 寄与度グラフ
-==========================
+================================
+4. Signature contribution graph
+================================
 
-| このセクションで生成するレポートを見る
+| View the report generated in this section 
 
  - `signature 2 <http://genomon-project.github.io/paplot/signature_stack/graph_stack2.html>`_ 
  - `signature 3 <http://genomon-project.github.io/paplot/signature_stack/graph_stack3.html>`_ 
@@ -323,13 +315,15 @@ paplotで Mutational Signature レポートを作成するためにはこれま�
  - `signature 5 <http://genomon-project.github.io/paplot/signature_stack/graph_stack5.html>`_ 
  - `signature 6 <http://genomon-project.github.io/paplot/signature_stack/graph_stack6.html>`_ 
 
-| `このセクションで使用するデータセットを見る <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack>`_ 
-| `このセクションで使用するデータセットをダウンロードする <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack.zip?raw=true>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack>`_ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack.zip?raw=true>`_ 
 
-レポートに変異の内訳グラフを追加します。 :ref:`こちら <json_full>` で解説に使用しているデータであり、:doc:`exec_signature` によりデータの準備を行う場合に出力されるデータです。
+Here, we add a signature contribution graph.
 
-データフォーマットは :ref:`こちら <json>` 参照。
+.. レポートに変異の内訳グラフを追加します。 :ref:`こちら <json_full>` で解説に使用しているデータであり、:doc:`exec_signature` によりデータの準備を行う場合に出力されるデータです。
 
-複数データ実行方法は :ref:`こちら <sig_mclass>` 参照。
+For the format of input data, please refer to :ref:`here <json>`.
+
+For generating report with various signature numbers, please refer to :ref:`here <sig_mclass>`.
 
 .. |new| image:: image/tab_001.gif
