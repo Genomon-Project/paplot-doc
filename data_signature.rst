@@ -81,7 +81,7 @@ When `base = 5`, 256 contexts values should be put down in the following order.
   TTNAA,TTNAC,TTNAG,TTNAT,TTNCA,TTNCC,TTNCG,TTNCT,TTNGA,TTNGC,TTNGG,TTNGT,TTNTA,TTNTC,TTNTG,TTNTT
 
 
-**Signature contribution graph**
+**Elements for signature contribution graph**
 
 This graph is optional.
 
@@ -93,7 +93,7 @@ then signature contribution graph are generated (`example <http://genomon-projec
   | List of samples. For each sample, sample indices are assigned (in this example, PD3851a=0、PD3890a=1、PD3904a=2 and so on). 
 
 :mutation_count:
-  | The number of mutations for each sample
+  | The number of mutations for each sample.
   | In the above example, (the mutation number for PD3851a =4001, the mutation number for PD3890a = 7174 and so on).
 
 :mutation:
