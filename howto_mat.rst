@@ -54,14 +54,16 @@ It can sort by the following elements (allowing for multiple key ordering):
   | Sort by the mutation states of the selected genes. After selecting either ASC/DESC, select the gene to add from the list box next and click the [add sort key] button.
 
 :Automatic Gantt-chart:
-  | We will create a Gantt chart automatically. Enter the number of genes to display in the horizontal edit box and click the [Gantt-chart] button.
+  | We will create a Gantt chart automatically. Enter the number of genes to display [*]_ in the horizontal edit box and click the [Gantt-chart] button.
 
 **How Gantt-chart works**
 
  1. First sort the genes according to the descending number of mutations.
  2. Then divide the samples into two groups according the mutation status of the first gene, and place the group with the mutation to the left and the other group to the right.
     Repeat this procedure for the second one, third one, ...
- 3. It is ideal to repeat as many times as the number of detected genes, but as processing becomes heavier, processing will be faster if you narrow down to the gene of interest.
+
+.. [*]
+   It is ideal to display all the detected genes, but as processing becomes heavier, narrowing down to the gene list will be practical in many case.
 
 .. image:: image/mut_operation3.PNG
   :scale: 100%
@@ -84,11 +86,13 @@ It can sort by the following elements (allowing for multiple key ordering):
 3. Sample filter
 ------------------
 
-| Sets the maximum value of the vertical axis of the horizontal bar chart (Sample).
-|
-| In some cases where only a few samples have extremely large numbers of mutations compared to others, setting the threshould for the maximum number of mutations will make the graph a lot easier to see.
+Sets the maximum value of the vertical axis of the horizontal bar chart (Sample).
+
+
+| In some cases, only a few samples have extremely large numbers of mutations compared to others.
+| In those cases, setting the threshould for the maximum number of mutations will make the graph a lot easier to see.
 | Enter the threshould value in the horizontal edit box, then click the [update filter] button.
-| In the default setting ("blank"), the maximum of the horizontal axis is set to the maximum number of mutations by a sampleautomatically.
+| In the default setting ("blank"), the maximum of the horizontal axis is set to the maximum number of mutations among the samples in the cohort automatically.
 
 
 **Before and after filter application**
@@ -111,5 +115,5 @@ Set the filter for the gene displayed on the vertical axis.
 :Display maximum:
   | Maximum number of genes to display.
 
-After inputting to both sides in the edit box, please click the [update filter] button.
+After setting the above items, please click the [update filter] button.
 
