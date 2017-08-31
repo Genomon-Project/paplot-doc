@@ -4,15 +4,15 @@ QC Report
 
 | QC (Quality Control) Report displays qualities of each sequence data such as equence depth and coverage, mapping ratio, duplicate ratio.
 |
+| When mousing over each bar, detailed information for each sample and property will be shown as pop-ups.
+|
 | Barplot of light grey color at the top shows the average depth of each sequence data. [*]_ 
-| By selecting the range in this panel, you can zoom in all the panels below so that just easily viewable number of samples are highlighted.
-| Detailed information is shown by mousing over each bar.
+| By selecting the range in this panel, you can zoom in all the graphs below so that just easily viewable number of samples are highlighted.
 
-.. [*] 範囲選択用グラフについて
+.. [*] 
 
-  The report shown below is generated from example data.
   The graph for selecting samples can be changed by using the configuration files.
-  Please refer `範囲選択 <./data_qc.html#qc-brush>`_. 
+  Please refer to ` Graph for selecting samples <./data_qc.html#qc-brush>`_. 
 
 .. image:: image/qc_operation.PNG
   :scale: 100%
