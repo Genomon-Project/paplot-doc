@@ -10,9 +10,9 @@ Install
 
 | You need python2.7 or python 3.5 to run paplot.paplot (previous versions of Python have not been tested).
 
- * :ref:`Linux 系の場合 (HGC スパコン、cygwin 含) <linux>`
- * :ref:`MacOS X の場合 <macosx>`
- * :ref:`Windows の場合 <windows>`
+..  * :ref:`Linux 系の場合 (HGC スパコン、cygwin 含) <linux>`
+..  * :ref:`MacOS X の場合 <macosx>`
+..  * :ref:`Windows の場合 <windows>`
 
 .. _linux:
 
@@ -23,7 +23,7 @@ For Linux
 1. Install paplot
 --------------------------
 
-| Download the latest ``Source code (zip)`` files from the paplot site (https://github.com/Genomon-Project/paplot/releases/).
+| Download the latest ``Source code (zip)`` files from the paplot web-site (https://github.com/Genomon-Project/paplot/releases/).
 
 .. code-block:: bash
 
@@ -136,7 +136,7 @@ For Windows
 ---------------------------
 
 | To execute paplot in Windows, using winPython or Python(x,y) is recommended. 
-| Alternatively, you can use cygwin (then refer to :ref:`Linux 系の場合 (HGC スパコン、cygwin 含) <linux>`).
+| Alternatively, you can use cygwin (then refer to :ref:`For Linux <linux>`).
 
  * winPython http://winpython.github.io/
  * Python(x,y) http://python-xy.github.io/
