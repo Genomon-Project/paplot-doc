@@ -4,11 +4,11 @@ Mutaitonal Signature Report
 
 Mutaitonal Signature Report displayes so called "mutation signature" (see e.g., Alexandrov et al., Nature, 2013) as bargraphs, and estimated "contributions" of each signature to the mutations per samples as stacked bar graphs.
 
-:Upper panel (Signature):
-  | Muttion signature are displayed (typically by barplots with 96 elements).
+:Upper panel (mutation signature graph):
+  | Mutation signature are displayed (typically by barplots with 96 elements).
 
-:Lower panel (Contribution):
-  | For each sample, the ratios of contributions of mutation signatures to mutations are displayed
+:Lower panel (signature contribution graph):
+  | For each sample, the ratios of contributions of mutation signatures to the mutations are displayed
 
 .. image:: image/sig_dummy.PNG
   :scale: 100%
@@ -16,12 +16,12 @@ Mutaitonal Signature Report displayes so called "mutation signature" (see e.g., 
 In addition, you can switch the display mode by the list box below the stacked graph.
 
 :View mode:
-  | - Rate ... The percentage (%) of signature contribution normalized by sum-to-one constraint.
-  | - Count ... It shows the ratio by the actual number of mutation.
+  :Rate: The percentage (%) of signature contribution normalized by sum-to-one constraint.
+  :Count: It shows the ratio by the actual number of mutation.
 
 :Sort by:
-  | - Sample ID ... Sort by sample ID
-  | - Mutation count ... Descending order of mutations (applicable only when view mode is Count).
+  :Sample ID: Sort by sample ID
+  :Mutation count: Descending order of mutations (applicable only when view mode is Count).
 
 
 Display example when view mode is [Count] and sort by [Mutation count].
