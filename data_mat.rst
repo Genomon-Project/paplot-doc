@@ -187,8 +187,8 @@ Then, execute ``paplot``.
   paplot mutation {unzip_path}/example/mutation_option/data.csv ./tmp mutation_option \
   --config_file {unzip_path}/example/mutation_option/paplot.cfg
 
-Here, we show how to customize the pop-up for each element in the main grid. For customizing other pop-ups, please refer `ポップアップの表示内容 <./config.html#mm-tooltip>`_.
+Here, we show how to customize the pop-up for each element in the main grid. For customizing other pop-ups, please refer to `ポップアップの表示内容 <./config.html#mm-tooltip>`_.
 
-Also, for more detailed description on how to set pop-up information, please refer `ユーザ定義フォーマット <./data_common.html#user-format>`_.
+Also, for more detailed description on how to set pop-up information, please refer to `ユーザ定義フォーマット <./data_common.html#user-format>`_.
 
 .. |new| image:: image/tab_001.gif
