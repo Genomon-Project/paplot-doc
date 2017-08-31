@@ -90,11 +90,10 @@ When *id*, *mutation* and *mutation_count* are set in the input json file,
 then signature contribution graph are generated (`example <http://genomon-project.github.io/paplot/signature_stack/graph_stack2.html>`_).
 
 :id:
-  | List of samples. For each sample, sample indices are assigned (in this example, PD3851a=0、PD3890a=1、PD3904a=2 and so on). 
+  | List of samples. For each sample, sample indices are assigned (in this example, PD3851a=0, PD3890a=1, PD3904a=2 and so on). 
 
 :mutation_count:
-  | The number of mutations for each sample.
-  | In the above example, (the mutation number for PD3851a =4001, the mutation number for PD3890a = 7174 and so on).
+  | The number of mutations for each sample (the mutation number for PD3851a =4001, the mutation number for PD3890a = 7174 and so on).
 
 :mutation:
   | Contribution ratio of each mutation signature to each sample ([sample index, signature index, value]).
@@ -222,7 +221,7 @@ Here, the file name (`graph_signature2.html`) are determined by the number of mu
 .. _sig_mclass:
 
 =================================================================
-3. Mutation signature with multiple variosu number of signatures
+3. Mutation signature with multiple various number of signatures
 =================================================================
 
 | View the report generated in this section 
@@ -236,7 +235,7 @@ Here, the file name (`graph_signature2.html`) are determined by the number of mu
 | `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class>`_ 
 | `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class.zip?raw=true>`_ 
 
-For the format of input data, please refer to :ref:`Here <json>`.
+For the format of input data, please refer to :ref:`here <json>`.
 
 .. :doc:`exec_signature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。ここでは paplot コマンドを中心に解説します。
 

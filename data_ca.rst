@@ -259,6 +259,6 @@ Then, execute ``paplot``.
   paplot ca {unzip_path}/example/ca_option/data.csv ./tmp ca_option \
   --config_file {unzip_path}/example/ca_option/paplot.cfg
 
-For more detailed description on how to set pop-up information (``tooltip_format``), please refer `ユーザ定義フォーマット <./data_common.html#user-format>`_.
+For more detailed description on how to set pop-up information (``tooltip_format``), please refer to `ユーザ定義フォーマット <./data_common.html#user-format>`_.
 
 .. |new| image:: image/tab_001.gif

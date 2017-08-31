@@ -10,7 +10,7 @@ Install
 
 | You need python2.7 or python 3.5 to run paplot.paplot (previous versions of Python have not been tested).
 
-..  * :ref:`Linux 系の場合 (HGC スパコン、cygwin 含) <linux>`
+..  * :ref:`Linux 系の場合 (HGC スパコン, cygwin 含) <linux>`
 ..  * :ref:`MacOS X の場合 <macosx>`
 ..  * :ref:`Windows の場合 <windows>`
 
@@ -141,7 +141,7 @@ For Windows
  * winPython http://winpython.github.io/
  * Python(x,y) http://python-xy.github.io/
 
-| Paplot is verified in python 2.7.10、python 3.5.3.
+| Paplot is verified in python 2.7.10, python 3.5.3.
 | 
 
 2. Install paplot
