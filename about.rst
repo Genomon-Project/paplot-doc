@@ -20,7 +20,7 @@ QC Reports show qualities of each sequence data (sequencing coverage, alignment 
 
 2. CA (Chromosomal Aberration) Report
 
-CA Reports represent sample-wise landscape of chromosomal aberrations (e.g., structural variations and gene fusion).
+CA (Chromosomal Aberration) Reports represent sample-wise landscape of chromosomal aberrations (e.g., structural variations and gene fusion).
 
 .. image:: image/sv_dummy.PNG
   :scale: 100%

@@ -2,17 +2,19 @@
 Quick Start
 *****************
 
-#. Install paplot.
-#. Run paplot with sample data.
-#. View output reports.
-#. Modify configuration files and use your own data.
+In this section, we will experience
+
+#. Install paplot
+#. Run paplot with simple example data
+#. View the output reports
+.. #. Modify configuration files and use your own data.
  
 
 1. Install paplot
 ---------------------------
 
 | paplot is confirmed to work on python2.7 and python 3.5.
-| No additional packages are necesary.
+| Currently, paplot uses no dependent packages.
 
 .. code-block:: bash
 
@@ -33,7 +35,7 @@ Quick Start
 
   paplot conf
 
-| Installation is succesful if the following messages are displayed.
+| If the following messages are displayed, then the installation is succesful.
 
 .. code-block:: bash
 
@@ -48,10 +50,10 @@ Quick Start
 | For more detailed information on installation, please consult :doc:`install`. 
 
 
-2. Run paplot with sample data
--------------------------------------
+2. Run paplot with simple example data
+---------------------------------------
 
-| The basic commands of palot is as follows. 
+| The basic commands of palot are as follows. 
 | For the description of detailed options, please consult :doc:`command`.
 
 .. code-block:: bash
@@ -66,7 +68,7 @@ Quick Start
 **Required arguments**
 
 :subcommand:
-  Select from the following:
+  The type of report to generate. Select from the following:
   
   - qc
   - ca
@@ -78,7 +80,7 @@ Quick Start
   The input table data.
 
 :output_dir:
-  The path where the output files of paplot are generated.
+  The directory where the output files of paplot are generated.
 
 :project_name:
   The project name (used as the title of output files).
@@ -105,14 +107,14 @@ Please execute paplot using the prepared sample data.
   paplot pmsignature "example/pmsignature_stack/data*.json" ./tmp demo
 
 
-3. View output file.
+3. View the output file
 ------------------------
 
 You will find the following directory structure:
 
 .. code-block:: bash
 
-  {output_dir} で指定したディレクトリ
+  The directory specified by the {output_dir} argument
     ├ demo
     │   ├ graph_ca.html            <--- Chromosomal Aberration Report 
     │   ├ graph_mut.html           <--- Mutation Matrix Reprot 
@@ -136,7 +138,7 @@ You will find the following directory structure:
     └ index.html             <--- Open this file in a web browser.
 
 
-| When you open index.html file in a web browser, you will find the following reports.
+| Open `index.html` file in a web browser, and you will find the following reports.
 |
 
 | **QC Report**
@@ -164,11 +166,13 @@ You will find the following directory structure:
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%
 
-| For how to interpret each graph, refer to  `HOW TO USE GRAPHS <./index.html#how-to-toc>`_ how to use graphs.
+| For how to interpret each graph, please refer to  `HOW TO USE GRAPHS <./index.html#how-to-toc>`_.
 
 
-4. Modify configuration files and use your own data.
-------------------------------------------------------
+.. 4. Modify configuration files and use your own data.
+.. ------------------------------------------------------
+
+**Modify configuration files and use your own data**
 
 | Plese consult following links to set up your own data and configuration files.
 | 
