@@ -24,36 +24,37 @@ Contents:
    :maxdepth: 2
    :caption: how to use graphs
    :name: how_to_toc
-   
-   howto_mat.rst
+
    howto_qc.rst
    howto_ca.rst   
+   howto_mat.rst
    howto_signature.rst
 
 .. toctree:: 
    :maxdepth: 2
    :caption: dataformat
    :name: dataformat_toc
-   
-   data_mat.rst
+  
    data_qc.rst
-   data_ca.rst
+   data_ca.rst 
+   data_mat.rst
    data_signature.rst
    data_pmsignature.rst
    data_common.rst
-   
-.. toctree:: 
-   :maxdepth: 2
-   :caption: for advance
-   :name: advance_toc
-   
-   config.rst
-   style.rst
 
-.. toctree:: 
-   :maxdepth: 1
-   :caption: Q & A
-   :name: qa_toc
+..    
+  .. toctree:: 
+     :maxdepth: 2
+     :caption: for advance
+     :name: advance_toc
+   
+     config.rst
+     style.rst
+..
+  .. toctree:: 
+     :maxdepth: 1
+     :caption: Q & A
+     :name: qa_toc
    
    qa.rst
 
