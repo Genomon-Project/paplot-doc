@@ -16,7 +16,7 @@ paplot command
 **Required arguments**
 
 :subcommand:
-  Select from the followings:
+  The type of report to generate. Select from the following:
   
   - qc
   - ca
@@ -25,7 +25,7 @@ paplot command
   - pmsignature
 
 :input:
-  Input files. When you want to use multiple files (usually divided by individual samples), please consult `データファイルが分かれている場合 <./data_common.html#suffix>`.
+  Input files. When you want to process multiple files (usually divided by individual samples), please refer to `Processing multiple input files <./data_common.html#suffix>`_.
 
 .. code-block:: bash
 
@@ -43,7 +43,7 @@ paplot command
   --config_file {unzip_path}/example/mutation_split_file/paplot.cfg
 
 :output_dir:
-  Output directory path. See :ref:`2. 出力ディレクトリ <output>` for the detail of directory commponents.
+  Output directory path. See :ref:`Output directory <output>` for the detail of directory commponents.
 
 :project_name:
   Project name (used as the title of output files).
@@ -71,7 +71,7 @@ You will find the following directory structure:
 
 
 When you want to move the output, move the entire output directory.
-For the usage of each report, please refre `HOW TO USE GRAPHS <./index.html#how-to-toc>`_.
+For the usage of each report, please refer to `HOW TO USE GRAPHS <./index.html#how-to-toc>`_.
 
 
 .. _option:
@@ -80,13 +80,13 @@ For the usage of each report, please refre `HOW TO USE GRAPHS <./index.html#how-
 3. Options
 ------------------------
 
-You can change the following items as options.
+You can add the following optional arguments.
 
---config_file        Path to the configuration file. If not specified, then use default file.
+--config_file        Path to the configuration file. If not specified, then the default file is used.
 --title              Title of the graph.
---ellipsis           Abbreviated name of the graph. It is used for the graph file name. (ex, graph_**ca**.html) It is convenient to set it when outputting multiple files to the same directory.
+--ellipsis           Abbreviated name of the graph used for file names (e.g., graph_**ca**.html). Might be convenient when outputting multiple files to the same directory.
 --overview           Outline of the graph (displayed in the index.html file).
---remarks            Text shown in the remark section of the index.html file (The default value is set at ([style] remarks) in the setting file.
+--remarks            Text shown in the remark section of the index.html file (the default value is set at ([style] remarks) in the configuration file.
 
 The default values are as follows.
 
