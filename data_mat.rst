@@ -47,7 +47,7 @@ Set the column names in the [result_format_mutation] section of the configuratio
   col_gene = Gene
   col_opt_id = Sample
 
-Then, execute the ``paplot``.
+Then, execute the paplot.
 
 .. code-block:: bash
 
@@ -180,7 +180,7 @@ Then, modify the [mutatoin] section in the configuration file.
   # after customization 
   tooltip_format_checker_partial = Mutation Type[{group}], {chr}:{start}:{end}, [{ref} -> {alt}]
 
-Then, execute ``paplot``.
+Then, execute paplot.
 
 .. code-block:: bash
 

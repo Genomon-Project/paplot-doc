@@ -22,7 +22,7 @@ For generating Chromosomal Aberration Report using paplot, at least following 5 
  - Chromosome of the breakpoint 1 (Chr1)
  - Coordinate of the breakpoint 1 (Break1)
  - Chromosome of the breakpoint 2 (Chr2)
- – Coordinate of the breakpoint 2 (Break2)
+ - Coordinate of the breakpoint 2 (Break2)
 
 .. code-block:: cfg
   :caption: Extracted from the example data (example/ca_minimal/data.csv)
@@ -51,7 +51,7 @@ Set the column names in the [result_format_ca] section of the configuration file
   col_break2 = Break2
   col_opt_id = Sample
 
-Then, execute the ``paplot``.
+Then, execute the paplot.
 
 .. code-block:: bash
 
@@ -101,7 +101,7 @@ When the input data has not header (column names), then we need to set the colum
   col_break2 = 5
   col_opt_id = 1
 
-Then execute ``palot``.
+Then execute palot.
 
 .. code-block:: bash
 
@@ -165,7 +165,7 @@ Also, the color for each category can be set.
   # Not display selected categories.
   nouse_group = 
 
-Then, execute ``paplot``.
+Then, execute paplot.
 
 .. code-block:: bash
 
@@ -252,7 +252,7 @@ Then, modify the [ca] section in the configuration file.
   # after customization  
   tooltip_format = [{chr1}] {break1:,} ({dir1}) {gene_name1}; [{chr2}] {break2:,} ({dir2}) {gene_name2}; {type}
 
-Then, execute ``paplot``.
+Then, execute paplot.
 
 .. code-block:: bash
 

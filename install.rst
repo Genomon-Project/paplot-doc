@@ -161,7 +161,7 @@ For Windows
 
 | Then, execute the test command.
 
-.. code-block:: bash
+::
 
   > C:\WinPython-64bit-2.7.10.3\python-2.7.10.amd64\python.exe paplot --version
   paplot-0.5.4
