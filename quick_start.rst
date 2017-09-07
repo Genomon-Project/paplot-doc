@@ -7,7 +7,7 @@ In this section, we will experience
 #. Install paplot
 #. Run paplot with simple example data
 #. View the output reports
-.. #. Modify configuration files and use your own data.
+#. Modify configuration files and use your own data.
  
 
 1. Install paplot
@@ -19,10 +19,10 @@ In this section, we will experience
 .. code-block:: bash
 
   cd {the directory where you want to install paplot}
-  # for v0.5.3
-  wget https://github.com/Genomon-Project/paplot/archive/v0.5.3.zip
-  unzip v0.5.3.zip
-  cd paplot-0.5.3/
+  # for v0.5.4
+  wget https://github.com/Genomon-Project/paplot/archive/v0.5.4.zip
+  unzip v0.5.4.zip
+  cd paplot-0.5.4/
 
   python setup.py build install
 
@@ -33,19 +33,13 @@ In this section, we will experience
 
 .. code-block:: bash
 
-  paplot conf
+  paplot --version
 
 | If the following messages are displayed, then the installation is succesful.
 
 .. code-block:: bash
 
-  **********************
-     hello paplot !!!
-  **********************
-  
-  config file:/usr/lib/python2.7/site-packages/{paplot-versoion}-py2.7.egg/config/paplot.cfg
-  (The contents of the default setting will be displayed after this)
-
+  paplot-0.5.4
 
 | For more detailed information on installation, please consult :doc:`install`. 
 
@@ -183,9 +177,5 @@ You will find the following directory structure:
  - :doc:`data_ca` 
  - :doc:`data_signature` 
  - :doc:`data_pmsignature` 
-
-| [For advanced use]
-
- - :doc:`config`
 
 .. |new| image:: image/tab_001.gif

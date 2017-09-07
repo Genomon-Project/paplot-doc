@@ -12,7 +12,7 @@ QC Report
 .. [*] 
 
   The graph for selecting samples can be changed by using the configuration files.
-  Please refer to ` Graph for selecting samples <./data_qc.html#qc-brush>`_. 
+  Please refer to `Graph for selecting samples <./data_qc.html#qc-brush>`_ .
 
 .. image:: image/qc_operation.PNG
   :scale: 100%

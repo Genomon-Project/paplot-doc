@@ -10,9 +10,9 @@ Install
 
 | You need python2.7 or python 3.5 to run paplot.paplot (previous versions of Python have not been tested).
 
-..  * :ref:`Linux 系の場合 (HGC スパコン, cygwin 含) <linux>`
-..  * :ref:`MacOS X の場合 <macosx>`
-..  * :ref:`Windows の場合 <windows>`
+..  * :ref:`For Linux <linux>`
+..  * :ref:`For MacOS X <macosx>`
+..  * :ref:`For Windows <windows>`
 
 .. _linux:
 
@@ -28,10 +28,10 @@ For Linux
 .. code-block:: bash
 
   cd {the directory where you want to install paplot}
-  # For v0.5.3
-  wget https://github.com/Genomon-Project/paplot/archive/v0.5.3.zip
-  unzip v0.5.3.zip
-  cd paplot-0.5.3/
+  # For v0.5.4
+  wget https://github.com/Genomon-Project/paplot/archive/v0.5.4.zip
+  unzip v0.5.4.zip
+  cd paplot-0.5.4/
 
   python setup.py build install
   
@@ -44,12 +44,8 @@ For Linux
 
 .. code-block:: bash
 
-  paplot conf
-  **********************
-     hello paplot !!!
-  **********************
-
-  (Default settings will be displayed here)
+  paplot --version
+  paplot-0.5.4
 
 | After installation, try :doc:`quick_start`.
 
@@ -116,12 +112,8 @@ For MacOS X
 
 .. code-block:: bash
 
-  paplot conf
-  **********************
-     hello paplot !!!
-  **********************
-
-  (The default setting will be displayed here)
+  paplot --version
+  paplot-0.5.4
 
 | Then, the installation is successful! Try :doc:`quick_start`.
 
@@ -171,12 +163,8 @@ For Windows
 
 .. code-block:: bash
 
-  > C:\WinPython-64bit-2.7.10.3\python-2.7.10.amd64\python.exe paplot conf
-  **********************
-     hello paplot !!!
-  **********************
-
-  (The default setting will be displayed here)
+  > C:\WinPython-64bit-2.7.10.3\python-2.7.10.amd64\python.exe paplot --version
+  paplot-0.5.4
 
 | It will be successful if such a display appears.
 |
