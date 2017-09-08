@@ -4,7 +4,7 @@ Mutational Signature Report
 
 Here, we show how to generate Mutation Signature Report using sample data [*]_.
 
- .. [*] Sample data is equipped with the ``example`` directory of ``paplot`` directory.
+ .. [*] Sample data is equipped with the ``example`` directory of paplot directory.
 
 
 .. :doc:`exec_signature` に従いデータを準備する場合、設定ファイルの変更は必要ありません。
@@ -196,7 +196,7 @@ Configuration file
   background = False
   key_signature = signature
 
-Execute ``paplot``.
+Execute paplot.
 
 .. code-block:: bash
 
@@ -258,7 +258,7 @@ In this example dataset, following files are prepared.
      # Configuration file 
     ┗ paplot.cfg
 
-Execute ``paplot`` for each mutation signature number.
+Execute paplot for each mutation signature number.
 
 .. code-block:: bash
 

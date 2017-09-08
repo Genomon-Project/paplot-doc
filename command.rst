@@ -86,7 +86,7 @@ You can add the following optional arguments.
 --title              Title of the graph.
 --ellipsis           Abbreviated name of the graph used for file names (e.g., graph_**ca**.html). Might be convenient when outputting multiple files to the same directory.
 --overview           Outline of the graph (displayed in the index.html file).
---remarks            Text shown in the remark section of the index.html file (the default value is set at ([style] remarks) in the configuration file.
+--remarks            Text shown in the remark section of the index.html file (the default value is set at ( ``[style]`` section's ``remarks`` option) in the configuration file.
 
 The default values are as follows.
 

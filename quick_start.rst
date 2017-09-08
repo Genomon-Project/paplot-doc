@@ -47,7 +47,7 @@ In this section, we will experience
 2. Run paplot with simple example data
 ---------------------------------------
 
-| The basic commands of palot are as follows. 
+| The basic commands of paplot are as follows. 
 | For the description of detailed options, please consult :doc:`command`.
 
 .. code-block:: bash

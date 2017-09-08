@@ -4,7 +4,7 @@ QC Report
 
 Here, we show how to generate QC report using sample data [*]_.
 
-.. [*] Sample data is equipped with the ``example`` directory of ``paplot`` directory.
+.. [*] Sample data is equipped with the ``example`` directory of paplot directory.
 
 .. _qc_minimal:
 
@@ -75,7 +75,7 @@ Then, add [qc_char_1] section to the configuration file and fill the contents wi
   - For more detailed description on how to set ``name_set``, please refer to `name_set の書き方 <./data_qc.html#qc-nameset>`_.
   - For more detailed description on how to set ``tooltip_format``, please refer to `ユーザ定義フォーマット <./data_common.html#user-format>`_.
 
-Then, execute ``paplot``.
+Then, execute paplot.
 
 .. code-block:: bash
 
@@ -115,7 +115,7 @@ When the input data has not header (column names), then we need to set the colum
   col_opt_id = 1
   col_opt_average_depth = 2
 
-Then execute ``palot``.
+Then execute paplot.
 
 .. code-block:: bash
 
@@ -221,7 +221,7 @@ The [qc_chart_2] section is for a stacked bargraph.
 
   ここで使用している ``{key*}`` は [result_format_qc] セクションで入力した ``{キーワード}`` です。
 
-Then, execute ``paplot``.
+Then, execute paplot.
 
 .. code-block:: bash
 
@@ -401,7 +401,7 @@ The chart_4 section is a graph for sequence coverage.
 Here, we set the first stack (stack1) to ratio_30x,
 the second stack (stack2) to ratio30 subtracted by ratio_20x, and so on.
 
-Then, execute ``paplot``.
+Then, execute paplot.
 
 .. code-block:: bash
 
@@ -433,7 +433,7 @@ Add the [qc_chart_brush] section to the configuration file and fill the contents
   stack = {average_depth}
   name_set = average:#E3E5E9
 
-Then, execute ``paplot``.
+Then, execute paplot.
 
 .. code-block:: bash
 

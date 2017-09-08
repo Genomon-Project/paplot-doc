@@ -4,7 +4,7 @@ Chromosomal Aberration Report
 
 Here, we show how to generate Chromosomal Aberration Report using sample data [*]_.
 
-.. [*] Sample data is equipped with the ``example`` directory of ``paplot`` directory.
+.. [*] Sample data is equipped with the ``example`` directory of paplot directory.
 
 .. _ca_minimal:
 
@@ -39,7 +39,7 @@ For generating Chromosomal Aberration Report using paplot, at least following 5 
   SAMPLE4,7,6037836,21,34855497,
   SAMPLE4,7,109724564,14,106387943,
 
-Set the column names in the [result_format_ca] section of the configuration file.
+Set the column names in the ``[result_format_ca]`` section of the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_minimal/paplot.cfg
@@ -86,7 +86,7 @@ Then, execute the paplot.
   SAMPLE03,intronic,PIK3CA
   SAMPLE03,downstream,SEPT12
 
-When the input data has not header (column names), then we need to set the column number to each key in the [result_format_ca] section of the configuration file.
+When the input data has not header (column names), then we need to set the column number to each key in the ``[result_format_ca]`` section of the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_noheader/paplot.cfg
@@ -101,7 +101,7 @@ When the input data has not header (column names), then we need to set the colum
   col_break2 = 5
   col_opt_id = 1
 
-Then execute palot.
+Then execute paplot.
 
 .. code-block:: bash
 
@@ -142,7 +142,7 @@ We can customize the categorization.
   SAMPLE4,7,109724564,14,106387943,A
 
 In the example data above, a new column, Label, is included as well as Sample, Chr1, Break1, Chr2 and Break2.
-First, we set the ``Label`` as the column used for categorization in the [result_format_ca] section in the configuration file.
+First, we set the ``Label`` as the column used for categorization in the ``[result_format_ca]`` section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_group/paplot.cfg
@@ -221,7 +221,7 @@ In this example, the following 7 (optional) columns are added as well as 5 requi
  - Direction of the breakpoint 1 (Dir1)
  - Direction of the breakpoint 2 (Dir2)
 
-First, add these columns to the [result_format_ca] section in the configuration file.
+First, add these columns to the ``[result_format_ca]`` section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_option/paplot.cfg

@@ -4,7 +4,7 @@ pmsignature Report
 
 Here, we show how to generate pmsignature Report using sample data [*]_.
 
- .. [*] Sample data is equipped with the ``example`` directory of ``paplot`` directory.
+ .. [*] Sample data is equipped with the ``example`` directory of paplot directory.
 
 .. :doc:`exec_pmsignature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。
 
@@ -102,7 +102,7 @@ then signature contribution graph are generated (`example <http://genomon-projec
 
 .. note::
 
-  The keys in the input json file can be modified by changing contents in the [result_format_pmsignature] section of the configuration file.
+  The keys in the input json file can be modified by changing contents in the ``[result_format_pmsignature]`` section of the configuration file.
 
   .. code-block:: cfg
     :caption:  paplot/example/pmsignature_stack/paplot.cfg
@@ -190,7 +190,7 @@ Configuration file
   key_alt = alt
   key_strand = strand
 
-Execute ``paplot``.
+Execute paplot.
 
 .. code-block:: bash
 
@@ -253,7 +253,7 @@ In this example dataset, following files are prepared.
      # Configuration file  
     ┗ paplot.cfg
 
-Execute ``paplot`` for each mutation signature number.
+Execute paplot for each mutation signature number.
 
 .. code-block:: bash
 
@@ -351,7 +351,7 @@ Set the backgroud option to False in the configuration file.
   [result_format_pmsignature]
   background = False
 
-Then, execute ``paplot``.
+Then, execute paplot.
 
 .. code-block:: bash
 

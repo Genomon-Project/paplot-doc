@@ -68,7 +68,7 @@ Contents:
 Javascript Libraries
 ====================
 
-``paplot`` uses the following javascript package.
+paplot uses the following javascript package.
 
 * `D3.js <https://d3js.org/>`_
 * `d3-legend <http://d3-legend.susielu.com>`_

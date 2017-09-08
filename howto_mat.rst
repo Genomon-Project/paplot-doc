@@ -20,7 +20,7 @@ Mutation Matrix Report displayes a landscape of mutation status across genes (Ge
   | Mutation type is displayed with a distinct color. If you want to hide a specific type of mutations, uncheck them in this section.
 
 :Subplot:
-  | If there is meta infromation for the samples (e.g., clinical information), it can be displayed as a subplot. This file must be entered in the configuration file before executing the ``paplot`` command.
+  | If there is meta infromation for the samples (e.g., clinical information), it can be displayed as a subplot. This file must be entered in the configuration file before executing the paplot command.
 
 .. image:: image/mut_operation1.PNG
   :scale: 100%

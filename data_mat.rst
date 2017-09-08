@@ -4,7 +4,7 @@ Mutation Matrix Report
 
 Here, we show how to generate Mutation Matrix report using sample data [*]_.
 
-.. [*] Sample data is equipped with the ``example`` directory of ``paplot`` directory.
+.. [*] Sample data is equipped with the ``example`` directory of paplot directory.
 
 .. _mm_minimal:
 
@@ -37,7 +37,7 @@ For generating Mutation Matrix Report using paplot, at least sample ID (Sample),
 
 Although the column names are Sample, MutationType and Gene, they can be arbitrary changed.
 
-Set the column names in the [result_format_mutation] section of the configuration file.
+Set the column names in the ``[result_format_mutation]`` section of the configuration file.
 
 .. code-block:: cfg
   :caption: example/mutation_minimal/paplot.cfg
@@ -82,7 +82,7 @@ Then, execute the paplot.
   SAMPLE03,intronic,PIK3CA
   SAMPLE03,downstream,SEPT12
 
-When the input data has not header (column names), then we need to set the column number to each key in the [result_format_mutation] section of the configuration file.
+When the input data has not header (column names), then we need to set the column number to each key in the ``[result_format_mutation]`` section of the configuration file.
 
 .. code-block:: cfg
   :caption: example/mutation_noheader/paplot.cfg
@@ -95,7 +95,7 @@ When the input data has not header (column names), then we need to set the colum
   col_gene = 3
   col_opt_id = 1
 
-Then execute ``palot``.
+Then execute paplot.
 
 .. code-block:: bash
 
@@ -151,7 +151,7 @@ In the example data above, the following 5 (optional) items are added as well as
  - Reference base (Ref)
  - Alternative base (Alt) 
 
-First, add these columns to the [result_format_mutation] section in the configuration file.
+First, add these columns to the ``[result_format_mutation]`` section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/mutation_option/paplot.cfg
@@ -169,7 +169,7 @@ The column names of optional items can be set as: ``col_opt_{keyword} = {actual 
  - the characters that can be used for ``{keyword}`` is 1-9, a-z, A-Z and _.
  - ``col_opt_id`` has to be used only for sample ID.
  
-Then, modify the [mutatoin] section in the configuration file.
+Then, modify the ``[mutation]`` section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/mutation_option/paplot.cfg
