@@ -71,7 +71,7 @@ To prepare input data with multiple samples for paplot, there are two approaches
  
  - case2: Multiple input data divided by individual samples
  
-   In this case, ``paplot`` discern sample names by file names (by removing the characters set by the ``suffix`` key in the configuration file).
+   In this case, paplot discern sample names by file names (by removing the characters set by the ``suffix`` key in the configuration file).
    Alternatively, set the column for the sample name (and set the ``col_opt_id`` in the configuration file) for each input file.
 
 In the previous examples, we mostly used merged input data (case 1 above). Here, we show how to generate a report using multipe input data (case 2).

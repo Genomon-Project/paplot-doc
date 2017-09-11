@@ -167,10 +167,6 @@ The column names of optional items can be set as: ``col_opt_{keyword} = {actual 
 
 For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
- - the part ``{keyword}`` can be set arbitrarily. However, always start with ``col_opt_``.
- - the characters that can be used for ``{keyword}`` is 1-9, a-z, A-Z and _.
- - ``col_opt_id`` has to be used only for sample ID.
- 
 Then, modify the ``[mutation]`` section in the configuration file.
 
 .. code-block:: cfg
