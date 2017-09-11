@@ -112,9 +112,9 @@ Then execute paplot.
 
 .. _ca_group:
 
-=============================
+================================
 3. Customizing categorization
-=============================
+================================
 
 | `View the report generated in this section <http://genomon-project.github.io/paplot/ca_group/graph_group.html>`_ 
 | `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group>`_ 
@@ -200,21 +200,24 @@ By customizing pop-up information, we can view more detailed information on each
 .. code-block:: cfg
   :caption: Extracted from the example data (example/ca_option/data.csv)
   
-  Sample,Chr1,Break1,Dir1,Chr2,Break2,Dir2,Ref,Alt,MutationType,Gene1,Gene2
-  SAMPLE1,14,16019088,-,12,62784483,+,---,GACTC,deletion,LS7T1EG444,4GRRIO5AVR
-  SAMPLE1,9,99412502,-,7,129302434,+,---,C-CT-,translocation,FQFW16UF5U,QP779MLPNV
-  SAMPLE1,13,84663781,+,18,52991509,-,---,GTAAA,deletion,Q9VX1I9U3I,7XM09ETN40
-  SAMPLE2,11,101374238,+,22,26701405,+,---,TGGGT,translocation,FZ7LOS66RD,9WYBJR57E0
-  SAMPLE2,2,121708638,-,7,137424167,-,---,G-TGA,translocation,5655M5E46B,HB14VJXDHV
-  SAMPLE2,16,43027789,+,22,23791492,-,---,CCTCA,inversion,REFSIL0H2M,L5EA31R8U0
-  SAMPLE3,22,34268355,+,10,19871820,+,---,TC-GT,tandem_duplication,9SVRQCFVCO,2BEWSO91FZ
-  SAMPLE3,14,56600342,-,hs37d5,5744957,+,---,--CAA,deletion,UTLVCZ63SK,5I74M5NKDC
-  SAMPLE3,Y,12191863,-,hs37d5,29189687,-,---,TG-G-,inversion,3PLD4C20IZ,BVYMBTIFKD
+  Sample,Chr1,Break1,Dir1,Chr2,Break2,Dir2,MutationType,Gene1,Gene2
+  SAMPLE1,14,16019088,-,12,62784483,+,deletion,LS7T1EG444,4GRRIO5AVR
+  SAMPLE1,9,99412502,-,7,129302434,+,translocation,FQFW16UF5U,QP779MLPNV
+  SAMPLE1,13,84663781,+,18,52991509,-,deletion,Q9VX1I9U3I,7XM09ETN40
+  SAMPLE1,1,153160367,+,22,33751554,+,inversion,CEE2SPV1R1,PVYYQIVS8G
+  SAMPLE1,18,12249358,-,3,146222593,+,translocation,HH9OL7CK6G,XD80LI4E6Q
+  SAMPLE1,21,8658030,+,X,133492043,-,tandem_duplication,I20EVP15ZM,WPE8O5H237
+  SAMPLE1,12,120178477,+,1,155354923,-,deletion,IMYXD3TCA4,3MNN5J0MDN
+  SAMPLE2,11,101374238,+,22,26701405,+,translocation,FZ7LOS66RD,9WYBJR57E0
+  SAMPLE2,2,121708638,-,7,137424167,-,translocation,5655M5E46B,HB14VJXDHV
+  SAMPLE2,16,43027789,+,22,23791492,-,inversion,REFSIL0H2M,L5EA31R8U0
+  SAMPLE2,19,3862589,-,16,37135239,+,deletion,1IRWHVZLH8,6FUR9YMZOH
+  SAMPLE2,20,50294222,+,1,164250235,-,inversion,DOH5G0YRQ9,9TWYMR5CZ2
+  SAMPLE2,X,67392415,+,15,3327412,+,translocation,EM36MRX9B3,G4FPLN527D
+  SAMPLE3,22,34268355,+,10,19871820,+,tandem_duplication,9SVRQCFVCO,2BEWSO91FZ
 
-In this example, the following 7 (optional) columns are added as well as 5 required columns.
+In this example, the following 5 (optional) columns are added as well as 5 required columns.
 
- - Reference base (Ref)
- - Alternative base (Alt)
  - Mutation type (MutationType)
  - Gene affected by the breakpoint 1 (Gene1)
  - Gene affected by the breakpoint 2 (Gene2)
@@ -237,11 +240,9 @@ First, add these columns to the ``[result_format_ca]`` section in the configurat
 
 The colum names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
 
- - the part ``{keyword}`` can be set arbitrarily. However, always start with ``col_opt_``.
- - the characters that can be used for ``{keyword}`` is 1-9, a-z, A-Z and _.
- - ``col_opt_id`` has to be used only for sample ID.
+For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
-Then, modify the [ca] section in the configuration file.
+Then, modify the ``[ca]`` section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_option/paplot.cfg
@@ -259,6 +260,6 @@ Then, execute paplot.
   paplot ca {unzip_path}/example/ca_option/data.csv ./tmp ca_option \
   --config_file {unzip_path}/example/ca_option/paplot.cfg
 
-For more detailed description on how to set pop-up information (``tooltip_format``), please refer to `ユーザ定義フォーマット <./data_common.html#user-format>`_.
+For more detailed description on how to set pop-up information (``tooltip_format``), please refer to `User defined format <./data_common.html#user-format>`_.
 
 .. |new| image:: image/tab_001.gif

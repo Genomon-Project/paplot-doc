@@ -137,81 +137,87 @@ Then, execute paplot.
 
 For QC and Chromosomal Aberration report, change the ``[result_format_qc]`` and ``[result_format_ca]`` sections.
 
-
-.. _user_format:
+.. _keyword:
 
 ==============================
-4. ユーザ定義フォーマット
+4. Keyword
 ==============================
 
-マウスカーソルを乗せた時に表示する情報 (ポップアップ) の内容はある程度変更することができます。
-
-表示箇所ごとにそれぞれ設定しますが、書き方は同一です。
-
-**設定例**
-
-::
-
-  tooltip_format_checker_partial = type[{func}], {chr}:{start}:{end}, [{ref} -> {alt}]
-  
-  表示例：
-  type[exome], chr1:2000:2001, [A -> T]
-
-{} で囲った文字がキーワードで、実際の値に置き換えられます。
-
-4-1. キーワードとは
+4-1. About keyword
 ----------------------------
 
-設定ファイルに記入した各データ列をキーワードとして使用できるようにしています。
+With paplot, each data string entered in the configuration file can be used as a keyword.
 
-設定ファイルで次のように記入したとします。
+**Configuration file**
 
 .. code-block:: cfg
   
   [result_format_mutation]
-  # 必須項目
-  # col_{key} = {実際の列名}
+  # Required items
+  # col_{key} = {actual column name}
   #
   col_gene = Gene
   col_group = MutationType
   
-  # オプション
-  # col_opt_{key} = {実際の列名}
+  # Optional items
+  # col_opt_{key} = {actual column name}
   #
   col_opt_id = Sample
   col_opt_start = Start
   col_opt_end = End
 
-``col_{key} = {実際の列名}`` もしくは ``col_opt_{key} = {実際の列名}`` と記入した項目のうち、``{key}`` がキーワードになります。
+``col_{keyword} = {actual column name}`` or ``col_opt_{keyword} = {actual column name}`` entries, ``{keyword}`` will be the keyword.
 
-大文字と小文字の区別はありません。
-たとえば、CHR、Chr、chr はすべて同一とみなしますので、ご注意ください。
+Please note the following points.
 
-キーワードは任意で増やすことができますが、以下の点にご注意ください。
+ - There is no distinction between upper case and lower case letters. For example, CHR, Chr, and chr are considered to be the same.
+ - The part ``{keyword}`` can be set arbitrarily. However, always start with ``col_opt_``.
+ - ``col_opt_id`` has to be used only for sample ID.
+ - For Mutation Matrix and Chromosomal Aberration, ``col_opt_group`` is also reserved, so it has to be used only for grouping.
+ - Mutational signature Report and pmsignature Report can not use this function.
+ 
+.. _user_format:
 
- - 半角英数字 (1-9, a-z, A-Z) および "_" 以外は使用できません。
- - ``col_opt_id`` は予約済みですので、サンプルID以外の用途には使用できません。
- - signature、pmsignature は追加できません
+==============================
+5. User defined format
+==============================
 
-4-2. 数値計算
+We can customize the pop-up information that appears upon mouseover events.
+
+It is set for each display part, but the way of writing is the same.
+
+**Configuration file**
+
+::
+
+  tooltip_format_checker_partial = type[{func}], {chr}:{start}:{end}, [{ref} -> {alt}]
+  
+  # Example of display
+  type[exome], chr1:2000:2001, [A -> T]
+
+The character surrounded by {} is a keyword, and it is replaced with the actual value.
+
+`About Keyword <./data_common.html#keyword>`_ 
+
+5-1. Numerical calculation
 ----------------------------
 
-キーワードを 1 つ以上使用して数値計算させることもできます。その場合、計算式を {} で囲います。
+paplot can use one or more keywords to perform numerical calculations.
 
 ::
   
   {key1/key2*100}%
   
-  表示例：
+  # Example of display
   3.33333333333333%
 
-表示桁数を指定したい場合は計算式の後に ``:.2`` と書きます。小数点以下3桁の場合は ``:.3`` と書きます。
+If you want to specify the number of digits to display, write ``: .2`` after the calculation formula.
 
 ::
 
   {key1/key2*100:.2}%
   
-  表示例：
+  # Example of display
   3.33%
 
 .. |new| image:: image/tab_001.gif

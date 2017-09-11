@@ -29,7 +29,7 @@ In this example, we adopt mean sequence depth (AverageDepth).
   SAMPLE4,70.9654
   SAMPLE5,69.9653
 
-First, set the column names in the [result_format_qc] section of the configuration file.
+First, set the column names in the ``[result_format_qc]`` section of the configuration file.
 
 .. code-block:: cfg
   :caption: example/qc_minimal/paplot.cfg
@@ -40,18 +40,16 @@ First, set the column names in the [result_format_qc] section of the configurati
 
 The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
 
- - the part ``{keyword}`` can be set arbitrarily. However, always start with ``col_opt_``.
- - the characters that can be used for ``{keyword}`` is 1-9, a-z, A-Z and _.
- - ``col_opt_id`` has to be used only for sample ID.
+For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
-Then, add [qc_char_1] section to the configuration file and fill the contents within it. 
+Then, add ``[qc_char_1]`` section to the configuration file and fill the contents within it. 
 
 .. code-block:: cfg
   :caption: example/qc_minimal/paplot.cfg
   
   [qc_chart_1]
   
-  # Title of the graphグラフのタイトル
+  # Title of the graph
   title = Depth average
  
   # Lable of the Y axis
@@ -70,10 +68,10 @@ Then, add [qc_char_1] section to the configuration file and fill the contents wi
 
 .. note::
 
-  Here, ``{key1}`` used above is the ``{keyword}`` specified in the [result_format_qc] section.
+  Here, ``{key1}`` used above is the ``{keyword}`` specified in the ``[result_format_qc]`` section.
   
-  - For more detailed description on how to set ``name_set``, please refer to `name_set の書き方 <./data_qc.html#qc-nameset>`_.
-  - For more detailed description on how to set ``tooltip_format``, please refer to `ユーザ定義フォーマット <./data_common.html#user-format>`_.
+  - For more detailed description on how to set ``name_set``, please refer to `How to set name_set <./data_qc.html#qc-nameset>`_.
+  - For more detailed description on how to set ``tooltip_format``, please refer to `User defined format <./data_common.html#user-format>`_.
 
 Then, execute paplot.
 
@@ -103,7 +101,7 @@ Then, execute paplot.
   SAMPLE4,70.9654
   SAMPLE5,69.9653
 
-When the input data has not header (column names), then we need to set the column number to each key in the [result_format_qc] section of the configuration file.
+When the input data has not header (column names), then we need to set the column number to each key in the ``[result_format_qc]`` section of the configuration file.
 
 .. code-block:: cfg
   :caption: example/qc_noheader/paplot.cfg
@@ -146,10 +144,10 @@ Here, we generate a report with a stacked bargraph as well as a normal bargraph 
   SAMPLE4,70.9654,120,140
   SAMPLE5,69.9653,230,110
 
- - chart_1　[normal bargraph] AverageDepth (the same as the minimal dataset example)
- - chart_2　[stacked bargraph] ReadLengthR1, ReadLengthR2
+ - chart_1 [normal bargraph] AverageDepth (the same as the minimal dataset example)
+ - chart_2 [stacked bargraph] ReadLengthR1, ReadLengthR2
 
-First, add these columns to the [result_format_qc] section in the configuration file.
+First, add these columns to the ``[result_format_qc]`` section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/qc_multi_plot/paplot.cfg
@@ -166,28 +164,25 @@ First, add these columns to the [result_format_qc] section in the configuration 
 
 The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
 
- - the part ``{keyword}`` can be set arbitrarily. However, always start with ``col_opt_``.
- - the characters that can be used for ``{keyword}`` is 1-9, a-z, A-Z and _.
- - ``col_opt_id`` has to be used only for sample ID.
+For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
-
-Next, add [qc_chart_1], [qc_chart_2] sections to the configuration file and fill the contents within it.
+Next, add ``[qc_chart_1]``, ``[qc_chart_2]`` sections to the configuration file and fill the contents within it.
  
-| To increase graphs in QC Report, increase the [qc_chart_*] sections.
+| To increase graphs in QC Report, increase the ``[qc_chart_*]`` sections.
 | Set the indice to ``*``, which should start from 1.
 
-For the completed configuration file, please refer to `ここ <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack/paplot.cfg>`_.
+For the completed configuration file, please refer to `here <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack/paplot.cfg>`_.
 
 
 3-1. Normal bargraph
 ---------------------------
 
-The [qc_chart_1] section is for a normal bargraph, and the contents should be filled as in the minimal dataset example.
+The ``[qc_chart_1]`` section is for a normal bargraph, and the contents should be filled as in the minimal dataset example.
 
 3-2. Stacked bargraph 
 -----------------------
 
-The [qc_chart_2] section is for a stacked bargraph.
+The ``[qc_chart_2]`` section is for a stacked bargraph.
 
 .. code-block:: cfg
   :caption: example/qc_multi_plot/paplot.cfg
@@ -214,12 +209,10 @@ The [qc_chart_2] section is for a stacked bargraph.
 
 .. note::
 
-  Here, ``{key*}`` used above is the ``{keyword}`` specified in the [result_format_qc] section.
+  Here, ``{key*}`` used above is the ``{keyword}`` specified in the ``[result_format_qc]`` section.
   
-  - For more detailed description on how to set ``name_set``, please refer to `name_set の書き方 <./data_qc.html#qc-nameset>`_.
-  - For more detailed description on how to set ``tooltip_format``, please refer to `ユーザ定義フォーマット <./data_common.html#user-format>`_.
-
-  ここで使用している ``{key*}`` は [result_format_qc] セクションで入力した ``{キーワード}`` です。
+  - For more detailed description on how to set ``name_set``, please refer to `How to set name_set <./data_qc.html#qc-nameset>`_.
+  - For more detailed description on how to set ``tooltip_format``, please refer to `User defined format <./data_common.html#user-format>`_.
 
 Then, execute paplot.
 
@@ -280,7 +273,7 @@ Here, we generate even more graphs.
  - chart_3　[normal bargraph] MappedReads divided by TotalReads (mapping raito)
  - chart_4　[stacked bargraph] 2xRatio, 10xRatio, 20xRatio, 30xRatio (subtracting the values of items below)
 
-First, add these columns to the [result_format_qc] section in the configuration file.
+First, add these columns to the ``[result_format_qc]`` section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/qc_variation/paplot.cfg
@@ -308,31 +301,29 @@ First, add these columns to the [result_format_qc] section in the configuration 
 
 The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
 
- - the part ``{keyword}`` can be set arbitrarily. However, always start with ``col_opt_``.
- - the characters that can be used for ``{keyword}`` is 1-9, a-z, A-Z and _.
- - ``col_opt_id`` has to be used only for sample ID.
+For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
-Next, add [qc_chart_1], [qc_chart_2], [qc_chart_3] and [qc_cahrt_4] sections to the configuration file and fill the contents within it.
+Next, add ``[qc_chart_1]``, ``[qc_chart_2]``, ``[qc_chart_3]`` and ``[qc_cahrt_4]`` sections to the configuration file and fill the contents within it.
 
-For the completed configuration file, please refer to `ここ <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation/paplot.cfg>`_.
+For the completed configuration file, please refer to `here <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation/paplot.cfg>`_.
 
 
-4-1. Simple normal bargraph 
----------------------------
+4-1. Simple normal bargraph
+----------------------------------
 
-The [qc_chart_1] section is for a normal bargraph, and the contents should be filled as in the minimal dataset example.
+The ``[qc_chart_1]`` section is for a normal bargraph, and the contents should be filled as in the minimal dataset example.
 
 
 4-2. Simple stacked bargraph
 -------------------------------------
 
-The [qc_chart_2] section is for a stacked bargraph, and the contents should be filled as the previous example.
+The ``[qc_chart_2]`` section is for a stacked bargraph, and the contents should be filled as the previous example.
 
 
 4-3. Normal bargraph (with numeric operations on columns)
---------------------------------------
+---------------------------------------------------------------
 
-The [qc_chart_3] section is a graph for mapping ratio (Mapped reads divided by Total reads).
+The ``[qc_chart_3]`` section is a graph for mapping ratio (Mapped reads divided by Total reads).
 
 .. code-block:: cfg
   :caption: example/qc_variation/paplot.cfg
@@ -364,12 +355,12 @@ For the items in graphs
 | When we want to display the value for each column, then set as
 | ``tooltip_format2 = Mapped: {mapped_reads}, Total: {total_reads}``.
 |
-| For more detailed description on how to set pop-up information, please refer to `ユーザ定義フォーマット <./data_common.html#user-format>`_.
+| For more detailed description on how to set pop-up information, please refer to `User defined format <./data_common.html#user-format>`_.
 |
 
 
 4-4. Stacked bargraph (with numeric operations on columns)
------------------------------------------------
+--------------------------------------------------------------
 
 The chart_4 section is a graph for sequence coverage.
 
@@ -412,19 +403,19 @@ Then, execute paplot.
 
 .. _qc_brush:
 
-==============================
+=================================
 5. Graph for selecting samples
-==============================
+=================================
 
 | `View the report generated in this section <http://genomon-project.github.io/paplot/qc_brush/graph_brush.html>`_ 
 | `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_brush>`_ 
 | `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_brush.zip?raw=true>`_ 
 
 Here, we add the graph for selecting samples (using the column AverageDepth).
-When you want to use other columns, it should be registered in the [result_format_qc] section of the configuratoin file (as col_opt_{name}).
+When you want to use other columns, it should be registered in the ``[result_format_qc]`` section of the configuratoin file (as ``col_opt_{name}``).
 
 Just one graph for selecting samples can be included.
-Add the [qc_chart_brush] section to the configuration file and fill the contents within it.
+Add the ``[qc_chart_brush]`` section to the configuration file and fill the contents within it.
 
 .. code-block:: cfg
   :caption: example/qc_brush/paplot.cfg

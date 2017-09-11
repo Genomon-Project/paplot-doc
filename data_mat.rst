@@ -165,6 +165,8 @@ First, add these columns to the ``[result_format_mutation]`` section in the conf
 
 The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
 
+For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
+
  - the part ``{keyword}`` can be set arbitrarily. However, always start with ``col_opt_``.
  - the characters that can be used for ``{keyword}`` is 1-9, a-z, A-Z and _.
  - ``col_opt_id`` has to be used only for sample ID.
@@ -187,8 +189,24 @@ Then, execute paplot.
   paplot mutation {unzip_path}/example/mutation_option/data.csv ./tmp mutation_option \
   --config_file {unzip_path}/example/mutation_option/paplot.cfg
 
-Here, we show how to customize the pop-up for each element in the main grid. For customizing other pop-ups, please refer to `ポップアップの表示内容 <./config.html#mm-tooltip>`_.
+Here, we show how to customize the pop-up for each element in the main grid. For customizing other pop-ups, please refer to following.
 
-Also, for more detailed description on how to set pop-up information, please refer to `ユーザ定義フォーマット <./data_common.html#user-format>`_.
+Six types are set for each display location, but the way of writing is the same.
+
+**Correspondence between setting items and display**
+
+.. image:: image/conf_mut4.PNG
+  :scale: 100%
+
+The following can also be used as a special keyword.
+
+:{#number_id}:      the number of mutations per sample
+:{#number_gene}:    the number of mutations per gene
+:{#number_mutaion}: the number of mutations (Even if the same sample is detected plural times with the same gene, it counts as 1)
+:{#sum_mutaion}:    Total number of mutations
+:{#item_value}:     Value of one item of stacked graph
+:{#sum_item_value}: Total value of stacked graph
+
+Also, for more detailed description on how to set pop-up information, please refer to `User defined format <./data_common.html#user-format>`_.
 
 .. |new| image:: image/tab_001.gif

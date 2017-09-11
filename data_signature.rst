@@ -6,9 +6,6 @@ Here, we show how to generate Mutation Signature Report using sample data [*]_.
 
  .. [*] Sample data is equipped with the ``example`` directory of paplot directory.
 
-
-.. :doc:`exec_signature` に従いデータを準備する場合、設定ファイルの変更は必要ありません。
-
 .. _json:
 
 ==========================
@@ -103,7 +100,7 @@ then signature contribution graph are generated (`example <http://genomon-projec
 
 .. note::
 
-  The keys in the input json file can be modified by changing contents in the [result_format_signature] section of the configuration file.
+  The keys in the input json file can be modified by changing contents in the ``[result_format_signature]`` section of the configuration file.
 
   .. code-block:: cfg
     :caption:  paplot/example/signature_stack/paplot.cfg
@@ -141,9 +138,7 @@ then signature contribution graph are generated (`example <http://genomon-projec
 | `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal>`_ 
 | `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal.zip?raw=true>`_ 
 
-For the format of input data, please refer to :ref:`Here <json>`.
-
-.. :doc:`exec_signature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。
+For the format of input data, please refer to :ref:`here <json>`.
 
 Input data file (the number of mutation signature is 2)
 
@@ -237,8 +232,6 @@ Here, the file name (`graph_signature2.html`) are determined by the number of mu
 
 For the format of input data, please refer to :ref:`here <json>`.
 
-.. :doc:`exec_signature` の手順でデータの準備を行う場合、設定ファイルの変更は必要ありません。ここでは paplot コマンドを中心に解説します。
-
 When generating Mutation Signature Report with various number of signatures,
 the input data for each signature number and configuration file are necessary.
 
@@ -281,7 +274,7 @@ Or execute the following batch command.
 
 .. code-block:: bash
 
-  paplot "signature signature_multi_class/data*.json" ./tmp signature_multi_class \
+  paplot signature "signature_multi_class/data*.json" ./tmp signature_multi_class \
   --config_file ./signature_multi_class/paplot.cfg
 
 Then the report is generated in the `tmp` directory.
@@ -319,10 +312,15 @@ Here, the file name (`graph_signature2.html`) are determined by the number of mu
 
 Here, we add a signature contribution graph.
 
-.. レポートに変異の内訳グラフを追加します。 :ref:`こちら <json_full>` で解説に使用しているデータであり、:doc:`exec_signature` によりデータの準備を行う場合に出力されるデータです。
-
 For the format of input data, please refer to :ref:`here <json>`.
 
 For generating report with various signature numbers, please refer to :ref:`here <sig_mclass>`.
+
+Execute paplot.
+
+.. code-block:: bash
+  
+  paplot signature "signature_stack/data*.json" ./tmp signature_stack \
+  --config_file ./signature_stack/paplot.cfg
 
 .. |new| image:: image/tab_001.gif

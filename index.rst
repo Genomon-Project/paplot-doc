@@ -42,22 +42,6 @@ Contents:
    data_pmsignature.rst
    data_common.rst
 
-..    
-  .. toctree:: 
-     :maxdepth: 2
-     :caption: for advance
-     :name: advance_toc
-   
-     config.rst
-     style.rst
-..
-  .. toctree:: 
-     :maxdepth: 1
-     :caption: Q & A
-     :name: qa_toc
-   
-   qa.rst
-
 .. toctree:: 
    :maxdepth: 1
    :caption: infomation
