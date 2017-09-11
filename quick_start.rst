@@ -155,7 +155,7 @@ You will find the following directory structure:
 .. image:: image/sig_dummy.PNG
   :scale: 100%
 
-| **pmsignature レポート**
+| **pmsignature Report**
 
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%
