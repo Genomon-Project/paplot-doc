@@ -146,7 +146,8 @@ For QC and Chromosomal Aberration report, change the ``[result_format_qc]`` and 
 4-1. About keyword
 ----------------------------
 
-With paplot, each data string entered in the configuration file can be used as a keyword.
+For each column name, we can set the keyword by setting the configuratin file.
+Keywords will be used for customizing pop-up information and so on.
 
 **Configuration file**
 
@@ -170,11 +171,11 @@ With paplot, each data string entered in the configuration file can be used as a
 
 Please note the following points.
 
- - There is no distinction between upper case and lower case letters. For example, CHR, Chr, and chr are considered to be the same.
+ - The keywords are case-independent. For example, CHR, Chr, and chr are considered to be the same.
  - The part ``{keyword}`` can be set arbitrarily. However, always start with ``col_opt_``.
  - ``col_opt_id`` has to be used only for sample ID.
- - For Mutation Matrix and Chromosomal Aberration, ``col_opt_group`` is also reserved, so it has to be used only for grouping.
- - Mutational signature Report and pmsignature Report can not use this function.
+ - For Mutation Matrix and Chromosomal Aberration Report, ``col_opt_group`` is also reserved for grouping, and cannot be used for other purpose.
+ - Mutational Signature Report and pmsignature Report does not use keywords.
  
 .. _user_format:
 
@@ -184,7 +185,8 @@ Please note the following points.
 
 We can customize the pop-up information that appears upon mouseover events.
 
-It is set for each display part, but the way of writing is the same.
+For each report and graph, we need to set up the contents of pop-up information.
+However, the manner for writing is the same.
 
 **Configuration file**
 
@@ -192,10 +194,11 @@ It is set for each display part, but the way of writing is the same.
 
   tooltip_format_checker_partial = type[{func}], {chr}:{start}:{end}, [{ref} -> {alt}]
   
-  # Example of display
+  # will be displayed as: 
   type[exome], chr1:2000:2001, [A -> T]
 
-The character surrounded by {} is a keyword, and it is replaced with the actual value.
+The words surrounded by {} are keywords, when the pop-up information is displayed,
+keywords will be replaced by the actual value.
 
 `About Keyword <./data_common.html#keyword>`_ 
 
@@ -208,16 +211,17 @@ paplot can use one or more keywords to perform numerical calculations.
   
   {key1/key2*100}%
   
-  # Example of display
+  # will be displayed as (no rounding)
   3.33333333333333%
 
-If you want to specify the number of digits to display, write ``: .2`` after the calculation formula.
+If you want to round decimals, then add, 
+e.g. ``: .2`` to leave two numbers after the decimal point to the value of the keyword.
 
 ::
 
   {key1/key2*100:.2}%
   
-  # Example of display
+  # will be displayed as (with rounding)
   3.33%
 
 .. |new| image:: image/tab_001.gif
