@@ -10,10 +10,6 @@ Install
 
 | You need python2.7 or python 3.5 to run paplot.paplot (previous versions of Python have not been tested).
 
-..  * :ref:`For Linux <linux>`
-..  * :ref:`For MacOS X <macosx>`
-..  * :ref:`For Windows <windows>`
-
 .. _linux:
 
 ================================================

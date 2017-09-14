@@ -12,9 +12,9 @@ Here, we show how to generate QC report using sample data [*]_.
 1. Minimal dataset 
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_minimal/graph_minimal.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_minimal>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_minimal.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_minimal/graph_minimal.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_minimal>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_minimal.zip?raw=true>`__ 
 
 For generating QC Report using paplot, sample ID (Sample) and QC items (at least one) are necessary.
 In this example, we adopt mean sequence depth (AverageDepth).
@@ -33,6 +33,7 @@ First, set the column names in the ``[result_format_qc]`` section of the configu
 
 .. code-block:: cfg
   :caption: example/qc_minimal/paplot.cfg
+  :name: example/qc_minimal/paplot.cfg_1
   
   [result_format_qc]
   col_opt_id = Sample
@@ -42,10 +43,11 @@ The column names of optional items can be set as: ``col_opt_{keyword} = {actual 
 
 For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
-Then, add ``[qc_char_1]`` section to the configuration file and fill the contents within it. 
+Then, add ``[qc_chart_1]`` section to the configuration file and fill the contents within it. 
 
 .. code-block:: cfg
   :caption: example/qc_minimal/paplot.cfg
+  :name: example/qc_minimal/paplot.cfg_2
   
   [qc_chart_1]
   
@@ -88,9 +90,9 @@ Then, execute paplot.
 2. Without header
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_noheader/graph_noheader.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_noheader>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_noheader.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_noheader/graph_noheader.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_noheader>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_noheader.zip?raw=true>`__ 
 
 .. code-block:: cfg
   :caption: Extracted from the example data (example/qc_noheader/data.csv)
@@ -128,9 +130,9 @@ Then execute paplot.
 3. Stacked bargraph
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_stack/graph_stack.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_stack/graph_stack.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack.zip?raw=true>`__ 
 
 Here, we generate a report with a stacked bargraph as well as a normal bargraph (generated in the minimal dataset example).
 
@@ -144,6 +146,8 @@ Here, we generate a report with a stacked bargraph as well as a normal bargraph 
   SAMPLE4,70.9654,120,140
   SAMPLE5,69.9653,230,110
 
+|
+
  - chart_1 [normal bargraph] AverageDepth (the same as the minimal dataset example)
  - chart_2 [stacked bargraph] ReadLengthR1, ReadLengthR2
 
@@ -151,6 +155,7 @@ First, add these columns to the ``[result_format_qc]`` section in the configurat
 
 .. code-block:: cfg
   :caption: example/qc_multi_plot/paplot.cfg
+  :name: example/qc_multi_plot/paplot.cfg_1
   
   [result_format_qc]
   col_opt_id = Sample
@@ -171,7 +176,7 @@ Next, add ``[qc_chart_1]``, ``[qc_chart_2]`` sections to the configuration file 
 | To increase graphs in QC Report, increase the ``[qc_chart_*]`` sections.
 | Set the indice to ``*``, which should start from 1.
 
-For the completed configuration file, please refer to `here <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack/paplot.cfg>`_.
+For the completed configuration file, please refer to `here <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack/paplot.cfg>`__.
 
 
 3-1. Normal bargraph
@@ -186,6 +191,7 @@ The ``[qc_chart_2]`` section is for a stacked bargraph.
 
 .. code-block:: cfg
   :caption: example/qc_multi_plot/paplot.cfg
+  :name: example/qc_multi_plot/paplot.cfg_2
   
   [qc_chart_2]
   
@@ -198,7 +204,7 @@ The ``[qc_chart_2]`` section is for a stacked bargraph.
   stack1 = {keyB1}
   stack2 = {keyB2}
   
-  # Colour and legend
+  # Color and legend
   # Write down in the order of stack1 → 2 → ..., and join them by commmas ','.
   name_set = Read length r1:#2478B4, Read length r2:#FF7F0E
   
@@ -251,9 +257,9 @@ When colours are ommited, the default colours defined in the following file are 
 4. Various graphs
 =================================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_variation/graph_variation.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_variation/graph_variation.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation.zip?raw=true>`__ 
 
 In the previous example, we generated a report with one normal bargraph and one stacked bargraph.
 Here, we generate even more graphs.
@@ -268,15 +274,18 @@ Here, we generate even more graphs.
   SAMPLE4,70.9654,120,140,72885114,89163960,0.9047,0.8303,0.7032,0.6801
   SAMPLE5,69.9653,230,110,92572101,28793615,0.9776,0.9452,0.672,0.6518
 
- - chart_1　[normal bargraph] AverageDepth (the same as the minimal dataset example)
- - chart_2　[stacked bargraph] ReadLengthR1, ReadLengthR2 (the same as the previous example)
- - chart_3　[normal bargraph] MappedReads divided by TotalReads (mapping raito)
- - chart_4　[stacked bargraph] 2xRatio, 10xRatio, 20xRatio, 30xRatio (subtracting the values of items below)
+|
+
+ - chart_1 [normal bargraph] AverageDepth (the same as the minimal dataset example)
+ - chart_2 [stacked bargraph] ReadLengthR1, ReadLengthR2 (the same as the previous example)
+ - chart_3 [normal bargraph] MappedReads divided by TotalReads (mapping raito)
+ - chart_4 [stacked bargraph] 2xRatio, 10xRatio, 20xRatio, 30xRatio (subtracting the values of items below)
 
 First, add these columns to the ``[result_format_qc]`` section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/qc_variation/paplot.cfg
+  :name: example/qc_variation/paplot.cfg_1
   
   [result_format_qc]
   col_opt_id = Sample
@@ -327,7 +336,8 @@ The ``[qc_chart_3]`` section is a graph for mapping ratio (Mapped reads divided 
 
 .. code-block:: cfg
   :caption: example/qc_variation/paplot.cfg
-
+  :name: example/qc_variation/paplot.cfg_2
+  
   [qc_chart_3]
   
   # Titles 
@@ -366,6 +376,7 @@ The chart_4 section is a graph for sequence coverage.
 
 .. code-block:: cfg
   :caption: example/qc_variation/paplot.cfg
+  :name: example/qc_variation/paplot.cfg_3
   
   [qc_chart_2]
   
@@ -407,9 +418,9 @@ Then, execute paplot.
 5. Graph for selecting samples
 =================================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_brush/graph_brush.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_brush>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_brush.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_brush/graph_brush.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_brush>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_brush.zip?raw=true>`__ 
 
 Here, we add the graph for selecting samples (using the column AverageDepth).
 When you want to use other columns, it should be registered in the ``[result_format_qc]`` section of the configuratoin file (as ``col_opt_{name}``).

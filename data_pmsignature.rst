@@ -137,9 +137,9 @@ then signature contribution graph are generated (`example <http://genomon-projec
 2. Minimal dataset 
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/pmsignature_minimal/graph_pmsignature_minimal2.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/pmsignature_minimal/graph_pmsignature_minimal2.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal.zip?raw=true>`__ 
 
 For the format of input data, please refer to :ref:`here <json>`.
 
@@ -155,7 +155,7 @@ For the format of input data, please refer to :ref:`here <json>`.
 Configuration file
 
 .. code-block:: cfg
-  :caption: example/signature_minimal/paplot.cfg
+  :caption: example/pmsignature_minimal/paplot.cfg
   
   [pmsignature]
   tooltip_format_ref1 = A: {a:.2}
@@ -215,14 +215,14 @@ Here, the file name (`graph_pmsignature2.html`) are determined by the number of 
 
 | View the report generated in this section
 
- - `pmsignature 2 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class2.html>`_ 
- - `pmsignature 3 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class3.html>`_ 
- - `pmsignature 4 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class4.html>`_ 
- - `pmsignature 5 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class5.html>`_ 
- - `pmsignature 6 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class6.html>`_ 
+ - `pmsignature 2 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class2.html>`__ 
+ - `pmsignature 3 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class3.html>`__ 
+ - `pmsignature 4 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class4.html>`__ 
+ - `pmsignature 5 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class5.html>`__ 
+ - `pmsignature 6 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class6.html>`__ 
 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class.zip?raw=true>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class.zip?raw=true>`__ 
 
 For the format of input data, please refer to :ref:`here <json>`.
 
@@ -299,14 +299,14 @@ Here, the file name (`graph_pmsignature2.html`) are determined by the number of 
 
 | View the report generated in this section 
 
- - `pmsignature 2 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack2.html>`_ 
- - `pmsignature 3 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack3.html>`_ 
- - `pmsignature 4 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack4.html>`_ 
- - `pmsignature 5 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack5.html>`_ 
- - `pmsignature 6 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack6.html>`_ 
+ - `pmsignature 2 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack2.html>`__ 
+ - `pmsignature 3 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack3.html>`__ 
+ - `pmsignature 4 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack4.html>`__ 
+ - `pmsignature 5 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack5.html>`__ 
+ - `pmsignature 6 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack6.html>`__ 
 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack>`_ 
-| `Download the input data used in this sectio <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack.zip?raw=true>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack>`__ 
+| `Download the input data used in this sectio <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack.zip?raw=true>`__ 
 
 Here, we add a signature contribution graph.
 
@@ -321,17 +321,21 @@ Execute paplot.
   paplot pmsignature "pmsignature_stack/data*.json" ./tmp pmsignature_stack \
   --config_file ./pmsignature_stack/paplot.cfg
 
+.. note::
+
+  Since one signature is assigned to backgroud signature in this example, the last signature in the contribution graph is background signature.
+
 ----
 
 .. _pm_nobackground:
 
 ==========================
-5. Withoug background
+5. Without background
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/pmsignature_nobackground/graph_nobackground2.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/pmsignature_nobackground/graph_nobackground2.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground.zip?raw=true>`__ 
 
 Here, we generate a pmsignature Report without background.
 

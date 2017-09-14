@@ -12,9 +12,9 @@ Here, we show how to generate Chromosomal Aberration Report using sample data [*
 1. Minimal dataset 
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_minimal/graph_minimal.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_minimal/graph_minimal.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal.zip?raw=true>`__ 
 
 For generating Chromosomal Aberration Report using paplot, at least following 5 items are necessary.
 
@@ -66,9 +66,9 @@ Then, execute the paplot.
 2. Without header
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_noheader/graph_noheader.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_noheader/graph_noheader.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader.zip?raw=true>`__ 
 
 .. code-block:: cfg
   :caption: Extracted from the example data (example/ca_noheader/data.csv)
@@ -116,9 +116,9 @@ Then execute paplot.
 3. Customizing categorization
 ================================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_group/graph_group.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_group/graph_group.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group.zip?raw=true>`__ 
 
 In the minimal dataset, chromosomal aberrations are categorized into intra-chromosomal (green) and inter-chromosomal (purple).
 We can customize the categorization.
@@ -146,6 +146,7 @@ First, we set the ``Label`` as the column used for categorization in the ``[resu
 
 .. code-block:: cfg
   :caption: example/ca_group/paplot.cfg
+  :name: example/ca_group/paplot.cfg_1
   
   [result_format_ca]
   col_opt_group = Label
@@ -154,7 +155,8 @@ Also, the color for each category can be set.
 
 .. code-block:: cfg
   :caption: example/ca_group/paplot.cfg
-
+  :name: example/ca_group/paplot.cfg_2
+  
   [ca]
   # Set {Value}:{the name of colour or RGB value} for each category and join them by comma ','.
   group_colors = A:#66C2A5,B:#FC8D62,C:#8DA0CB,D:#E78AC3
@@ -180,9 +182,9 @@ Then, execute paplot.
 4. Customizing pop-up information
 ===================================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_option/graph_option.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_option/graph_option.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option.zip?raw=true>`__ 
 
 We can customize the pop-up information that appears upon mouseover events.
 In the minimal dataset, the pop-up information is shown as below.
@@ -228,6 +230,7 @@ First, add these columns to the ``[result_format_ca]`` section in the configurat
 
 .. code-block:: cfg
   :caption: example/ca_option/paplot.cfg
+  :name: example/ca_option/paplot.cfg_1
   
   [result_format_ca]
   col_opt_dir1 = Dir1
@@ -246,6 +249,7 @@ Then, modify the ``[ca]`` section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_option/paplot.cfg
+  :name: example/ca_option/paplot.cfg_2
   
   [ca]
   # before customization

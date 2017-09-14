@@ -12,9 +12,9 @@ Here, we show how to generate Mutation Matrix report using sample data [*]_.
 1. Minimal dataset
 ==========================
 
- * `View the report generated in this section <http://genomon-project.github.io/paplot/mutation_minimal/graph_minimal.html>`_ 
- * `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_minimal>`_ 
- * `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_minimal.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/mutation_minimal/graph_minimal.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_minimal>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_minimal.zip?raw=true>`__ 
 
 For generating Mutation Matrix Report using paplot, at least sample ID (Sample), gene name (Gene) and mutation type (MutationType) are necessary.
 
@@ -62,9 +62,9 @@ Then, execute the paplot.
 2. Without header
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/mutation_noheader/graph_noheader.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_noheader>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_noheader.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/mutation_noheader/graph_noheader.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_noheader>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_noheader.zip?raw=true>`__ 
 
 .. code-block:: cfg
   :caption: Extracted from the example data (example/mutation_noheader/data.csv)
@@ -110,9 +110,9 @@ Then execute paplot.
 3. Customizing pop-up information
 ===================================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/mutation_option/graph_option.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_option>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_option.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/mutation_option/graph_option.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_option>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_option.zip?raw=true>`__ 
 
 We can customize the pop-up information that appears upon mouseover events.
 In the minimal dataset, the pop-up information shows sample, gene and mutation type as below.
@@ -155,6 +155,7 @@ First, add these columns to the ``[result_format_mutation]`` section in the conf
 
 .. code-block:: cfg
   :caption: example/mutation_option/paplot.cfg
+  :name: example/mutation_option/paplot.cfg_1
   
   [result_format_mutation]
   col_opt_chr = Chr
@@ -171,6 +172,7 @@ Then, modify the ``[mutation]`` section in the configuration file.
 
 .. code-block:: cfg
   :caption: example/mutation_option/paplot.cfg
+  :name: example/mutation_option/paplot.cfg_2
   
   [mutation]
   # before customization 

@@ -84,7 +84,7 @@ This graph is optional.
 
 Signature contribution graph shows how much amount of mutations are associated with each mutation signature.
 When *id*, *mutation* and *mutation_count* are set in the input json file,
-then signature contribution graph are generated (`example <http://genomon-project.github.io/paplot/signature_stack/graph_stack2.html>`_).
+then signature contribution graph are generated (`example <http://genomon-project.github.io/paplot/signature_stack/graph_stack2.html>`__ ).
 
 :id:
   | List of samples. For each sample, sample indices are assigned (in this example, PD3851a=0, PD3890a=1, PD3904a=2 and so on). 
@@ -134,9 +134,9 @@ then signature contribution graph are generated (`example <http://genomon-projec
 2. Minimal dataset  
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/signature_minimal/graph_signature_minimal2.html>`_ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal.zip?raw=true>`_ 
+| `View the report generated in this section <http://genomon-project.github.io/paplot/signature_minimal/graph_signature_minimal2.html>`__ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal.zip?raw=true>`__ 
 
 For the format of input data, please refer to :ref:`here <json>`.
 
@@ -221,14 +221,14 @@ Here, the file name (`graph_signature2.html`) are determined by the number of mu
 
 | View the report generated in this section 
 
- - `signature 2 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class2.html>`_ 
- - `signature 3 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class3.html>`_ 
- - `signature 4 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class4.html>`_ 
- - `signature 5 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class5.html>`_ 
- - `signature 6 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class6.html>`_ 
+ - `signature 2 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class2.html>`__ 
+ - `signature 3 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class3.html>`__ 
+ - `signature 4 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class4.html>`__ 
+ - `signature 5 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class5.html>`__ 
+ - `signature 6 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class6.html>`__ 
 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class.zip?raw=true>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class.zip?raw=true>`__ 
 
 For the format of input data, please refer to :ref:`here <json>`.
 
@@ -301,14 +301,14 @@ Here, the file name (`graph_signature2.html`) are determined by the number of mu
 
 | View the report generated in this section 
 
- - `signature 2 <http://genomon-project.github.io/paplot/signature_stack/graph_stack2.html>`_ 
- - `signature 3 <http://genomon-project.github.io/paplot/signature_stack/graph_stack3.html>`_ 
- - `signature 4 <http://genomon-project.github.io/paplot/signature_stack/graph_stack4.html>`_ 
- - `signature 5 <http://genomon-project.github.io/paplot/signature_stack/graph_stack5.html>`_ 
- - `signature 6 <http://genomon-project.github.io/paplot/signature_stack/graph_stack6.html>`_ 
+ - `signature 2 <http://genomon-project.github.io/paplot/signature_stack/graph_stack2.html>`__ 
+ - `signature 3 <http://genomon-project.github.io/paplot/signature_stack/graph_stack3.html>`__ 
+ - `signature 4 <http://genomon-project.github.io/paplot/signature_stack/graph_stack4.html>`__ 
+ - `signature 5 <http://genomon-project.github.io/paplot/signature_stack/graph_stack5.html>`__ 
+ - `signature 6 <http://genomon-project.github.io/paplot/signature_stack/graph_stack6.html>`__ 
 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack>`_ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack.zip?raw=true>`_ 
+| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack>`__ 
+| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack.zip?raw=true>`__ 
 
 Here, we add a signature contribution graph.
 

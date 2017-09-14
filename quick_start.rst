@@ -162,19 +162,15 @@ You will find the following directory structure:
 
 | For how to interpret each graph, please refer to  `HOW TO USE GRAPHS <./index.html#how-to-toc>`_.
 
-
-.. 4. Modify configuration files and use your own data.
-.. ------------------------------------------------------
-
 **Modify configuration files and use your own data**
 
 | Plese consult following links to set up your own data and configuration files.
 | 
 | [For basic use]
 
- - :doc:`data_mat` 
  - :doc:`data_qc` 
  - :doc:`data_ca` 
+ - :doc:`data_mat` 
  - :doc:`data_signature` 
  - :doc:`data_pmsignature` 
 

@@ -24,9 +24,9 @@ Contents:
    :maxdepth: 2
    :caption: how to use graphs
    :name: how_to_toc
-
+   
    howto_qc.rst
-   howto_ca.rst   
+   howto_ca.rst
    howto_mat.rst
    howto_signature.rst
 
@@ -34,9 +34,9 @@ Contents:
    :maxdepth: 2
    :caption: dataformat
    :name: dataformat_toc
-  
+   
    data_qc.rst
-   data_ca.rst 
+   data_ca.rst
    data_mat.rst
    data_signature.rst
    data_pmsignature.rst
