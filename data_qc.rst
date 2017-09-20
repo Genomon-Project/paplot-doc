@@ -61,7 +61,7 @@ Then, add ``[qc_chart_1]`` section to the configuration file and fill the conten
   # In this example, just one item is used and the graph is displayed as non-stacked bargraph
   stack1 = {key1}
   
-  # Colour and legend of the graph
+  # Color and legend of the graph
   name_set = Average depth:#2478B4
   
   # Pop-up information
@@ -210,8 +210,8 @@ The ``[qc_chart_2]`` section is for a stacked bargraph.
   
   # Pop-up information
   tooltip_format1 = Sample:{id}
-  tooltip_format2 = Read1: {keyB1: ,}
-  tooltip_format3 = Read2: {keyB2: ,}
+  tooltip_format2 = Read1: {keyB1:,}
+  tooltip_format3 = Read2: {keyB2:,}
 
 .. note::
 
@@ -234,7 +234,7 @@ Then, execute paplot.
 3-3. How to set name_set
 ------------------------------
 
-Define the legends and their colours.
+Define the legends and their colors.
 
 Write down ``{legend}:{colour}`` for each item in the stacked bargraph (colurs can be ommited).
 
@@ -245,7 +245,7 @@ Write down ``{legend}:{colour}`` for each item in the stacked bargraph (colurs c
   # When there are multiple items, join them by commas ','.
   name_set = Read length r1:#2478B4, Read length r2:#FF7F0E
 
-When colours are ommited, the default colours defined in the following file are used.
+When colors are ommited, the default colors defined in the following file are used.
 
 .. image:: image/default_color.PNG
 
@@ -344,7 +344,7 @@ The ``[qc_chart_3]`` section is a graph for mapping ratio (Mapped reads divided 
   title = Mapped reads/Total reads
   title_y = Rate
   
-  # Colours and legends 
+  # Colors and legends 
   name_set = Mapped reads/Total reads:#2478B4
   
   # Items for the graph
@@ -384,7 +384,7 @@ The chart_4 section is a graph for sequence coverage.
   title = Depth coverage
   title_y = Coverage
   
-  # Colours and legends
+  # Colors and legends
   name_set = Ratio 30x:#2478B4, Ratio 20x:#FF7F0E, Ratio 10x:#2CA02C, Ratio 2x:#D62728
   
   # Items for the graph

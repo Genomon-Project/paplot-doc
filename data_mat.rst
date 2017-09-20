@@ -178,7 +178,7 @@ Then, modify the ``[mutation]`` section in the configuration file.
   # before customization 
   # tooltip_format_checker_partial = Mutation Type[{group}]
   # after customization 
-  tooltip_format_checker_partial = Mutation Type[{group}], {chr}:{start}:{end}, [{ref} -> {alt}]
+  tooltip_format_checker_partial = Mutation Type[{group}], {chr}:{start:,}:{end:,}, [{ref} -> {alt}]
 
 Then, execute paplot.
 

@@ -3,7 +3,7 @@ Release Note
 
 .. attention::
 
- | There is no compatibility of the configuration files among different versions.
+ | There is no compatibility of the configuration files among various versions.
  | When updating, please use the configuration file of the corresponding version. 
 
 v0.5.4
@@ -31,22 +31,22 @@ Added the function for saving the image.
 v0.3.1
 ====================
 
-Modified some bugs related to Mutation Matrix Repoort.
+Modified certain bugs related to Mutation Matrix Repoort.
 
 v0.3.0
 ====================
 
-Added functions to generate Mutation Matrix Repoort.
+Incorporated functions to generate Mutation Matrix Repoort.
 
 v0.2.8
 ====================
 
-Modified specification on function for merging multiple files.
+Modified specification of function for merging multiple files.
 
 v0.2.7
 ====================
 
-Added functions to generate QC Report and SV (Structural Variation) Report.
+Incorporated functions to generate QC Report and SV (Structural Variation) Report.
 
 
 License

@@ -2,7 +2,7 @@
 About
 ************************
 
-| Paplot is a suite of programs to create various dynamic and interactive reports for cancer genome analysis.
+| paplot is a suite of programs to create various dynamic and interactive reports for cancer genome analysis.
 
 .. image:: image/mutation_list.PNG
   :scale: 100%
@@ -10,17 +10,17 @@ About
 Available reports
 ----------------------------
 
-1. QC (Quality Control) Report
+1. Quality Control (QC) Report
 
-QC Reports show qualities of each sequence data (sequencing coverage, alignment ratio, insert sizes and so on).
+QC Reports present the qualities of each sequence data (sequencing coverage, alignment ratio, insert sizes, etc.).
 
 .. image:: image/qc_dummy.PNG
   :scale: 100%
 
 
-2. CA (Chromosomal Aberration) Report
+2. Chromosomal Aberration (CA) Report
 
-CA (Chromosomal Aberration) Reports represent sample-wise landscape of chromosomal aberrations (e.g., structural variations and gene fusion).
+CA Reports present the sample-wise landscape of chromosomal aberrations (e.g., structural variations and gene fusion).
 
 .. image:: image/sv_dummy.PNG
   :scale: 100%
@@ -28,7 +28,7 @@ CA (Chromosomal Aberration) Reports represent sample-wise landscape of chromosom
 
 3. Mutation Matrix Report
 
-Mutation Matrix Reports show mutation status for each gene (vertical axis) and sample (horizontal axis).
+Mutation Matrix Reports present the mutation status of each gene (vertical axis) and sample (horizontal axis).
 
 .. image:: image/mut_dummy.PNG
   :scale: 100%
@@ -36,7 +36,7 @@ Mutation Matrix Reports show mutation status for each gene (vertical axis) and s
 
 4. Mutational Signature Report
 
-Mutational Signature Reports show mutation signatures identified in the cohort and contribution ratios of signatures per sample.
+Mutational Signature Reports present the mutation signatures identified in the cohort and contribution ratios of signatures per sample.
 
 .. image:: image/sig_dummy.PNG
   :scale: 100%

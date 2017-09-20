@@ -158,7 +158,7 @@ Also, the color for each category can be set.
   :name: example/ca_group/paplot.cfg_2
   
   [ca]
-  # Set {Value}:{the name of colour or RGB value} for each category and join them by comma ','.
+  # Set {Value}:{the name of color or RGB value} for each category and join them by comma ','.
   group_colors = A:#66C2A5,B:#FC8D62,C:#8DA0CB,D:#E78AC3
 
   # Display just selected categories.

@@ -2,13 +2,13 @@
 Install
 ************************
 
-| Paplot runs on:
+| paplot runs on:
 
  * Linux 
  * MacOS X
  * Windows
 
-| You need python2.7 or python 3.5 to run paplot.paplot (previous versions of Python have not been tested).
+| You require Python2.7 or Python 3.5 to execute paplot.paplot (previous versions of Python have not been tested).
 
 .. _linux:
 
@@ -36,14 +36,14 @@ For Linux
   export LD_LIBRARY_PATH=~/.local/lib/:$LD_LIBRARY_PATH
   python setup.py build install --user
 
-| When the following messages appear, then the installation is successful!
+| If the following messages appear, the installation is successful!.
 
 .. code-block:: bash
 
   paplot --version
   paplot-0.5.4
 
-| After installation, try :doc:`quick_start`.
+| After installation, open :doc:`quick_start`.
 
 .. note::
   
@@ -66,14 +66,14 @@ For MacOS X
 1. Download source files 
 ------------------------------------
 
-| Download the latest version Source code (zip) from the paplot site (https://github.com/Genomon-Project/paplot/releases/).
+| Download the latest ``Source code (zip)`` files from the paplot website (https://github.com/Genomon-Project/paplot/releases/).
 
-| Alternatively, ``git`` is installed, you can type ``git clone -b master https://github.com/Genomon-Project/paplot.git``.
+| Alternatively, if ``git`` is installed, you can type ``git clone -b master https://github.com/Genomon-Project/paplot.git``.
 
 2. Install paplot
 --------------------------
 
-| Launch Terminal and change the directory where the source files are downloaded.
+| Launch Terminal, and change the directory where the source files are downloaded.
 
 .. code-block:: bash
 
@@ -90,7 +90,7 @@ For MacOS X
 ----------------
 
 | Add the path of the executable file to PATH with terminal.
-| Usually, the executable file of paplot is installed below.
+| Generally, the executable file of paplot is installed as described below.
 
 ``/Users/<user name>/Library/Python/2.7/bin``
 
@@ -99,19 +99,19 @@ For MacOS X
   export PATH={the directory where paplot is installed}/bin:$PATH
   export LD_LIBRARY_PATH={the directory where paplot is installed}/lib:$LD_LIBRARY_PATH
   
-  # Mostly you can set up by adding forlowing lines (replace <user name> with your user name).
+  # Mostly you can set up by adding the following lines (replace <user name> with your user name).
   # export PATH=/Users/<user name>/Library/Python/2.7/bin:$PATH
   # export LD_LIBRARY_PATH=/Users/<user name>/Library/Python/2.7/lib:$LD_LIBRARY_PATH
 
 
-| Verify installation
+| Verify installation.
 
 .. code-block:: bash
 
   paplot --version
   paplot-0.5.4
 
-| Then, the installation is successful! Try :doc:`quick_start`.
+| Then, the installation is successful! Open :doc:`quick_start`.
 
   
 .. _windows:
@@ -123,19 +123,19 @@ For Windows
 1. Install Python
 ---------------------------
 
-| To execute paplot in Windows, using winPython or Python(x,y) is recommended. 
-| Alternatively, you can use cygwin (then refer to :ref:`For Linux <linux>`).
+| To execute paplot in Windows, it is recommended to using use either winPython or Python(x,y). 
+| Alternatively, you can use cygwin (in that case, refer to :ref:`For Linux <linux>`).
 
  * winPython http://winpython.github.io/
  * Python(x,y) http://python-xy.github.io/
 
-| Paplot is verified in python 2.7.10, python 3.5.3.
+| paplot is verified in Python 2.7.10, Python 3.5.3.
 | 
 
 2. Install paplot
 -----------------------------
 
-| Download the latest ``Source code (zip)`` files from the paplot site (https://github.com/Genomon-Project/paplot/releases/),
+| Download the latest ``Source code (zip)`` files from the paplot website (https://github.com/Genomon-Project/paplot/releases/),
 | and unzip the downloaded file into an arbitrary folder.
 
 
@@ -162,9 +162,9 @@ For Windows
   > C:\WinPython-64bit-2.7.10.3\python-2.7.10.amd64\python.exe paplot --version
   paplot-0.5.4
 
-| It will be successful if such a display appears.
+| It seems to be successful if such a display appears.
 |
-| After installation, try :doc:`quick_start`.
+| After installation, open :doc:`quick_start`.
 |
 
 .. |new| image:: image/tab_001.gif

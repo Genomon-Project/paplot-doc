@@ -25,7 +25,7 @@ paplot command
   - pmsignature
 
 :input:
-  Input files. When you want to process multiple files (usually divided by individual samples), please refer to `Processing multiple input files <./data_common.html#suffix>`_.
+  Input files. If you wish to process multiple files (usually divided by individual samples), please refer to `Processing multiple input files <./data_common.html#suffix>`_.
 
 .. code-block:: bash
 
@@ -38,15 +38,15 @@ paplot command
   {unzip_path}/example/mutation_split_file/SAMPLE00.data.csv,{unzip_path}/example/mutation_split_file/SAMPLE01.data.csv \
   ./tmp mutation_split_file1 --config_file {unzip_path}/example/mutation_split_file/paplot.cfg
 
-  # paplot also accept wilde card representation. In this case enclose the input by double quatations
+  # paplot also accept wilde card representation. In this case enclose the input by double quotations
   paplot mutation "{unzip_path}/example/mutation_split_file/*.csv" ./tmp mutation_split_file2 \
   --config_file {unzip_path}/example/mutation_split_file/paplot.cfg
 
 :output_dir:
-  Output directory path. See :ref:`Output directory <output>` for the detail of directory commponents.
+  Output directory path. Refer :ref:`Output directory <output>` for the details of the directory components.
 
 :project_name:
-  Project name (used as the title of output files).
+  Project name (used as the title of the output files).
 
 .. _output:
 
@@ -70,7 +70,7 @@ You will find the following directory structure:
     └ index.html             <--- Open this file in a web browser.
 
 
-When you want to move the output, move the entire output directory.
+If you wish to shift the output, shift the entire output directory.
 For the usage of each report, please refer to `HOW TO USE GRAPHS <./index.html#how-to-toc>`_.
 
 
@@ -80,15 +80,15 @@ For the usage of each report, please refer to `HOW TO USE GRAPHS <./index.html#h
 3. Options
 ------------------------
 
-You can add the following optional arguments.
+You can add the following optional arguments:
 
---config_file        Path to the configuration file. If not specified, then the default file is used.
+--config_file        Path to the configuration file. If it is not specified, the default file is used.
 --title              Title of the graph.
---ellipsis           Abbreviated name of the graph used for file names (e.g., graph_**ca**.html). Might be convenient when outputting multiple files to the same directory.
+--ellipsis           Abbreviated name of the graph used for file names (e.g., graph_**ca**.html). It is likely to be convenient while outputting multiple files to the same directory.
 --overview           Outline of the graph (displayed in the index.html file).
---remarks            Text shown in the remark section of the index.html file (the default value is set at ( ``[style]`` section's ``remarks`` option) in the configuration file.
+--remarks            Text displayed in the remark section of the index.html file (the default value is set at ( ``[style]`` section's ``remarks`` option) in the configuration file.
 
-The default values are as follows.
+The default values are as follows:
 
 =============== =================== ============ ============================================= ==============
 subcommand      title               ellipsis     overview                                      remarks

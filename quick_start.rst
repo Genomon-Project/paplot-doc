@@ -2,10 +2,10 @@
 Quick Start
 *****************
 
-In this section, we will experience
+In this section, we will learn to
 
 #. Install paplot
-#. Run paplot with simple example data
+#. Execute paplot with sinple example data
 #. View the output reports
 #. Modify configuration files and use your own data.
  
@@ -13,8 +13,8 @@ In this section, we will experience
 1. Install paplot
 ---------------------------
 
-| paplot is confirmed to work on python2.7 and python 3.5.
-| Currently, paplot uses no dependent packages.
+| paplot is confirmed to work on Python2.7 and Python 3.5.
+| At present, paplot requires only standard packages.
 
 .. code-block:: bash
 
@@ -35,7 +35,7 @@ In this section, we will experience
 
   paplot --version
 
-| If the following messages are displayed, then the installation is succesful.
+| If the following messages appears, the installation is successful.
 
 .. code-block:: bash
 
@@ -44,10 +44,10 @@ In this section, we will experience
 | For more detailed information on installation, please consult :doc:`install`. 
 
 
-2. Run paplot with simple example data
----------------------------------------
+2. Execute paplot with simple example data
+-------------------------------------------------------
 
-| The basic commands of paplot are as follows. 
+| The basic commands of paplot are as follows: 
 | For the description of detailed options, please consult :doc:`command`.
 
 .. code-block:: bash
@@ -71,13 +71,13 @@ In this section, we will experience
   - pmsignature
 
 :input:
-  The input table data.
+  The input data table.
 
 :output_dir:
-  The directory where the output files of paplot are generated.
+  The directory wherein the output files of paplot are generated.
 
 :project_name:
-  The project name (used as the title of output files).
+  The project name (used as the title of the output files).
 
 Please execute paplot using the prepared sample data.
 
@@ -111,7 +111,7 @@ You will find the following directory structure:
   The directory specified by the {output_dir} argument
     ├ demo
     │   ├ graph_ca.html            <--- Chromosomal Aberration Report 
-    │   ├ graph_mut.html           <--- Mutation Matrix Reprot 
+    │   ├ graph_mut.html           <--- Mutation Matrix Report 
     │   ├ graph_pmsignature2.html  <--- pmsignature Report (with varying number of mutation signatures)
     │   ├ graph_pmsignature3.html
     │   ├ graph_pmsignature4.html
@@ -160,11 +160,11 @@ You will find the following directory structure:
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%
 
-| For how to interpret each graph, please refer to  `HOW TO USE GRAPHS <./index.html#how-to-toc>`_.
+| For how to interpret each graph, please refer to `HOW TO USE GRAPHS <./index.html#how-to-toc>`_.
 
 **Modify configuration files and use your own data**
 
-| Plese consult following links to set up your own data and configuration files.
+| Please consult the following links to set up your own data and configuration files.
 | 
 | [For basic use]
 
