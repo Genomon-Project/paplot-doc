@@ -2,9 +2,9 @@
 pmsignature Report 
 **************************
 
-Here, we show how to generate pmsignature Report using sample data [*]_.
+Here, we show describe the procedure generate pmsignature Report using sample data [*]_.
 
- .. [*] Sample data is equipped with the ``example`` directory of paplot directory.
+ .. [*] the sample data is equipped with the ``example`` directory of the paplot directory.
 
 .. _json_ind:
 
@@ -12,8 +12,8 @@ Here, we show how to generate pmsignature Report using sample data [*]_.
 1. Input data format
 ==========================
 
-To generate pmsignature Report using paplot, json format input data is necessary.
-The example (example/pmsignature_stack/data2.json) is as follows:
+To generate pmsignature Report using paplot, json format input data is required.
+The following is an example (example/pmsignature_stack/data2.json):
 
 .. code-block:: python
   :caption: Extracted from the example data (example/pmsignature_stack/data2.json)
@@ -63,44 +63,44 @@ The example (example/pmsignature_stack/data2.json) is as follows:
 **Elements of the input data for pmsignature Report**
 
 :ref:
-  | Values for reference bases (in the order of A, C, G and T) for each mutation signature.
-  | Not necessary sum-to-one (normalized within the program).
-  | In this example, the number of bases is 5. But can be changed to any arbitrary numbers (such as 3 or 7).
+  | Values of reference bases (in the order A, C, G, and T) for each mutation signature.
+  | Not necessarily sum-to-one (normalized within the program).
+  | In this example, the number of bases is five. However, this number can be changed to any arbitrary value (e.g., 3, 7).
 
 :alt:
-  | Values for alternative base (in the order of A, C, G and T for each central reference base) for each mutation signature.
-  | Four values (in the order of A, C, G and T) for each reference base A, C, G and T.  Therefore, in total 16 values are necessary for each mutation signature.
-  | Usually, the central vase is fixed to C or T. Therefore, values whose reference bases are A or G contribute little on the visualization (and thus can be set to zeros).
+  | Values for alternative base (in the order A, C, G, T for each central reference base) for each mutation signature.
+  | Four values (in the order A, C, G, T) for each reference base A, C, G, and T. Therefore, totally 16 values are required for each mutation signature.
+  | Generally, the central base is fixed to C or T. Therefore, the values whose reference bases are A or G contribute negligibly to the visualization (and thus can be set to zero).
 
 :strand:
   | Values for the strand (in the order of plus and minus) for each mutation signature.
-  | When strand biasness is not taken into account, just set ``[0, 0]``.
+  | When strand biasness is not taken into account, set ``[0, 0]``.
 
 
 **Elements for signature contribution graph**
 
 This graph is optional.
 
-Signature contribution graph shows how much amount of mutations are associated with each mutation signature.
-When *id*, *mutation* and *mutation_count* are set in the input json file,
-then signature contribution graph are generated (`example <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack2.html>`_).
+Signature contribution graph presents the amount of mutations associated with each mutation signature.
+When *id*, *mutation*, and *mutation_count* are set in the input json file,
+the signature contribution graphs are generated (`example <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack2.html>`_).
 
 
 :id:
-  |  List of samples. For each sample, sample indices are assigned (in this example, PD3851a=0、PD3890a=1、PD3904a=2 and so on). 
+  |  List of samples. For each sample, sample indices are assigned (in this example, PD3851a = 0, PD3890a = 1, PD3904a = 2, etc.). 
 
 :mutation_count:
-  | The number of mutations for each sample (in this example, the mutation number for PD3851a =702, the mutation number for PD3890a = 2312 and so on).
+  | The number of mutations for each sample (in this example, the mutation number for PD3851a = 702, that for PD3890a = 2312, etc.).
 
 :mutation:
   |  Contribution ratio of each mutation signature to each sample ([sample index, signature index, value]).
   |
-  | The indice for mutation signature (signature index) are assigned in the listed order in the signature key.
+  | The indices for mutation signature (signature index) are assigned in the listed order in the signature key.
   | In the above example, (signature1 = 0, signature2 = 1, signature3 = 2). 
 
 .. note::
 
-  The keys in the input json file can be modified by changing contents in the ``[result_format_pmsignature]`` section of the configuration file.
+  The keys in the input json file can be modified by changing the contents in the ``[result_format_pmsignature]`` section of the configuration file.
 
   .. code-block:: cfg
     :caption:  paplot/example/pmsignature_stack/paplot.cfg
@@ -117,11 +117,11 @@ then signature contribution graph are generated (`example <http://genomon-projec
             
 .. note::
 
-    How to validate json file format
+    The procedure to validate json file format
  
     paplot using `json` python package. When loading the input file using load function from json package, then the input file is valid json format.
 
-    Example, when the file fine name is "data2.json".
+    For e.g., when the file fine name is "data2.json".
 
     .. code-block:: shell
   
@@ -137,11 +137,11 @@ then signature contribution graph are generated (`example <http://genomon-projec
 2. Minimal dataset 
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/pmsignature_minimal/graph_pmsignature_minimal2.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/pmsignature_minimal/graph_pmsignature_minimal2.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_minimal.zip?raw=true>`__ 
 
-For the format of input data, please refer to :ref:`here <json>`.
+For the format of input data, please refer :ref:`here <json>`.
 
 .. code-block:: json
   :caption: example/pmsignature_minimal/data.json
@@ -191,9 +191,9 @@ Execute paplot.
   paplot pmsignature pmsignature_minimal/data.json ./tmp pmsignature_minimal \
   --config_file ./pmsignature_minimal/paplot.cfg
 
-Then the report is generated in the `tmp` directory.
+Then, the report is generated in the `tmp` directory.
 
-Here, the file name (`graph_pmsignature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
+Here, the file names (`graph_pmsignature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
 
 ::
 
@@ -210,7 +210,7 @@ Here, the file name (`graph_pmsignature2.html`) are determined by the number of 
 .. _pm_mclass:
 
 ======================================================================
-3. Mutation signature with multiple various number of signatures
+3. Mutation signature with various numbers of signatures
 ======================================================================
 
 | View the report generated in this section
@@ -221,13 +221,13 @@ Here, the file name (`graph_pmsignature2.html`) are determined by the number of 
  - `pmsignature 5 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class5.html>`__ 
  - `pmsignature 6 <http://genomon-project.github.io/paplot/pmsignature_multi_class/graph_multi_class6.html>`__ 
 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class.zip?raw=true>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_multi_class.zip?raw=true>`__ 
 
-For the format of input data, please refer to :ref:`here <json>`.
+For the format of input data, please refer :ref:`here <json>`.
 
-When generating Mutation Signature Report with various number of signatures,
-the input data for each signature number and configuration file are necessary.
+The input data for each signature number and configuration file are required 
+for generating Mutation Signature Report with various numbers of signatures.
 
 In this example dataset, following files are prepared.
 
@@ -264,16 +264,16 @@ Execute paplot for each mutation signature number.
   paplot pmsignature pmsignature_multi_class/data6.json ./tmp pmsignature_multi_class \
   --config_file ./pmsignature_multi_class/paplot.cfg
 
-Or execute the following batch command.
+Or, execute the following batch command.
 
 .. code-block:: bash
 
   paplot pmsignature "pmsignature_multi_class/data*.json" ./tmp pmsignature_multi_class \
   --config_file ./pmsignature_multi_class/paplot.cfg
 
-Then the report is generated in the `tmp` directory.
+Then, the report is generated in the `tmp` directory.
 
-Here, the file name (`graph_pmsignature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
+Here, the file names (`graph_pmsignature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
 
 ::
 
@@ -287,7 +287,7 @@ Here, the file name (`graph_pmsignature2.html`) are determined by the number of 
 
 .. note::
 
-  Since one signature is assigned to backgroud signature in this example, the last signature in the contribution graph is background signature.
+  As a signature is assigned to the background signature in this example, the last signature in the contribution graph is the background signature.
 
 ----
 
@@ -297,7 +297,7 @@ Here, the file name (`graph_pmsignature2.html`) are determined by the number of 
 4. Signature contribution graph 
 ===================================
 
-| View the report generated in this section 
+| View the report generated in this section.
 
  - `pmsignature 2 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack2.html>`__ 
  - `pmsignature 3 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack3.html>`__ 
@@ -305,14 +305,14 @@ Here, the file name (`graph_pmsignature2.html`) are determined by the number of 
  - `pmsignature 5 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack5.html>`__ 
  - `pmsignature 6 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack6.html>`__ 
 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack>`__ 
 | `Download the input data used in this sectio <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack.zip?raw=true>`__ 
 
 Here, we add a signature contribution graph.
 
-For the format of input data, please refer to :ref:`here <json_ind>`.
+For the format of input data, please refer :ref:`here <json_ind>`.
 
-For generating report with various signature numbers, please refer to :ref:`here <pm_mclass>`.
+For generating report with various signature numbers, please refer :ref:`here <pm_mclass>`.
 
 Execute paplot.
 
@@ -333,13 +333,13 @@ Execute paplot.
 5. Without background
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/pmsignature_nobackground/graph_nobackground2.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/pmsignature_nobackground/graph_nobackground2.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_nobackground.zip?raw=true>`__ 
 
 Here, we generate a pmsignature Report without background.
 
-Set the backgroud option to False in the configuration file.
+Set the background option to False in the configuration file.
 
 .. code-block:: cfg
   :caption: example/pmsignature_nobackground/paplot.cfg

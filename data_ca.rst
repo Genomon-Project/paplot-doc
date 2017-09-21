@@ -2,9 +2,9 @@
 Chromosomal Aberration Report 
 ************************************
 
-Here, we show how to generate Chromosomal Aberration Report using sample data [*]_.
+Here, we describe the procedure to generate Chromosomal Aberration Report using sample data [*]_.
 
-.. [*] Sample data is equipped with the ``example`` directory of paplot directory.
+.. [*] The sample data is equipped with the ``example`` directory of the paplot directory.
 
 .. _ca_minimal:
 
@@ -12,11 +12,11 @@ Here, we show how to generate Chromosomal Aberration Report using sample data [*
 1. Minimal dataset 
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_minimal/graph_minimal.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/ca_minimal/graph_minimal.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/ca_minimal.zip?raw=true>`__ 
 
-For generating Chromosomal Aberration Report using paplot, at least following 5 items are necessary.
+For generating Chromosomal Aberration Report using paplot, at least the following five items are necessary:
 
  - Sample ID (Sample)
  - Chromosome of the breakpoint 1 (Chr1)
@@ -66,9 +66,9 @@ Then, execute the paplot.
 2. Without header
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_noheader/graph_noheader.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/ca_noheader/graph_noheader.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader.zip?raw=true>`__ 
 
 .. code-block:: cfg
   :caption: Extracted from the example data (example/ca_noheader/data.csv)
@@ -86,7 +86,7 @@ Then, execute the paplot.
   SAMPLE03,intronic,PIK3CA
   SAMPLE03,downstream,SEPT12
 
-When the input data has not header (column names), then we need to set the column number to each key in the ``[result_format_ca]`` section of the configuration file.
+When the input data has no header (column names), it is necessary to set the column number to each key in the ``[result_format_ca]`` section of the configuration file.
 
 .. code-block:: cfg
   :caption: example/ca_noheader/paplot.cfg
@@ -116,9 +116,9 @@ Then execute paplot.
 3. Customizing categorization
 ================================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_group/graph_group.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/ca_group/graph_group.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/ca_group.zip?raw=true>`__ 
 
 In the minimal dataset, chromosomal aberrations are categorized into intra-chromosomal (green) and inter-chromosomal (purple).
 We can customize the categorization.
@@ -141,7 +141,7 @@ We can customize the categorization.
   SAMPLE4,7,6037836,21,34855497,D
   SAMPLE4,7,109724564,14,106387943,A
 
-In the example data above, a new column, Label, is included as well as Sample, Chr1, Break1, Chr2 and Break2.
+In the example data above, a new column, Label, is included apart from Sample, Chr1, Break1, Chr2, and Break2.
 First, we set the ``Label`` as the column used for categorization in the ``[result_format_ca]`` section in the configuration file.
 
 .. code-block:: cfg
@@ -151,7 +151,7 @@ First, we set the ``Label`` as the column used for categorization in the ``[resu
   [result_format_ca]
   col_opt_group = Label
 
-Also, the color for each category can be set.
+Moveover, the color for each category can be set.
 
 .. code-block:: cfg
   :caption: example/ca_group/paplot.cfg
@@ -161,10 +161,10 @@ Also, the color for each category can be set.
   # Set {Value}:{the name of color or RGB value} for each category and join them by comma ','.
   group_colors = A:#66C2A5,B:#FC8D62,C:#8DA0CB,D:#E78AC3
 
-  # Display just selected categories.
+  # Display only selected categories.
   limited_group = 
   
-  # Not display selected categories.
+  # Do not display selected categories.
   nouse_group = 
 
 Then, execute paplot.
@@ -182,18 +182,18 @@ Then, execute paplot.
 4. Customizing pop-up information
 ===================================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/ca_option/graph_option.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/ca_option/graph_option.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/ca_option.zip?raw=true>`__ 
 
 We can customize the pop-up information that appears upon mouseover events.
-In the minimal dataset, the pop-up information is shown as below.
+In the minimal dataset, the pop-up information is displayed as illustrated below:
 
  **Before customization**
 
 .. image:: image/data_ca1.png
 
-By customizing pop-up information, we can view more detailed information on each chromosomal aberration.
+By customizing the pop-up information, we can view more detailed information on each chromosomal aberration.
 
 **After customization**
 
@@ -218,7 +218,7 @@ By customizing pop-up information, we can view more detailed information on each
   SAMPLE2,X,67392415,+,15,3327412,+,translocation,EM36MRX9B3,G4FPLN527D
   SAMPLE3,22,34268355,+,10,19871820,+,tandem_duplication,9SVRQCFVCO,2BEWSO91FZ
 
-In this example, the following 5 (optional) columns are added as well as 5 required columns.
+In this example, the following five (optional) columns are incorporated apart from the five required columns:
 
  - Mutation type (MutationType)
  - Gene affected by the breakpoint 1 (Gene1)
@@ -241,9 +241,9 @@ First, add these columns to the ``[result_format_ca]`` section in the configurat
   col_opt_dir1 = Dir1
   col_opt_dir2 = Dir2
 
-The colum names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
+The column names of the optional items can be set as follows: ``col_opt_{keyword} = {actual column name}``.
 
-For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
+For a more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
 Then, modify the ``[ca]`` section in the configuration file.
 
@@ -264,6 +264,6 @@ Then, execute paplot.
   paplot ca {unzip_path}/example/ca_option/data.csv ./tmp ca_option \
   --config_file {unzip_path}/example/ca_option/paplot.cfg
 
-For more detailed description on how to set pop-up information (``tooltip_format``), please refer to `User defined format <./data_common.html#user-format>`_.
+For a more detailed description on the procedure to set pop-up information (``tooltip_format``), please refer to `User defined format <./data_common.html#user-format>`_.
 
 .. |new| image:: image/tab_001.gif

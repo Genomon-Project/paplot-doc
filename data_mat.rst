@@ -2,9 +2,9 @@
 Mutation Matrix Report
 **************************
 
-Here, we show how to generate Mutation Matrix report using sample data [*]_.
+Here, we show describe the procedure generate Mutation Matrix report using sample data [*]_.
 
-.. [*] Sample data is equipped with the ``example`` directory of paplot directory.
+.. [*] The sample data is equipped with the ``example`` directory of the paplot directory.
 
 .. _mm_minimal:
 
@@ -12,11 +12,11 @@ Here, we show how to generate Mutation Matrix report using sample data [*]_.
 1. Minimal dataset
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/mutation_minimal/graph_minimal.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_minimal>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_minimal.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/mutation_minimal/graph_minimal.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_minimal>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_minimal.zip?raw=true>`__ 
 
-For generating Mutation Matrix Report using paplot, at least sample ID (Sample), gene name (Gene) and mutation type (MutationType) are necessary.
+For generating Mutation Matrix Report using paplot, at least sample ID (Sample), gene name (Gene) and mutation type (MutationType) are required.
 
 .. code-block:: cfg
   :caption: Extracted from the example data (example/mutation_minimal/data.csv)
@@ -35,7 +35,7 @@ For generating Mutation Matrix Report using paplot, at least sample ID (Sample),
   SAMPLE03,intronic,PIK3CA
   SAMPLE03,downstream,SEPT12
 
-Although the column names are Sample, MutationType and Gene, they can be arbitrary changed.
+Although the column names are Sample, MutationType, and Gene, they can be arbitrary changed.
 
 Set the column names in the ``[result_format_mutation]`` section of the configuration file.
 
@@ -62,9 +62,9 @@ Then, execute the paplot.
 2. Without header
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/mutation_noheader/graph_noheader.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_noheader>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_noheader.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/mutation_noheader/graph_noheader.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_noheader>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_noheader.zip?raw=true>`__ 
 
 .. code-block:: cfg
   :caption: Extracted from the example data (example/mutation_noheader/data.csv)
@@ -82,7 +82,7 @@ Then, execute the paplot.
   SAMPLE03,intronic,PIK3CA
   SAMPLE03,downstream,SEPT12
 
-When the input data has not header (column names), then we need to set the column number to each key in the ``[result_format_mutation]`` section of the configuration file.
+When the input data has no header (column names), it is necessary to set the column number to each key in the ``[result_format_mutation]`` section of the configuration file.
 
 .. code-block:: cfg
   :caption: example/mutation_noheader/paplot.cfg
@@ -110,18 +110,18 @@ Then execute paplot.
 3. Customizing pop-up information
 ===================================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/mutation_option/graph_option.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_option>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_option.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/mutation_option/graph_option.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_option>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_option.zip?raw=true>`__ 
 
 We can customize the pop-up information that appears upon mouseover events.
-In the minimal dataset, the pop-up information shows sample, gene and mutation type as below.
+In the minimal dataset, the pop-up information displays sample, gene, and mutation type as illustrated below:
 
 **Before customization**
 
 .. image:: image/data_mut1.png
 
-By customizing the configuration file, the information of positions and substitution types can be added.
+By customizing the configuration file, the information of positions and substitution types can be incorporated.
 
 **After customization**
 
@@ -143,7 +143,7 @@ By customizing the configuration file, the information of positions and substitu
   SAMPLE00,chr7,140619975,140619979,-,G,intronic,BRAF
   SAMPLE00,chr14,103320225,103320225,-,T,downstream,TRAF3
 
-In the example data above, the following 5 (optional) items are added as well as sample ID, gene name and mutation type (required items).
+In the example data above, the following five (optional) items are incorporated a part from sample ID, gene name, and mutation type (required items).
 
  - Chromosome (Chr)
  - Variant start position (Start)
@@ -166,7 +166,7 @@ First, add these columns to the ``[result_format_mutation]`` section in the conf
 
 The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
 
-For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
+For a more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
 Then, modify the ``[mutation]`` section in the configuration file.
 
@@ -187,24 +187,24 @@ Then, execute paplot.
   paplot mutation {unzip_path}/example/mutation_option/data.csv ./tmp mutation_option \
   --config_file {unzip_path}/example/mutation_option/paplot.cfg
 
-Here, we show how to customize the pop-up for each element in the main grid. For customizing other pop-ups, please refer to following.
+Here, we describe the procedure to customize the pop-up for each element in the main grid. For customizing other pop-ups, please refer the following:
 
-Six types are set for each display location, but the way of writing is the same.
+Six types are set for each display location; howevert the method of writing is identical.
 
 **Correspondence between setting items and display**
 
 .. image:: image/conf_mut4.PNG
   :scale: 100%
 
-The following can also be used as a special keyword.
+The following can also be used as a special keyword:
 
 :{#number_id}:      the number of mutations per sample
 :{#number_gene}:    the number of mutations per gene
-:{#number_mutaion}: the number of mutations (Even if the same sample is detected plural times with the same gene, it counts as 1)
+:{#number_mutaion}: the number of mutations (Notwithstanding whether the same sample is detected multiple times with the same gene, it counts as 1.)
 :{#sum_mutaion}:    Total number of mutations
 :{#item_value}:     Value of one item of stacked graph
 :{#sum_item_value}: Total value of stacked graph
 
-Also, for more detailed description on how to set pop-up information, please refer to `User defined format <./data_common.html#user-format>`_.
+Moveover, for a more detailed description of the procedure to set pop-up information, please refer to `User defined format <./data_common.html#user-format>`_.
 
 .. |new| image:: image/tab_001.gif

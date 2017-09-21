@@ -2,7 +2,7 @@
 Chromosomal Aberration (CA) Report
 ==========================================
 
-| CA Report displays a landscape of chromosomal aberrations such as structural variations (typically identified by genome sequence data) and gene fusions (by transcriptome sequence data).
+| CA Report displays a landscape of chromosomal aberrations, such as structural variations (typically identified by genome sequence data) and gene fusions (by transcriptome sequence data).
 
 * The barplot at the top panel displays the distribution of the breakpoints of the CAs in the cohort.
 * The circular plots below illustrate the `CIRCOS-like <http://circos.ca>`_ profile of the CAs for each sample, where two edges of a curved line represent the breakpoints of each CA.
@@ -13,7 +13,7 @@ Chromosomal Aberration (CA) Report
   :scale: 100%
 
 
-| In the default setting, CAs are categorized as Inter-chromosome (two breakpoints are on the different chromosome) and Intra-chromosome (two breakpoints are on the same chromosome).  [*]_  If you uncheck any of the groups, the CAs within the group will disappear.
+| In the default setting, CAs are categorized as Inter-chromosome (two breakpoints are on different chromosomes) or Intra-chromosome (two breakpoints are on the same chromosome).  [*]_  If you uncheck any of the groups, the CAs within the group will disappear.
 
 .. [*] About categorization
 

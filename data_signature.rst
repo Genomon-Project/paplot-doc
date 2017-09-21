@@ -2,9 +2,9 @@
 Mutational Signature Report 
 ******************************
 
-Here, we show how to generate Mutation Signature Report using sample data [*]_.
+Here, we describe the procedure to generate Mutation Signature Report using sample data [*]_.
 
- .. [*] Sample data is equipped with the ``example`` directory of paplot directory.
+ .. [*] The sample data is equipped with the ``example`` directory of the paplot directory.
 
 .. _json:
 
@@ -12,7 +12,7 @@ Here, we show how to generate Mutation Signature Report using sample data [*]_.
 1. Input data format
 ==========================
 
-To generate Mutation Signature Report using paplot, json format input data is necessary.
+To generate Mutation Signature Report using paplot, json format input data is required.
 The example (`example/signature_stack/data2.json`) is as follows:
 
 .. code-block:: python
@@ -46,17 +46,17 @@ The example (`example/signature_stack/data2.json`) is as follows:
 
 :signature:
   | Probability masses for each mutation pattern.
-  | Put the probability value for each mutation signature, substitution pattern (e.g., C > A) and context (e.g., TpCpA > TpApA).
-  | The number of bases should be 3 or 5.
-  | The number of contexts for each substitution pattern should be the same (16 and 256 when the numbers of bases are 3 and 5, respectively).
+  | Input the probability value for each mutation signature, substitution pattern (e.g., C > A), and context (e.g., TpCpA > TpApA).
+  | The number of bases should be three or five.
+  | The number of contexts for each substitution pattern should be identical (16 and 256 when the numbers of bases are three and five, respectively).
 
-Since the number of bases is 3 in the above example data, probabilisty values for 16 contexts should be put down in the following order.
+As the number of bases is three in the above example data, probability values for the 16 contexts should be enumerated in the following order:
 
 ::
 
   ANA,ANC,ANG,ANT,CNA,CNA,CNG,CNT,GNA,GNC,GNG,GNT,TNA,TNA,TNG,TNT
 
-When `base = 5`, 256 contexts values should be put down in the following order.
+When `base = 5`, the 256 context values should be enumerated in the following order:
 
 ::
 
@@ -82,25 +82,25 @@ When `base = 5`, 256 contexts values should be put down in the following order.
 
 This graph is optional.
 
-Signature contribution graph shows how much amount of mutations are associated with each mutation signature.
-When *id*, *mutation* and *mutation_count* are set in the input json file,
-then signature contribution graph are generated (`example <http://genomon-project.github.io/paplot/signature_stack/graph_stack2.html>`__ ).
+Signature contribution graph presents the amount of mutations associated with each mutation signature.
+When *id*, *mutation*, and *mutation_count* are set in the input json file,
+the signature contribution graph is generated (`example <http://genomon-project.github.io/paplot/signature_stack/graph_stack2.html>`__ ).
 
 :id:
-  | List of samples. For each sample, sample indices are assigned (in this example, PD3851a=0, PD3890a=1, PD3904a=2 and so on). 
+  | List of samples. For each sample, sample indices are assigned (in this example, PD3851a = 0, PD3890a = 1, PD3904a = 2, etc.). 
 
 :mutation_count:
-  | The number of mutations for each sample (the mutation number for PD3851a =4001, the mutation number for PD3890a = 7174 and so on).
+  | The number of mutations for each sample (the mutation number for PD3851a = 4001, that for PD3890a = 7174, etc.).
 
 :mutation:
   | Contribution ratio of each mutation signature to each sample ([sample index, signature index, value]).
   |
-  | The indice for mutation signature (signature index) are assigned in the listed order in the signature key.
+  | The indices for mutation signature (signature index) are assigned in the listed order in the signature key.
   | In the above example, (signature1 = 0, signature2 = 1, signature3 = 2).
 
 .. note::
 
-  The keys in the input json file can be modified by changing contents in the ``[result_format_signature]`` section of the configuration file.
+  The keys in the input json file can be modified by changing the contents in the ``[result_format_signature]`` section of the configuration file.
 
   .. code-block:: cfg
     :caption:  paplot/example/signature_stack/paplot.cfg
@@ -114,7 +114,7 @@ then signature contribution graph are generated (`example <http://genomon-projec
             
 .. note::
 
-  How to validate json file format
+  The procedure to validate json file format
  
   paplot using `json` python package. When loading the input file using load function from json package, then the input file is valid json format.
 
@@ -134,13 +134,13 @@ then signature contribution graph are generated (`example <http://genomon-projec
 2. Minimal dataset  
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/signature_minimal/graph_signature_minimal2.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/signature_minimal/graph_signature_minimal2.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal.zip?raw=true>`__ 
 
 For the format of input data, please refer to :ref:`here <json>`.
 
-Input data file (the number of mutation signature is 2)
+Input data file (the number of mutation signatures is two)
 
 .. code-block:: python
   :caption: example/signature_minimal/data.json
@@ -201,7 +201,7 @@ Execute paplot.
 
 Then the report is generated in the `tmp` directory.
 
-Here, the file name (`graph_signature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
+Here, the file names (`graph_signature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
 
 ::
 
@@ -216,10 +216,10 @@ Here, the file name (`graph_signature2.html`) are determined by the number of mu
 .. _sig_mclass:
 
 =================================================================
-3. Mutation signature with multiple various number of signatures
+3. Mutation signature with various number of signatures
 =================================================================
 
-| View the report generated in this section 
+| View the report generated in this section.
 
  - `signature 2 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class2.html>`__ 
  - `signature 3 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class3.html>`__ 
@@ -227,15 +227,15 @@ Here, the file name (`graph_signature2.html`) are determined by the number of mu
  - `signature 5 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class5.html>`__ 
  - `signature 6 <http://genomon-project.github.io/paplot/signature_multi_class/graph_multi_class6.html>`__ 
 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class.zip?raw=true>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class.zip?raw=true>`__ 
 
-For the format of input data, please refer to :ref:`here <json>`.
+For the format of input data, please refer :ref:`here <json>`.
 
-When generating Mutation Signature Report with various number of signatures,
-the input data for each signature number and configuration file are necessary.
+The input data for each signature number and configuration file are necessary 
+for generating Mutation Signature Report with various numbers of signatures.
 
-In this example dataset, following files are prepared.
+In this example dataset, the following files are prepared:
 
 ::
 
@@ -270,16 +270,16 @@ Execute paplot for each mutation signature number.
   paplot signature signature_multi_class/data6.json ./tmp signature_multi_class \
   --config_file ./signature_multi_class/paplot.cfg
 
-Or execute the following batch command.
+Or, execute the following batch command:
 
 .. code-block:: bash
 
   paplot signature "signature_multi_class/data*.json" ./tmp signature_multi_class \
   --config_file ./signature_multi_class/paplot.cfg
 
-Then the report is generated in the `tmp` directory.
+Then, the report is generated in the `tmp` directory.
 
-Here, the file name (`graph_signature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
+Here, the file names (`graph_signature2.html`) are determined by the number of mutation signatures (interpreted automatically from the input data).
 
 ::
 
@@ -299,7 +299,7 @@ Here, the file name (`graph_signature2.html`) are determined by the number of mu
 4. Signature contribution graph
 ================================
 
-| View the report generated in this section 
+| View the report generated in this section.
 
  - `signature 2 <http://genomon-project.github.io/paplot/signature_stack/graph_stack2.html>`__ 
  - `signature 3 <http://genomon-project.github.io/paplot/signature_stack/graph_stack3.html>`__ 
@@ -307,14 +307,14 @@ Here, the file name (`graph_signature2.html`) are determined by the number of mu
  - `signature 5 <http://genomon-project.github.io/paplot/signature_stack/graph_stack5.html>`__ 
  - `signature 6 <http://genomon-project.github.io/paplot/signature_stack/graph_stack6.html>`__ 
 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack.zip?raw=true>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/signature_stack.zip?raw=true>`__ 
 
 Here, we add a signature contribution graph.
 
-For the format of input data, please refer to :ref:`here <json>`.
+For the format of input data, please refer :ref:`here <json>`.
 
-For generating report with various signature numbers, please refer to :ref:`here <sig_mclass>`.
+For generating report with various signature numbers, please refer :ref:`here <sig_mclass>`.
 
 Execute paplot.
 

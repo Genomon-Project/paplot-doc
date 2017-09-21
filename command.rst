@@ -70,7 +70,7 @@ You will find the following directory structure:
     └ index.html             <--- Open this file in a web browser.
 
 
-If you wish to shift the output, shift the entire output directory.
+If you wish to move the output, move the entire output directory.
 For the usage of each report, please refer to `HOW TO USE GRAPHS <./index.html#how-to-toc>`_.
 
 
@@ -84,7 +84,7 @@ You can add the following optional arguments:
 
 --config_file        Path to the configuration file. If it is not specified, the default file is used.
 --title              Title of the graph.
---ellipsis           Abbreviated name of the graph used for file names (e.g., graph_**ca**.html). It is likely to be convenient while outputting multiple files to the same directory.
+--ellipsis           Abbreviated name of the graph used for file names (e.g., graph_**ca**.html). It may be convenient when outputting multiple files to the same directory.
 --overview           Outline of the graph (displayed in the index.html file).
 --remarks            Text displayed in the remark section of the index.html file (the default value is set at ( ``[style]`` section's ``remarks`` option) in the configuration file.
 

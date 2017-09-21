@@ -2,9 +2,9 @@
 QC Report 
 **************************
 
-Here, we show how to generate QC report using sample data [*]_.
+Here, we describe the procedure to generate QC report using sample data [*]_.
 
-.. [*] Sample data is equipped with the ``example`` directory of paplot directory.
+.. [*] The sample data is equipped with the ``example`` directory of the paplot directory.
 
 .. _qc_minimal:
 
@@ -12,11 +12,11 @@ Here, we show how to generate QC report using sample data [*]_.
 1. Minimal dataset 
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_minimal/graph_minimal.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_minimal>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_minimal.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/qc_minimal/graph_minimal.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/qc_minimal>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/qc_minimal.zip?raw=true>`__ 
 
-For generating QC Report using paplot, sample ID (Sample) and QC items (at least one) are necessary.
+For generating QC Report using paplot, sample ID (Sample) and QC items (at least one) are required.
 In this example, we adopt mean sequence depth (AverageDepth).
 
 .. code-block:: cfg
@@ -41,9 +41,9 @@ First, set the column names in the ``[result_format_qc]`` section of the configu
 
 The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
 
-For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
+For a more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
-Then, add ``[qc_chart_1]`` section to the configuration file and fill the contents within it. 
+Then, add the ``[qc_chart_1]`` section to the configuration file and fill the contents within it. 
 
 .. code-block:: cfg
   :caption: example/qc_minimal/paplot.cfg
@@ -54,11 +54,11 @@ Then, add ``[qc_chart_1]`` section to the configuration file and fill the conten
   # Title of the graph
   title = Depth average
  
-  # Lable of the Y axis
+  # Label of the Y axis
   title_y = Average of depth
   
   # Items for the stacked bargraph
-  # In this example, just one item is used and the graph is displayed as non-stacked bargraph
+  # In this example, only one item is used, and the graph is displayed as non-stacked bargraph
   stack1 = {key1}
   
   # Color and legend of the graph
@@ -72,8 +72,8 @@ Then, add ``[qc_chart_1]`` section to the configuration file and fill the conten
 
   Here, ``{key1}`` used above is the ``{keyword}`` specified in the ``[result_format_qc]`` section.
   
-  - For more detailed description on how to set ``name_set``, please refer to `How to set name_set <./data_qc.html#qc-nameset>`_.
-  - For more detailed description on how to set ``tooltip_format``, please refer to `User defined format <./data_common.html#user-format>`_.
+  - For a more detailed description on the procedure to set ``name_set``, please refer to `How to set name_set <./data_qc.html#qc-nameset>`_.
+  - For a more detailed description on the procedure to set ``tooltip_format``, please refer to `User defined format <./data_common.html#user-format>`_.
 
 Then, execute paplot.
 
@@ -90,9 +90,9 @@ Then, execute paplot.
 2. Without header
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_noheader/graph_noheader.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_noheader>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_noheader.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/qc_noheader/graph_noheader.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/qc_noheader>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/qc_noheader.zip?raw=true>`__ 
 
 .. code-block:: cfg
   :caption: Extracted from the example data (example/qc_noheader/data.csv)
@@ -103,7 +103,7 @@ Then, execute paplot.
   SAMPLE4,70.9654
   SAMPLE5,69.9653
 
-When the input data has not header (column names), then we need to set the column number to each key in the ``[result_format_qc]`` section of the configuration file.
+When the input data has no header (column names), it is necessary to set the column number to each key in the ``[result_format_qc]`` section of the configuration file.
 
 .. code-block:: cfg
   :caption: example/qc_noheader/paplot.cfg
@@ -115,7 +115,7 @@ When the input data has not header (column names), then we need to set the colum
   col_opt_id = 1
   col_opt_average_depth = 2
 
-Then execute paplot.
+Then, execute paplot.
 
 .. code-block:: bash
 
@@ -130,9 +130,9 @@ Then execute paplot.
 3. Stacked bargraph
 ==========================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_stack/graph_stack.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/qc_stack/graph_stack.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack.zip?raw=true>`__ 
 
 Here, we generate a report with a stacked bargraph as well as a normal bargraph (generated in the minimal dataset example).
 
@@ -167,14 +167,14 @@ First, add these columns to the ``[result_format_qc]`` section in the configurat
   col_opt_keyB1 = ReadLengthR1
   col_opt_keyB2 = ReadLengthR2
 
-The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
+The column names of optional items can be set as follows: ``col_opt_{keyword} = {actual column name}``.
 
-For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
+For a more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
-Next, add ``[qc_chart_1]``, ``[qc_chart_2]`` sections to the configuration file and fill the contents within it.
+Next, add the ``[qc_chart_1]``, and ``[qc_chart_2]`` sections to the configuration file and fill the contents within it.
  
-| To increase graphs in QC Report, increase the ``[qc_chart_*]`` sections.
-| Set the indice to ``*``, which should start from 1.
+| To increase number of graphs in QC Report, increase the ``[qc_chart_*]`` sections.
+| Set the index to ``*``, which should start from 1.
 
 For the completed configuration file, please refer to `here <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack/paplot.cfg>`__.
 
@@ -205,7 +205,7 @@ The ``[qc_chart_2]`` section is for a stacked bargraph.
   stack2 = {keyB2}
   
   # Color and legend
-  # Write down in the order of stack1 → 2 → ..., and join them by commmas ','.
+  # Write down in the order of stack1 → 2 → ..., and join them by commas ','.
   name_set = Read length r1:#2478B4, Read length r2:#FF7F0E
   
   # Pop-up information
@@ -217,8 +217,8 @@ The ``[qc_chart_2]`` section is for a stacked bargraph.
 
   Here, ``{key*}`` used above is the ``{keyword}`` specified in the ``[result_format_qc]`` section.
   
-  - For more detailed description on how to set ``name_set``, please refer to `How to set name_set <./data_qc.html#qc-nameset>`_.
-  - For more detailed description on how to set ``tooltip_format``, please refer to `User defined format <./data_common.html#user-format>`_.
+  - For a more detailed description on the procedure to set ``name_set``, please refer to `How to set name_set <./data_qc.html#qc-nameset>`_.
+  - For a more detailed description on the procedure to set ``tooltip_format``, please refer to `User defined format <./data_common.html#user-format>`_.
 
 Then, execute paplot.
 
@@ -236,7 +236,7 @@ Then, execute paplot.
 
 Define the legends and their colors.
 
-Write down ``{legend}:{colour}`` for each item in the stacked bargraph (colurs can be ommited).
+Write ``{legend}:{color}`` for each item in the stacked bargraph (colors can be omitted).
 
 .. code-block:: cfg
   
@@ -245,7 +245,7 @@ Write down ``{legend}:{colour}`` for each item in the stacked bargraph (colurs c
   # When there are multiple items, join them by commas ','.
   name_set = Read length r1:#2478B4, Read length r2:#FF7F0E
 
-When colors are ommited, the default colors defined in the following file are used.
+When colors are omitted, the default colors defined in the following file are used:
 
 .. image:: image/default_color.PNG
 
@@ -257,12 +257,12 @@ When colors are ommited, the default colors defined in the following file are us
 4. Various graphs
 =================================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_variation/graph_variation.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/qc_variation/graph_variation.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation.zip?raw=true>`__ 
 
 In the previous example, we generated a report with one normal bargraph and one stacked bargraph.
-Here, we generate even more graphs.
+Here, we generate more graphs.
 
 .. code-block:: cfg
   :caption: Extracted from the example data (example/qc_variation/data.csv)
@@ -310,9 +310,9 @@ First, add these columns to the ``[result_format_qc]`` section in the configurat
 
 The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
 
-For more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
+For a more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
-Next, add ``[qc_chart_1]``, ``[qc_chart_2]``, ``[qc_chart_3]`` and ``[qc_cahrt_4]`` sections to the configuration file and fill the contents within it.
+Next, add the ``[qc_chart_1]``, ``[qc_chart_2]``, ``[qc_chart_3]``, and ``[qc_cahrt_4]`` sections to the configuration file and fill the contents within it.
 
 For the completed configuration file, please refer to `here <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation/paplot.cfg>`_.
 
@@ -326,7 +326,7 @@ The ``[qc_chart_1]`` section is for a normal bargraph, and the contents should b
 4-2. Simple stacked bargraph
 -------------------------------------
 
-The ``[qc_chart_2]`` section is for a stacked bargraph, and the contents should be filled as the previous example.
+The ``[qc_chart_2]`` section is for a stacked bargraph, and the contents should be filled as the in previous example.
 
 
 4-3. Normal bargraph (with numeric operations on columns)
@@ -359,17 +359,17 @@ For the items in graphs
 | In the above example, we used division (``stack1 = {mapped_reads/total_reads}``).
 | We can also use subtraction (e.g., ``{mapped_reads-total_reads}``) and addition (e.g., ``{mapped_reads+total_reads}``).
 | 
-| Additionaly, we can use numerical operations for pop-up information
+| Additionally, we can use numerical operations for pop-up information
 | ``tooltip_format2 = {mapped_reads/total_reads:.2}``
 | 
-| When we want to display the value for each column, then set as
+| When we wish to display the value for each column, set as
 | ``tooltip_format2 = Mapped: {mapped_reads}, Total: {total_reads}``.
 |
 | For more detailed description on how to set pop-up information, please refer to `User defined format <./data_common.html#user-format>`_.
 |
 
 
-4-4. Stacked bargraph (with numeric operations on columns)
+4-4. Stacked bargraph (with numerical operations on columns)
 --------------------------------------------------------------
 
 The chart_4 section is a graph for sequence coverage.
@@ -401,7 +401,7 @@ The chart_4 section is a graph for sequence coverage.
   tooltip_format5 = ratio_30x: {ratio_30x:.2}
 
 Here, we set the first stack (stack1) to ratio_30x,
-the second stack (stack2) to ratio30 subtracted by ratio_20x, and so on.
+the second stack (stack2) to ratio_30 subtracted by ratio_20x, etc.
 
 Then, execute paplot.
 
@@ -418,14 +418,14 @@ Then, execute paplot.
 5. Graph for selecting samples
 =================================
 
-| `View the report generated in this section <http://genomon-project.github.io/paplot/qc_brush/graph_brush.html>`__ 
-| `View the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_brush>`__ 
-| `Download the input data used in this section <https://github.com/Genomon-Project/paplot/blob/master/example/qc_brush.zip?raw=true>`__ 
+| `View the report generated in this section. <http://genomon-project.github.io/paplot/qc_brush/graph_brush.html>`__ 
+| `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/qc_brush>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/qc_brush.zip?raw=true>`__ 
 
 Here, we add the graph for selecting samples (using the column AverageDepth).
-When you want to use other columns, it should be registered in the ``[result_format_qc]`` section of the configuratoin file (as ``col_opt_{name}``).
+If you wish to use other columns, it should be registered in the ``[result_format_qc]`` section of the configuration file (as ``col_opt_{name}``).
 
-Just one graph for selecting samples can be included.
+A single graph for selecting samples can be included.
 Add the ``[qc_chart_brush]`` section to the configuration file and fill the contents within it.
 
 .. code-block:: cfg
