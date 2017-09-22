@@ -102,7 +102,7 @@ the signature contribution graph is generated (`example <http://genomon-project.
   The keys in the input json file can be modified by changing the contents in the ``[result_format_pmsignature]`` section of the configuration file.
 
   .. code-block:: cfg
-    :caption:  paplot/example/pmsignature_stack/paplot.cfg
+    :caption:  example/pmsignature_stack/paplot.cfg
     
     [result_format_pmsignature]
     format = json
