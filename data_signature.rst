@@ -6,17 +6,16 @@ Here, we describe the procedure to generate Mutation Signature Report using samp
 
  .. [*] The sample data is equipped with the ``example`` directory of the paplot directory.
 
-.. _json:
+.. _json_full:
 
 ==========================
 1. Input data format
 ==========================
 
 To generate Mutation Signature Report using paplot, json format input data is required.
-The example (`example/signature_stack/data2.json`) is as follows:
 
 .. code-block:: python
-  :caption: Extracted from the example data (example/signature_stack/data2.json)
+  :caption: example/signature_stack/data2.json
 
   {
     "signature":[
@@ -50,13 +49,13 @@ The example (`example/signature_stack/data2.json`) is as follows:
   | The number of bases should be three or five.
   | The number of contexts for each substitution pattern should be identical (16 and 256 when the numbers of bases are three and five, respectively).
 
-As the number of bases is three in the above example data, probability values for the 16 contexts should be enumerated in the following order:
+As the number of bases is three in the above example data, probability values for the 16 contexts should be put down in the following order:
 
 ::
 
   ANA,ANC,ANG,ANT,CNA,CNA,CNG,CNT,GNA,GNC,GNG,GNT,TNA,TNA,TNG,TNT
 
-When `base = 5`, the 256 context values should be enumerated in the following order:
+When `base = 5`, the 256 context values should be put down in the following order:
 
 ::
 
@@ -114,11 +113,13 @@ the signature contribution graph is generated (`example <http://genomon-project.
             
 .. note::
 
-  The procedure to validate json file format
+  One procedure to validate json file format
  
-  paplot using `json` python package. When loading the input file using load function from json package, then the input file is valid json format.
+  paplot using json python package. 
+  When the input file can be loaded successfully using the load() function from json python package, 
+  then the input file is confirmed to be valid json format.
 
-  Example, when the file fine name is "data2.json".
+  Example, when the file name is "data2.json".
 
   .. code-block:: shell
   
@@ -138,7 +139,7 @@ the signature contribution graph is generated (`example <http://genomon-project.
 | `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal>`__ 
 | `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/signature_minimal.zip?raw=true>`__ 
 
-For the format of input data, please refer to :ref:`here <json>`.
+For the format of input data, please refer to :ref:`1. Input data format <json_full>`.
 
 Input data file (the number of mutation signatures is two)
 
@@ -216,7 +217,7 @@ Here, the file names (`graph_signature2.html`) are determined by the number of m
 .. _sig_mclass:
 
 =================================================================
-3. Mutation signature with various number of signatures
+3. Mutation signature with multiple numbers of signatures
 =================================================================
 
 | View the report generated in this section.
@@ -230,7 +231,7 @@ Here, the file names (`graph_signature2.html`) are determined by the number of m
 | `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class>`__ 
 | `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/signature_multi_class.zip?raw=true>`__ 
 
-For the format of input data, please refer :ref:`here <json>`.
+For the format of input data, please refer to :ref:`1. Input data format <json_full>`.
 
 The input data for each signature number and configuration file are necessary 
 for generating Mutation Signature Report with various numbers of signatures.
@@ -312,9 +313,9 @@ Here, the file names (`graph_signature2.html`) are determined by the number of m
 
 Here, we add a signature contribution graph.
 
-For the format of input data, please refer :ref:`here <json>`.
+For the format of input data, please refer to :ref:`1. Input data format <json_full>`.
 
-For generating report with various signature numbers, please refer :ref:`here <sig_mclass>`.
+For generating report with various signature numbers, please refer to :ref:`3. Mutation signature with multiple numbers of signatures <sig_mclass>`.
 
 Execute paplot.
 

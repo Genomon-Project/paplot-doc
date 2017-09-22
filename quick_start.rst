@@ -5,7 +5,7 @@ Quick Start
 In this section, we will learn to
 
 #. Install paplot
-#. Execute paplot with sinple example data
+#. Execute paplot with simple example data
 #. View the output reports
 #. Modify configuration files and use your own data.
  
@@ -27,7 +27,7 @@ In this section, we will learn to
   python setup.py build install
 
 
-**Comfirmation of installation**
+**Confirmation of installation**
 
 | Execute the following command.
 

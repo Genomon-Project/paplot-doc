@@ -19,7 +19,7 @@ Here, we show describe the procedure generate Mutation Matrix report using sampl
 For generating Mutation Matrix Report using paplot, at least sample ID (Sample), gene name (Gene) and mutation type (MutationType) are required.
 
 .. code-block:: cfg
-  :caption: Extracted from the example data (example/mutation_minimal/data.csv)
+  :caption: example/mutation_minimal/data.csv
   
   Sample,MutationType,Gene
   SAMPLE00,intronic,GATA3
@@ -67,7 +67,7 @@ Then, execute the paplot.
 | `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/mutation_noheader.zip?raw=true>`__ 
 
 .. code-block:: cfg
-  :caption: Extracted from the example data (example/mutation_noheader/data.csv)
+  :caption: example/mutation_noheader/data.csv
 
   SAMPLE00,intronic,GATA3
   SAMPLE00,UTR3,CDH1
@@ -128,26 +128,22 @@ By customizing the configuration file, the information of positions and substitu
 .. image:: image/data_mut2.png
 
 .. code-block:: cfg
-  :caption: Extracted from the example data (example/mutation_option/data.csv)
+  :caption: example/mutation_option/data.csv
   
-  Sample,Chr,Start,End,Ref,Alt,MutationType,Gene
-  SAMPLE00,chr10,8114472,8114474,A,C,intronic,GATA3
-  SAMPLE00,chr13,28644892,28644901,G,-,intronic,FLT3
-  SAMPLE00,chr13,28664636,28664638,-,G,intronic,FLT3
-  SAMPLE00,chr16,68795521,68795530,-,T,UTR3,CDH1
-  SAMPLE00,chr10,8117068,8117069,G,T,exonic,GATA3
-  SAMPLE00,chr3,178906688,178906688,G,A,intronic,PIK3CA
-  SAMPLE00,chr13,28603715,28603715,G,-,intergenic,FLT3
-  SAMPLE00,chr14,103368263,103368270,G,C,intronic,TRAF3
-  SAMPLE00,chr1,26505548,26505557,T,C,exonic,CNKSR1
-  SAMPLE00,chr7,140619975,140619979,-,G,intronic,BRAF
-  SAMPLE00,chr14,103320225,103320225,-,T,downstream,TRAF3
+  Sample,Chr,Start,Ref,Alt,MutationType,Gene
+  SAMPLE00,chr10,8114472,A,C,intronic,GATA3
+  SAMPLE00,chr13,28644892,G,-,intronic,FLT3
+  SAMPLE00,chr13,28664636,-,G,intronic,FLT3
+  SAMPLE00,chr16,68795521,-,T,UTR3,CDH1
+  SAMPLE00,chr10,8117068,G,T,exonic,GATA3
+  SAMPLE00,chr3,178906688,G,A,intronic,PIK3CA
+  SAMPLE00,chr13,28603715,G,-,intergenic,FLT3
+  SAMPLE00,chr14,103368263,G,C,intronic,TRAF3
 
-In the example data above, the following five (optional) items are incorporated a part from sample ID, gene name, and mutation type (required items).
+In the example data above, the following four (optional) items are incorporated a part from sample ID, gene name, and mutation type (required items).
 
  - Chromosome (Chr)
  - Variant start position (Start)
- - Variant end position (End)
  - Reference base (Ref)
  - Alternative base (Alt) 
 
@@ -160,11 +156,10 @@ First, add these columns to the ``[result_format_mutation]`` section in the conf
   [result_format_mutation]
   col_opt_chr = Chr
   col_opt_start = Start
-  col_opt_end = End
   col_opt_ref = Ref
   col_opt_alt = Alt
 
-The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
+The column names of optional items can be set as ``col_opt_{keyword} = {actual column name}``.
 
 For a more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
@@ -178,7 +173,7 @@ Then, modify the ``[mutation]`` section in the configuration file.
   # before customization 
   # tooltip_format_checker_partial = Mutation Type[{group}]
   # after customization 
-  tooltip_format_checker_partial = Mutation Type[{group}], {chr}:{start:,}:{end:,}, [{ref} -> {alt}]
+  tooltip_format_checker_partial = Mutation Type[{group}] {chr}:{start:,} [{ref} -> {alt}]
 
 Then, execute paplot.
 
@@ -189,7 +184,7 @@ Then, execute paplot.
 
 Here, we describe the procedure to customize the pop-up for each element in the main grid. For customizing other pop-ups, please refer the following:
 
-Six types are set for each display location; howevert the method of writing is identical.
+Six types are set for each display location; however the method of writing is identical.
 
 **Correspondence between setting items and display**
 
@@ -200,11 +195,11 @@ The following can also be used as a special keyword:
 
 :{#number_id}:      the number of mutations per sample
 :{#number_gene}:    the number of mutations per gene
-:{#number_mutaion}: the number of mutations (Notwithstanding whether the same sample is detected multiple times with the same gene, it counts as 1.)
+:{#number_mutaion}: the number of mutations (Even if the same sample is detected multiple times with the same gene, it counts as 1.)
 :{#sum_mutaion}:    Total number of mutations
 :{#item_value}:     Value of one item of stacked graph
 :{#sum_item_value}: Total value of stacked graph
 
-Moveover, for a more detailed description of the procedure to set pop-up information, please refer to `User defined format <./data_common.html#user-format>`_.
+Moreover, for a more detailed description of the procedure to set pop-up information, please refer to `User defined format <./data_common.html#user-format>`_.
 
 .. |new| image:: image/tab_001.gif

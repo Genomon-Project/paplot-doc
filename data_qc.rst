@@ -20,7 +20,7 @@ For generating QC Report using paplot, sample ID (Sample) and QC items (at least
 In this example, we adopt mean sequence depth (AverageDepth).
 
 .. code-block:: cfg
-  :caption: Extracted from the example data (example/qc_minimal/data.csv)
+  :caption: example/qc_minimal/data.csv
   
   Sample,AverageDepth
   SAMPLE1,70.0474
@@ -39,7 +39,7 @@ First, set the column names in the ``[result_format_qc]`` section of the configu
   col_opt_id = Sample
   col_opt_key1 = AverageDepth
 
-The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
+The column names of optional items can be set as ``col_opt_{keyword} = {actual column name}``.
 
 For a more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
@@ -58,7 +58,7 @@ Then, add the ``[qc_chart_1]`` section to the configuration file and fill the co
   title_y = Average of depth
   
   # Items for the stacked bargraph
-  # In this example, only one item is used, and the graph is displayed as non-stacked bargraph
+  # In this example, only one item is used and the graph is displayed as non-stacked bargraph
   stack1 = {key1}
   
   # Color and legend of the graph
@@ -95,7 +95,7 @@ Then, execute paplot.
 | `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/qc_noheader.zip?raw=true>`__ 
 
 .. code-block:: cfg
-  :caption: Extracted from the example data (example/qc_noheader/data.csv)
+  :caption: example/qc_noheader/data.csv
   
   SAMPLE1,70.0474
   SAMPLE2,65.7578
@@ -137,7 +137,7 @@ Then, execute paplot.
 Here, we generate a report with a stacked bargraph as well as a normal bargraph (generated in the minimal dataset example).
 
 .. code-block:: cfg
-  :caption: Extracted from the example data (example/qc_stack/data.csv)
+  :caption: example/qc_stack/data.csv
   
   Sample,AverageDepth,ReadLengthR1,ReadLengthR2
   SAMPLE1,70.0474,265,270
@@ -167,16 +167,16 @@ First, add these columns to the ``[result_format_qc]`` section in the configurat
   col_opt_keyB1 = ReadLengthR1
   col_opt_keyB2 = ReadLengthR2
 
-The column names of optional items can be set as follows: ``col_opt_{keyword} = {actual column name}``.
+The column names of optional items can be set as ``col_opt_{keyword} = {actual column name}``.
 
 For a more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
 Next, add the ``[qc_chart_1]``, and ``[qc_chart_2]`` sections to the configuration file and fill the contents within it.
  
-| To increase number of graphs in QC Report, increase the ``[qc_chart_*]`` sections.
-| Set the index to ``*``, which should start from 1.
+| To increase the number of graphs in QC Report, increase the ``[qc_chart_*]`` sections.
+| Set the indices to ``*``, which should start from 1.
 
-For the completed configuration file, please refer to `here <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack/paplot.cfg>`__.
+For the completed configuration file, please refer to `example/qc_stack/paplot.cfg <https://github.com/Genomon-Project/paplot/blob/master/example/qc_stack/paplot.cfg>`__.
 
 
 3-1. Normal bargraph
@@ -265,7 +265,7 @@ In the previous example, we generated a report with one normal bargraph and one 
 Here, we generate more graphs.
 
 .. code-block:: cfg
-  :caption: Extracted from the example data (example/qc_variation/data.csv)
+  :caption: example/qc_variation/data.csv
   
   Sample,AverageDepth,ReadLengthR1,ReadLengthR2,TotalReads,MappedReads,2xRatio,10xRatio,20xRatio,30xRatio
   SAMPLE1,70.0474,265,270,94315157,56262203,0.9796,0.768,0.6844,0.6747
@@ -278,7 +278,7 @@ Here, we generate more graphs.
 
  - chart_1 [normal bargraph] AverageDepth (the same as the minimal dataset example)
  - chart_2 [stacked bargraph] ReadLengthR1, ReadLengthR2 (the same as the previous example)
- - chart_3 [normal bargraph] MappedReads divided by TotalReads (mapping raito)
+ - chart_3 [normal bargraph] MappedReads divided by TotalReads (mapping ratio)
  - chart_4 [stacked bargraph] 2xRatio, 10xRatio, 20xRatio, 30xRatio (subtracting the values of items below)
 
 First, add these columns to the ``[result_format_qc]`` section in the configuration file.
@@ -308,13 +308,13 @@ First, add these columns to the ``[result_format_qc]`` section in the configurat
   col_opt_ratio_30x = 30xRatio
 
 
-The column names of optional items can be set as: ``col_opt_{keyword} = {actual column name}``.
+The column names of optional items can be set as ``col_opt_{keyword} = {actual column name}``.
 
 For a more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 
 Next, add the ``[qc_chart_1]``, ``[qc_chart_2]``, ``[qc_chart_3]``, and ``[qc_cahrt_4]`` sections to the configuration file and fill the contents within it.
 
-For the completed configuration file, please refer to `here <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation/paplot.cfg>`_.
+For the completed configuration file, please refer to `example/qc_variation/paplot.cfg <https://github.com/Genomon-Project/paplot/blob/master/example/qc_variation/paplot.cfg>`_.
 
 
 4-1. Simple normal bargraph
@@ -326,7 +326,7 @@ The ``[qc_chart_1]`` section is for a normal bargraph, and the contents should b
 4-2. Simple stacked bargraph
 -------------------------------------
 
-The ``[qc_chart_2]`` section is for a stacked bargraph, and the contents should be filled as the in previous example.
+The ``[qc_chart_2]`` section is for a stacked bargraph, and the contents should be filled as in the previous example.
 
 
 4-3. Normal bargraph (with numeric operations on columns)
@@ -353,8 +353,6 @@ The ``[qc_chart_3]`` section is a graph for mapping ratio (Mapped reads divided 
   # Pop-up information
   tooltip_format1 = Sample:{id}
   tooltip_format2 = {mapped_reads/total_reads:.2}
-
-For the items in graphs
 
 | In the above example, we used division (``stack1 = {mapped_reads/total_reads}``).
 | We can also use subtraction (e.g., ``{mapped_reads-total_reads}``) and addition (e.g., ``{mapped_reads+total_reads}``).
@@ -401,7 +399,7 @@ The chart_4 section is a graph for sequence coverage.
   tooltip_format5 = ratio_30x: {ratio_30x:.2}
 
 Here, we set the first stack (stack1) to ratio_30x,
-the second stack (stack2) to ratio_30 subtracted by ratio_20x, etc.
+the second stack (stack2) to ratio_30x subtracted by ratio_20x, etc.
 
 Then, execute paplot.
 
@@ -425,7 +423,7 @@ Then, execute paplot.
 Here, we add the graph for selecting samples (using the column AverageDepth).
 If you wish to use other columns, it should be registered in the ``[result_format_qc]`` section of the configuration file (as ``col_opt_{name}``).
 
-A single graph for selecting samples can be included.
+Only one graph for selecting samples can be included.
 Add the ``[qc_chart_brush]`` section to the configuration file and fill the contents within it.
 
 .. code-block:: cfg

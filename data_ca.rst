@@ -25,7 +25,7 @@ For generating Chromosomal Aberration Report using paplot, at least the followin
  - Coordinate of the breakpoint 2 (Break2)
 
 .. code-block:: cfg
-  :caption: Extracted from the example data (example/ca_minimal/data.csv)
+  :caption: example/ca_minimal/data.csv
   
   Sample,Chr1,Break1,Chr2,Break2,
   SAMPLE1,14,16019088,12,62784483,
@@ -71,7 +71,7 @@ Then, execute the paplot.
 | `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/ca_noheader.zip?raw=true>`__ 
 
 .. code-block:: cfg
-  :caption: Extracted from the example data (example/ca_noheader/data.csv)
+  :caption: example/ca_noheader/data.csv
   
   SAMPLE00,intronic,GATA3
   SAMPLE00,UTR3,CDH1
@@ -125,7 +125,7 @@ We can customize the categorization.
  
 
 .. code-block:: cfg
-  :caption: Extracted from the example data (example/ca_group/data.csv)
+  :caption: example/ca_group/data.csv
   
   Sample,Chr1,Break1,Chr2,Break2,Label
   SAMPLE1,14,16019088,12,62784483,C
@@ -151,7 +151,7 @@ First, we set the ``Label`` as the column used for categorization in the ``[resu
   [result_format_ca]
   col_opt_group = Label
 
-Moveover, the color for each category can be set.
+Moreover, the color for each category can be set.
 
 .. code-block:: cfg
   :caption: example/ca_group/paplot.cfg
@@ -161,10 +161,10 @@ Moveover, the color for each category can be set.
   # Set {Value}:{the name of color or RGB value} for each category and join them by comma ','.
   group_colors = A:#66C2A5,B:#FC8D62,C:#8DA0CB,D:#E78AC3
 
-  # Display only selected categories.
+  # Only categories registered below will be displayed.
   limited_group = 
   
-  # Do not display selected categories.
+  # Categories registered below will not be displayed.
   nouse_group = 
 
 Then, execute paplot.
@@ -200,7 +200,7 @@ By customizing the pop-up information, we can view more detailed information on 
 .. image:: image/data_ca2.png
 
 .. code-block:: cfg
-  :caption: Extracted from the example data (example/ca_option/data.csv)
+  :caption: example/ca_option/data.csv
   
   Sample,Chr1,Break1,Dir1,Chr2,Break2,Dir2,MutationType,Gene1,Gene2
   SAMPLE1,14,16019088,-,12,62784483,+,deletion,LS7T1EG444,4GRRIO5AVR
@@ -241,7 +241,7 @@ First, add these columns to the ``[result_format_ca]`` section in the configurat
   col_opt_dir1 = Dir1
   col_opt_dir2 = Dir2
 
-The column names of the optional items can be set as follows: ``col_opt_{keyword} = {actual column name}``.
+The column names of the optional items can be set as ``col_opt_{keyword} = {actual column name}``.
 
 For a more detailed description on keyword, please refer to `About keyword <./data_common.html#keyword>`_.
 

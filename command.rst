@@ -38,7 +38,7 @@ paplot command
   {unzip_path}/example/mutation_split_file/SAMPLE00.data.csv,{unzip_path}/example/mutation_split_file/SAMPLE01.data.csv \
   ./tmp mutation_split_file1 --config_file {unzip_path}/example/mutation_split_file/paplot.cfg
 
-  # paplot also accept wilde card representation. In this case enclose the input by double quotations
+  # paplot also accept wild card representation. In this case enclose the input by double quotations
   paplot mutation "{unzip_path}/example/mutation_split_file/*.csv" ./tmp mutation_split_file2 \
   --config_file {unzip_path}/example/mutation_split_file/paplot.cfg
 

@@ -8,7 +8,7 @@ Install
  * MacOS X
  * Windows
 
-| You require Python2.7 or Python 3.5 to execute paplot.paplot (previous versions of Python have not been tested).
+| You require Python2.7 or Python 3.5 to execute paplot (previous versions of Python have not been tested).
 
 .. _linux:
 

@@ -31,12 +31,12 @@ Added the function for saving the image.
 v0.3.1
 ====================
 
-Modified certain bugs related to Mutation Matrix Repoort.
+Modified certain bugs related to Mutation Matrix Report.
 
 v0.3.0
 ====================
 
-Incorporated functions to generate Mutation Matrix Repoort.
+Incorporated functions to generate Mutation Matrix Report.
 
 v0.2.8
 ====================
