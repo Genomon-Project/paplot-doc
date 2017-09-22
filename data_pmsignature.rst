@@ -257,7 +257,7 @@ Execute paplot for each mutation signature number.
   paplot pmsignature pmsignature_multi_class/data4.json ./tmp pmsignature_multi_class \
   --config_file ./pmsignature_multi_class/paplot.cfg
 
-  paplot pmsignature pmsignature_multi_class/data5.json ./tmp signature_multi_class \
+  paplot pmsignature pmsignature_multi_class/data5.json ./tmp pmsignature_multi_class \
   --config_file ./pmsignature_multi_class/paplot.cfg
 
   paplot pmsignature pmsignature_multi_class/data6.json ./tmp pmsignature_multi_class \
@@ -305,7 +305,7 @@ Here, the file names (`graph_pmsignature2.html`) are determined by the number of
  - `pmsignature 6 <http://genomon-project.github.io/paplot/pmsignature_stack/graph_stack6.html>`__ 
 
 | `View the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack>`__ 
-| `Download the input data used in this sectio <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack.zip?raw=true>`__ 
+| `Download the input data used in this section. <https://github.com/Genomon-Project/paplot/blob/master/example/pmsignature_stack.zip?raw=true>`__ 
 
 Here, we add a signature contribution graph.
 

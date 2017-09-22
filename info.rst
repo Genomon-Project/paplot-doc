@@ -52,7 +52,7 @@ Incorporated functions to generate QC Report and SV (Structural Variation) Repor
 License
 --------------------
 
-paplot is licensed under the MIT License
+paplot is licensed under the MIT License.
 
 | Copyright (c) 2017 Ai Okada and Yuichi Shiraishi
 

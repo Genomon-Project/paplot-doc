@@ -107,7 +107,7 @@ Sets the maximum value of the vertical axis of the horizontal bar chart.
 Set the filter for the gene displayed on the vertical axis.
 
 :Rate:
-  | Frequency of the samples with mutations at each gene (%). The initial value is 0% (no filtering)
+  | Frequency of the samples with mutations at each gene (%). The initial value is 0% (no filtering).
 
 :Display maximum:
   | Maximum number of genes to display.

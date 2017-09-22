@@ -147,7 +147,7 @@ For Windows
 
 | Execute the command for installing paplot.
 
-.. caution::
+.. attention::
 
   The following command is for the case where WinPython-64bit-2.7.10.3 is installed.
 
