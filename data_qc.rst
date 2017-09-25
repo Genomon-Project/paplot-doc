@@ -52,7 +52,7 @@ Then, add the ``[qc_chart_1]`` section to the configuration file and fill the co
   [qc_chart_1]
   
   # Title of the graph
-  title = Depth average
+  title = Average depth
  
   # Label of the Y axis
   title_y = Average of depth
@@ -196,7 +196,7 @@ The ``[qc_chart_2]`` section is for a stacked bargraph.
   [qc_chart_2]
   
   # Titles
-  title = Read length
+  title = Chart 2: Read length
   title_y = Read length
 
   # Items for the stacked bargraph
@@ -344,11 +344,11 @@ The ``[qc_chart_3]`` section is a graph for mapping ratio (Mapped reads divided 
   title = Mapped reads/Total reads
   title_y = Rate
   
-  # Colors and legends 
-  name_set = Mapped reads/Total reads:#2478B4
-  
   # Items for the graph
   stack1 = {mapped_reads/total_reads}
+  
+  # Colors and legends 
+  name_set = Mapped reads/Total reads:#2478B4
   
   # Pop-up information
   tooltip_format1 = Sample:{id}
@@ -382,14 +382,14 @@ The chart_4 section is a graph for sequence coverage.
   title = Depth coverage
   title_y = Coverage
   
-  # Colors and legends
-  name_set = Ratio 30x:#2478B4, Ratio 20x:#FF7F0E, Ratio 10x:#2CA02C, Ratio 2x:#D62728
-  
   # Items for the graph
   stack1 = {ratio_30x}
   stack2 = {ratio_20x-ratio_30x}
   stack3 = {ratio_10x-ratio_20x}
   stack4 = {ratio_2x-ratio_10x}
+  
+  # Colors and legends
+  name_set = Ratio 30x:#2478B4, Ratio 20x:#FF7F0E, Ratio 10x:#2CA02C, Ratio 2x:#D62728
   
   # Pop-up information
   tooltip_format1 = ID:{id}

@@ -159,7 +159,7 @@ Moreover, the color for each category can be set.
   
   [ca]
   # Set {Value}:{the name of color or RGB value} for each category and join them by comma ','.
-  group_colors = A:#66C2A5,B:#FC8D62,C:#8DA0CB,D:#E78AC3
+  group_color = A:#66C2A5,B:#FC8D62,C:#8DA0CB,D:#E78AC3
 
   # Only categories registered below will be displayed.
   limited_group = 
