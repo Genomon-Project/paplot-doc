@@ -1,28 +1,28 @@
-========================
-mutation-matrix graph
-========================
+===========================
+Mutation Matrix Report
+===========================
 
-In the mutation-matrix graph, the mutated type is displayed with the vertical axis as the gene (Gene) and the horizontal axis as the sample (Sample) for the detected mutation.
+Mutation Matrix Report displays a landscape of mutation status across genes (vertical axis) and samples (horizontal axis).
 
 :Horizontal bar chart (Sample):
-  Displays the number of mutations detected for each sample.
+  | Displays the total number of mutations detected for each sample.
 
 :Vertical bar chart (Gene):
-  Displays the number of mutations for each gene as a percentage of the number of samples.
+  | Displays the number of mutations and fractions of mutation types (e.g., nonsynonymous, stopgain, etc.) for each gene.
+  |
+  | - If the same sample has multiple mutations on the same gene, this is counted as 1.
+  | - If the same sample has multiple mutations with different mutation types on the same gene, a mutation type with "the higher priority" is counted. For example, in the default setting, the priority of stopgain is higher than that of nonsynonymous mutations. The order of priority can be modified by the configuration file. 
 
-  - If the same sample has multiple mutations for the same gene, count the number of mutations as 1.
-  - If the same sample has multiple mutation types for the same gene, count it as a mutation type with a higher priority.
-  
-:functions:
-  Mutation type (func) is displayed separately color-coded. If there are mutation types that you do not want to display, you can exclude them by unchecking the checkbox of functions.
-  
-:sub plot:
-  If there is data for the sample separately from mutation, it can be displayed as subplot. This file must be entered in the configuration file before executing the ``paplot`` command.
+:Mutation type:
+  | The mutation type is displayed with a distinct color. If you wish to hide a specific type of mutations, uncheck them in this section.
+
+:Subplot:
+  | If meta information is available for the samples (e.g., clinical information), it can be displayed as a subplot. This file must be entered in the configuration file before executing the paplot command.
 
 .. image:: image/mut_operation1.PNG
   :scale: 100%
 
-**Method of operation**
+**How to view**
 
 .. image:: image/mut_operation2.PNG
   :scale: 100%
@@ -30,75 +30,87 @@ In the mutation-matrix graph, the mutated type is displayed with the vertical ax
 .. image:: image/mut_operation2_2.PNG
   :scale: 100%
 
-1. axis-X sort 
+1. X-axis sort
 ---------------
 
-Change the order of the horizontal axis.
+Change the order of items on the horizontal axis:
 
- - none ... Do not sort
- - ASC ... ascending order
- - DESC ... descending order
+ - None ... Default order
+ - ASC ... Ascending order
+ - DESC ... Descending order
 
-It can sort by the following elements, and it can sort multiple.
+It can sort based on the following elements (allowing for multiple key ordering):
 
-:SampleID: Sort by name of sample
-:Mutation num.: Number of mutations per sample
-:Genes: Number of mutations per gene. After selecting either ASC/DESC, select the Gene name from the list box next to it and click the [add sort key] button.
-:automatic Gantt-chart:
-  We will create a Gantt chart automatically.
-  Enter the number of genes to use in the horizontal edit box and click the [Gantt-chart] button.
-  What is Gantt-chart? (It is not a general meaning.)
+:Sample ID:
+  | Sort by sample name.
 
-**Gantt-chart**
+:Mutation number:
+  | Sort by the number of mutations per sample.
 
-| Place the ordinate in descending order of the number of mutations of genes (Gene), and sort the abscissa according to whether or not the mutation of that gene is possessed.
-| First, arrange from the top gene and repeat as many as the number of genes specified.
-| It is ideal to repeat as many times as the number of detected genes, but as processing becomes heavier, processing will be faster if you narrow down to the gene of interest.
-|
+:Genes:
+  | Sort by the mutation states of the selected genes. After selecting either ASC or DESC, select the gene to add from the [Select gene name] list box, and click the [Add sort key] button.
+
+:Automatic Gantt-chart:
+  | A Gantt chart can be automatically created. Enter the number of genes to display [*]_ in the horizontal edit box, and click the [Gantt-chart] button.
+
+**How Gantt-chart a Generated**
+
+ 1. First, sort the genes according to the descending order to number of mutations.
+ 2. Then, divide the samples into two groups according to the mutation status of the first gene, and place the group with the mutation to the left and the other group to the right.
+    Repeat this procedure for the second one, third one, etc.
+
+.. [*]
+   It is preferable to display all the detected genes. However, as processing becomes heavier. In numerous cases, narrowing down to the gene list will be practical.
 
 .. image:: image/mut_operation3.PNG
   :scale: 100%
 
-2. axis-Y sort
+2. Y-axis sort
 ----------------
 
-Change the order of the vertical axis.
+Change the order of items on the vertical axis.
 
- - none ... Do not sort
- - ASC ... ascending order
- - DESC ... descending order
+ - None ... Default order
+ - ASC ... Ascending order
+ - DESC ... Descending order
 
-It can sort by the following elements, and it can sort multiple.
+It can sort based only the following elements (allowing for multiple key ordering):
 
-:Mutation num.: Number of mutations per gene
-:Gene name: Sorted by gene name
+:Mutation number: Sort by number of mutations per gene.
+:Gene name: Sort by gene name.
 
 
-3. sample filter
+3. Sample filter
 ------------------
 
-| Sets the maximum value of the vertical axis of the horizontal bar chart (Sample).
-|
-| In some cases where only a few samples jump out and the number of mutations is large and others are not so mutated, using this function may make the graph easier to see.
-| Enter the maximum value you want to display in the horizontal edit box, then click the [update filter] button.
-| If it is left blank, it will show everything. (initial value)
-| 
+Sets the maximum value of the vertical axis of the horizontal bar chart.
+
+
+| In certain cases, only a few samples exhibit remarkably large numbers of mutations compared to the others.
+| In those cases, setting the threshold for the maximum number of mutations will render the graph significantly more convenient to view.
+| Enter the threshold value in the horizontal edit box. Then, click the [Update filter] button.
+| In the default setting ("blank"), the maximum of the horizontal axis is automatically set to the maximum number of mutations among the samples in the cohort.
+
 
 **Before and after filter application**
 
-| Example of display when maximum value is set to 200.
+| Example of display when maximum value is set to 200:
 | 
 
 .. image:: image/mut_operation4.PNG
   :scale: 100%
 
 
-4. genes filter
+4. Genes filter
 -----------------
 
 Set the filter for the gene displayed on the vertical axis.
 
-:Rate: Percentage of the number of samples of the detected genes (%). The initial value is 0% (no filtering)
-:Display maximum: Maximum number of genes to display.
+:Rate:
+  | Frequency of the samples with mutations at each gene (%). The initial value is 0% (no filtering).
 
-After inputting to both sides in the edit box, please click the [update filter] button.
+:Display maximum:
+  | Maximum number of genes to display.
+
+After setting the above items, please click the [update filter] button.
+

@@ -1,137 +1,177 @@
 *****************
-quick start
+Quick Start
 *****************
 
-#. install paplot.
-#. run paplot with sample files.
-#. view output file.
+In this section, we will learn to
 
-1. install paplot.
+#. Install paplot
+#. Execute paplot with simple example data
+#. View the output reports
+#. Modify configuration files and use your own data.
+ 
+
+1. Install paplot
 ---------------------------
 
-| Here we describe the installation on the server side.
-| If you are not satisfied with this, if you are installing on your personal computer please see :doc:`install`.
-|
-| When using with HGC supercomputer, please use ``qlogin`` beforehand.
-|
+| paplot is confirmed to work on Python2.7 and Python 3.5.
+| At present, paplot requires only standard packages.
 
 .. code-block:: bash
 
-  git clone -b master https://github.com/Genomon-Project/paplot.git
-  cd paplot
-  
-  python setup.py build install --user
+  cd {the directory where you want to install paplot}
+  # for v0.5.4
+  wget https://github.com/Genomon-Project/paplot/archive/v0.5.4.zip
+  unzip v0.5.4.zip
+  cd paplot-0.5.4/
 
-**check for installation**
+  python setup.py build install
+
+
+**Confirmation of installation**
 
 | Execute the following command.
 
 .. code-block:: bash
 
-  paplot conf
+  paplot --version
 
-| Installation will succeed if it is displayed like this.
+| If the following messages appears, the installation is successful.
 
 .. code-block:: bash
 
-  **********************
-     hello paplot !!!
-  **********************
+  paplot-0.5.4
+
+| For more detailed information on installation, please consult :doc:`install`. 
+
+
+2. Execute paplot with simple example data
+-------------------------------------------------------
+
+| The basic commands of paplot are as follows: 
+| For the description of detailed options, please consult :doc:`command`.
+
+.. code-block:: bash
+
+  paplot subcommand [--config_file CONFIG_FILE] [--title TITLE]
+                    [--ellipsis ELLIPSIS] [--overview OVERVIEW]
+                    [--remarks REMARKS]
+                    input output_dir project_name
+
+|
+
+**Required arguments**
+
+:subcommand:
+  The type of report to generate. Select from the following:
   
-  config file:/usr/lib/python2.7/site-packages/{paplot-versoion}-py2.7.egg/config/paplot.cfg
-  (The contents of the default setting will be displayed after this)
+  - qc
+  - ca
+  - mutation
+  - signature
+  - pmsignature
 
+:input:
+  The input data table.
 
-2. run paplot with sample files.
----------------------------------
+:output_dir:
+  The directory wherein the output files of paplot are generated.
 
-We will prepare sample data.
+:project_name:
+  The project name (used as the title of the output files).
+
+Please execute paplot using the prepared sample data.
 
 .. code-block:: bash
 
-  cd {path to the paplot installed directory}
+  cd {the path where paplot is installed}
 
-  # create bar graphs of qc
-  paplot qc "example/qc/*.csv" ./tmp demo --config_file example/example.cfg
+  # QC Report
+  paplot qc example/qc_brush/data.csv ./tmp demo
 
-  # create bundle graphs of Structural Variation (SV)
-  paplot ca "example/sv/*.txt" ./tmp demo --config_file example/example.cfg
+  # Chromosomal Aberration Report
+  paplot ca example/ca_option/data.csv ./tmp demo
 
-  # create matrix graphs of mutation
-  paplot mutation example/mutation/sample_merge.csv ./tmp demo --config_file example/example.cfg
+  # Mutation Matrix Report
+  paplot mutation example/mutation_option/data.csv ./tmp demo
 
-  # create signature graphs
-  paplot signature "example/signature/Nik_Zainal_2012.full.*.json" ./tmp demo --config_file ./example/example.cfg
+  # Mutational Signature Report 
+  paplot signature "example/signature_stack/data*.json" ./tmp demo
 
-  # create signature graphs (pmsignature)
-  paplot pmsignature "example/pmsignature/Nik_Zainal_2012.ind.*.json" ./tmp demo --config_file ./example/example.cfg
+  # pmsignature Report 
+  paplot pmsignature "example/pmsignature_stack/data*.json" ./tmp demo
 
 
-3. view output file.
+3. View the output file
 ------------------------
 
-Are HTML files created?
+You will find the following directory structure:
 
 .. code-block:: bash
 
-  {path to the paplot installed directory}
-    └ tmp
-        ├ demo
-        │   ├ graph_ca.html            <--- CA graph
-        │   ├ graph_mut.html           <--- mutation-matrix graph
-        │   ├ graph_pmsignature2.html  <--- pmsignature (number is signature number)
-        │   ├ graph_pmsignature3.html
-        │   ├ graph_pmsignature4.html
-        │   ├ graph_pmsignature5.html
-        │   ├ graph_pmsignature6.html
-        │   ├ graph_qc.html            <--- QC graph
-        │   ├ graph_signature2.html    <--- signature (number is signature number)
-        │   ├ graph_signature3.html
-        │   ├ graph_signature4.html
-        │   ├ graph_signature5.html
-        │   └ graph_signature6.html
-        │
-        ├ js          <--- These four directories are necessary to display HTML files. do not erase.
-        ├ layout
-        ├ lib
-        ├ style
-        │
-        └ index.html             <--- Open this file in web browser.
+  The directory specified by the {output_dir} argument
+    ├ demo
+    │   ├ graph_ca.html            <--- Chromosomal Aberration Report 
+    │   ├ graph_mut.html           <--- Mutation Matrix Report 
+    │   ├ graph_pmsignature2.html  <--- pmsignature Report (with varying number of mutation signatures)
+    │   ├ graph_pmsignature3.html
+    │   ├ graph_pmsignature4.html
+    │   ├ graph_pmsignature5.html
+    │   ├ graph_pmsignature6.html
+    │   ├ graph_qc.html            <--- QC Report 
+    │   ├ graph_signature2.html    <--- Mutational Signature Report (with varying number of mutation signatures)
+    │   ├ graph_signature3.html
+    │   ├ graph_signature4.html
+    │   ├ graph_signature5.html
+    │   └ graph_signature6.html
+    │
+    ├ js          <--- The next four directories are necessary to display HTML files, Do not remove them.
+    ├ layout
+    ├ lib
+    ├ style
+    │
+    └ index.html             <--- Open this file in a web browser.
 
 
-| Open index.html file in web browser.
+| Open `index.html` file in a web browser, and you will find the following reports.
 |
-| Note) When running on a server such as HGC supercomputer, transfer the file locally or display it with virtual window (NoMachime etc.) on the server.
-|       To transfer locally, please copy the whole :file:`tmp` directory.
-| 
-| Is it displayed as follows?
-| 
-| **QC graph**
+
+| **QC Report**
 
 .. image:: image/qc_dummy.PNG
   :scale: 100%
 
-| **CA graph**
+| **Chromosomal Aberration Report**
 
 .. image:: image/sv_dummy.PNG
   :scale: 100%
 
-| **mutation-matrix graph**
+| **Mutation Matrix Report**
 
 .. image:: image/mut_dummy.PNG
   :scale: 100%
 
-| **signature graph** |new|
+| **Mutational Signature Report**
 
 .. image:: image/sig_dummy.PNG
   :scale: 100%
 
-| **pmsignature graph** |new|
+| **pmsignature Report**
 
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%
 
-| For how to use each graph, refer to `how to use graphs <./index.html#how-to-toc>`_ .
-|
+| For how to interpret each graph, please refer to `HOW TO USE GRAPHS <./index.html#how-to-toc>`_.
+
+**Modify configuration files and use your own data**
+
+| Please consult the following links to set up your own data and configuration files.
+| 
+| [For basic use]
+
+ - :doc:`data_qc` 
+ - :doc:`data_ca` 
+ - :doc:`data_mat` 
+ - :doc:`data_signature` 
+ - :doc:`data_pmsignature` 
 
 .. |new| image:: image/tab_001.gif

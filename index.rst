@@ -12,12 +12,14 @@ Contents:
 
 .. toctree:: 
    :maxdepth: 2
-   :caption: quick start
+   :caption: start-up guide
    :name: quick_start_toc
    
    about.rst
    quick_start.rst
-
+   install.rst
+   command.rst
+   
 .. toctree:: 
    :maxdepth: 2
    :caption: how to use graphs
@@ -30,38 +32,19 @@ Contents:
 
 .. toctree:: 
    :maxdepth: 2
-   :caption: install & setting
-   :name: install_toc
+   :caption: data format
+   :name: dataformat_toc
    
-   install.rst
-   config.rst
-   genomon.rst
-   command.rst
-
-.. toctree:: 
-   :maxdepth: 2
-   :caption: for advance
-   :name: advance_toc
-   
-   config_qc.rst
-   config_ca.rst
-   config_mat.rst
-   config_signature.rst
-   config_pmsignature.rst
-   exec_signature.rst
-   exec_pmsignature.rst
-   style.rst
+   data_qc.rst
+   data_ca.rst
+   data_mat.rst
+   data_signature.rst
+   data_pmsignature.rst
+   data_common.rst
 
 .. toctree:: 
    :maxdepth: 1
-   :caption: Q & A
-   :name: qa_toc
-   
-   qa.rst
-
-.. toctree:: 
-   :maxdepth: 1
-   :caption: infomation
+   :caption: information
    :name: info_toc
    
    info.rst
@@ -69,7 +52,7 @@ Contents:
 Javascript Libraries
 ====================
 
-Paplot uses the following javascript package.
+paplot uses the following javascript packages.
 
 * `D3.js <https://d3js.org/>`_
 * `d3-legend <http://d3-legend.susielu.com>`_

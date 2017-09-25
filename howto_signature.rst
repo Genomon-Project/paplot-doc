@@ -1,37 +1,36 @@
-========================
-signature graph |new|
-========================
+=============================
+Mutational Signature Report
+=============================
 
-In the signature graph, signature and its accumulation are displayed in a stacked graph on the detected mutation.
+Mutational Signature Report displays the "mutation signature" (see e.g., Alexandrov et al., Nature, 2013) as bargraphs and the estimated "contributions" of each signature to the mutations per samples as stacked bar graphs.
 
-:signature:
-  Display signature.
+:Upper panel (mutation signature graph):
+  | Mutation signatures are displayed (typically by barplots with 96 elements).
 
-:Stacked graph:
-  For each sample, the ratio of signature is displayed for mutation.
+:Lower panel (signature contribution graph):
+  | For each sample, the ratios of contributions of mutation signatures to the mutations are displayed.
 
 .. image:: image/sig_dummy.PNG
   :scale: 100%
 
-In addition, you can switch the display mode by the list box below the stacked graph.
+In addition, you can change the display mode using the list box below the stacked graph.
 
-:view mode:
-  - rate ... The percentage (%) of signature when the number of mutations is set to 1.
-  - integral ... It shows the ratio to the actual number of mutation.
+:View mode:
+  :Rate: The percentage (%) of signature contribution normalized by sum-to-one constraint.
+  :Count: It displays the ratio by the actual number of mutations.
 
-:sort by:
-  - sampleID ... Sort by sample ID
-  - mutation count ... Descending order of mutations
-
-  Only when view mode is integral, you can select the sorting method.
+:Sort by:
+  :Sample ID: Sort by sample ID.
+  :Mutation count: Descending order of the number of mutations (applicable only when the view mode is Count).
 
 
-Display example when view mode is "integral" and sort by "mutation count".
+Display example when the view mode is [Count] and sorting is by [Mutation count].
 
 .. image:: image/sig_operation1.PNG
   :scale: 100%
 
-The same is true for pmsignature.
+
+A similar representation is adopted for the case with pmsignature.
 
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%

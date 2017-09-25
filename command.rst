@@ -1,9 +1,9 @@
 ************************
-Commands of pa_plot
+paplot command 
 ************************
 
 ------------------------
-1. Basic usage
+1. Basic usage 
 ------------------------
 
 .. code-block:: bash
@@ -13,12 +13,10 @@ Commands of pa_plot
                     [--remarks REMARKS]
                     input output_dir project_name
 
-|
-
-**required**
+**Required arguments**
 
 :subcommand:
-  These are sub-commands of paplot. Choose any one from among these.
+  The type of report to generate. Select from the following:
   
   - qc
   - ca
@@ -27,74 +25,79 @@ Commands of pa_plot
   - pmsignature
 
 :input:
-  Input files. Multiple files can be specified with wild-card (``*``, ``?``) . In this case, mark ``"``  at the beginning and end.
+  Input files. If you wish to process multiple files (usually divided by individual samples), please refer to `Processing multiple input files <./data_common.html#suffix>`_.
 
 .. code-block:: bash
 
-  # Only 1 file
-  pa_plot qc example/qc/SAMPLE1.qc ./test multi1 --config_file example/example.cfg
+  # for single input file
+  paplot mutation {unzip_path}/example/mutation_minimal/data.csv ./tmp mutation_minimal \
+  --config_file {unzip_path}/example/mutation_minimal/paplot.cfg
   
-  # Multiple files (separeted by , )
-  pa_plot qc "example/qc/SAMPLE1.qc.csv,example/qc/SAMPLE2.qc.csv" ./test multi1 --config_file example/example.cfg
-  
-  # Multiple files (use * )
-  pa_plot qc "example/qc/*.csv" ./multi multi1 --config_file example/example.cfg
+  # for multiple input files, delimit them by comma
+  paplot mutation \
+  {unzip_path}/example/mutation_split_file/SAMPLE00.data.csv,{unzip_path}/example/mutation_split_file/SAMPLE01.data.csv \
+  ./tmp mutation_split_file1 --config_file {unzip_path}/example/mutation_split_file/paplot.cfg
 
+  # paplot also accept wild card representation. In this case enclose the input by double quotations
+  paplot mutation "{unzip_path}/example/mutation_split_file/*.csv" ./tmp mutation_split_file2 \
+  --config_file {unzip_path}/example/mutation_split_file/paplot.cfg
 
 :output_dir:
-  Output directory path. See :ref:`3. Output directory <output>`, for explain of directory components.
+  Output directory path. Refer :ref:`Output directory <output>` for the details of the directory components.
 
 :project_name:
-  Project name. For use title of output files.
-
-------------------------
-2. Command options
-------------------------
-
-You can change the following items as options.
-
---config_file        Path to the configuration file. If not specified, then use default file.
---title              Title of the graph
---ellipsis           Abbreviated name of the graph. It is used for the graph file name. (ex, graph_**ca**.html) It is convenient to set it when outputting multiple files to the same directory.
---overview           Outline of the graph. It displays it in index.html
---remarks            Text to be output in the remarks column. It displays it in index.html. If not specified, the value of the setting file ([style] remarks) is used.
-
-The default values ​​are as follows.
-
-=============== =================== ============ ============================================= ==============
-subcommand      title               ellipsis     overview                                      remarks
-=============== =================== ============ ============================================= ==============
-qc              QC graphs           qc           Quality Control of bam.                       none
-ca              CA graphs           ca           Chromosomal Aberration.                       none
-mutation        Mutation matrix     mutation     Gene-sample mutational profiles.              none
-signature       Signature           signature    Mutational signatures.                        none
-pmsignature     PMSignature         pmsignature  Express mutational signatures in pmsignature. none
-=============== =================== ============ ============================================= ==============
+  Project name (used as the title of the output files).
 
 .. _output:
 
 ---------------------
-3. Output directory
+2. Output directory
 ---------------------
 
-In the location specified in the ``output_dir`` option to output the file with the following configuration.
+You will find the following directory structure:
 
 .. code-block:: bash
 
   {output_dir}
     ├ {project_name}
-    │   └ graph_*.html      <--- Graphs.
+    │   └ graph_*.html      <--- Each report
     │
-    ├ js          <--- Don't delete. this 4 directories are required to display the HTML file.
+    ├ js          <--- The next four directories are necessary to display HTML files, Do not remove them.
     ├ layout
     ├ lib
     ├ style
     │
-    └ index.html             <--- Please open the file in a web browser.
+    └ index.html             <--- Open this file in a web browser.
 
 
-If you want to move the output files, please move each ``{output_dir}``.
+If you wish to move the output, move the entire output directory.
+For the usage of each report, please refer to `HOW TO USE GRAPHS <./index.html#how-to-toc>`_.
 
-Method of operation of the output file, please refer to the `how to use graphs <./index.html#how-to-toc>`_ .
+
+.. _option:
+
+------------------------
+3. Options
+------------------------
+
+You can add the following optional arguments:
+
+--config_file        Path to the configuration file. If it is not specified, the default file is used.
+--title              Title of the graph.
+--ellipsis           Abbreviated name of the graph used for file names (e.g., graph_**ca**.html). It may be convenient when outputting multiple files to the same directory.
+--overview           Outline of the graph (displayed in the index.html file).
+--remarks            Text displayed in the remark section of the index.html file (the default value is set at ( ``[style]`` section's ``remarks`` option) in the configuration file.
+
+The default values are as follows:
+
+=============== =================== ============ ============================================= ==============
+subcommand      title               ellipsis     overview                                      remarks
+=============== =================== ============ ============================================= ==============
+qc              QC graphs           qc           Quality Control of bam.                       None
+ca              CA graphs           ca           Chromosomal Aberration.                       None
+mutation        Mutation Matrix     mutation     Gene-sample mutational profiles.              None
+signature       Signature           signature    Mutational Signatures.                        None
+pmsignature     PMSignature         pmsignature  Express mutational signatures in pmsignature. None
+=============== =================== ============ ============================================= ==============
 
 .. |new| image:: image/tab_001.gif

@@ -1,63 +1,47 @@
 ************************
-Introduction
+About
 ************************
 
-| Paplot is graph generator from analysis results of genome.
-|
-| For example, you have such a text file by analyzing the genome.
-|
+| paplot is a suite of programs to create various dynamic and interactive reports for cancer genome analysis.
 
 .. image:: image/mutation_list.PNG
   :scale: 100%
 
-| What do you want to after this?
-| Do you want to create a graph?
-| Do you create charts manually each time?
-| Do you write scripts such as wrote previously?
-| Do you create a graph in time to change the extraction conditions and sort conditions of the data?
-|
-| Paplot will automate these tasks.
-|
+Available reports
+----------------------------
 
-Graphs can be created
---------------------------
+1. Quality Control (QC) Report
 
-1. QC (Quality Control) graph
-
-| QC graph reports each bam's quality.
-|
+QC Reports present the qualities of each sequence data (sequencing coverage, alignment ratio, insert sizes, etc.).
 
 .. image:: image/qc_dummy.PNG
   :scale: 100%
 
-2. CA (Chromosomal Aberration) graph
 
-| Circos like plot views inter chromosomal aberration, for example Structural Variation (SV).
-| Bar plot views these distribution.
-|
+2. Chromosomal Aberration (CA) Report
+
+CA Reports present the sample-wise landscape of chromosomal aberrations (e.g., structural variations and gene fusion).
 
 .. image:: image/sv_dummy.PNG
   :scale: 100%
 
-3. mutation-matrix graph
 
-| This matrix graph plots mutation number.
-| Virtical axis is gene and Horizontal axis is sample.
-|
+3. Mutation Matrix Report
+
+Mutation Matrix Reports present the mutation status of each gene (vertical axis) and sample (horizontal axis).
 
 .. image:: image/mut_dummy.PNG
   :scale: 100%
 
-4. signature |new|
 
-| This reports views each signature of detected mutation.
-| Stacked graph views aggregation of signature.
-|
+4. Mutational Signature Report
+
+Mutational Signature Reports present the mutation signatures identified in the cohort and contribution ratios of signatures per sample.
 
 .. image:: image/sig_dummy.PNG
   :scale: 100%
 
-`You can use also pmsignature <https://github.com/friend1ws/pmsignature/>`_ .
+Representation by `pmsignature <https://github.com/friend1ws/pmsignature/>`_ is also possible.
 
 .. image:: image/pmsig_dummy.PNG
   :scale: 100%
