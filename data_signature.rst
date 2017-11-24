@@ -6,6 +6,8 @@ Here, we describe the procedure to generate Mutation Signature Report using samp
 
  .. [*] The sample data is equipped with the ``example`` directory of the paplot directory.
 
+We are publishing the docker image experimentally. https://hub.docker.com/r/aokad/pmsignature/
+
 .. _json_full:
 
 ==========================
