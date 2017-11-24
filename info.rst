@@ -6,6 +6,16 @@ Release Note
  | There is no compatibility of the configuration files among various versions.
  | When updating, please use the configuration file of the corresponding version. 
 
+v0.5.6
+====================
+
+ * Added test case.
+ 
+v0.5.5
+====================
+
+ * Enable for pip install.
+
 v0.5.4
 ====================
 
@@ -15,7 +25,7 @@ v0.5.4
 v0.5.3
 ====================
 
-Added options related to font-size.
+ * Added options related to font-size.
 
 v0.5.2
 ====================
@@ -26,27 +36,27 @@ v0.5.2
 v0.4.0
 ====================
 
-Added the function for saving the image.
+ * Added the function for saving the image.
 
 v0.3.1
 ====================
 
-Modified certain bugs related to Mutation Matrix Report.
+ * Modified certain bugs related to Mutation Matrix Report.
 
 v0.3.0
 ====================
 
-Incorporated functions to generate Mutation Matrix Report.
+ * Incorporated functions to generate Mutation Matrix Report.
 
 v0.2.8
 ====================
 
-Modified specification of function for merging multiple files.
+ * Modified specification of function for merging multiple files.
 
 v0.2.7
 ====================
 
-Incorporated functions to generate QC Report and SV (Structural Variation) Report.
+ * Incorporated functions to generate QC Report and SV (Structural Variation) Report.
 
 
 License
@@ -67,5 +77,6 @@ paplot is licensed under the MIT License.
 Contact
 --------------------
 
-:E-mail: genomon.devel@gmail.com
+paplot is developed at `this repository <https://github.com/Genomon-Project/paplot>`__. We  welcome any bug reports and suggestions on paplot (`here <https://github.com/Genomon-Project/paplot/issues>`__). Also, when you wish to contribute to paplot, please submit pull requests.
 
+If you have any questions, report bugs and suggest enhancements to paplot, please submit pull request to the repository or directly send e-mail to genomon.devel@gmail.com.
